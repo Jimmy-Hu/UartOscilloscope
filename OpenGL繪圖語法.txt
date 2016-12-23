@@ -1,0 +1,7 @@
+設定繪圖顏色：
+            Gsensor_GL.Color(1.0f, 0.0f, 0.0f);                                 //  設定繪圖顏色
+繪製直線：
+            Gsensor_GL.Begin(OpenGL.GL_LINES);
+            Gsensor_GL.Vertex(1, 2, 0);
+            Gsensor_GL.Vertex(-1, -1, 0);
+            Gsensor_GL.End();
