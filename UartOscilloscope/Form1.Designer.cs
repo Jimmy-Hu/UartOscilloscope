@@ -132,10 +132,11 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(246, 20);
             this.comboBox1.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
+			this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_text_change);;
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("新細明體", 12F);
             this.label3.Location = new System.Drawing.Point(901, 45);
             this.label3.Name = "label3";
@@ -261,9 +262,14 @@
 
         }
 
-        #endregion
+		private void ComboBox1_TextChanged(object sender, System.EventArgs e)
+		{
+			throw new System.NotImplementedException();
+		}
 
-        private System.Windows.Forms.Button button3;
+		#endregion
+
+		private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Label2;
         private System.Windows.Forms.TextBox textBox1;

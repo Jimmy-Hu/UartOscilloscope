@@ -135,18 +135,18 @@ namespace UartOscilloscope														//	命名空間為本程式
 			button1_Click_Runtimes = button1_Click_Runtimes + 1;				//	遞增button1_Click_Runtimes變數
 			list_SerialPort();													//	呼叫list_SerialPort(偵測並列出已連線SerialPort)副程式
 		}																		//	結束button1_Click副程式
-		private void button2_Click(object sender, EventArgs e)                  //  當按下"連線/中斷連線"按鈕
-		{                                                                       //  進入button2_Click副程式
-			button2_Click_Runtimes = button2_Click_Runtimes + 1;                //  遞增button2_Click_Runtimes變數
-			button2.Enabled = false;                                            //  暫時關閉"連線/中斷連線"按鈕功能
-			Uart_comport_handle(comboBox1.Text, BaudRate, Parity_num);          //  呼叫Uart_comport_handle副程式
-		}                                                                       //  結束button2_Click副程式
-		private void button3_Click(object sender, EventArgs e)                  //  當按下"清除"(button3)按鈕
-		{                                                                       //  進入button3_Click副程式
-			button3_Click_Runtimes = button3_Click_Runtimes + 1;                //  遞增button3_Click_Runtimes變數
-			textBox1.Clear();                                                   //  清除textBox1(接收字串資料文字方塊)資料
-		}                                                                       //  結束button3_Click副程式
-		//  ToolStripMenuItem選單相關副程式
+		private void button2_Click(object sender, EventArgs e)					//	當按下"連線/中斷連線"按鈕
+		{																		//	進入button2_Click副程式
+			button2_Click_Runtimes = button2_Click_Runtimes + 1;				//	遞增button2_Click_Runtimes變數
+			button2.Enabled = false;											//	暫時關閉"連線/中斷連線"按鈕功能
+			Uart_comport_handle(comboBox1.Text, BaudRate, Parity_num);			//	呼叫Uart_comport_handle副程式
+		}																		//	結束button2_Click副程式
+		private void button3_Click(object sender, EventArgs e)					//	當按下"清除"(button3)按鈕
+		{																		//	進入button3_Click副程式
+			button3_Click_Runtimes = button3_Click_Runtimes + 1;				//	遞增button3_Click_Runtimes變數
+			textBox1.Clear();													//	清除textBox1(接收字串資料文字方塊)資料
+		}																		//	結束button3_Click副程式
+		//	ToolStripMenuItem選單相關副程式
 		private void 設定_傳輸設定ToolStripMenuItem_Click(object sender, EventArgs e)
 		//  宣告設定_傳輸設定ToolStripMenuItem_Click副程式
 		{                                                                       //  進入設定_傳輸設定ToolStripMenuItem_Click副程式
@@ -184,11 +184,22 @@ namespace UartOscilloscope														//	命名空間為本程式
 				{                                                               //  進入foreach敘述
 					comboBox1.Items.Add(port);                                  //  以條列式選單(comboBox1)列出已連線的SerialPort
 				}                                                               //  結束foreach敘述
-				button2.Enabled = true;                                         //  開啟連線功能
+				button2.Enabled = false;                                        //  暫時關閉"連線"按鈕功能，待使用者選定愈連線之Serialport(未選定連線Serialport，可避免發生Error_010002)
 				textBox1.Enabled = true;                                        //  開啟textBox1(接收字串資料文字方塊)功能
 				return;                                                         //  結束list_SerialPort副程式
 			}                                                                   //  結束else敘述
 		}                                                                       //  結束list_SerialPort副程式
+		public void comboBox1_text_change(object sender, EventArgs e)           //	comboBox1_text_change副程式，於comboBox1文字內容改變時執行
+		{                                                                       //	進入comboBox1_text_change副程式
+			if(comboBox1.Text=="")                                              //	若comboBox1內容為""(空白)
+			{                                                                   //	進入if敘述
+				button2.Enabled = false;                                        //	關閉"連線"按鈕功能(未選定連線Serialport，可避免發生Error_010002)
+			}                                                                   //	結束if敘述
+			else                                                                //	若comboBox1內容不為""(空白)
+			{                                                                   //	進入else敘述
+				button2.Enabled = true;                                         //	開啟"連線"按鈕功能
+			}																	//	結束else敘述
+		}                                                                       //	結束comboBox1_text_change副程式
 		public void Uart_comport_handle                                         //  串列埠連線處理Uart_comport_handle副程式
 		(string comport_name,int Baud_Rate,int Parity_set)
 		//  處理Uart_comport連線設定
