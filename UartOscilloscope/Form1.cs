@@ -24,117 +24,117 @@
 ///   2、以Queue資料結構分析字串有時會發生錯誤
 ///   3、
 ///   </summary>
-using System;																	//  使用System函式庫
-using System.Windows.Forms;														//  使用System.Windows.Forms函式庫
-using System.IO;																//  使用System.IO函式庫
-//  System.IO函式庫定義檔案讀寫相關函式
-using System.IO.Ports;															//  使用System.IO.Ports函式庫
-using System.Collections;														//  使用System.Collections函式庫
-//  System.Collections函式庫定義Queue資料型態
-using System.Collections.Generic;												//  使用System.Collections.Generic函式庫
-//  System.Collections.Generic函式庫定義非泛型Queue資料型態
-using System.Drawing;															//  使用System.Drawing函式庫
-using SharpGL;																	//  使用SharpGL函式庫(使用OpenGL函數)
+using System;																	//	使用System函式庫
+using System.Windows.Forms;														//	使用System.Windows.Forms函式庫
+using System.IO;																//	使用System.IO函式庫
+//	System.IO函式庫定義檔案讀寫相關函式
+using System.IO.Ports;															//	使用System.IO.Ports函式庫
+using System.Collections;														//	使用System.Collections函式庫
+//	System.Collections函式庫定義Queue資料型態
+using System.Collections.Generic;												//	使用System.Collections.Generic函式庫
+//	System.Collections.Generic函式庫定義非泛型Queue資料型態
+using System.Drawing;															//	使用System.Drawing函式庫
+using SharpGL;																	//	使用SharpGL函式庫(使用OpenGL函數)
 
-namespace UartOscilloscope                                                      //  命名空間為本程式
-{                                                                               //  進入命名空間
-	public partial class Form1 : Form                                           //  Form1類別，繼承自System.Windows.Forms.Form類別
-	{                                                                           //  進入Form1類別
+namespace UartOscilloscope														//	命名空間為本程式
+{																				//	進入命名空間
+	public partial class Form1 : Form											//	Form1類別，繼承自System.Windows.Forms.Form類別
+	{																			//	進入Form1類別
 		//-----全域變數宣告-----
-		public static float Program_Vision = 35;                                //  宣告Program_Vision靜態全域變數，記錄程式版本
-		public static int Program_Work_Mode = 0;                                //  宣告Program_Work_Mode靜態全域變數，控制程式執行模式
-		public static uint Analysis_Graphic_Mode = 3;                           //  宣告Analysis_Graphic_Mode靜態全域變數，控制程式分析與繪圖方法
+		public static float Program_Vision = 35;								//	宣告Program_Vision靜態全域變數，記錄程式版本
+		public static int Program_Work_Mode = 0;								//	宣告Program_Work_Mode靜態全域變數，控制程式執行模式
+		public static uint Analysis_Graphic_Mode = 3;							//	宣告Analysis_Graphic_Mode靜態全域變數，控制程式分析與繪圖方法
 
-		public struct Debug_Login_Account_struct                                //  宣告Debug_Login_Account_struct全域結構
-		{                                                                       //  進入Debug_Login_Account_struct結構設定
-			public string Debug_Login_Account, Debug_Login_Password;            //  在Debug_Login_Account_struct結構中有兩項字串(Account與Password)
-			public Debug_Login_Account_struct(string p1, string p2)             //  設定結構成員
-			{                                                                   //  設定結構成員
-				Debug_Login_Account = p1;                                       //  設定結構成員
-				Debug_Login_Password = p2;                                      //  設定結構成員
-			}                                                                   //  設定結構成員完成
-		}                                                                       //  結束Debug_Login_Account_struct結構設定
-		public static Debug_Login_Account_struct Debug_Account1 =               //  宣告Debug_Account1靜態全域除錯帳戶1
-			new Debug_Login_Account_struct("Debug", "debug");                   //  設定Debug_Account1除錯帳戶1帳號密碼
-		public static DateTime localDate;                                       //  宣告localDate時間變數，記錄現在時間
-		public static int BaudRate;                                             //  宣告BaudRate靜態全域變數，控制SerialPort連線鮑率
-		public static int Parity_num;                                           //  宣告Parity_num靜態全域變數，控制SerialPort串列埠之Parity同位位元設定
-		public static int DataBits_num;                                         //  宣告DataBits_num靜態全域變數，控制SerialPort串列埠之DataBits數值
-		public static int Error_Code;                                           //  宣告Error_Code靜態全域變數，記錄錯誤編碼，協助偵錯
-		public static Font textBox1_Font;                                       //  宣告textBox1_Font靜態字型變數，控制接收字串資料文字方塊字型
-		public static SerialPort Uart_comport;                                  //  宣告新的SerialPort通訊埠，名稱為Uart_comport
-		public static bool Uart_comport_connected;                              //  宣告Uart_comport_connected布林變數，表示Uart_comport連線狀態
-		public static char[] Transmission_Buffer_CharArray;                     //  宣告Transmission_Buffer_CharArray(Uart通訊傳輸Buffer資料)字元陣列，用於字串資料解析
-		public static char[] Transmission_Analysis_CharArray;                   //  宣告Transmission_Analysis_CharArray字元陣列，用於字串資料解析
+		public struct Debug_Login_Account_struct								//	宣告Debug_Login_Account_struct全域結構
+		{																		//	進入Debug_Login_Account_struct結構設定
+			public string Debug_Login_Account, Debug_Login_Password;			//	在Debug_Login_Account_struct結構中有兩項字串(Account與Password)
+			public Debug_Login_Account_struct(string p1, string p2)				//	設定結構成員
+			{																	//	設定結構成員
+				Debug_Login_Account = p1;										//	設定結構成員
+				Debug_Login_Password = p2;										//	設定結構成員
+			}																	//	設定結構成員完成
+		}																		//	結束Debug_Login_Account_struct結構設定
+		public static Debug_Login_Account_struct Debug_Account1 =				//	宣告Debug_Account1靜態全域除錯帳戶1
+			new Debug_Login_Account_struct("Debug", "debug");					//	設定Debug_Account1除錯帳戶1帳號密碼
+		public static DateTime localDate;										//	宣告localDate時間變數，記錄現在時間
+		public static int BaudRate;												//	宣告BaudRate靜態全域變數，控制SerialPort連線鮑率
+		public static int Parity_num;											//	宣告Parity_num靜態全域變數，控制SerialPort串列埠之Parity同位位元設定
+		public static int DataBits_num;											//	宣告DataBits_num靜態全域變數，控制SerialPort串列埠之DataBits數值
+		public static int Error_Code;											//	宣告Error_Code靜態全域變數，記錄錯誤編碼，協助偵錯
+		public static Font textBox1_Font;										//	宣告textBox1_Font靜態字型變數，控制接收字串資料文字方塊字型
+		public static SerialPort Uart_comport;									//	宣告新的SerialPort通訊埠，名稱為Uart_comport
+		public static bool Uart_comport_connected;								//	宣告Uart_comport_connected布林變數，表示Uart_comport連線狀態
+		public static char[] Transmission_Buffer_CharArray;						//	宣告Transmission_Buffer_CharArray(Uart通訊傳輸Buffer資料)字元陣列，用於字串資料解析
+		public static char[] Transmission_Analysis_CharArray;					//	宣告Transmission_Analysis_CharArray字元陣列，用於字串資料解析
 		public static int Transmission_Analysis_CharArray_Datanum = 0;
-		//  宣告Transmission_Analysis_CharArray_Datanum全域靜態變數，記錄Transmission_Analysis_CharArray字元陣列中已填入資料長度，並初始化為0
-		public static Queue Transmission_Analysis_Queue;                        //  宣告Transmission_Analysis_Queue(Uart通訊傳輸資料分析字元佇列)為全域靜態佇列
-		public static int Total_Transmission_Length = 0;                        //  宣告UART通訊傳輸字串累計長度統計全域靜態變數，並初始化為0
+		//	宣告Transmission_Analysis_CharArray_Datanum全域靜態變數，記錄Transmission_Analysis_CharArray字元陣列中已填入資料長度，並初始化為0
+		public static Queue Transmission_Analysis_Queue;						//	宣告Transmission_Analysis_Queue(Uart通訊傳輸資料分析字元佇列)為全域靜態佇列
+		public static int Total_Transmission_Length = 0;						//	宣告UART通訊傳輸字串累計長度統計全域靜態變數，並初始化為0
 		public static int Analysed_Length = -1;
-		//  宣告Analysed_Length全域靜態變數，記錄Transmission_Analysis_CharArray字元陣列中已分析字串長度(陣列值)，並初始化為-1(因陣列從0開始)
-		public static int COM_Port_num;                                         //  宣告COM_Port_num全域靜態變數，記錄已連線的SerialPort數量
-		public static uint button1_Click_Runtimes = 0;                          //  宣告button1_Click_Runtimes全域靜態變數，記錄button1_Click副程式執行次數，並初始化為0
-		public static uint button2_Click_Runtimes = 0;                          //  宣告button2_Click_Runtimes全域靜態變數，記錄button2_Click副程式執行次數，並初始化為0
-		public static uint button3_Click_Runtimes = 0;                          //  宣告button3_Click_Runtimes全域靜態變數，記錄button3_Click副程式執行次數，並初始化為0
+		//	宣告Analysed_Length全域靜態變數，記錄Transmission_Analysis_CharArray字元陣列中已分析字串長度(陣列值)，並初始化為-1(因陣列從0開始)
+		public static int COM_Port_num;											//	宣告COM_Port_num全域靜態變數，記錄已連線的SerialPort數量
+		public static uint button1_Click_Runtimes = 0;							//	宣告button1_Click_Runtimes全域靜態變數，記錄button1_Click副程式執行次數，並初始化為0
+		public static uint button2_Click_Runtimes = 0;							//	宣告button2_Click_Runtimes全域靜態變數，記錄button2_Click副程式執行次數，並初始化為0
+		public static uint button3_Click_Runtimes = 0;							//	宣告button3_Click_Runtimes全域靜態變數，記錄button3_Click副程式執行次數，並初始化為0
 		public static uint Transmission_Setting_Click_Runtimes = 0;
-		//  宣告Transmission_Setting_Click_Runtimes全域靜態變數，記錄設定_傳輸設定ToolStripMenuItem_Click副程式執行次數，並初始化為0
+		//	宣告Transmission_Setting_Click_Runtimes全域靜態變數，記錄設定_傳輸設定ToolStripMenuItem_Click副程式執行次數，並初始化為0
 		public static uint User_Interface_Setting_Click_Runtimes = 0;
-		//  宣告User_Interface_Setting_Click_Runtimes全域靜態變數，記錄設定_介面設定ToolStripMenuItem_Click副程式執行次數，並初始化為0
-		public static uint list_SerialPort_Runtimes = 0;                        //  宣告list_SerialPort_Runtimes全域靜態變數，記錄list_SerialPort副程式執行次數
-		public static uint Uart_comport_handle_Runtimes = 0;                    //  宣告Uart_comport_handle_Runtimes全域靜態變數，記錄Uart_comport_handle副程式執行次數
-		public static uint comport_DataReceived_Runtimes = 0;                   //  宣告comport_DataReceived_Runtimes全域靜態變數，記錄comport_DataReceived副程式執行次數
-		public static uint DisplayText_Runtimes = 0;                            //  宣告DisplayText_Runtimes全域靜態變數，記錄DisplayText副程式執行次數
-		public static int Uart_Buffer_Size = 0;                                 //  宣告Uart_Buffer_Size全域靜態變數，記錄Uart接收資料Buffer(資料緩衝區)大小
-		public static string Uart_Buffer_ASCII_Data = "";                       //  宣告Uart_Buffer_ASCII_Data全域靜態字串，記錄Uart傳輸之Buffer資料(ASCII編碼值)       
-		public struct OpenGL_Graph_point                                        //  宣告OpenGL_Graph_point結構，用於OpenGL繪圖座標宣告
-		{                                                                       //  進入OpenGL_Graph_point結構
-			public double point_X, point_Y;                                     //  在OpenGL_Graph_point結構中有兩項雙精度浮點數
-			public OpenGL_Graph_point(double X, double Y)                       //  設定結構成員
-			{                                                                   //  設定結構成員
-				point_X = X;                                                    //  宣告OpenGL_Graph_point結構內部元素(X座標)
-				point_Y = Y;                                                    //  宣告OpenGL_Graph_point結構內部元素(Y座標)
-			}                                                                   //  設定結構成員完成
-		}                                                                       //  結束OpenGL_Graph_point結構
-		public static int loop_num;                                             //  宣告loop_num全域靜態變數，供迴圈使用
-		delegate void Display(byte[] buffer);                                   //  定義Display型態
+		//	宣告User_Interface_Setting_Click_Runtimes全域靜態變數，記錄設定_介面設定ToolStripMenuItem_Click副程式執行次數，並初始化為0
+		public static uint list_SerialPort_Runtimes = 0;						//	宣告list_SerialPort_Runtimes全域靜態變數，記錄list_SerialPort副程式執行次數
+		public static uint Uart_comport_handle_Runtimes = 0;					//	宣告Uart_comport_handle_Runtimes全域靜態變數，記錄Uart_comport_handle副程式執行次數
+		public static uint comport_DataReceived_Runtimes = 0;					//	宣告comport_DataReceived_Runtimes全域靜態變數，記錄comport_DataReceived副程式執行次數
+		public static uint DisplayText_Runtimes = 0;							//	宣告DisplayText_Runtimes全域靜態變數，記錄DisplayText副程式執行次數
+		public static int Uart_Buffer_Size = 0;									//	宣告Uart_Buffer_Size全域靜態變數，記錄Uart接收資料Buffer(資料緩衝區)大小
+		public static string Uart_Buffer_ASCII_Data = "";						//	宣告Uart_Buffer_ASCII_Data全域靜態字串，記錄Uart傳輸之Buffer資料(ASCII編碼值)       
+		public struct OpenGL_Graph_point										//	宣告OpenGL_Graph_point結構，用於OpenGL繪圖座標宣告
+		{																		//	進入OpenGL_Graph_point結構
+			public double point_X, point_Y;										//	在OpenGL_Graph_point結構中有兩項雙精度浮點數
+			public OpenGL_Graph_point(double X, double Y)						//	設定結構成員
+			{																	//	設定結構成員
+				point_X = X;													//	宣告OpenGL_Graph_point結構內部元素(X座標)
+				point_Y = Y;													//	宣告OpenGL_Graph_point結構內部元素(Y座標)
+			}																	//	設定結構成員完成
+		}																		//	結束OpenGL_Graph_point結構
+		public static int loop_num;												//	宣告loop_num全域靜態變數，供迴圈使用
+		delegate void Display(byte[] buffer);									//	定義Display型態
 		//delegate 是可用來封裝具名方法或匿名方法的參考型別。
-		public Form1()                                                          //  宣告Form1
-		{                                                                       //  進入Form1
-			InitializeComponent();                                              //  初始化表單
-			Error_Code = 0;                                                     //  初始化Error_Code為0
-		}                                                                       //  結束Form1
-		public void Form1_Load(object sender, EventArgs e)                      //  Form1表單載入時執行
-		{                                                                       //  進入Form1_Load副程式
-			timer1.Interval = 100;                                              //  設定timer1執行頻率
-			timer1.Enabled = true;                                              //  啟動timer1，即時更新現在時間
+		public Form1()															//	宣告Form1
+		{																		//	進入Form1
+			InitializeComponent();												//	初始化表單
+			Error_Code = 0;														//	初始化Error_Code為0
+		}																		//	結束Form1
+		public void Form1_Load(object sender, EventArgs e)						//	Form1_Load程式，Form1表單載入時執行
+		{																		//	進入Form1_Load副程式
+			timer1.Interval = 100;												//	設定timer1執行頻率
+			timer1.Enabled = true;												//	啟動timer1，即時更新現在時間
 			textBox1_Font = new Font("新細明體", 9, FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 136);
-			//  設定接收字串資料文字方塊預設字型
-			BaudRate = 9600;                                                    //  預設BaudRate數值為9600
-			Parity_num = 0;                                                     //  預設Parity_num數值為0(無同位位元檢查)
-			DataBits_num = 8;                                                   //  預設DataBits_num數值為8
-			COM_Port_num = 0;                                                   //  預設COM_Port_num為0
+			//	設定接收字串資料文字方塊預設字型
+			BaudRate = 9600;													//	預設BaudRate數值為9600
+			Parity_num = 0;														//	預設Parity_num數值為0(無同位位元檢查)
+			DataBits_num = 8;													//	預設DataBits_num數值為8
+			COM_Port_num = 0;													//	預設COM_Port_num為0
 			Array.Resize(ref Oscilloscope_function_variable.ADC_Raw_Data_X, Oscilloscope_function_variable.ADC_Raw_Data_Max);
-			//  指派ADC_Raw_Data_X靜態整數陣列大小
+			//	指派ADC_Raw_Data_X靜態整數陣列大小
 			Array.Resize(ref Oscilloscope_function_variable.ADC_Raw_Data_Y, Oscilloscope_function_variable.ADC_Raw_Data_Max);
-			//  指派ADC_Raw_Data_Y靜態整數陣列大小
+			//	指派ADC_Raw_Data_Y靜態整數陣列大小
 			Array.Resize(ref Oscilloscope_function_variable.ADC_Raw_Data_Z, Oscilloscope_function_variable.ADC_Raw_Data_Max);
-			//  指派ADC_Raw_Data_Z靜態整數陣列大小
-			Transmission_Analysis_Queue = new Queue();                          //  初始化Transmission_Analysis_Queue(Uart通訊傳輸資料分析字元佇列)
+			//	指派ADC_Raw_Data_Z靜態整數陣列大小
+			Transmission_Analysis_Queue = new Queue();							//	初始化Transmission_Analysis_Queue(Uart通訊傳輸資料分析字元佇列)
 			Oscilloscope_function_variable.Data_Graphic_Queue_X = new Queue<int>();
-			//  初始化Data_Graphic_Queue_X(X通道資料繪圖用整數型態佇列)
+			//	初始化Data_Graphic_Queue_X(X通道資料繪圖用整數型態佇列)
 			Oscilloscope_function_variable.Data_Graphic_Queue_Y = new Queue<int>();
-			//  初始化Data_Graphic_Queue_Y(Y通道資料繪圖用整數型態佇列)
+			//	初始化Data_Graphic_Queue_Y(Y通道資料繪圖用整數型態佇列)
 			Oscilloscope_function_variable.Data_Graphic_Queue_Z = new Queue<int>();
-			//  初始化Data_Graphic_Queue_Z(Z通道資料繪圖用整數型態佇列)
-			label6.Text = "未連線";                                             //  顯示連線狀態為"未連線"
-			Uart_comport_connected = false;                                     //  預設Uart_comport_connected值為False
-			list_SerialPort();                                                  //  呼叫list_SerialPort副程式
-		}                                                                       //  結束Form1_Load副程式
-		private void button1_Click(object sender, EventArgs e)                  //  當按下"重新偵測SerialPort"按鈕
-		{                                                                       //  進入button1_Click副程式
-			button1_Click_Runtimes = button1_Click_Runtimes + 1;                //  遞增button1_Click_Runtimes變數
-			list_SerialPort();                                                  //  呼叫list_SerialPort(偵測並列出已連線SerialPort)副程式
-		}                                                                       //  結束button1_Click副程式
+			//	初始化Data_Graphic_Queue_Z(Z通道資料繪圖用整數型態佇列)
+			label6.Text = "未連線";												//	顯示連線狀態為"未連線"
+			Uart_comport_connected = false;										//	預設Uart_comport_connected值為False
+			list_SerialPort();													//	呼叫list_SerialPort副程式
+		}																		//	結束Form1_Load副程式
+		private void button1_Click(object sender, EventArgs e)					//	當按下"重新偵測SerialPort"按鈕
+		{																		//	進入button1_Click副程式
+			button1_Click_Runtimes = button1_Click_Runtimes + 1;				//	遞增button1_Click_Runtimes變數
+			list_SerialPort();													//	呼叫list_SerialPort(偵測並列出已連線SerialPort)副程式
+		}																		//	結束button1_Click副程式
 		private void button2_Click(object sender, EventArgs e)                  //  當按下"連線/中斷連線"按鈕
 		{                                                                       //  進入button2_Click副程式
 			button2_Click_Runtimes = button2_Click_Runtimes + 1;                //  遞增button2_Click_Runtimes變數
@@ -169,7 +169,7 @@ namespace UartOscilloscope                                                      
 			list_SerialPort_Runtimes = list_SerialPort_Runtimes + 1;            //  遞增list_SerialPort_Runtimes變數
 			string[] ports = SerialPort.GetPortNames();                         //  偵測已連線的SerialPort並儲存結果至陣列ports
 			comboBox1.Items.Clear();                                            //  清空下拉式選單所有項目
-			if (ports.Length == 0)                                              //  若偵測不到任何已連線的SerialPort(ports.Length為0)
+			if (ports.Length == 0)                                              //  若偵測不到任何已連接的SerialPort(ports.Length為0)
 			{                                                                   //  進入if敘述
 				Error_Code = 010001;                                            //  記錄Error_Code
 				Error_code_message.Error_Message_Show(Error_Code);              //  顯示錯誤訊息
