@@ -20,7 +20,7 @@
 - 可於執行comport_DataReceived副程式時顯示Uart傳輸之Buffer資料(ASCII編碼值)。
 - 顯示錯誤資訊編碼(Error_Code)。
 
-##版本資訊：
+##Visual Studio C#程式版本資訊：
 - 2016.8.12(五)
 	- 宣告Analysis_Graphic_Mode靜態全域變數，控制程式分析與繪圖方法。
 	- 設計編碼可參考副程式架構圖。
