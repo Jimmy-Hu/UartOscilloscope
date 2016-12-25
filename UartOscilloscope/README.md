@@ -21,12 +21,14 @@
 - 顯示錯誤資訊編碼(Error_Code)。
 
 ##版本資訊：
-- 2016.8.12(五)		宣告Analysis_Graphic_Mode靜態全域變數，控制程式分析與繪圖方法
-					設計編碼可參考副程式架構圖
-					DisplayText副程式中textBox1顯示資料方法改進
-					textBox1.Text += System.Text.Encoding.ASCII.GetString(buffer);改為textBox1.AppendText(System.Text.Encoding.ASCII.GetString(buffer));
-					comport資料接收處理副程式中以try方法執行invoke
-- 2016.11.13(日)	宣告警告訊息類別(Error_code_message)，統整錯誤訊息資訊
+- 2016.8.12(五)
+	- 宣告Analysis_Graphic_Mode靜態全域變數，控制程式分析與繪圖方法。
+	- 設計編碼可參考副程式架構圖。
+	- DisplayText副程式中textBox1顯示資料方法改進：
+	textBox1.Text += System.Text.Encoding.ASCII.GetString(buffer);改為textBox1.AppendText(System.Text.Encoding.ASCII.GetString(buffer));
+	- comport資料接收處理副程式中以try方法執行invoke
+- 2016.11.13(日)
+	- 宣告警告訊息類別(Error_code_message)，統整錯誤訊息資訊。
 					於警告訊息類別(Error_code_message)建立Error_010001_Message、Error_010001_Title、Error_010001_MessageBoxButton、Error_010001_MessageBoxIcon四項靜態物件
 					結構化錯誤訊息，建立Error_message_struct(錯誤訊息結構)，
 					且將錯誤訊息內容封裝於Error_message_struct(錯誤訊息結構)中，外部無法任意修改，
