@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;                                                     //  使用System.Windows.Forms函式庫
 using System.Globalization;                                                     //  使用System.Windows.Forms函式庫
 
-namespace WindowsFormsApplication6                                              //  命名空間為本程式
+namespace UartOscilloscope                                              //  命名空間為本程式
 {                                                                               //  進入命名空間
     public partial class Form5 : Form                                           //  Form5類別
     {                                                                           //  進入Form5類別

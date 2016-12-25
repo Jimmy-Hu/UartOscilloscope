@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication6
+﻿namespace UartOscilloscope
 {
     partial class Form5
     {

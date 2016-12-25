@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-namespace WindowsFormsApplication6                                              //  命名空間為本程式
+namespace UartOscilloscope                                              //  命名空間為本程式
 {                                                                               //  進入命名空間
     public partial class Form3 : Form                                           //  Form3類別
     {                                                                           //  進入Form3類別

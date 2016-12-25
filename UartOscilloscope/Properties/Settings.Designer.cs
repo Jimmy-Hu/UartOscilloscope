@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsApplication6.Properties
+namespace UartOscilloscope.Properties
 {
 
 
