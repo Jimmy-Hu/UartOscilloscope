@@ -19,6 +19,8 @@
 ///                            且將錯誤訊息內容封裝於Error_message_struct(錯誤訊息結構)中，外部無法任意修改，
 ///                            另錯誤訊息顯示不再直接呼叫MessageBox.Show，而是由Error_code_message類別中的Error_Message_Show副程式執行錯誤訊息顯示
 ///   2016.12.23(五) Vision35：重新命名專案為UartOscilloscope
+///   2016.12.26(一) 建立comboBox1_text_change副程式，於comboBox1文字內容改變時執行，用於檢查comboBox1文字內容是否為空白，若為空白則關閉button2("連線"按鈕)，以避免發生Error_010002。
+///   
 ///   未解決issue：
 ///   1、COM port中斷連線有時會導致程式當機
 ///   2、以Queue資料結構分析字串有時會發生錯誤
@@ -231,7 +233,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 				}                                                               //  結束if敘述
 				else                                                            //  已選定連接埠
 				{                                                               //  進入else敘述
-					label6.Text = (comport_name + "正在嘗試連線");			//  顯示連線狀態為(comport_name + "正在嘗試連線")，如"COM1正在嘗試連線"
+					label6.Text = (comport_name + "正在嘗試連線");				//  顯示連線狀態為(comport_name + "正在嘗試連線")，如"COM1正在嘗試連線"
 					try                                                         //  嘗試以comport_name建立串列通訊連線
 					{                                                           //  進入try敘述
 						Uart_comport = new SerialPort(comport_name);            //  Uart_comport串列埠建立comport_name連線
