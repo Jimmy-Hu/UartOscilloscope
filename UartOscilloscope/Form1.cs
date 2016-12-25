@@ -25,16 +25,16 @@
 ///   3、
 ///   </summary>
 using System;																	//  使用System函式庫
-using System.Windows.Forms;                                                     //  使用System.Windows.Forms函式庫
-using System.IO;                                                                //  使用System.IO函式庫
+using System.Windows.Forms;														//  使用System.Windows.Forms函式庫
+using System.IO;																//  使用System.IO函式庫
 //  System.IO函式庫定義檔案讀寫相關函式
-using System.IO.Ports;                                                          //  使用System.IO.Ports函式庫
-using System.Collections;                                                       //  使用System.Collections函式庫
+using System.IO.Ports;															//  使用System.IO.Ports函式庫
+using System.Collections;														//  使用System.Collections函式庫
 //  System.Collections函式庫定義Queue資料型態
-using System.Collections.Generic;                                               //  使用System.Collections.Generic函式庫
+using System.Collections.Generic;												//  使用System.Collections.Generic函式庫
 //  System.Collections.Generic函式庫定義非泛型Queue資料型態
-using System.Drawing;                                                           //  使用System.Drawing函式庫
-using SharpGL;                                                                  //  使用SharpGL函式庫(使用OpenGL函數)
+using System.Drawing;															//  使用System.Drawing函式庫
+using SharpGL;																	//  使用SharpGL函式庫(使用OpenGL函數)
 
 namespace UartOscilloscope                                                      //  命名空間為本程式
 {                                                                               //  進入命名空間
