@@ -101,8 +101,8 @@ namespace UartOscilloscope														//	命名空間為本程式
 		delegate void Display(byte[] buffer);									//	定義Display型態
 		//delegate 是可用來封裝具名方法或匿名方法的參考型別。
 		public Form1()															//	宣告Form1
-		{																		//	進入Form1
-			InitializeComponent();												//	初始化表單
+		{																		//	進入Form1(由Program.cs呼叫執行)
+			InitializeComponent();												//	呼叫InitializeComponent副程式(於Form1.Designer.cs中)初始化表單
 			Error_Code = 0;														//	初始化Error_Code為0
 		}																		//	結束Form1
 		public void Form1_Load(object sender, EventArgs e)						//	Form1_Load程式，Form1表單載入時執行
@@ -150,47 +150,47 @@ namespace UartOscilloscope														//	命名空間為本程式
 		}																		//	結束button3_Click副程式
 		//	ToolStripMenuItem選單相關副程式
 		private void 設定_傳輸設定ToolStripMenuItem_Click(object sender, EventArgs e)
-		//  宣告設定_傳輸設定ToolStripMenuItem_Click副程式
-		{                                                                       //  進入設定_傳輸設定ToolStripMenuItem_Click副程式
+		//	宣告設定_傳輸設定ToolStripMenuItem_Click副程式
+		{																		//	進入設定_傳輸設定ToolStripMenuItem_Click副程式
 			Transmission_Setting_Click_Runtimes = Transmission_Setting_Click_Runtimes + 1;
-			//  遞增Transmission_Setting_Click_Runtimes變數
-			Form2 Transmission_Setting_form = new Form2();                      //  宣告transmission_setting_form代表Form2
-			Transmission_Setting_form.Show();                                   //  顯示transmission_setting_form
-		}                                                                       //  結束設定_傳輸設定ToolStripMenuItem_Click副程式
+			//	遞增Transmission_Setting_Click_Runtimes變數
+			Form2 Transmission_Setting_form = new Form2();						//	宣告transmission_setting_form代表Form2
+			Transmission_Setting_form.Show();									//	顯示transmission_setting_form
+		}																		//	結束設定_傳輸設定ToolStripMenuItem_Click副程式
 
 		private void 設定_介面設定ToolStripMenuItem_Click(object sender, EventArgs e)
-		//  宣告設定_介面設定ToolStripMenuItem_Click副程式
-		{                                                                       //  進入設定_介面設定ToolStripMenuItem_Click副程式
+		//	宣告設定_介面設定ToolStripMenuItem_Click副程式
+		{																		//	進入設定_介面設定ToolStripMenuItem_Click副程式
 			User_Interface_Setting_Click_Runtimes = User_Interface_Setting_Click_Runtimes + 1;
-			//  遞增User_Interface_Setting_Click_Runtimes變數
-			Form3 User_Interface_Setting_form = new Form3();                    //  宣告User_Interface_Setting_form代表Form3
-			User_Interface_Setting_form.Show();                                 //  顯示User_Interface_Setting_form
-		}                                                                       //  結束設定_介面設定ToolStripMenuItem_Click副程式
-		public void list_SerialPort()                                           //  偵測並列出已連線SerialPort副程式
-		{                                                                       //  進入list_SerialPort副程式
-			list_SerialPort_Runtimes = list_SerialPort_Runtimes + 1;            //  遞增list_SerialPort_Runtimes變數
-			string[] ports = SerialPort.GetPortNames();                         //  偵測已連線的SerialPort並儲存結果至陣列ports
-			comboBox1.Items.Clear();                                            //  清空下拉式選單所有項目
-			if (ports.Length == 0)                                              //  若偵測不到任何已連接的SerialPort(ports.Length為0)
-			{                                                                   //  進入if敘述
-				Error_Code = 010001;                                            //  記錄Error_Code
-				Error_code_message.Error_Message_Show(Error_Code);              //  顯示錯誤訊息
-				button2.Enabled = false;                                        //  關閉"連線/中斷連線"按鈕功能
-				textBox1.Enabled = false;                                       //  關閉textBox1(接收字串資料文字方塊)功能
-				return;                                                         //  提早結束list_SerialPort副程式
-			}                                                                   //  結束if敘述
-			else                                                                //  若偵測到已連線的SerialPort
-			{                                                                   //  進入else敘述
-				COM_Port_num = ports.Length;                                    //  記錄已連線的SerialPort數量
-				foreach (string port in ports)                                  //  依序處理每個已連線的SerialPort
-				{                                                               //  進入foreach敘述
-					comboBox1.Items.Add(port);                                  //  以條列式選單(comboBox1)列出已連線的SerialPort
-				}                                                               //  結束foreach敘述
-				button2.Enabled = false;                                        //  暫時關閉"連線"按鈕功能，待使用者選定愈連線之Serialport(未選定連線Serialport，可避免發生Error_010002)
-				textBox1.Enabled = true;                                        //  開啟textBox1(接收字串資料文字方塊)功能
-				return;                                                         //  結束list_SerialPort副程式
-			}                                                                   //  結束else敘述
-		}                                                                       //  結束list_SerialPort副程式
+			//	遞增User_Interface_Setting_Click_Runtimes變數
+			Form3 User_Interface_Setting_form = new Form3();					//	宣告User_Interface_Setting_form代表Form3
+			User_Interface_Setting_form.Show();									//	顯示User_Interface_Setting_form
+		}																		//	結束設定_介面設定ToolStripMenuItem_Click副程式
+		public void list_SerialPort()											//	偵測並列出已連線SerialPort副程式
+		{																		//	進入list_SerialPort副程式
+			list_SerialPort_Runtimes = list_SerialPort_Runtimes + 1;			//	遞增list_SerialPort_Runtimes變數
+			string[] ports = SerialPort.GetPortNames();							//	偵測已連線的SerialPort並儲存結果至陣列ports
+			comboBox1.Items.Clear();											//	清空下拉式選單所有項目
+			if (ports.Length == 0)												//	若偵測不到任何已連接的SerialPort(ports.Length為0)
+			{																	//	進入if敘述
+				Error_Code = 010001;											//	記錄Error_Code
+				Error_code_message.Error_Message_Show(Error_Code);				//	顯示錯誤訊息
+				button2.Enabled = false;										//	關閉"連線/中斷連線"按鈕功能
+				textBox1.Enabled = false;										//	關閉textBox1(接收字串資料文字方塊)功能
+				return;															//	提早結束list_SerialPort副程式
+			}																	//	結束if敘述
+			else																//	若偵測到已連線的SerialPort
+			{																	//	進入else敘述
+				COM_Port_num = ports.Length;									//	記錄已連線的SerialPort數量
+				foreach (string port in ports)									//	依序處理每個已連線的SerialPort
+				{																//	進入foreach敘述
+					comboBox1.Items.Add(port);									//	以條列式選單(comboBox1)列出已連線的SerialPort
+				}																//	結束foreach敘述
+				button2.Enabled = false;										//	暫時關閉"連線"按鈕功能，待使用者選定愈連線之Serialport(未選定連線Serialport，可避免發生Error_010002)
+				textBox1.Enabled = true;										//	開啟textBox1(接收字串資料文字方塊)功能
+				return;															//	結束list_SerialPort副程式
+			}																	//	結束else敘述
+		}																		//	結束list_SerialPort副程式
 		public void comboBox1_text_change(object sender, EventArgs e)           //	comboBox1_text_change副程式，於comboBox1文字內容改變時執行
 		{                                                                       //	進入comboBox1_text_change副程式
 			if(comboBox1.Text=="")                                              //	若comboBox1內容為""(空白)
@@ -202,7 +202,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 				button2.Enabled = true;                                         //	開啟"連線"按鈕功能
 			}																	//	結束else敘述
 		}                                                                       //	結束comboBox1_text_change副程式
-		public void Uart_comport_handle                                         //  串列埠連線處理Uart_comport_handle副程式
+		public void Uart_comport_handle                                         //	串列埠連線處理Uart_comport_handle副程式
 		(string comport_name,int Baud_Rate,int Parity_set)
 		//  處理Uart_comport連線設定
 		//  呼叫格式為Uart_comport_handle(comport名稱,連線鮑率,同位位元設定,)

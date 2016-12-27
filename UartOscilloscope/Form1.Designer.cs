@@ -1,7 +1,7 @@
-﻿namespace UartOscilloscope
+﻿namespace UartOscilloscope														//	命名空間為本程式
 {
-    partial class Form1
-    {
+    partial class Form1															//	Form1類別
+	{																			//	進入Form1類別
         /// <summary>
         /// 設計工具所需的變數。
         /// </summary>
@@ -288,6 +288,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
         private SharpGL.OpenGLControl openGLControl1;
-    }
+	}                                                                           //	結束Form1類別
 }
 
