@@ -227,12 +227,12 @@ namespace UartOscilloscope														//	命名空間為本程式
 				if (comport_name == "")											//  若comport_name為空白(Combobox1未選定)
 				{																//  進入if敘述
 					Error_Code = 010002;										//  記錄Error_Code
-					Error_code_message.Error_Message_Show(Error_Code);          //  顯示錯誤訊息
-					button2.Enabled = true;                                     //  重新開啟"連線/中斷連線"按鈕功能
-					return;                                                     //  結束Uart_comport_handle副程式
-				}                                                               //  結束if敘述
-				else                                                            //  已選定連接埠
-				{                                                               //  進入else敘述
+					Error_code_message.Error_Message_Show(Error_Code);			//  顯示錯誤訊息
+					button2.Enabled = true;										//  重新開啟"連線/中斷連線"按鈕功能
+					return;														//  結束Uart_comport_handle副程式
+				}																//  結束if敘述
+				else															//  已選定連接埠
+				{																//  進入else敘述
 					label6.Text = (comport_name + "正在嘗試連線");				//  顯示連線狀態為(comport_name + "正在嘗試連線")，如"COM1正在嘗試連線"
 					try                                                         //  嘗試以comport_name建立串列通訊連線
 					{                                                           //  進入try敘述
@@ -270,8 +270,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 						if (!Uart_comport.IsOpen)                               //  若Uart_comport未開啟
 						{                                                       //  進入if敘述
 							Uart_comport.Open();                                //  開啟Uart_comport
-							label6.Text = (comport_name + "已連線");
-							//  顯示連線狀態為(comport_name + "已連線")，如"COM1已連線"
+							label6.Text = (comport_name + "已連線");			//  顯示連線狀態為(comport_name + "已連線")，如"COM1已連線"
 							Uart_comport_connected = true;                      //  更新Uart_comport_connected狀態
 							button2.Text = "中斷連線";                          //  更改button2文字為"中斷連線"
 							button2.Enabled = true;                             //  重新開啟"連線/中斷連線"按鈕功能
