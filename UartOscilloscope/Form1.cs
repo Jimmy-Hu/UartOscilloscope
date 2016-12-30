@@ -191,42 +191,42 @@ namespace UartOscilloscope														//	命名空間為本程式
 				return;															//	結束list_SerialPort副程式
 			}																	//	結束else敘述
 		}																		//	結束list_SerialPort副程式
-		public void comboBox1_text_change(object sender, EventArgs e)           //	comboBox1_text_change副程式，於comboBox1文字內容改變時執行
-		{                                                                       //	進入comboBox1_text_change副程式
-			if(comboBox1.Text=="")                                              //	若comboBox1內容為""(空白)
-			{                                                                   //	進入if敘述
-				button2.Enabled = false;                                        //	關閉"連線"按鈕功能(未選定連線Serialport，可避免發生Error_010002)
-			}                                                                   //	結束if敘述
-			else                                                                //	若comboBox1內容不為""(空白)
-			{                                                                   //	進入else敘述
-				button2.Enabled = true;                                         //	開啟"連線"按鈕功能
+		public void comboBox1_text_change(object sender, EventArgs e)			//	comboBox1_text_change副程式，於comboBox1文字內容改變時執行
+		{																		//	進入comboBox1_text_change副程式
+			if(comboBox1.Text=="")												//	若comboBox1內容為""(空白)
+			{																	//	進入if敘述
+				button2.Enabled = false;										//	關閉"連線"按鈕功能(未選定連線Serialport，可避免發生Error_010002)
+			}																	//	結束if敘述
+			else																//	若comboBox1內容不為""(空白)
+			{																	//	進入else敘述
+				button2.Enabled = true;											//	開啟"連線"按鈕功能
 			}																	//	結束else敘述
-		}                                                                       //	結束comboBox1_text_change副程式
-		public void Uart_comport_handle                                         //	串列埠連線處理Uart_comport_handle副程式
+		}																		//	結束comboBox1_text_change副程式
+		public void Uart_comport_handle											//	串列埠連線處理Uart_comport_handle副程式
 		(string comport_name,int Baud_Rate,int Parity_set)
 		//  處理Uart_comport連線設定
 		//  呼叫格式為Uart_comport_handle(comport名稱,連線鮑率,同位位元設定,)
 		//  同位位元設定說明：0為不檢查(None),1為奇同位檢察,2為偶同位檢察,3為同位位元恆為1,4為同位位元恆為0
-		{                                                                       //  進入Uart_comport_handle副程式
-			Uart_comport_handle_Runtimes = Uart_comport_handle_Runtimes + 1;    //  遞增Uart_comport_handle_Runtimes變數
+		{																		//  進入Uart_comport_handle副程式
+			Uart_comport_handle_Runtimes = Uart_comport_handle_Runtimes + 1;	//  遞增Uart_comport_handle_Runtimes變數
 			if(Uart_comport_connected == true)                                  
 			//  若Uart_comport_connected為True，代表Uart_comport連線中，將執行中斷連線
-			{                                                                   //  進入if敘述
+			{																	//  進入if敘述
 				label6.Text = (comport_name + "正在中斷連線");
 				//  顯示連線狀態為(comport_name + "正在中斷連線")，如"COM1正在中斷連線"
-				Uart_comport_connected = false;                                 //  更新Uart_comport_connected
-				Uart_comport.Close();                                           //  關閉Uart_comport連線
-				button2.Text = "連線";                                          //  更改button2文字為"連線"
-				button2.Enabled = true;                                         //  重新開啟"連線/中斷連線"按鈕功能
-				label6.Text = "未連線";                                         //  顯示連線狀態為"未連線"
-				return;                                                         //  結束Uart_comport_handle副程式
-			}                                                                   //  結束if敘述
-			else                                                                //  若Uart_comport_connected為False，執行連線
-			{                                                                   //  進入else敘述
-				label6.Text = "偵測連接埠設定";                                 //  顯示連線狀態為"偵測連接埠設定"
-				if (comport_name == "")                                         //  若comport_name為空白(Combobox1未選定)
-				{                                                               //  進入if敘述
-					Error_Code = 010002;                                        //  記錄Error_Code
+				Uart_comport_connected = false;									//  更新Uart_comport_connected
+				Uart_comport.Close();											//  關閉Uart_comport連線
+				button2.Text = "連線";											//  更改button2文字為"連線"
+				button2.Enabled = true;											//  重新開啟"連線/中斷連線"按鈕功能
+				label6.Text = "未連線";											//  顯示連線狀態為"未連線"
+				return;															//  結束Uart_comport_handle副程式
+			}																	//  結束if敘述
+			else																//  若Uart_comport_connected為False，執行連線
+			{																	//  進入else敘述
+				label6.Text = "偵測連接埠設定";									//  顯示連線狀態為"偵測連接埠設定"
+				if (comport_name == "")											//  若comport_name為空白(Combobox1未選定)
+				{																//  進入if敘述
+					Error_Code = 010002;										//  記錄Error_Code
 					Error_code_message.Error_Message_Show(Error_Code);          //  顯示錯誤訊息
 					button2.Enabled = true;                                     //  重新開啟"連線/中斷連線"按鈕功能
 					return;                                                     //  結束Uart_comport_handle副程式
