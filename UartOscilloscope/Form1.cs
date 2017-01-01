@@ -1135,8 +1135,8 @@ namespace UartOscilloscope														//	命名空間為本程式
 		public static Queue<int> Data_Graphic_Queue_Y;                          //  宣告Y通道資料繪圖用整數型態佇列Data_Graphic_Queue_Y
 		public static Queue<int> Data_Graphic_Queue_Z;                          //  宣告Z通道資料繪圖用整數型態佇列Data_Graphic_Queue_Z
 	}                                                                           //  結束Oscilloscope_function_variable類別
-	public class ErrorCode_message                                             //  宣告ErrorCode_message類別
-	{                                                                           //  進入ErrorCode_message類別
+	public class ErrorCode_message												//	宣告ErrorCode_message類別
+	{																			//	進入ErrorCode_message類別
 		private struct Error_message_struct                                     //  宣告Error_message_struct結構
 		{
 			public string Error_Message;                                        //  宣告Error_Message(錯誤訊息)字串
@@ -1203,7 +1203,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 					break;
 			}                                                                   //  結束switch敘述
 		}                                                                       //  結束Error_Message_Show副程式
-	}                                                                           //  結束ErrorCode_message類別
+	}																			//	結束ErrorCode_message類別
 	//-----例外狀況處理-----
 	public class IOException : SystemException
 	{
