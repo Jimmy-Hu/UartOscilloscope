@@ -100,11 +100,11 @@ namespace UartOscilloscope														//	命名空間為本程式
 		public static int loop_num;												//	宣告loop_num全域靜態變數，供迴圈使用
 		delegate void Display(byte[] buffer);									//	定義Display型態
 		//delegate 是可用來封裝具名方法或匿名方法的參考型別。
-		public Form1()															//	宣告Form1
-		{																		//	進入Form1(由Program.cs呼叫執行)
+		public Form1()															//	宣告Form1副程式
+		{																		//	進入Form1(由Program.cs的Main呼叫執行)
 			InitializeComponent();												//	呼叫InitializeComponent副程式(於Form1.Designer.cs中)初始化表單
 			Error_Code = 0;														//	初始化Error_Code為0
-		}																		//	結束Form1
+		}																		//	結束Form1副程式
 		public void Form1_Load(object sender, EventArgs e)						//	Form1_Load程式，Form1表單載入時執行
 		{																		//	進入Form1_Load副程式
 			timer1.Interval = 100;												//	設定timer1執行頻率
