@@ -437,7 +437,7 @@
             this.label200.Name = "label200";
             this.label200.Size = new System.Drawing.Size(97, 16);
             this.label200.TabIndex = 0;
-            this.label200.Text = "Error_Code：";
+            this.label200.Text = "ErrorCode：";
             // 
             // label201
             // 
@@ -446,7 +446,7 @@
             this.label201.Name = "label201";
             this.label201.Size = new System.Drawing.Size(81, 16);
             this.label201.TabIndex = 1;
-            this.label201.Text = "Error_Code";
+            this.label201.Text = "ErrorCode";
             // 
             // Form5
             // 

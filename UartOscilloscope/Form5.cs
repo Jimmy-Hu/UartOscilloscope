@@ -51,7 +51,7 @@ namespace UartOscilloscope                                              //  命�
             //  顯示設定_介面設定ToolStripMenuItem_Click副程式執行次數
             label101.Text = Form1.Uart_Buffer_Size.ToString();                  //  顯示Uart接收資料Buffer大小
             textBox1.Text = Form1.Uart_Buffer_ASCII_Data;                       //  顯示Uart傳輸之Buffer資料(ASCII編碼值)
-            label201.Text = Form1.Error_Code.ToString();                        //  顯示Error_Code
+            label201.Text = Form1.ErrorCode.ToString();                        //  顯示ErrorCode
         }                                                                       //  結束除錯資料更新副程式
         public void Debug_Information_Reset()                                   //  宣告Debug_Information_Reset除錯資料重置副程式
         {                                                                       //  進入除錯資料重置副程式

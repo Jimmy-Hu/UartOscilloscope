@@ -13,11 +13,11 @@
 ///                            DisplayText副程式中textBox1顯示資料方法改進
 ///                            textBox1.Text += System.Text.Encoding.ASCII.GetString(buffer);改為textBox1.AppendText(System.Text.Encoding.ASCII.GetString(buffer));
 ///                            comport資料接收處理副程式中以try方法執行invoke
-///   2016.11.13(日) Vision33：宣告警告訊息類別(Error_code_message)，統整錯誤訊息資訊
-///                            於警告訊息類別(Error_code_message)建立Error_010001_Message、Error_010001_Title、Error_010001_MessageBoxButton、Error_010001_MessageBoxIcon四項靜態物件
+///   2016.11.13(日) Vision33：宣告警告訊息類別(ErrorCode_message)，統整錯誤訊息資訊
+///                            於警告訊息類別(ErrorCode_message)建立Error_010001_Message、Error_010001_Title、Error_010001_MessageBoxButton、Error_010001_MessageBoxIcon四項靜態物件
 ///                  Vision34：結構化錯誤訊息，建立Error_message_struct(錯誤訊息結構)，
 ///                            且將錯誤訊息內容封裝於Error_message_struct(錯誤訊息結構)中，外部無法任意修改，
-///                            另錯誤訊息顯示不再直接呼叫MessageBox.Show，而是由Error_code_message類別中的Error_Message_Show副程式執行錯誤訊息顯示
+///                            另錯誤訊息顯示不再直接呼叫MessageBox.Show，而是由ErrorCode_message類別中的Error_Message_Show副程式執行錯誤訊息顯示
 ///   2016.12.23(五) Vision35：重新命名專案為UartOscilloscope
 ///   2016.12.26(一) 建立comboBox1_text_change副程式，於comboBox1文字內容改變時執行，用於檢查comboBox1文字內容是否為空白，若為空白則關閉button2("連線"按鈕)，以避免發生Error_010002。
 ///   
@@ -62,7 +62,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 		public static int BaudRate;												//	宣告BaudRate靜態全域變數，控制SerialPort連線鮑率
 		public static int Parity_num;											//	宣告Parity_num靜態全域變數，控制SerialPort串列埠之Parity同位位元設定
 		public static int DataBits_num;											//	宣告DataBits_num靜態全域變數，控制SerialPort串列埠之DataBits數值
-		public static int Error_Code;											//	宣告Error_Code靜態全域變數，記錄錯誤編碼，協助偵錯
+		public static int ErrorCode;											//	宣告ErrorCode靜態全域變數，記錄錯誤編碼，協助偵錯
 		public static Font textBox1_Font;										//	宣告textBox1_Font靜態字型變數，控制接收字串資料文字方塊字型
 		public static SerialPort Uart_comport;									//	宣告新的SerialPort通訊埠，名稱為Uart_comport
 		public static bool Uart_comport_connected;								//	宣告Uart_comport_connected布林變數，表示Uart_comport連線狀態
@@ -103,7 +103,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 		public Form1()															//	宣告Form1副程式
 		{																		//	進入Form1(由Program.cs的Main呼叫執行)
 			InitializeComponent();												//	呼叫InitializeComponent副程式(於Form1.Designer.cs中)初始化表單
-			Error_Code = 0;														//	初始化Error_Code為0
+			ErrorCode = 0;														//	初始化ErrorCode為0
 		}																		//	結束Form1副程式
 		public void Form1_Load(object sender, EventArgs e)						//	Form1_Load程式，Form1表單載入時執行
 		{																		//	進入Form1_Load副程式
@@ -173,8 +173,8 @@ namespace UartOscilloscope														//	命名空間為本程式
 			comboBox1.Items.Clear();											//	清空下拉式選單所有項目
 			if (ports.Length == 0)												//	若偵測不到任何已連接的SerialPort(ports.Length為0)
 			{																	//	進入if敘述
-				Error_Code = 010001;											//	記錄Error_Code
-				Error_code_message.Error_Message_Show(Error_Code);				//	顯示錯誤訊息
+				ErrorCode = 010001;											//	記錄ErrorCode
+				ErrorCode_message.Error_Message_Show(ErrorCode);				//	顯示錯誤訊息
 				button2.Enabled = false;										//	關閉"連線/中斷連線"按鈕功能
 				textBox1.Enabled = false;										//	關閉textBox1(接收字串資料文字方塊)功能
 				return;															//	提早結束list_SerialPort副程式
@@ -226,8 +226,8 @@ namespace UartOscilloscope														//	命名空間為本程式
 				label6.Text = "偵測連接埠設定";									//  顯示連線狀態為"偵測連接埠設定"
 				if (comport_name == "")											//  若comport_name為空白(Combobox1未選定)
 				{																//  進入if敘述
-					Error_Code = 010002;										//  記錄Error_Code
-					Error_code_message.Error_Message_Show(Error_Code);			//  顯示錯誤訊息
+					ErrorCode = 010002;										//  記錄ErrorCode
+					ErrorCode_message.Error_Message_Show(ErrorCode);			//  顯示錯誤訊息
 					button2.Enabled = true;										//  重新開啟"連線/中斷連線"按鈕功能
 					return;														//  結束Uart_comport_handle副程式
 				}																//  結束if敘述
@@ -240,8 +240,8 @@ namespace UartOscilloscope														//	命名空間為本程式
 					}                                                           //  結束try敘述
 					catch (System.IO.IOException)                               //  當IO發生錯誤時的例外狀況
 					{                                                           //  進入catch敘述
-						Error_Code = 010003;                                    //  記錄Error_Code
-						Error_code_message.Error_Message_Show(Error_Code);      //  顯示錯誤訊息
+						ErrorCode = 010003;                                    //  記錄ErrorCode
+						ErrorCode_message.Error_Message_Show(ErrorCode);      //  顯示錯誤訊息
 						button2.Enabled = true;                                 //  重新開啟"連線/中斷連線"按鈕功能
 						return;                                                 //  結束Uart_comport_handle副程式
 					}                                                           //  結束catch敘述
@@ -1135,8 +1135,8 @@ namespace UartOscilloscope														//	命名空間為本程式
 		public static Queue<int> Data_Graphic_Queue_Y;                          //  宣告Y通道資料繪圖用整數型態佇列Data_Graphic_Queue_Y
 		public static Queue<int> Data_Graphic_Queue_Z;                          //  宣告Z通道資料繪圖用整數型態佇列Data_Graphic_Queue_Z
 	}                                                                           //  結束Oscilloscope_function_variable類別
-	public class Error_code_message                                             //  宣告Error_code_message類別
-	{                                                                           //  進入Error_code_message類別
+	public class ErrorCode_message                                             //  宣告ErrorCode_message類別
+	{                                                                           //  進入ErrorCode_message類別
 		private struct Error_message_struct                                     //  宣告Error_message_struct結構
 		{
 			public string Error_Message;                                        //  宣告Error_Message(錯誤訊息)字串
@@ -1157,29 +1157,29 @@ namespace UartOscilloscope														//	命名空間為本程式
 
 		}                                                                       //  結束Error_message_struct結構
 		/*  定義Error_010001錯誤訊息  */
-		private const string Error_010001_Message = "未偵測到任何已連接的SerialPort，Error_Code=010001";
+		private const string Error_010001_Message = "未偵測到任何已連接的SerialPort，ErrorCode=010001";
 		private const string Error_010001_Title = "None of SerialPort";
 		private const MessageBoxButtons Error_010001_MessageBoxButton = MessageBoxButtons.OK;
 		private const MessageBoxIcon Error_010001_MessageBoxIcon = MessageBoxIcon.Warning;
 		private static Error_message_struct Error_010001 =
 			new Error_message_struct(Error_010001_Message, Error_010001_Title, Error_010001_MessageBoxButton, Error_010001_MessageBoxIcon);
 		/*  定義Error_010002錯誤訊息  */
-		private const string Error_010002_Message = "未選定連接埠，Error_Code=010002";
+		private const string Error_010002_Message = "未選定連接埠，ErrorCode=010002";
 		private const string Error_010002_Title = "Connect Error";
 		private const MessageBoxButtons Error_010002_MessageBoxButton = MessageBoxButtons.OK;
 		private const MessageBoxIcon Error_010002_MessageBoxIcon = MessageBoxIcon.Error;
 		private static Error_message_struct Error_010002 =
 			new Error_message_struct(Error_010002_Message, Error_010002_Title, Error_010002_MessageBoxButton, Error_010002_MessageBoxIcon);
 		/*  定義Error_010003錯誤訊息  */
-		private const string Error_010003_Message = "裝置不存在或無法建立連線，Error_Code=010003";
+		private const string Error_010003_Message = "裝置不存在或無法建立連線，ErrorCode=010003";
 		private const string Error_010003_Title = "Connect Error";
 		private const MessageBoxButtons Error_010003_MessageBoxButton = MessageBoxButtons.OK;
 		private const MessageBoxIcon Error_010003_MessageBoxIcon = MessageBoxIcon.Warning;
 		private static Error_message_struct Error_010003 =
 			new Error_message_struct(Error_010003_Message, Error_010003_Title, Error_010003_MessageBoxButton, Error_010003_MessageBoxIcon);
-		public static void Error_Message_Show(int Error_code_input)
+		public static void Error_Message_Show(int ErrorCode_input)
 		{                                                                       //  進入Error_Message_Show副程式
-			switch (Error_code_input)
+			switch (ErrorCode_input)
 			{                                                                   //  進入switch敘述
 				case 010001:
 					var warning_010001 = MessageBox.Show(Error_010001.Error_Message,
@@ -1203,7 +1203,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 					break;
 			}                                                                   //  結束switch敘述
 		}                                                                       //  結束Error_Message_Show副程式
-	}                                                                           //  結束Error_code_message類別
+	}                                                                           //  結束ErrorCode_message類別
 	//-----例外狀況處理-----
 	public class IOException : SystemException
 	{

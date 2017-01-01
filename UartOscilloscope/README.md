@@ -18,7 +18,7 @@
 - 顯示「DisplayText」副程式自程式開始運行時之執行次數，可手動重置(歸零)。
 - 可於執行comport_DataReceived副程式時顯示Uart傳輸之Buffer大小。
 - 可於執行comport_DataReceived副程式時顯示Uart傳輸之Buffer資料(ASCII編碼值)。
-- 顯示錯誤資訊編碼(Error_Code)。
+- 顯示錯誤資訊編碼(ErrorCode)。
 
 ##Visual Studio C#程式版本資訊：
 - 2016.8.12(五)
@@ -28,11 +28,11 @@
 	textBox1.Text += System.Text.Encoding.ASCII.GetString(buffer);改為textBox1.AppendText(System.Text.Encoding.ASCII.GetString(buffer)); 。
 	- comport資料接收處理副程式中以try方法執行invoke。
 - 2016.11.13(日)
-	- 宣告警告訊息類別(Error_code_message)，統整錯誤訊息資訊。
-	- 於警告訊息類別(Error_code_message)建立Error_010001_Message、Error_010001_Title、Error_010001_MessageBoxButton、Error_010001_MessageBoxIcon四項靜態物件
+	- 宣告警告訊息類別(ErrorCode_message)，統整錯誤訊息資訊。
+	- 於警告訊息類別(ErrorCode_message)建立Error_010001_Message、Error_010001_Title、Error_010001_MessageBoxButton、Error_010001_MessageBoxIcon四項靜態物件
 		結構化錯誤訊息，建立Error_message_struct(錯誤訊息結構)，
 		且將錯誤訊息內容封裝於Error_message_struct(錯誤訊息結構)中，外部無法任意修改，
-		另錯誤訊息顯示不再直接呼叫MessageBox.Show，而是由Error_code_message類別中的Error_Message_Show副程式執行錯誤訊息顯示。
+		另錯誤訊息顯示不再直接呼叫MessageBox.Show，而是由ErrorCode_message類別中的Error_Message_Show副程式執行錯誤訊息顯示。
 - 2016.12.23(五)
 	- 重新命名專案為UartOscilloscope，並上傳至GitHub
 - 2016.12.24(六)
