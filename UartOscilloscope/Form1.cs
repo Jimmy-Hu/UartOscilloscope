@@ -20,7 +20,7 @@
 ///                            另錯誤訊息顯示不再直接呼叫MessageBox.Show，而是由ErrorCode_message類別中的Error_Message_Show副程式執行錯誤訊息顯示
 ///   2016.12.23(五) Vision35：重新命名專案為UartOscilloscope
 ///   2016.12.26(一) 建立comboBox1_text_change副程式，於comboBox1文字內容改變時執行，用於檢查comboBox1文字內容是否為空白，若為空白則關閉button2("連線"按鈕)，以避免發生Error_010002。
-///   
+///   2017.1.1(日)	變更變數名稱Error_Code->ErrorCode
 ///   未解決issue：
 ///   1、COM port中斷連線有時會導致程式當機
 ///   2、以Queue資料結構分析字串有時會發生錯誤
