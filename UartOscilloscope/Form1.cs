@@ -173,7 +173,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 			comboBox1.Items.Clear();											//	清空下拉式選單所有項目
 			if (ports.Length == 0)												//	若偵測不到任何已連接的SerialPort(ports.Length為0)
 			{																	//	進入if敘述
-				ErrorCode = 010001;											//	記錄ErrorCode
+				ErrorCode = 010001;												//	記錄ErrorCode
 				ErrorCode_message.Error_Message_Show(ErrorCode);				//	顯示錯誤訊息
 				button2.Enabled = false;										//	關閉"連線/中斷連線"按鈕功能
 				textBox1.Enabled = false;										//	關閉textBox1(接收字串資料文字方塊)功能
@@ -226,7 +226,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 				label6.Text = "偵測連接埠設定";									//  顯示連線狀態為"偵測連接埠設定"
 				if (comport_name == "")											//  若comport_name為空白(Combobox1未選定)
 				{																//  進入if敘述
-					ErrorCode = 010002;										//  記錄ErrorCode
+					ErrorCode = 010002;											//  記錄ErrorCode
 					ErrorCode_message.Error_Message_Show(ErrorCode);			//  顯示錯誤訊息
 					button2.Enabled = true;										//  重新開啟"連線/中斷連線"按鈕功能
 					return;														//  結束Uart_comport_handle副程式
@@ -237,11 +237,11 @@ namespace UartOscilloscope														//	命名空間為本程式
 					try                                                         //  嘗試以comport_name建立串列通訊連線
 					{                                                           //  進入try敘述
 						Uart_comport = new SerialPort(comport_name);            //  Uart_comport串列埠建立comport_name連線
-					}                                                           //  結束try敘述
-					catch (System.IO.IOException)                               //  當IO發生錯誤時的例外狀況
-					{                                                           //  進入catch敘述
-						ErrorCode = 010003;                                    //  記錄ErrorCode
-						ErrorCode_message.Error_Message_Show(ErrorCode);      //  顯示錯誤訊息
+					}															//  結束try敘述
+					catch (System.IO.IOException)								//  當IO發生錯誤時的例外狀況
+					{															//  進入catch敘述
+						ErrorCode = 010003;										//  記錄ErrorCode
+						ErrorCode_message.Error_Message_Show(ErrorCode);		//  顯示錯誤訊息
 						button2.Enabled = true;                                 //  重新開啟"連線/中斷連線"按鈕功能
 						return;                                                 //  結束Uart_comport_handle副程式
 					}                                                           //  結束catch敘述
