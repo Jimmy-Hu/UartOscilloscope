@@ -288,6 +288,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
         private SharpGL.OpenGLControl openGLControl1;
-	}                                                                           //	結束Form1類別
+	}																			//	結束Form1類別
 }
 
