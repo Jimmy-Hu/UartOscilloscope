@@ -14,8 +14,8 @@ namespace UartOscilloscope														//	命名空間為本程式
         [STAThread]
         static void Main()														//	Main(主程式)
 		{																		//	進入Main(主程式)
-			Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+			Application.EnableVisualStyles();									//	為應用程式啟用視覺化樣式
+			Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 		}                                                                       //	結束Main(主程式)
 	}                                                                           //	結束Program類別
