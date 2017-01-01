@@ -234,23 +234,23 @@ namespace UartOscilloscope														//	命名空間為本程式
 				else															//  已選定連接埠
 				{																//  進入else敘述
 					label6.Text = (comport_name + "正在嘗試連線");				//  顯示連線狀態為(comport_name + "正在嘗試連線")，如"COM1正在嘗試連線"
-					try                                                         //  嘗試以comport_name建立串列通訊連線
-					{                                                           //  進入try敘述
-						Uart_comport = new SerialPort(comport_name);            //  Uart_comport串列埠建立comport_name連線
+					try															//  嘗試以comport_name建立串列通訊連線
+					{															//  進入try敘述
+						Uart_comport = new SerialPort(comport_name);			//  Uart_comport串列埠建立comport_name連線
 					}															//  結束try敘述
 					catch (System.IO.IOException)								//  當IO發生錯誤時的例外狀況
 					{															//  進入catch敘述
 						ErrorCode = 010003;										//  記錄ErrorCode
 						ErrorCode_message.Error_Message_Show(ErrorCode);		//  顯示錯誤訊息
-						button2.Enabled = true;                                 //  重新開啟"連線/中斷連線"按鈕功能
-						return;                                                 //  結束Uart_comport_handle副程式
-					}                                                           //  結束catch敘述
-					Uart_comport.BaudRate = Baud_Rate;                          //  設定Uart_comport連線之BaudRate
-					Uart_comport.DataBits = DataBits_num;                       //  設定Uart_comport連線之DataBits
-					switch (Parity_set)                                         //  根據Parity_set變數進行同位位元設定
-					{                                                           //  進入switch-case敘述
-						case 0:                                                 //  若為case0(Parity_set為0)
-							Uart_comport.Parity = Parity.None;                  //  無同位元檢查
+						button2.Enabled = true;									//  重新開啟"連線/中斷連線"按鈕功能
+						return;													//  結束Uart_comport_handle副程式
+					}															//  結束catch敘述
+					Uart_comport.BaudRate = Baud_Rate;							//  設定Uart_comport連線之BaudRate
+					Uart_comport.DataBits = DataBits_num;						//  設定Uart_comport連線之DataBits
+					switch (Parity_set)											//  根據Parity_set變數進行同位位元設定
+					{															//  進入switch-case敘述
+						case 0:													//  若為case0(Parity_set為0)
+							Uart_comport.Parity = Parity.None;					//  無同位元檢查
 							break;                                              //  結束case0敘述、跳出switch-case
 						case 1:                                                 //  若為case1(Parity_set為1)
 							Uart_comport.Parity = Parity.Odd;                   //  奇同位位元檢查
