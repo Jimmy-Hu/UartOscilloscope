@@ -310,7 +310,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 			}                                                                   //  結束try敘述
 			catch (ArgumentNullException)                                       //  當發生NULL例外狀況
 			{                                                                   //  進入catch敘述
-
+				return;                                                         //	結束comport_DataReceived副程式
 			}                                                                   //  結束catch敘述
 			Uart_Buffer_Size = length;                                          //  更新Uart_Buffer_Size數值
 			try                                                                 //  嘗試調整buffer陣列大小
