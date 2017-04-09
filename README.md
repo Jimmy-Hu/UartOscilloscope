@@ -2,6 +2,9 @@
 
 ## 程式執行畫面
 
+![](https://github.com/60071jimmy/UartOscilloscope/blob/master/doc/IMG/ProgramMainWindow1.png)
+
+
 ## 功能說明：
 軟體執行模式分為正常(Normal)模式與除錯(Debug)模式。正常模式下提供下列功能：
 - 可執行Uart連線。
