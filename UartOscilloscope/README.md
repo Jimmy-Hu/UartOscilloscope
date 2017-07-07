@@ -34,6 +34,7 @@
 		且將錯誤訊息內容封裝於Error_message_struct(錯誤訊息結構)中，外部無法任意修改，
 		另錯誤訊息顯示不再直接呼叫MessageBox.Show，而是由ErrorCode_message類別中的Error_Message_Show副程式執行錯誤訊息顯示。
 - 2016.12.23(五)
-	- 重新命名專案為UartOscilloscope，並上傳至GitHub
+	- 重新命名專案為UartOscilloscope，並上傳至GitHub－https://github.com/60071jimmy/UartOscilloscope
 - 2016.12.24(六)
 	- 調整命名空間(namespace)為UartOscilloscope
+- 2017.7.7()
