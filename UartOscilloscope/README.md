@@ -39,3 +39,5 @@
 	- 調整命名空間(namespace)為UartOscilloscope
 - 2017.7.7(五)
 	- 上傳副程式架構圖至doc/IMG目錄
+- 2017.7.8(六)
+	- 新增ErrorCode_message.cs檔案，並將ErrorCode_message類別提取移動至ErrorCode_message.cs檔案中
