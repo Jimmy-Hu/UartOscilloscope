@@ -1,27 +1,27 @@
 ﻿///   <summary>
 ///   C#實作Uart接收程式，By Jimmy Hu
 ///   版本資訊：
-///   2016.5.3(二)   Vision26：新增Data_Graphic_OpenGL副程式，實作OpenGL波型繪圖功能
-///   2016.5.13(五)  Vision27：增加佇列資料結構實作OpenGL波型繪圖(Data_Graphic_Queue_OpenGL)副程式
-///   2016.5.15(日)  Vision28：建立File_Write副程式，實作檔案讀寫
-///   2016.5.22(日)  Vision29：修改File_Write宣告，增加傳入寫入模式控制
-///   2016.5.22(日)  Vision30：將示波器功能實作變數獨立置於Oscilloscope_function_variable類別
-///   2016.6.13(一)　Vision31：修改Oscilloscope_function_variable類別位置，在Form1.cs程式碼中可包含多個類別(class)，
-///                            但第一個類別須為public partial class Form1 : Form，設計工具才可正常執行
-///   2016.8.12(五)  Vision32：宣告Analysis_Graphic_Mode靜態全域變數，控制程式分析與繪圖方法
-///                            設計編碼可參考副程式架構圖
-///                            DisplayText副程式中textBox1顯示資料方法改進
-///                            textBox1.Text += System.Text.Encoding.ASCII.GetString(buffer);改為textBox1.AppendText(System.Text.Encoding.ASCII.GetString(buffer));
-///                            comport資料接收處理副程式中以try方法執行invoke
-///   2016.11.13(日) Vision33：宣告警告訊息類別(ErrorCode_message)，統整錯誤訊息資訊
-///                            於警告訊息類別(ErrorCode_message)建立Error_010001_Message、Error_010001_Title、Error_010001_MessageBoxButton、Error_010001_MessageBoxIcon四項靜態物件
-///                  Vision34：結構化錯誤訊息，建立Error_message_struct(錯誤訊息結構)，
-///                            且將錯誤訊息內容封裝於Error_message_struct(錯誤訊息結構)中，外部無法任意修改，
-///                            另錯誤訊息顯示不再直接呼叫MessageBox.Show，而是由ErrorCode_message類別中的Error_Message_Show副程式執行錯誤訊息顯示
-///   2016.12.23(五) Vision35：重新命名專案為UartOscilloscope
-///   2016.12.26(一) Vision36：建立comboBox1_text_change副程式，於comboBox1文字內容改變時執行，用於檢查comboBox1文字內容是否為空白，若為空白則關閉button2("連線"按鈕)，以避免發生Error_010002。
-///   2017.1.1(日)	 Vision37：變更變數名稱Error_Code->ErrorCode
-///   2017.4.11(二)	 Vision38：修改程式中ADC滿刻度4096數值以常數ADCintervals取代
+///   2016.5.3(二)   Version 26：新增Data_Graphic_OpenGL副程式，實作OpenGL波型繪圖功能
+///   2016.5.13(五)  Version 27：增加佇列資料結構實作OpenGL波型繪圖(Data_Graphic_Queue_OpenGL)副程式
+///   2016.5.15(日)  Version 28：建立File_Write副程式，實作檔案讀寫
+///   2016.5.22(日)  Version 29：修改File_Write宣告，增加傳入寫入模式控制
+///   2016.5.22(日)  Version 30：將示波器功能實作變數獨立置於Oscilloscope_function_variable類別
+///   2016.6.13(一)　Version 31：修改Oscilloscope_function_variable類別位置，在Form1.cs程式碼中可包含多個類別(class)，
+///                              但第一個類別須為public partial class Form1 : Form，設計工具才可正常執行
+///   2016.8.12(五)  Version 32：宣告Analysis_Graphic_Mode靜態全域變數，控制程式分析與繪圖方法
+///                              設計編碼可參考副程式架構圖
+///                              DisplayText副程式中textBox1顯示資料方法改進
+///                              textBox1.Text += System.Text.Encoding.ASCII.GetString(buffer);改為textBox1.AppendText(System.Text.Encoding.ASCII.GetString(buffer));
+///                              comport資料接收處理副程式中以try方法執行invoke
+///   2016.11.13(日) Version 33：宣告警告訊息類別(ErrorCode_message)，統整錯誤訊息資訊
+///                              於警告訊息類別(ErrorCode_message)建立Error_010001_Message、Error_010001_Title、Error_010001_MessageBoxButton、Error_010001_MessageBoxIcon四項靜態物件
+///                  Version 34：結構化錯誤訊息，建立Error_message_struct(錯誤訊息結構)，
+///                              且將錯誤訊息內容封裝於Error_message_struct(錯誤訊息結構)中，外部無法任意修改，
+///                              另錯誤訊息顯示不再直接呼叫MessageBox.Show，而是由ErrorCode_message類別中的Error_Message_Show副程式執行錯誤訊息顯示
+///   2016.12.23(五) Version 35：重新命名專案為UartOscilloscope
+///   2016.12.26(一) Version 36：建立comboBox1_text_change副程式，於comboBox1文字內容改變時執行，用於檢查comboBox1文字內容是否為空白，若為空白則關閉button2("連線"按鈕)，以避免發生Error_010002。
+///   2017.1.1(日)	 Version 37：變更變數名稱Error_Code->ErrorCode
+///   2017.4.11(二)	 Version 38：修改程式中ADC滿刻度4096數值以常數ADCintervals取代
 ///   未解決issue：
 ///   1、COM port中斷連線有時會導致程式當機
 ///   2、以Queue資料結構分析字串有時會發生錯誤
