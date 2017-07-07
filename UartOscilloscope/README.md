@@ -1,6 +1,6 @@
 # UartOscilloscope(Uart介面示波器)
 
-##功能說明：
+## 功能說明：
 軟體執行模式分為正常(Normal)模式與除錯(Debug)模式。正常模式下提供下列功能：
 - 可執行Uart連線。
 - 可調整Uart連線設定(鮑率、同位位元)。
@@ -37,4 +37,5 @@
 	- 重新命名專案為UartOscilloscope，並上傳至GitHub－https://github.com/60071jimmy/UartOscilloscope
 - 2016.12.24(六)
 	- 調整命名空間(namespace)為UartOscilloscope
-- 2017.7.7()
+- 2017.7.7(五)
+	- 上傳副程式架構圖至doc/IMG目錄
