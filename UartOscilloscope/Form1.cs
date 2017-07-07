@@ -21,7 +21,7 @@
 ///   2016.12.23(五) Vision35：重新命名專案為UartOscilloscope
 ///   2016.12.26(一) Vision36：建立comboBox1_text_change副程式，於comboBox1文字內容改變時執行，用於檢查comboBox1文字內容是否為空白，若為空白則關閉button2("連線"按鈕)，以避免發生Error_010002。
 ///   2017.1.1(日)	 Vision37：變更變數名稱Error_Code->ErrorCode
-///   2017.4.9(日)	 Vision38：
+///   2017.4.11(二)	 Vision38：修改程式中ADC滿刻度4096數值以常數ADCintervals取代
 ///   未解決issue：
 ///   1、COM port中斷連線有時會導致程式當機
 ///   2、以Queue資料結構分析字串有時會發生錯誤
@@ -88,7 +88,8 @@ namespace UartOscilloscope														//	命名空間為本程式
 		public static uint comport_DataReceived_Runtimes = 0;					//	宣告comport_DataReceived_Runtimes全域靜態變數，記錄comport_DataReceived副程式執行次數
 		public static uint DisplayText_Runtimes = 0;							//	宣告DisplayText_Runtimes全域靜態變數，記錄DisplayText副程式執行次數
 		public static int Uart_Buffer_Size = 0;									//	宣告Uart_Buffer_Size全域靜態變數，記錄Uart接收資料Buffer(資料緩衝區)大小
-		public static string Uart_Buffer_ASCII_Data = "";						//	宣告Uart_Buffer_ASCII_Data全域靜態字串，記錄Uart傳輸之Buffer資料(ASCII編碼值)       
+		public static string Uart_Buffer_ASCII_Data = "";                       //	宣告Uart_Buffer_ASCII_Data全域靜態字串，記錄Uart傳輸之Buffer資料(ASCII編碼值)       
+		public static int ADCintervals = 1024;                                  //	宣告ADCintervals(MCU輸出狀態數)
 		public struct OpenGL_Graph_point										//	宣告OpenGL_Graph_point結構，用於OpenGL繪圖座標宣告
 		{																		//	進入OpenGL_Graph_point結構
 			public double point_X, point_Y;										//	在OpenGL_Graph_point結構中有兩項雙精度浮點數
@@ -662,11 +663,11 @@ namespace UartOscilloscope														//	命名空間為本程式
 			{                                                                   //  進入for迴圈
 				Oscilloscope_Graphic.DrawLine(pen_X,
 				new Point( (loop_num * panel1.Size.Width / Oscilloscope_function_variable.ADC_Raw_Data_Max) ,
-							panel1.Size.Height - (Oscilloscope_function_variable.ADC_Raw_Data_X[loop_num] * panel1.Size.Height / 4096)),
+							panel1.Size.Height - (Oscilloscope_function_variable.ADC_Raw_Data_X[loop_num] * panel1.Size.Height / ADCintervals)),
 				new Point( ( (loop_num + 1) * panel1.Size.Width / Oscilloscope_function_variable.ADC_Raw_Data_Max) ,
-							panel1.Size.Height - (Oscilloscope_function_variable.ADC_Raw_Data_X[loop_num + 1] * panel1.Size.Height / 4096) ));
+							panel1.Size.Height - (Oscilloscope_function_variable.ADC_Raw_Data_X[loop_num + 1] * panel1.Size.Height / ADCintervals) ));
 				//rectangle_point = new Rectangle(((loop_num + 1) * panel1.Size.Width / ADC_Raw_Data_Max) ,
-				//                  panel1.Size.Height - (ADC_Raw_Data_X[loop_num + 1] * panel1.Size.Height / 4096) ,
+				//                  panel1.Size.Height - (ADC_Raw_Data_X[loop_num + 1] * panel1.Size.Height / ADCintervals) ,
 				//                  3, 3);
 				//Oscilloscope_Graphic.DrawRectangle(Pens.Red, rectangle_point);
 			}                                                                   //  結束for迴圈
@@ -675,18 +676,18 @@ namespace UartOscilloscope														//	命名空間為本程式
 			{                                                                   //  進入for迴圈
 				Oscilloscope_Graphic.DrawLine(pen_Y,
 				new Point((loop_num * panel1.Size.Width / Oscilloscope_function_variable.ADC_Raw_Data_Max),
-							panel1.Size.Height - (Oscilloscope_function_variable.ADC_Raw_Data_Y[loop_num] * panel1.Size.Height / 4096)),
+							panel1.Size.Height - (Oscilloscope_function_variable.ADC_Raw_Data_Y[loop_num] * panel1.Size.Height / ADCintervals)),
 				new Point(((loop_num + 1) * panel1.Size.Width / Oscilloscope_function_variable.ADC_Raw_Data_Max),
-							panel1.Size.Height - (Oscilloscope_function_variable.ADC_Raw_Data_Y[loop_num + 1] * panel1.Size.Height / 4096)));
+							panel1.Size.Height - (Oscilloscope_function_variable.ADC_Raw_Data_Y[loop_num + 1] * panel1.Size.Height / ADCintervals)));
 			}                                                                   //  結束for迴圈
 			for (loop_num = 0; loop_num < (Oscilloscope_function_variable.ADC_Raw_Data_Z_num - 1); loop_num++)
 			//Z通道資料折線圖繪製
 			{                                                                   //  進入for迴圈
 				Oscilloscope_Graphic.DrawLine(pen_Z,
 				new Point((loop_num * panel1.Size.Width / Oscilloscope_function_variable.ADC_Raw_Data_Max),
-							panel1.Size.Height - (Oscilloscope_function_variable.ADC_Raw_Data_Z[loop_num] * panel1.Size.Height / 4096)),
+							panel1.Size.Height - (Oscilloscope_function_variable.ADC_Raw_Data_Z[loop_num] * panel1.Size.Height / ADCintervals)),
 				new Point(((loop_num + 1) * panel1.Size.Width / Oscilloscope_function_variable.ADC_Raw_Data_Max),
-							panel1.Size.Height - (Oscilloscope_function_variable.ADC_Raw_Data_Z[loop_num + 1] * panel1.Size.Height / 4096)));
+							panel1.Size.Height - (Oscilloscope_function_variable.ADC_Raw_Data_Z[loop_num + 1] * panel1.Size.Height / ADCintervals)));
 			}                                                                   //  結束for迴圈
 			//Data_Graphic_OpenGL副程式與Data_Graphic_Queue_OpenGL副程式擇一使用，由Analysis_Graphic_Mode靜態全域變數控制
 			if ((Analysis_Graphic_Mode / 1) % 2 == 0)                           //  若Analysis_Graphic_Mode二進位數值為XX0
@@ -779,17 +780,17 @@ namespace UartOscilloscope														//	命名空間為本程式
 				{                                                               //  進入if敘述
 					Graph_point_temp = new Point(                               //  指定Graph_point_temp座標
 					(loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
-					panel1.Size.Height - (ADC_Data * panel1.Size.Height / 4096));
+					panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals));
 					//  填入座標  
 				}                                                               //  結束if敘述
 				else                                                            //  若不為佇列中第一筆資料
 				{                                                               //  進入else敘述
 					Oscilloscope_Graphic.DrawLine(pen_X, Graph_point_temp,
 						new Point((loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
-							panel1.Size.Height - (ADC_Data * panel1.Size.Height / 4096) ));
+							panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals) ));
 					Graph_point_temp = new Point(                               //  指定Graph_point_temp座標
 					(loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
-					panel1.Size.Height - (ADC_Data * panel1.Size.Height / 4096));
+					panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals));
 					//  填入座標  
 				}                                                               //  結束else敘述
 				loop_num = loop_num + 1;                                        //  遞增loop_num變數
@@ -803,17 +804,17 @@ namespace UartOscilloscope														//	命名空間為本程式
 				{                                                               //  進入if敘述
 					Graph_point_temp = new Point(                               //  指定Graph_point_temp座標
 					(loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
-					panel1.Size.Height - (ADC_Data * panel1.Size.Height / 4096));
+					panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals));
 					//  填入座標  
 				}                                                               //  結束if敘述
 				else                                                            //  若不為佇列中第一筆資料
 				{                                                               //  進入else敘述
 					Oscilloscope_Graphic.DrawLine(pen_Y, Graph_point_temp,
 						new Point((loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
-							panel1.Size.Height - (ADC_Data * panel1.Size.Height / 4096) ));
+							panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals) ));
 					Graph_point_temp = new Point(                               //  指定Graph_point_temp座標
 					(loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
-					panel1.Size.Height - (ADC_Data * panel1.Size.Height / 4096));
+					panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals));
 					//  填入座標  
 				}                                                               //  結束else敘述
 				loop_num = loop_num + 1;                                        //  遞增loop_num變數
@@ -827,17 +828,17 @@ namespace UartOscilloscope														//	命名空間為本程式
 				{                                                               //  進入if敘述
 					Graph_point_temp = new Point(                               //  指定Graph_point_temp座標
 					(loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
-					panel1.Size.Height - (ADC_Data * panel1.Size.Height / 4096));
+					panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals));
 					//  填入座標  
 				}                                                               //  結束if敘述
 				else                                                            //  若不為佇列中第一筆資料
 				{                                                               //  進入else敘述
 					Oscilloscope_Graphic.DrawLine(pen_Z, Graph_point_temp,
 						new Point((loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
-							panel1.Size.Height - (ADC_Data * panel1.Size.Height / 4096) ));
+							panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals) ));
 					Graph_point_temp = new Point(                               //  指定Graph_point_temp座標
 					(loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
-					panel1.Size.Height - (ADC_Data * panel1.Size.Height / 4096));
+					panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals));
 					//  填入座標  
 				}                                                               //  結束else敘述
 				loop_num = loop_num + 1;                                        //  遞增loop_num變數
@@ -904,10 +905,10 @@ namespace UartOscilloscope														//	命名空間為本程式
 			{                                                                   //  進入for迴圈
 				Gsensor_GL.Begin(OpenGL.GL_LINES);
 				Gsensor_GL.Vertex(  ( (float)loop_num / Oscilloscope_function_variable.ADC_Raw_Data_Max) * 2 - 1,
-									( ((double)Oscilloscope_function_variable.ADC_Raw_Data_X[loop_num] / 4096) ) * 2 - 1,
+									( ((double)Oscilloscope_function_variable.ADC_Raw_Data_X[loop_num] / ADCintervals) ) * 2 - 1,
 									0);
 				Gsensor_GL.Vertex(  ( ((float)loop_num + 1) / Oscilloscope_function_variable.ADC_Raw_Data_Max) * 2 - 1,
-									( ((double)Oscilloscope_function_variable.ADC_Raw_Data_X[loop_num + 1] / 4096)) * 2 - 1,
+									( ((double)Oscilloscope_function_variable.ADC_Raw_Data_X[loop_num + 1] / ADCintervals)) * 2 - 1,
 									0);
 				Gsensor_GL.End();                                               //  結束線段繪製
 			}                                                                   //  結束for迴圈
@@ -917,10 +918,10 @@ namespace UartOscilloscope														//	命名空間為本程式
 			{                                                                   //  進入for迴圈
 				Gsensor_GL.Begin(OpenGL.GL_LINES);
 				Gsensor_GL.Vertex(((float)loop_num / Oscilloscope_function_variable.ADC_Raw_Data_Max) * 2 - 1,
-									(((double)Oscilloscope_function_variable.ADC_Raw_Data_Y[loop_num] / 4096)) * 2 - 1,
+									(((double)Oscilloscope_function_variable.ADC_Raw_Data_Y[loop_num] / ADCintervals)) * 2 - 1,
 									0);
 				Gsensor_GL.Vertex((((float)loop_num + 1) / Oscilloscope_function_variable.ADC_Raw_Data_Max) * 2 - 1,
-									(((double)Oscilloscope_function_variable.ADC_Raw_Data_Y[loop_num + 1] / 4096)) * 2 - 1,
+									(((double)Oscilloscope_function_variable.ADC_Raw_Data_Y[loop_num + 1] / ADCintervals)) * 2 - 1,
 									0);
 				Gsensor_GL.End();                                               //  結束線段繪製
 			}                                                                   //  結束for迴圈
@@ -930,10 +931,10 @@ namespace UartOscilloscope														//	命名空間為本程式
 			{                                                                   //  進入for迴圈
 				Gsensor_GL.Begin(OpenGL.GL_LINES);
 				Gsensor_GL.Vertex(((float)loop_num / Oscilloscope_function_variable.ADC_Raw_Data_Max) * 2 - 1,
-									(((double)Oscilloscope_function_variable.ADC_Raw_Data_Z[loop_num] / 4096)) * 2 - 1,
+									(((double)Oscilloscope_function_variable.ADC_Raw_Data_Z[loop_num] / ADCintervals)) * 2 - 1,
 									0);
 				Gsensor_GL.Vertex((((float)loop_num + 1) / Oscilloscope_function_variable.ADC_Raw_Data_Max) * 2 - 1,
-									(((double)Oscilloscope_function_variable.ADC_Raw_Data_Z[loop_num + 1] / 4096)) * 2 - 1,
+									(((double)Oscilloscope_function_variable.ADC_Raw_Data_Z[loop_num + 1] / ADCintervals)) * 2 - 1,
 									0);
 				Gsensor_GL.End();                                               //  結束線段繪製
 			}                                                                   //  結束for迴圈
@@ -1010,7 +1011,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 				{                                                               //  進入if敘述
 					OpenGL_Graph_point_temp.point_X = ((double)loop_num / Oscilloscope_function_variable.ADC_Raw_Data_Max) * 2 - 1;
 					//  指定OpenGL_Graph_point_temp之X座標
-					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / 4096)) * 2 - 1;
+					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / ADCintervals)) * 2 - 1;
 					//  指定OpenGL_Graph_point_temp之Y座標
 				}                                                               //  結束if敘述
 				else                                                            //  若不為佇列中第一筆資料
@@ -1021,12 +1022,12 @@ namespace UartOscilloscope														//	命名空間為本程式
 									  OpenGL_Graph_point_temp.point_Y,
 									  0);                                       //  設定直線繪製起始點
 					Gsensor_GL.Vertex(((double)loop_num / Oscilloscope_function_variable.ADC_Raw_Data_Max) * 2 - 1,
-									  (((double)ADC_Data / 4096)) * 2 - 1, 
+									  (((double)ADC_Data / ADCintervals)) * 2 - 1, 
 									  0);                                       //  設定直線繪製結束點
 					Gsensor_GL.End();                                           //  繪圖結束
 					OpenGL_Graph_point_temp.point_X = ((double)loop_num / Oscilloscope_function_variable.ADC_Raw_Data_Max) * 2 - 1;
 					//  指定OpenGL_Graph_point_temp之X座標
-					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / 4096)) * 2 - 1;
+					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / ADCintervals)) * 2 - 1;
 					//  指定OpenGL_Graph_point_temp之Y座標
 				}                                                               //  結束else敘述
 				loop_num = loop_num + 1;                                        //  遞增loop_num變數
@@ -1039,7 +1040,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 				{                                                               //  進入if敘述
 					OpenGL_Graph_point_temp.point_X = ((double)loop_num / Oscilloscope_function_variable.ADC_Raw_Data_Max) * 2 - 1;
 					//  指定OpenGL_Graph_point_temp之X座標
-					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / 4096)) * 2 - 1;
+					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / ADCintervals)) * 2 - 1;
 					//  指定OpenGL_Graph_point_temp之Y座標
 				}                                                               //  結束if敘述
 				else                                                            //  若不為佇列中第一筆資料
@@ -1050,12 +1051,12 @@ namespace UartOscilloscope														//	命名空間為本程式
 									  OpenGL_Graph_point_temp.point_Y,
 									  0);                                       //  設定直線繪製起始點
 					Gsensor_GL.Vertex(((double)loop_num / Oscilloscope_function_variable.ADC_Raw_Data_Max) * 2 - 1,
-									  (((double)ADC_Data / 4096)) * 2 - 1,
+									  (((double)ADC_Data / ADCintervals)) * 2 - 1,
 									  0);                                       //  設定直線繪製結束點
 					Gsensor_GL.End();                                           //  繪圖結束
 					OpenGL_Graph_point_temp.point_X = ((double)loop_num / Oscilloscope_function_variable.ADC_Raw_Data_Max) * 2 - 1;
 					//  指定OpenGL_Graph_point_temp之X座標
-					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / 4096)) * 2 - 1;
+					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / ADCintervals)) * 2 - 1;
 					//  指定OpenGL_Graph_point_temp之Y座標
 				}                                                               //  結束else敘述
 				loop_num = loop_num + 1;                                        //  遞增loop_num變數
@@ -1068,7 +1069,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 				{                                                               //  進入if敘述
 					OpenGL_Graph_point_temp.point_X = ((double)loop_num / Oscilloscope_function_variable.ADC_Raw_Data_Max) * 2 - 1;
 					//  指定OpenGL_Graph_point_temp之X座標
-					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / 4096)) * 2 - 1;
+					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / ADCintervals)) * 2 - 1;
 					//  指定OpenGL_Graph_point_temp之Y座標
 				}                                                               //  結束if敘述
 				else                                                            //  若不為佇列中第一筆資料
@@ -1079,12 +1080,12 @@ namespace UartOscilloscope														//	命名空間為本程式
 									  OpenGL_Graph_point_temp.point_Y,
 									  0);                                       //  設定直線繪製起始點
 					Gsensor_GL.Vertex(((double)loop_num / Oscilloscope_function_variable.ADC_Raw_Data_Max) * 2 - 1,
-									  (((double)ADC_Data / 4096)) * 2 - 1,
+									  (((double)ADC_Data / ADCintervals)) * 2 - 1,
 									  0);                                       //  設定直線繪製結束點
 					Gsensor_GL.End();                                           //  繪圖結束
 					OpenGL_Graph_point_temp.point_X = ((double)loop_num / Oscilloscope_function_variable.ADC_Raw_Data_Max) * 2 - 1;
 					//  指定OpenGL_Graph_point_temp之X座標
-					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / 4096)) * 2 - 1;
+					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / ADCintervals)) * 2 - 1;
 					//  指定OpenGL_Graph_point_temp之Y座標
 				}                                                               //  結束else敘述
 				loop_num = loop_num + 1;                                        //  遞增loop_num變數
