@@ -1,5 +1,5 @@
 ﻿///   <summary>
-///   C#實作Uart接收程式，By Jimmy
+///   C#實作Uart接收程式，By Jimmy Hu
 ///   版本資訊：
 ///   2016.5.3(二)   Vision26：新增Data_Graphic_OpenGL副程式，實作OpenGL波型繪圖功能
 ///   2016.5.13(五)  Vision27：增加佇列資料結構實作OpenGL波型繪圖(Data_Graphic_Queue_OpenGL)副程式
