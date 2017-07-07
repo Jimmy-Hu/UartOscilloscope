@@ -22,6 +22,8 @@
 ///   2016.12.26(一) Version 36：建立comboBox1_text_change副程式，於comboBox1文字內容改變時執行，用於檢查comboBox1文字內容是否為空白，若為空白則關閉button2("連線"按鈕)，以避免發生Error_010002。
 ///   2017.1.1(日)	 Version 37：變更變數名稱Error_Code->ErrorCode
 ///   2017.4.11(二)	 Version 38：修改程式中ADC滿刻度4096數值以常數ADCintervals取代
+///   2017.7.8(六)	 Version 39：將ErrorCode_message類別提取移動至ErrorCode_message.cs檔案中
+///   
 ///   未解決issue：
 ///   1、COM port中斷連線有時會導致程式當機
 ///   2、以Queue資料結構分析字串有時會發生錯誤
@@ -44,7 +46,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 	public partial class Form1 : Form											//	Form1類別，繼承自System.Windows.Forms.Form類別
 	{																			//	進入Form1類別
 		//-----全域變數宣告-----
-		public static float Program_Vision = 35;								//	宣告Program_Vision靜態全域變數，記錄程式版本
+		public static float Program_Vision = 39;								//	宣告Program_Vision靜態全域變數，記錄程式版本
 		public static int Program_Work_Mode = 0;								//	宣告Program_Work_Mode靜態全域變數，控制程式執行模式
 		public static uint Analysis_Graphic_Mode = 3;							//	宣告Analysis_Graphic_Mode靜態全域變數，控制程式分析與繪圖方法
 
