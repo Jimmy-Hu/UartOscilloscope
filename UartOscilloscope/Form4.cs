@@ -28,10 +28,10 @@ namespace UartOscilloscope														//  命名空間為本程式
             //  輸入資訊檢查
             if (textBox1.Text == "")                                            //  若帳號資訊(textBox1欄位)為空白
             {                                                                   //  進入if敘述
-                Form1.ErrorCode = 040001;                                      //  記錄ErrorCode
+                Form1.ErrorCode = 040001;                                       //  記錄ErrorCode
                 var Error = MessageBox.Show                                     //  顯示錯誤訊息
                     (                                                           //  進入錯誤訊息MessageBox設定
-                        "請輸入帳號，ErrorCode=" + Form1.ErrorCode,           //  顯示錯誤訊息"請輸入帳號"，同時顯示ErrorCode
+                        "請輸入帳號，ErrorCode=" + Form1.ErrorCode,             //  顯示錯誤訊息"請輸入帳號"，同時顯示ErrorCode
                         "請輸入帳號",                                           //  顯示錯誤訊息標題為"請輸入帳號"
                         MessageBoxButtons.OK,                                   //  顯示"OK"按鈕
                         MessageBoxIcon.Error                                    //  顯示錯誤標誌
@@ -40,10 +40,10 @@ namespace UartOscilloscope														//  命名空間為本程式
             }                                                                   //  結束if敘述
             if (textBox2.Text == "")                                            //  若密碼資訊(textBox2欄位)為空白
             {                                                                   //  進入if敘述
-                Form1.ErrorCode = 040002;                                      //  記錄ErrorCode
+                Form1.ErrorCode = 040002;                                       //  記錄ErrorCode
                 var Error = MessageBox.Show                                     //  顯示錯誤訊息
                     (                                                           //  進入錯誤訊息MessageBox設定
-                        "請輸入密碼，ErrorCode=" + Form1.ErrorCode,           //  顯示錯誤訊息"請輸入密碼"，同時顯示ErrorCode
+                        "請輸入密碼，ErrorCode=" + Form1.ErrorCode,             //  顯示錯誤訊息"請輸入密碼"，同時顯示ErrorCode
                         "請輸入密碼",                                           //  顯示錯誤訊息標題為"請輸入密碼"
                         MessageBoxButtons.OK,                                   //  顯示"OK"按鈕
                         MessageBoxIcon.Error                                    //  顯示錯誤標誌
@@ -74,10 +74,10 @@ namespace UartOscilloscope														//  命名空間為本程式
                 }                                                               //  結束if敘述
                 else                                                            //  若密碼輸入錯誤，則進入else敘述
                 {                                                               //  進入else敘述
-                    Form1.ErrorCode = 040004;                                  //  記錄ErrorCode
+                    Form1.ErrorCode = 040004;                                   //  記錄ErrorCode
                     var warning = MessageBox.Show                               //  顯示錯誤訊息
                     (                                                           //  進入錯誤訊息MessageBox設定
-                        "密碼錯誤，ErrorCode=" + Form1.ErrorCode,             //  顯示錯誤訊息"密碼錯誤"，同時顯示ErrorCode
+                        "密碼錯誤，ErrorCode=" + Form1.ErrorCode,               //  顯示錯誤訊息"密碼錯誤"，同時顯示ErrorCode
                         "密碼錯誤",                                             //  顯示錯誤訊息標題為"密碼錯誤"
                         MessageBoxButtons.OK,                                   //  顯示"OK"按鈕
                         MessageBoxIcon.Error                                    //  顯示錯誤標誌
@@ -89,10 +89,10 @@ namespace UartOscilloscope														//  命名空間為本程式
             }                                                                   //  結束if敘述
             else                                                                //  若帳號輸入錯誤，則進入else敘述
             {                                                                   //  進入else敘述
-                Form1.ErrorCode = 040003;                                      //  記錄ErrorCode
+                Form1.ErrorCode = 040003;                                       //  記錄ErrorCode
                 var warning = MessageBox.Show                                   //  顯示錯誤訊息
                 (                                                               //  進入錯誤訊息MessageBox設定
-                    "帳號錯誤，ErrorCode=" + Form1.ErrorCode,                 //  顯示錯誤訊息"帳號錯誤"，同時顯示ErrorCode
+                    "帳號錯誤，ErrorCode=" + Form1.ErrorCode,                   //  顯示錯誤訊息"帳號錯誤"，同時顯示ErrorCode
                     "帳號錯誤",                                                 //  顯示錯誤訊息標題為"帳號錯誤"
                     MessageBoxButtons.OK,                                       //  顯示"OK"按鈕
                     MessageBoxIcon.Error                                        //  顯示錯誤標誌

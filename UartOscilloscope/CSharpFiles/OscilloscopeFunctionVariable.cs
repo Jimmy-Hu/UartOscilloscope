@@ -16,7 +16,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 {																				//	進入命名空間
 	/**	OscilloscopeFunctionVariable類別宣告示波器功能實作變數 **
 	 */
-	class OscilloscopeFunctionVariable										//	OscilloscopeFunctionVariable類別
+	class OscilloscopeFunctionVariable											//	OscilloscopeFunctionVariable類別
 	{																			//	進入OscilloscopeFunctionVariable類別
 		public static int[] ADC_Raw_Data_X;										//	宣告ADC_Raw_Data_X全域整數陣列變數，記錄X通道ADC原始資料
 		public static int[] ADC_Raw_Data_Y;										//	宣告ADC_Raw_Data_Y全域整數陣列變數，記錄Y通道ADC原始資料
