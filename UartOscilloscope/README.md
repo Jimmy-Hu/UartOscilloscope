@@ -42,3 +42,5 @@
 - 2017.7.8(六)
 	- 新增ErrorCode_message.cs檔案，並將ErrorCode_message類別提取移動至ErrorCode_message.cs檔案中
 	- 新增Oscilloscope_function_variable.cs檔案，並將Oscilloscope_function_variable類別提取移動至Oscilloscope_function_variable.cs檔案中
+- 2017.7.9(日)
+	- 於Oscilloscope_function_variable.cs檔案中新增Get_ADC_Raw_Data_Max方法，用以取得ADC_Raw_Data_Max數值，並將ADC_Raw_Data_Max變數設定為private
