@@ -13,9 +13,18 @@ using System.Threading.Tasks;
 
 namespace UartOscilloscope                                                      //	命名空間為本程式
 {                                                                               //	進入UartOscilloscope命名空間
-	class WorkingMode                                                           //	WorkingMode類別
+	public class WorkingMode                                                    //	WorkingMode類別
 	{                                                                           //	進入WorkingMode類別
-		private static int Program_Work_Mode = 0;								//	宣告Program_Work_Mode靜態變數，控制程式執行模式
-
+		public enum Program_Work_Mode_Options : byte                            //	Program_Work_Mode_Options列舉
+		{                                                                       //	進入Program_Work_Mode_Options列舉
+			Normal_Mode = 0,
+			Debug_Mode = 1,
+		};                                                                      //	結束Program_Work_Mode_Options列舉
+		private static Program_Work_Mode_Options Program_Work_Mode = 
+			Program_Work_Mode_Options.Normal_Mode;				                //	宣告Program_Work_Mode靜態變數，控制程式執行模式
+		public static void Set_Program_Work_Mode(Program_Work_Mode_Options InputMode)  //	Set_Program_Work_Mode方法
+		{																		//	進入Set_Program_Work_Mode方法
+			Program_Work_Mode = (Program_Work_Mode_Options)InputMode;                                      //	設定Program_Work_Mode模式
+		}                                                                       //	結束Set_Program_Work_Mode方法
 	}                                                                           //	結束WorkingMode類別
 }                                                                               //	結束UartOscilloscope命名空間

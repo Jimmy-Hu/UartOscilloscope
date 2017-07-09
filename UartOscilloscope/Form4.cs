@@ -66,8 +66,9 @@ namespace UartOscilloscope                                              //  命�
                         MessageBoxIcon.Information                              //  顯示information標誌
                     );                                                          //  結束警告訊息MessageBox設定
                     Login_Date = DateTime.Now;                                  //  記錄除錯模式登入時間
-                    Form1.Program_Work_Mode = 1;                                //  進入除錯模式，設定Program_Work_Mode值為1
-                    Form5 Debug_form = new Form5();                             //  宣告Debug_form代表Form5
+					WorkingMode.Set_Program_Work_Mode(WorkingMode.Program_Work_Mode_Options.Debug_Mode);
+					//  進入除錯模式，設定Program_Work_Mode值為1
+					Form5 Debug_form = new Form5();                             //  宣告Debug_form代表Form5
                     Debug_form.Show();                                          //  顯示Debug_form
                     Close();                                                    //  關閉本表單
                 }                                                               //  結束if敘述
