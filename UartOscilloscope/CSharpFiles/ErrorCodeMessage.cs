@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;                                                     //	使用System.Windows.Forms函式庫
 
-namespace UartOscilloscope
+namespace UartOscilloscope                                                      //	命名空間為UartOscilloscope
 {                                                                               //	進入命名空間
-	public class ErrorCodeMessage                                              //	宣告ErrorCodeMessage類別
+	public class ErrorCodeMessage                                               //	宣告ErrorCodeMessage類別
 	{                                                                           //	進入ErrorCodeMessage類別
 		private struct Error_message_struct                                     //  宣告Error_message_struct結構
 		{
