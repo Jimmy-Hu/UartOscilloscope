@@ -1,8 +1,8 @@
 ﻿/********************************************************************
  * Develop by Jimmy Hu												*
  * This program is licensed under the Apache License 2.0.			*
- * Oscilloscope_function_variable.cs								*
- * 本檔案撰寫Oscilloscope_function_variable類別以宣告Oscilloscope	*
+ * OscilloscopeFunctionVariable.cs								*
+ * 本檔案撰寫OscilloscopeFunctionVariable類別以宣告Oscilloscope	*
  * 功能實作變數														*
  ********************************************************************
  */
@@ -14,10 +14,10 @@ using System.Threading.Tasks;
 
 namespace UartOscilloscope														//	命名空間為本程式
 {																				//	進入命名空間
-	/**	Oscilloscope_function_variable類別宣告示波器功能實作變數 **
+	/**	OscilloscopeFunctionVariable類別宣告示波器功能實作變數 **
 	 */
-	class Oscilloscope_function_variable										//	Oscilloscope_function_variable類別
-	{																			//	進入Oscilloscope_function_variable類別
+	class OscilloscopeFunctionVariable										//	OscilloscopeFunctionVariable類別
+	{																			//	進入OscilloscopeFunctionVariable類別
 		public static int[] ADC_Raw_Data_X;										//	宣告ADC_Raw_Data_X全域整數陣列變數，記錄X通道ADC原始資料
 		public static int[] ADC_Raw_Data_Y;										//	宣告ADC_Raw_Data_Y全域整數陣列變數，記錄Y通道ADC原始資料
 		public static int[] ADC_Raw_Data_Z;										//	宣告ADC_Raw_Data_Z全域整數陣列變數，記錄Z通道ADC原始資料
@@ -31,7 +31,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 
 		public static int Get_ADC_Raw_Data_Max()								//	宣告Get_ADC_Raw_Data_Max方法
 		{																		//	進入Get_ADC_Raw_Data_Max方法
-			return Oscilloscope_function_variable.ADC_Raw_Data_Max;				//	回傳ADC_Raw_Data_Max數值
+			return OscilloscopeFunctionVariable.ADC_Raw_Data_Max;				//	回傳ADC_Raw_Data_Max數值
 		}																		//	結束Get_ADC_Raw_Data_Max方法
-	}																			//	結束Oscilloscope_function_variable類別
+	}																			//	結束OscilloscopeFunctionVariable類別
 }																				//	結束命名空間

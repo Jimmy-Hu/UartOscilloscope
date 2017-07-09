@@ -87,7 +87,7 @@
     <Compile Include="Form5.Designer.cs">
       <DependentUpon>Form5.cs</DependentUpon>
     </Compile>
-    <Compile Include="CSharpFiles\Oscilloscope_function_variable.cs" />
+    <Compile Include="CSharpFiles\OscilloscopeFunctionVariable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
