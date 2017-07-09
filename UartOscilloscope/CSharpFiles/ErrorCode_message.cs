@@ -7,8 +7,8 @@ using System.Windows.Forms;                                                     
 
 namespace UartOscilloscope
 {                                                                               //	進入命名空間
-	public class ErrorCode_message                                              //	宣告ErrorCode_message類別
-	{                                                                           //	進入ErrorCode_message類別
+	public class ErrorCodeMessage                                              //	宣告ErrorCodeMessage類別
+	{                                                                           //	進入ErrorCodeMessage類別
 		private struct Error_message_struct                                     //  宣告Error_message_struct結構
 		{
 			public string Error_Message;                                        //  宣告Error_Message(錯誤訊息)字串
@@ -75,5 +75,5 @@ namespace UartOscilloscope
 					break;
 			}                                                                   //  結束switch敘述
 		}                                                                       //  結束Error_Message_Show副程式
-	}                                                                           //	結束ErrorCode_message類別
+	}                                                                           //	結束ErrorCodeMessage類別
 }
