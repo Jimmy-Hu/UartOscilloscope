@@ -9,6 +9,11 @@ namespace UartOscilloscope                                                      
 {                                                                               //	進入命名空間
 	public class ErrorCodeMessage                                               //	宣告ErrorCodeMessage類別
 	{                                                                           //	進入ErrorCodeMessage類別
+		private enum ErrorCodeEncoding                                          //	ErrorCode錯誤編碼列舉型態
+		{                                                                       //	進入ErrorCode錯誤編碼列舉型態
+			NoError = 00000,
+			NoSerialPort = 010001,
+		}                                                                       //	結束ErrorCode錯誤編碼列舉型態
 		private struct Error_message_struct                                     //  宣告Error_message_struct結構
 		{
 			public string Error_Message;                                        //  宣告Error_Message(錯誤訊息)字串
