@@ -8,7 +8,8 @@ namespace UartOscilloscope                                                      
 {                                                                               //	進入命名空間
 	class DebugVariables                                                        //  DebugVariables類別
 	{                                                                           //  進入DebugVariables類別
-		public static uint button1_Click_Runtimes = 0;                          //	宣告button1_Click_Runtimes全域靜態變數，記錄button1_Click副程式執行次數，並初始化為0
+		private static uint button1_Click_Runtimes = 0;                         //	宣告button1_Click_Runtimes全域靜態變數，記錄button1_Click副程式執行次數，並初始化為0
+
 		public static uint button2_Click_Runtimes = 0;                          //	宣告button2_Click_Runtimes全域靜態變數，記錄button2_Click副程式執行次數，並初始化為0
 		public static uint button3_Click_Runtimes = 0;                          //	宣告button3_Click_Runtimes全域靜態變數，記錄button3_Click副程式執行次數，並初始化為0
 		public static uint Transmission_Setting_Click_Runtimes = 0;
