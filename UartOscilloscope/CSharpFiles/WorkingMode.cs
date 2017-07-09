@@ -22,7 +22,8 @@ namespace UartOscilloscope                                                      
 		};                                                                      //	結束Program_Work_Mode_Options列舉
 		private static Program_Work_Mode_Options Program_Work_Mode = 
 			Program_Work_Mode_Options.Normal_Mode;				                //	宣告Program_Work_Mode靜態變數，控制程式執行模式
-		public static void Set_Program_Work_Mode(Program_Work_Mode_Options InputMode)  //	Set_Program_Work_Mode方法
+		public static void Set_Program_Work_Mode
+			(Program_Work_Mode_Options InputMode)								//	Set_Program_Work_Mode方法
 		{																		//	進入Set_Program_Work_Mode方法
 			Program_Work_Mode = (Program_Work_Mode_Options)InputMode;                                      //	設定Program_Work_Mode模式
 		}                                                                       //	結束Set_Program_Work_Mode方法
