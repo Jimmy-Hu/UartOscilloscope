@@ -23,6 +23,7 @@
 ///   2017.1.1(日)	 Version 37：變更變數名稱Error_Code->ErrorCode
 ///   2017.4.11(二)	 Version 38：修改程式中ADC滿刻度4096數值以常數ADCintervals取代
 ///   2017.7.8(六)	 Version 39：將ErrorCode_message類別提取移動至ErrorCode_message.cs檔案中
+///								 將Oscilloscope_function_variable類別提取移動至Oscilloscope_function_variable.cs檔案中
 ///   
 ///   未解決issue：
 ///   1、COM port中斷連線有時會導致程式當機
