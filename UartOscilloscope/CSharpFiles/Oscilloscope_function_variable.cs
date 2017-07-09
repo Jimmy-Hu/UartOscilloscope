@@ -1,4 +1,12 @@
-﻿using System;
+﻿/********************************************************************
+ * Develop by Jimmy Hu												*
+ * This program is licensed under the Apache License 2.0.			*
+ * Oscilloscope_function_variable.cs								*
+ * 本檔案撰寫Oscilloscope_function_variable類別以宣告Oscilloscope	*
+ * 功能實作變數														*
+ ********************************************************************
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
