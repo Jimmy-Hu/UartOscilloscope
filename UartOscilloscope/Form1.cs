@@ -1125,20 +1125,6 @@ namespace UartOscilloscope														//	命名空間為本程式
 			DateTime localDate = DateTime.Now;                                  //  更新現在時間
 		}                                                                       //  結束timer1_Tick副程式
 	}                                                                           //  結束Form1類別
-	public class Oscilloscope_function_variable                                 //  宣告Oscilloscope_function_variable類別
-	{                                                                           //  進入Oscilloscope_function_variable類別
-		//  宣告示波器功能實作變數
-		public static int[] ADC_Raw_Data_X;                                     //  宣告ADC_Raw_Data_X全域整數陣列變數，記錄X通道ADC原始資料
-		public static int[] ADC_Raw_Data_Y;                                     //  宣告ADC_Raw_Data_Y全域整數陣列變數，記錄Y通道ADC原始資料
-		public static int[] ADC_Raw_Data_Z;                                     //  宣告ADC_Raw_Data_Z全域整數陣列變數，記錄Z通道ADC原始資料
-		public static int ADC_Raw_Data_X_num = 0;                               //  宣告ADC_Raw_Data_X_num全域整數變數，記錄ADC_Raw_Data_X資料量
-		public static int ADC_Raw_Data_Y_num = 0;                               //  宣告ADC_Raw_Data_Y_num全域整數變數，記錄ADC_Raw_Data_Y資料量
-		public static int ADC_Raw_Data_Z_num = 0;                               //  宣告ADC_Raw_Data_Z_num全域整數變數，記錄ADC_Raw_Data_Z資料量
-		public static int ADC_Raw_Data_Max = 100;                               //  宣告ADC_Raw_Data_Max全域整數變數，記錄ADC_Raw_Data陣列大小
-		public static Queue<int> Data_Graphic_Queue_X;                          //  宣告X通道資料繪圖用整數型態佇列Data_Graphic_Queue_X
-		public static Queue<int> Data_Graphic_Queue_Y;                          //  宣告Y通道資料繪圖用整數型態佇列Data_Graphic_Queue_Y
-		public static Queue<int> Data_Graphic_Queue_Z;                          //  宣告Z通道資料繪圖用整數型態佇列Data_Graphic_Queue_Z
-	}                                                                           //  結束Oscilloscope_function_variable類別
 	
 	//-----例外狀況處理-----
 	public class IOException : SystemException
