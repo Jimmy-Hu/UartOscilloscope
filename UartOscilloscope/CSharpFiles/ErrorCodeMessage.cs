@@ -17,6 +17,8 @@ namespace UartOscilloscope                                                      
 			SerialPortConnectError = 010003,                                    //	SerialPortConnectError編碼
 			LoginAccountNull = 040001,                                          //	LoginAccountNull編碼
 			LoginPasswordNull = 040002,                                         //	LoginPasswordNull編碼
+			LoginAccountError = 040003,                                         //	LoginAccountError編碼
+			LoginPasswordError = 040004                                         //	LoginPasswordError編碼
 		}                                                                       //	結束ErrorCode錯誤編碼列舉型態
 		private struct Error_message_struct                                     //  宣告Error_message_struct結構
 		{
