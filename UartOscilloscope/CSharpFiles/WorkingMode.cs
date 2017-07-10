@@ -25,7 +25,7 @@ namespace UartOscilloscope                                                      
 		public static void Set_Program_Work_Mode
 			(Program_Work_Mode_Options InputMode)								//	Set_Program_Work_Mode方法
 		{																		//	進入Set_Program_Work_Mode方法
-			Program_Work_Mode = (Program_Work_Mode_Options)InputMode;                                      //	設定Program_Work_Mode模式
+			Program_Work_Mode = (Program_Work_Mode_Options)InputMode;           //	設定Program_Work_Mode模式
 		}                                                                       //	結束Set_Program_Work_Mode方法
 	}                                                                           //	結束WorkingMode類別
 }                                                                               //	結束UartOscilloscope命名空間
