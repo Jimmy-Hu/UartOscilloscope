@@ -8,13 +8,41 @@ namespace UartOscilloscope                                                      
 {																				//	進入命名空間
 	class UARTConnection                                                        //	UARTConnection類別
 	{                                                                           //	進入UARTConnection類別
+		public static int BaudRate;                                             //	宣告BaudRate靜態全域變數，控制SerialPort連線鮑率
+		public static int Parity_num;                                           //	宣告Parity_num靜態全域變數，控制SerialPort串列埠之Parity同位位元設定
+		public static int DataBits_num;                                         //	宣告DataBits_num靜態全域變數，控制SerialPort串列埠之DataBits數值
+		public void list_SerialPort()                                           //	偵測並列出已連線SerialPort副程式
+		{                                                                       //	進入list_SerialPort副程式
+			DebugVariables.Set_list_SerialPort_Runtimes();                      //	呼叫Set_list_SerialPort_Runtimes方法遞增list_SerialPort_Runtimes變數
+			string[] ports = SerialPort.GetPortNames();                         //	偵測已連線的SerialPort並儲存結果至陣列ports
+			comboBox1.Items.Clear();                                            //	清空下拉式選單所有項目
+			if (ports.Length == 0)                                              //	若偵測不到任何已連接的SerialPort(ports.Length為0)
+			{                                                                   //	進入if敘述
+				ErrorCode = 010001;                                             //	記錄ErrorCode
+				ErrorCodeMessage.Error_Message_Show(ErrorCode);                 //	顯示錯誤訊息
+				button2.Enabled = false;                                        //	關閉"連線/中斷連線"按鈕功能
+				textBox1.Enabled = false;                                       //	關閉textBox1(接收字串資料文字方塊)功能
+				return;                                                         //	提早結束list_SerialPort副程式
+			}                                                                   //	結束if敘述
+			else                                                                //	若偵測到已連線的SerialPort
+			{                                                                   //	進入else敘述
+				COM_Port_num = ports.Length;                                    //	記錄已連線的SerialPort數量
+				foreach (string port in ports)                                  //	依序處理每個已連線的SerialPort
+				{                                                               //	進入foreach敘述
+					comboBox1.Items.Add(port);                                  //	以條列式選單(comboBox1)列出已連線的SerialPort
+				}                                                               //	結束foreach敘述
+				button2.Enabled = false;                                        //	暫時關閉"連線"按鈕功能，待使用者選定愈連線之Serialport(未選定連線Serialport，可避免發生Error_010002)
+				textBox1.Enabled = true;                                        //	開啟textBox1(接收字串資料文字方塊)功能
+				return;                                                         //	結束list_SerialPort副程式
+			}                                                                   //	結束else敘述
+		}                                                                       //	結束list_SerialPort副程式
 		public void Uart_comport_handle                                         //	串列埠連線處理Uart_comport_handle副程式
 		(string comport_name, int Baud_Rate, int Parity_set)
 		//  處理Uart_comport連線設定
 		//  呼叫格式為Uart_comport_handle(comport名稱,連線鮑率,同位位元設定,)
 		//  同位位元設定說明：0為不檢查(None),1為奇同位檢察,2為偶同位檢察,3為同位位元恆為1,4為同位位元恆為0
 		{                                                                       //	進入Uart_comport_handle副程式
-			Uart_comport_handle_Runtimes = Uart_comport_handle_Runtimes + 1;    //	遞增Uart_comport_handle_Runtimes變數
+			DebugVariables.Set_Uart_comport_handle_Runtimes();                  //	呼叫Set_Uart_comport_handle_Runtimes方法遞增Uart_comport_handle_Runtimes變數
 			if (Uart_comport_connected == true)
 			//  若Uart_comport_connected為True，代表Uart_comport連線中，將執行中斷連線
 			{                                                                   //	進入if敘述
