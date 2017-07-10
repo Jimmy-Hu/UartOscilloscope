@@ -15,14 +15,14 @@ namespace UartOscilloscope                                                      
 		private static int BaudRate;                                            //	宣告BaudRate靜態私有變數，控制SerialPort連線鮑率
 		private static int ParitySetting;                                       //	宣告ParitySetting靜態私有變數，控制SerialPort串列埠之Parity同位位元設定
 		private static int DataBitsSetting;                                     //	宣告DataBitsSetting靜態私有變數，控制SerialPort串列埠之DataBits數值
-		private static int COM_Port_num;                                        //	宣告COM_Port_num私有靜態變數，記錄已連線的SerialPort數量
+		private static int ConnectedCOMPortNum;                                 //	宣告ConnectedCOMPortNum私有靜態變數，記錄已連接的SerialPort數量
 		private static bool Uart_comport_connected;                             //	宣告Uart_comport_connected布林變數，表示Uart_comport連線狀態
 		public static void InitializeUARTConnectionSetting()                    //	InitializeUARTConnectionSetting方法，初始化UART連線參數
 		{                                                                       //	進入InitializeUARTConnectionSetting方法
 			BaudRate = 9600;                                                    //	預設BaudRate數值為9600
 			ParitySetting = 0;                                                  //	預設ParitySetting數值為0(無同位位元檢查)
 			DataBitsSetting = 8;                                                //	預設DataBitsSetting數值為8
-			COM_Port_num = 0;                                                   //	預設COM_Port_num為0
+			ConnectedCOMPortNum = 0;                                            //	預設ConnectedCOMPortNum為0
 			Uart_comport_connected = false;                                     //	預設Uart_comport_connected值為False
 		}                                                                       //	結束InitializeUARTConnectionSetting方法
 		public static void list_SerialPort()                                    //	偵測並列出已連線SerialPort副程式
@@ -40,7 +40,7 @@ namespace UartOscilloscope                                                      
 			}                                                                   //	結束if敘述
 			else                                                                //	若偵測到已連線的SerialPort
 			{                                                                   //	進入else敘述
-				COM_Port_num = ports.Length;                                    //	記錄已連線的SerialPort數量
+				ConnectedCOMPortNum = ports.Length;                                    //	記錄已連線的SerialPort數量
 				foreach (string port in ports)                                  //	依序處理每個已連線的SerialPort
 				{                                                               //	進入foreach敘述
 					comboBox1.Items.Add(port);                                  //	以條列式選單(comboBox1)列出已連線的SerialPort
@@ -50,7 +50,7 @@ namespace UartOscilloscope                                                      
 				return;                                                         //	結束list_SerialPort副程式
 			}                                                                   //	結束else敘述
 		}                                                                       //	結束list_SerialPort副程式
-		public void Uart_comport_handle                                         //	串列埠連線處理Uart_comport_handle副程式
+		public static void Uart_comport_handle                                  //	串列埠連線處理Uart_comport_handle副程式
 		(string comport_name)
 		//  處理Uart_comport連線設定
 		//  呼叫格式為Uart_comport_handle(comport名稱,連線鮑率,同位位元設定,)

@@ -37,7 +37,7 @@ namespace UartOscilloscope                                              //  命�
             Form1.localDate = DateTime.Now;                                     //  更新現在時間
             label4.Text = Form4.Login_Date.ToString();                          //  顯示除錯模式登入時間
             label6.Text = (Form1.localDate.ToString());                         //  顯示現在時間
-            label8.Text = Form1.COM_Port_num.ToString();                        //  顯示已連線之Serialport數量
+            label8.Text = Form1.ConnectedCOMPortNum.ToString();                        //  顯示已連線之Serialport數量
             label10.Text = Form1.list_SerialPort_Runtimes.ToString();           //  顯示list_SerialPort副程式執行次數
             label12.Text = Form1.comport_DataReceived_Runtimes.ToString();      //  顯示comport_DataReceived副程式執行次數
             label14.Text = Form1.Uart_comport_handle_Runtimes.ToString();       //  顯示Uart_comport_handle副程式執行次數
