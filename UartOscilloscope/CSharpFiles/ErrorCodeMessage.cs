@@ -12,8 +12,11 @@ namespace UartOscilloscope                                                      
 		private enum ErrorCodeEncoding                                          //	ErrorCode錯誤編碼列舉型態
 		{                                                                       //	進入ErrorCode錯誤編碼列舉型態
 			NoError = 000000,                                                   //	NoError編碼
-			NoSerialPort = 010001,                                              //	NoSerialPort編碼
-
+			NoSerialPortConnected = 010001,                                     //	NoSerialPortConnected編碼
+			NoSerialPortSelected = 010002,                                      //	NoSerialPortSelected編碼
+			SerialPortConnectError = 010003,                                    //	SerialPortConnectError編碼
+			LoginAccountNull = 040001,                                          //	LoginAccountNull編碼
+			LoginPasswordNull = 040002,                                         //	LoginPasswordNull編碼
 		}                                                                       //	結束ErrorCode錯誤編碼列舉型態
 		private struct Error_message_struct                                     //  宣告Error_message_struct結構
 		{
