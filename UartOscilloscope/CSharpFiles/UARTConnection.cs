@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace UartOscilloscope                                                      //	命名空間為UartOscilloscope
-{																				//	進入命名空間
-	class UARTConnection                                                        //	UARTConnection類別
+{                                                                               //	進入命名空間
+	public class UARTConnection                                                 //	UARTConnection類別
 	{                                                                           //	進入UARTConnection類別
 		public static int BaudRate;                                             //	宣告BaudRate靜態全域變數，控制SerialPort連線鮑率
 		public static int Parity_num;                                           //	宣告Parity_num靜態全域變數，控制SerialPort串列埠之Parity同位位元設定
