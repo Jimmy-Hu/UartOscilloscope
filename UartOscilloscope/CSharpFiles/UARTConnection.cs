@@ -25,6 +25,10 @@ namespace UartOscilloscope                                                      
 			ConnectedCOMPortNum = 0;                                            //	預設ConnectedCOMPortNum為0
 			Uart_comport_connected = false;                                     //	預設Uart_comport_connected值為False
 		}                                                                       //	結束InitializeUARTConnectionSetting方法
+		public static bool Get_Uart_comport_connected()                         //	Get_Uart_comport_connected方法，用以取得Uart_comport_connected狀態
+		{                                                                       //	進入Get_Uart_comport_connected方法
+			return Uart_comport_connected;                                      //	回傳Uart_comport_connected狀態
+		}                                                                       //	結束Get_Uart_comport_connected方法
 		public static void list_SerialPort()                                    //	偵測並列出已連線SerialPort副程式
 		{                                                                       //	進入list_SerialPort副程式
 			DebugVariables.Set_list_SerialPort_Runtimes();                      //	呼叫Set_list_SerialPort_Runtimes方法遞增list_SerialPort_Runtimes變數
@@ -40,7 +44,7 @@ namespace UartOscilloscope                                                      
 			}                                                                   //	結束if敘述
 			else                                                                //	若偵測到已連線的SerialPort
 			{                                                                   //	進入else敘述
-				ConnectedCOMPortNum = ports.Length;                                    //	記錄已連線的SerialPort數量
+				ConnectedCOMPortNum = ports.Length;                             //	記錄已連線的SerialPort數量
 				foreach (string port in ports)                                  //	依序處理每個已連線的SerialPort
 				{                                                               //	進入foreach敘述
 					comboBox1.Items.Add(port);                                  //	以條列式選單(comboBox1)列出已連線的SerialPort
