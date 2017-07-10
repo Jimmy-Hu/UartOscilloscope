@@ -8,7 +8,7 @@ using System.Text;                                                              
 using System.Threading.Tasks;                                                   //  使用System.Threading.Tasks函式庫
 using System.Windows.Forms;                                                     //  使用System.Windows.Forms函式庫
 
-namespace UartOscilloscope                                              //  命名空間為本程式
+namespace UartOscilloscope                                                      //  命名空間為本程式
 {                                                                               //  進入命名空間
     public partial class Form2 : Form                                           //  Form2類別
     {                                                                           //  進入Form2類別
@@ -18,14 +18,13 @@ namespace UartOscilloscope                                              //  命�
         }                                                                       //  結束Form2
         private void Form2_Load(object sender, EventArgs e)                     //  Form2表單載入時執行
         {                                                                       //  進入Form2_Load副程式
-            textBox1.Text = Form1.BaudRate.ToString();                          //  載入當前鮑率(BaudRate)設定
-            comboBox1.SelectedIndex = Form1.Parity_num;                         //  載入當前同位位元設定
+            textBox1.Text = UARTConnection.Get_BaudRate().ToString();           //  載入當前鮑率(BaudRate)設定
+            comboBox1.SelectedIndex = UARTConnection.Get_ParitySetting();       //  載入當前同位位元設定
         }                                                                       //  結束Form2_Load副程式
         private void button1_Click(object sender, EventArgs e)                  //  當按下"儲存"按鈕
         {                                                                       //  進入button1_Click副程式
-            Form1.BaudRate = int.Parse(textBox1.Text);                          //  更新BaudRate鮑率設定
-            Form1.Parity_num = comboBox1.SelectedIndex;                         //  更新Parity_num同位位元設定
-
+            UARTConnection.Set_BaudRate(int.Parse(textBox1.Text));              //  更新BaudRate鮑率設定
+            UARTConnection.Set_ParitySetting(comboBox1.SelectedIndex);          //  更新Parity_num同位位元設定
             var Information = MessageBox.Show                                   //  顯示通知訊息
                     (                                                           //  進入通知訊息MessageBox設定
                         "連線設定將於下次連線生效",                             //  顯示文字"連線設定將於下次連線生效"

@@ -6,6 +6,7 @@ using System.IO.Ports;															//	使用System.IO.Ports函式庫
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;                                                     //	使用System.Windows.Forms函式庫
 
 namespace UartOscilloscope                                                      //	命名空間為UartOscilloscope
 {                                                                               //	進入命名空間
@@ -25,6 +26,30 @@ namespace UartOscilloscope                                                      
 			ConnectedCOMPortNum = 0;                                            //	預設ConnectedCOMPortNum為0
 			Uart_comport_connected = false;                                     //	預設Uart_comport_connected值為False
 		}                                                                       //	結束InitializeUARTConnectionSetting方法
+		public static int Get_BaudRate()                                        //	Get_BaudRate方法
+		{                                                                       //	進入Get_BaudRate方法
+			return BaudRate;                                                    //	回傳BaudRate數值
+		}                                                                       //	結束Get_BaudRate方法
+		public static void Set_BaudRate(int NewBaudRate)                        //	Set_BaudRate方法
+		{                                                                       //	進入Set_BaudRate方法
+			BaudRate = NewBaudRate;                                             //	設定BaudRate
+		}                                                                       //	進入Set_BaudRate方法
+		public static int Get_ParitySetting()                                   //	Get_ParitySetting方法
+		{                                                                       //	進入Get_ParitySetting方法
+			return ParitySetting;                                               //	回傳ParitySetting數值
+		}                                                                       //	結束Get_ParitySetting方法
+		public static void Set_ParitySetting(int NewParitySetting)              //	Set_ParitySetting方法
+		{                                                                       //	進入Set_ParitySetting方法
+			ParitySetting = NewParitySetting;                                   //	設定ParitySetting
+		}                                                                       //	結束Set_ParitySetting方法
+		public static int Get_DataBitsSetting()                                 //	Get_DataBitsSetting方法
+		{                                                                       //	進入Get_DataBitsSetting方法
+			return DataBitsSetting;                                             //	回傳DataBitsSetting數值
+		}                                                                       //	結束Get_DataBitsSetting方法
+		public static int Get_ConnectedCOMPortNum()                             //	Get_ConnectedCOMPortNum方法
+		{                                                                       //	進入Get_ConnectedCOMPortNum方法
+			return ConnectedCOMPortNum;                                         //	回傳ConnectedCOMPortNum數值
+		}                                                                       //	結束Get_ConnectedCOMPortNum方法
 		public static bool Get_Uart_comport_connected()                         //	Get_Uart_comport_connected方法，用以取得Uart_comport_connected狀態
 		{                                                                       //	進入Get_Uart_comport_connected方法
 			return Uart_comport_connected;                                      //	回傳Uart_comport_connected狀態
@@ -78,8 +103,8 @@ namespace UartOscilloscope                                                      
 				label6.Text = "偵測連接埠設定";                                 //	顯示連線狀態為"偵測連接埠設定"
 				if (comport_name == "")                                         //	若comport_name為空白(Combobox1未選定)
 				{                                                               //	進入if敘述
-					ErrorCode = 010002;                                         //	記錄ErrorCode
-					ErrorCodeMessage.Error_Message_Show(ErrorCode);             //	顯示錯誤訊息
+					ErrorCodeMessage.Error_Message_Show((int)ErrorCodeMessage.ErrorCodeEncoding.NoSerialPortSelected);
+					//	顯示錯誤訊息
 					button2.Enabled = true;                                     //	重新開啟"連線/中斷連線"按鈕功能
 					return;                                                     //	結束Uart_comport_handle副程式
 				}                                                               //	結束if敘述
@@ -92,8 +117,8 @@ namespace UartOscilloscope                                                      
 					}                                                           //	結束try敘述
 					catch (System.IO.IOException)                               //	當IO發生錯誤時的例外狀況
 					{                                                           //	進入catch敘述
-						ErrorCode = 010003;                                     //	記錄ErrorCode
-						ErrorCodeMessage.Error_Message_Show(ErrorCode);         //	顯示錯誤訊息
+						ErrorCodeMessage.Error_Message_Show((int)ErrorCodeMessage.ErrorCodeEncoding.SerialPortConnectError);
+						//	顯示錯誤訊息
 						button2.Enabled = true;                                 //	重新開啟"連線/中斷連線"按鈕功能
 						return;                                                 //	結束Uart_comport_handle副程式
 					}                                                           //	結束catch敘述
