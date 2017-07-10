@@ -12,8 +12,9 @@ namespace UartOscilloscope														//  命名空間為本程式
 {                                                                               //  進入命名空間
     public partial class Form4 : Form                                           //  Form4類別
     {                                                                           //  進入Form4類別
-        public static Form1.Debug_Login_Account_struct                          //  宣告Debug_Login_Account_Input全域變數，儲存輸入帳號密碼資訊
-            Debug_Login_Account_Input = new Form1.Debug_Login_Account_struct(); //  宣告Debug_Login_Account_Input全域變數，儲存輸入帳號密碼資訊
+        public static DebugVariables.Debug_Login_Account_struct                 //  宣告Debug_Login_Account_Input全域變數，儲存輸入帳號密碼資訊
+            Debug_Login_Account_Input = new DebugVariables.Debug_Login_Account_struct(); 
+		//  宣告Debug_Login_Account_Input全域變數，儲存輸入帳號密碼資訊
         public static DateTime Login_Date;                                      //  宣告Login_Date時間變數，記錄除錯模式登入時間
         public Form4()                                                          //  宣告Form4
         {                                                                       //  進入Form4
@@ -28,10 +29,10 @@ namespace UartOscilloscope														//  命名空間為本程式
             //  輸入資訊檢查
             if (textBox1.Text == "")                                            //  若帳號資訊(textBox1欄位)為空白
             {                                                                   //  進入if敘述
-                Form1.ErrorCode = 040001;                                       //  記錄ErrorCode
                 var Error = MessageBox.Show                                     //  顯示錯誤訊息
                     (                                                           //  進入錯誤訊息MessageBox設定
-                        "請輸入帳號，ErrorCode=" + Form1.ErrorCode,             //  顯示錯誤訊息"請輸入帳號"，同時顯示ErrorCode
+                        "請輸入帳號，ErrorCode=" + ErrorCodeMessage.ErrorCodeEncoding.LoginAccountNull,
+						//  顯示錯誤訊息"請輸入帳號"，同時顯示ErrorCode
                         "請輸入帳號",                                           //  顯示錯誤訊息標題為"請輸入帳號"
                         MessageBoxButtons.OK,                                   //  顯示"OK"按鈕
                         MessageBoxIcon.Error                                    //  顯示錯誤標誌
@@ -40,10 +41,10 @@ namespace UartOscilloscope														//  命名空間為本程式
             }                                                                   //  結束if敘述
             if (textBox2.Text == "")                                            //  若密碼資訊(textBox2欄位)為空白
             {                                                                   //  進入if敘述
-                Form1.ErrorCode = 040002;                                       //  記錄ErrorCode
                 var Error = MessageBox.Show                                     //  顯示錯誤訊息
                     (                                                           //  進入錯誤訊息MessageBox設定
-                        "請輸入密碼，ErrorCode=" + Form1.ErrorCode,             //  顯示錯誤訊息"請輸入密碼"，同時顯示ErrorCode
+                        "請輸入密碼，ErrorCode=" + ErrorCodeMessage.ErrorCodeEncoding.LoginPasswordNull,
+						//  顯示錯誤訊息"請輸入密碼"，同時顯示ErrorCode
                         "請輸入密碼",                                           //  顯示錯誤訊息標題為"請輸入密碼"
                         MessageBoxButtons.OK,                                   //  顯示"OK"按鈕
                         MessageBoxIcon.Error                                    //  顯示錯誤標誌
@@ -53,14 +54,15 @@ namespace UartOscilloscope														//  命名空間為本程式
             Debug_Login_Account_Input.Debug_Login_Account = textBox1.Text;      //  將輸入之帳號資訊(textBox1.Text欄位)填入Debug_Login_Account_Input.Debug_Login_Account
             Debug_Login_Account_Input.Debug_Login_Password = textBox2.Text;     //  將輸入之密碼資訊(textBox2.Text欄位)填入Debug_Login_Account_Input.Debug_Login_Password
             if (Debug_Login_Account_Input.Debug_Login_Account ==                //  檢測輸入帳號，若輸入帳號正確則進入if敘述
-                Form1.Debug_Account1.Debug_Login_Account)                       //  檢測輸入帳號，若輸入帳號正確則進入if敘述
+				DebugVariables.Debug_Account1.Debug_Login_Account)              //  檢測輸入帳號，若輸入帳號正確則進入if敘述
             {                                                                   //  進入if敘述
                 if (Debug_Login_Account_Input.Debug_Login_Password ==           //  檢測輸入密碼，若輸入密碼正確則進入if敘述
-                Form1.Debug_Account1.Debug_Login_Password)                      //  檢測輸入密碼，若輸入密碼正確則進入if敘述
+				DebugVariables.Debug_Account1.Debug_Login_Password)             //  檢測輸入密碼，若輸入密碼正確則進入if敘述
                 {                                                               //  進入if敘述
                     var warning = MessageBox.Show                               //  顯示通知訊息
                     (                                                           //  進入警告訊息MessageBox設定
-                        "已成功登入" + Form1.Debug_Account1.Debug_Login_Account,//  顯示"已成功登入"，並顯示登入帳號名稱
+                        "已成功登入" + DebugVariables.Debug_Account1.Debug_Login_Account,
+						//  顯示"已成功登入"，並顯示登入帳號名稱
                         "登入成功",                                             //  訊息標題為"登入成功"
                         MessageBoxButtons.OK,                                   //  顯示"OK"按鈕
                         MessageBoxIcon.Information                              //  顯示information標誌
@@ -74,10 +76,10 @@ namespace UartOscilloscope														//  命名空間為本程式
                 }                                                               //  結束if敘述
                 else                                                            //  若密碼輸入錯誤，則進入else敘述
                 {                                                               //  進入else敘述
-                    Form1.ErrorCode = 040004;                                   //  記錄ErrorCode
                     var warning = MessageBox.Show                               //  顯示錯誤訊息
                     (                                                           //  進入錯誤訊息MessageBox設定
-                        "密碼錯誤，ErrorCode=" + Form1.ErrorCode,               //  顯示錯誤訊息"密碼錯誤"，同時顯示ErrorCode
+                        "密碼錯誤，ErrorCode=" + ErrorCodeMessage.ErrorCodeEncoding.LoginPasswordError,
+						//  顯示錯誤訊息"密碼錯誤"，同時顯示ErrorCode
                         "密碼錯誤",                                             //  顯示錯誤訊息標題為"密碼錯誤"
                         MessageBoxButtons.OK,                                   //  顯示"OK"按鈕
                         MessageBoxIcon.Error                                    //  顯示錯誤標誌
@@ -89,10 +91,10 @@ namespace UartOscilloscope														//  命名空間為本程式
             }                                                                   //  結束if敘述
             else                                                                //  若帳號輸入錯誤，則進入else敘述
             {                                                                   //  進入else敘述
-                Form1.ErrorCode = 040003;                                       //  記錄ErrorCode
                 var warning = MessageBox.Show                                   //  顯示錯誤訊息
                 (                                                               //  進入錯誤訊息MessageBox設定
-                    "帳號錯誤，ErrorCode=" + Form1.ErrorCode,                   //  顯示錯誤訊息"帳號錯誤"，同時顯示ErrorCode
+                    "帳號錯誤，ErrorCode=" + ErrorCodeMessage.ErrorCodeEncoding.LoginAccountError,
+					//  顯示錯誤訊息"帳號錯誤"，同時顯示ErrorCode
                     "帳號錯誤",                                                 //  顯示錯誤訊息標題為"帳號錯誤"
                     MessageBoxButtons.OK,                                       //  顯示"OK"按鈕
                     MessageBoxIcon.Error                                        //  顯示錯誤標誌
