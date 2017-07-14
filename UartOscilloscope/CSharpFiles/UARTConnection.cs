@@ -12,9 +12,16 @@ namespace UartOscilloscope                                                      
 {                                                                               //	進入命名空間
 	public class UARTConnection                                                 //	UARTConnection類別
 	{                                                                           //	進入UARTConnection類別
+		/// <summary>
+		/// 宣告靜態常數
+		/// </summary>
+		private const int DefaultBaudRate = 9600;                               //	宣告DefaultBaudRate(預設鮑率)常數
+		/*	同位位元設定說明：0為不檢查(None),1為奇同位檢察,2為偶同位檢察,3為同位位元恆為1,4為同位位元恆為0 */
+		private const Parity DefaultParitySetting = 0;                          //	宣告DefaultParitySetting(預設同位位元設定)常數
+		
 		public static SerialPort Uart_comport;                                  //	宣告新的SerialPort通訊埠，名稱為Uart_comport
 		private static int BaudRate;                                            //	宣告BaudRate靜態私有變數，控制SerialPort連線鮑率
-		private static int ParitySetting;                                       //	宣告ParitySetting靜態私有變數，控制SerialPort串列埠之Parity同位位元設定
+		private static Parity ParitySetting;                                    //	宣告ParitySetting靜態私有變數，控制SerialPort串列埠之Parity同位位元設定
 		private static int DataBitsSetting;                                     //	宣告DataBitsSetting靜態私有變數，控制SerialPort串列埠之DataBits數值
 		private static int ConnectedCOMPortNum;                                 //	宣告ConnectedCOMPortNum私有靜態變數，記錄已連接的SerialPort數量
 		private static bool Uart_comport_connected;                             //	宣告Uart_comport_connected布林變數，表示Uart_comport連線狀態
@@ -24,8 +31,8 @@ namespace UartOscilloscope                                                      
 		}                                                                       //	結束UARTConnection建構子
 		public static void InitializeUARTConnectionSetting()                    //	InitializeUARTConnectionSetting方法，初始化UART連線參數
 		{                                                                       //	進入InitializeUARTConnectionSetting方法
-			BaudRate = 9600;                                                    //	預設BaudRate數值為9600
-			ParitySetting = 0;                                                  //	預設ParitySetting數值為0(無同位位元檢查)
+			BaudRate = DefaultBaudRate;                                         //	預設BaudRate數值為DefaultBaudRate
+			ParitySetting = DefaultParitySetting;                               //	預設ParitySetting數值為0(無同位位元檢查)
 			DataBitsSetting = 8;                                                //	預設DataBitsSetting數值為8
 			ConnectedCOMPortNum = 0;                                            //	預設ConnectedCOMPortNum為0
 			Uart_comport_connected = false;                                     //	預設Uart_comport_connected值為False
@@ -38,11 +45,11 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入Set_BaudRate方法
 			BaudRate = NewBaudRate;                                             //	設定BaudRate
 		}                                                                       //	進入Set_BaudRate方法
-		public static int Get_ParitySetting()                                   //	Get_ParitySetting方法
+		public static Parity Get_ParitySetting()                                //	Get_ParitySetting方法
 		{                                                                       //	進入Get_ParitySetting方法
 			return ParitySetting;                                               //	回傳ParitySetting數值
 		}                                                                       //	結束Get_ParitySetting方法
-		public static void Set_ParitySetting(int NewParitySetting)              //	Set_ParitySetting方法
+		public static void Set_ParitySetting(Parity NewParitySetting)           //	Set_ParitySetting方法
 		{                                                                       //	進入Set_ParitySetting方法
 			ParitySetting = NewParitySetting;                                   //	設定ParitySetting
 		}                                                                       //	結束Set_ParitySetting方法
@@ -96,10 +103,14 @@ namespace UartOscilloscope                                                      
 				return;                                                         //	結束list_SerialPort副程式
 			}                                                                   //	結束else敘述
 		}                                                                       //	結束list_SerialPort副程式
+		/// <summary>
+		/// Uart_comport_handle副程式
+		/// Uart_comport_handle副程式用於處理Uart_comport連線設定
+		///  呼叫格式為Uart_comport_handle(comport名稱)
+		///  
+		/// </summary>
+		/// <param name="comport_name"></param>
 		public void Uart_comport_handle(string comport_name)                    //	串列埠連線處理Uart_comport_handle副程式
-																				//  處理Uart_comport連線設定
-																				//  呼叫格式為Uart_comport_handle(comport名稱,連線鮑率,同位位元設定,)
-																				//  同位位元設定說明：0為不檢查(None),1為奇同位檢察,2為偶同位檢察,3為同位位元恆為1,4為同位位元恆為0
 		{                                                                       //	進入Uart_comport_handle副程式
 			DebugVariables.Set_Uart_comport_handle_Runtimes();                  //	呼叫Set_Uart_comport_handle_Runtimes方法遞增Uart_comport_handle_Runtimes變數
 			if (UARTConnection.Get_Uart_comport_connected() == true)            //  若Uart_comport_connected為True，代表Uart_comport連線中，將執行中斷連線
