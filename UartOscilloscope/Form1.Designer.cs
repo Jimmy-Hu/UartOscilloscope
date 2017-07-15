@@ -132,7 +132,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(246, 20);
             this.comboBox1.TabIndex = 5;
-			this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_text_change);;
+			this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_text_change);
 			// 
 			// label3
 			// 
