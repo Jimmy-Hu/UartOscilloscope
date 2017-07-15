@@ -19,7 +19,7 @@ namespace UartOscilloscope                                                      
         private void Form2_Load(object sender, EventArgs e)                     //  Form2表單載入時執行
         {                                                                       //  進入Form2_Load副程式
             textBox1.Text = UARTConnection.Get_BaudRate().ToString();           //  載入當前鮑率(BaudRate)設定
-            comboBox1.SelectedIndex = UARTConnection.Get_ParitySetting();       //  載入當前同位位元設定
+            comboBox1.SelectedIndex = (int)UARTConnection.Get_ParitySetting();  //  載入當前同位位元設定
         }                                                                       //  結束Form2_Load副程式
         private void button1_Click(object sender, EventArgs e)                  //  當按下"儲存"按鈕
         {                                                                       //  進入button1_Click副程式
