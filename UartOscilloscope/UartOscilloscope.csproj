@@ -54,7 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSharpFiles\DebugVariables.cs" />
     <Compile Include="CSharpFiles\ErrorCodeMessage.cs" />
+    <Compile Include="CSharpFiles\OpenGLExtension.cs" />
+    <Compile Include="CSharpFiles\UARTConnection.cs" />
     <Compile Include="CSharpFiles\VersionInfo.cs" />
     <Compile Include="CSharpFiles\WorkingMode.cs" />
     <Compile Include="Form1.cs">
