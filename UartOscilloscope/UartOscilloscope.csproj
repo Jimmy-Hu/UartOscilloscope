@@ -7,8 +7,8 @@
     <ProjectGuid>{8D89102B-2B1F-43D5-83C2-DA86889BA3D7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WindowsFormsApplication6</RootNamespace>
-    <AssemblyName>WindowsFormsApplication6</AssemblyName>
+    <RootNamespace>UartOscilloscope</RootNamespace>
+    <AssemblyName>UartOscilloscope</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -116,6 +116,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
