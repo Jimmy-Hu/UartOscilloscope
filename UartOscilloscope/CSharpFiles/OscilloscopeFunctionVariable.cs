@@ -33,5 +33,10 @@ namespace UartOscilloscope														//	命名空間為本程式
 		{																		//	進入Get_ADC_Raw_Data_Max方法
 			return OscilloscopeFunctionVariable.ADC_Raw_Data_Max;				//	回傳ADC_Raw_Data_Max數值
 		}																		//	結束Get_ADC_Raw_Data_Max方法
+		public static void Set_ADC_Raw_Data_Max(int InputData)                  //	宣告Set_ADC_Raw_Data_Max方法
+		{                                                                       //	進入Set_ADC_Raw_Data_Max方法
+			OscilloscopeFunctionVariable.ADC_Raw_Data_Max = InputData;          //	設定ADC_Raw_Data_Max數值
+			return;                                                             //	結束Set_ADC_Raw_Data_Max方法
+		}                                                                       //	結束Set_ADC_Raw_Data_Max方法
 	}																			//	結束OscilloscopeFunctionVariable類別
 }																				//	結束命名空間
