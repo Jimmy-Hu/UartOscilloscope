@@ -1,8 +1,9 @@
 ﻿/********************************************************************
- * Develop by Jimmy Hu												*
+ * Develop by Jimmy Hu,												*
+ * s103360021@gmail.com												*
  * This program is licensed under the Apache License 2.0.			*
- * OscilloscopeFunctionVariable.cs								*
- * 本檔案撰寫OscilloscopeFunctionVariable類別以宣告Oscilloscope	*
+ * OscilloscopeFunctionVariable.cs									*
+ * 本檔案撰寫OscilloscopeFunctionVariable類別以宣告Oscilloscope		*
  * 功能實作變數														*
  ********************************************************************
  */
