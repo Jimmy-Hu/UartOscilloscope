@@ -7,7 +7,7 @@
  ********************************************************************
  */
 using System;
-using System.Collections.Generic;
+using System.Collections.Generic;                                               //	使用System.Collections.Generic函式庫
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
