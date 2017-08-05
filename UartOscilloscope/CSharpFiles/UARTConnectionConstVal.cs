@@ -2,7 +2,9 @@
 using Microsoft.Analytics.Types.Sql;
 using System;
 using System.Collections.Generic;
-using System.IO.Ports;
+/*	串列埠(Comport)物件宣告於System.IO.Ports函式庫中
+ */
+using System.IO.Ports;                                                          //	使用System.IO.Ports函式庫
 using System.Linq;
 using System.Text;
 
