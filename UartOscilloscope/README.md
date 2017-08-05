@@ -14,7 +14,7 @@
 - 顯示「設定_介面設定ToolStripMenuItem_Click」副程式自程式開始運行時之執行次數，可手動重置(歸零)。
 - 顯示「list_SerialPort」副程式自程式開始運行時之執行次數，可手動重置(歸零)。
 - 顯示「comport_DataReceived」副程式自程式開始運行時之執行次數，可手動重置(歸零)。
-- 顯示「Uart_comport_handle」副程式自程式開始運行時之執行次數，可手動重置(歸零)。
+- 顯示「UartComport_handle」副程式自程式開始運行時之執行次數，可手動重置(歸零)。
 - 顯示「DisplayText」副程式自程式開始運行時之執行次數，可手動重置(歸零)。
 - 可於執行comport_DataReceived副程式時顯示Uart傳輸之Buffer大小。
 - 可於執行comport_DataReceived副程式時顯示Uart傳輸之Buffer資料(ASCII編碼值)。
