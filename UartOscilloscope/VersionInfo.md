@@ -24,3 +24,8 @@
 	- 於OscilloscopeFunctionVariable.cs檔案中新增Get_ADC_Raw_Data_Max方法，用以取得ADC_Raw_Data_Max數值，並將ADC_Raw_Data_Max變數設定為private
 	- 建立CSharpFiles資料夾存放自訂程式檔
 	- 建立VersionInfo.cs檔案並
+
+未解決issue：
+	1、COM port中斷連線有時會導致程式當機
+	2、以Queue資料結構分析字串有時會發生錯誤
+	3、
