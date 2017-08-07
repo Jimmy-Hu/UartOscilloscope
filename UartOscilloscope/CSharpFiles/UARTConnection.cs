@@ -13,7 +13,6 @@ namespace UartOscilloscope                                                      
 	public class UARTConnection													//	UARTConnection類別
 	{                                                                           //	進入UARTConnection類別
 		public SerialPort UartComport;											//	宣告SerialPort通訊埠，名稱為UartComport
-		private static Parity ParitySetting;                                    //	宣告ParitySetting靜態私有變數，控制SerialPort串列埠之Parity同位位元設定
 		private static int DataBitsSetting;                                     //	宣告DataBitsSetting靜態私有變數，控制SerialPort串列埠之DataBits數值
 		private static int ConnectedCOMPortNum;                                 //	宣告ConnectedCOMPortNum私有靜態變數，記錄已連接的SerialPort數量
 		private static bool UartComport_connected;								//	宣告UartComport_connected布林變數，表示UartComport連線狀態
@@ -42,7 +41,7 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入GetParitySetting方法
 			return UartComport.Parity;                                               //	回傳Parity數值
 		}                                                                       //	結束GetParitySetting方法
-		public static void SetParitySetting(Parity NewParitySetting)           //	SetParitySetting方法
+		public static void SetParitySetting(Parity NewParitySetting)            //	SetParitySetting方法
 		{                                                                       //	進入SetParitySetting方法
 			ParitySetting = NewParitySetting;                                   //	設定ParitySetting
 		}                                                                       //	結束SetParitySetting方法
