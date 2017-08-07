@@ -38,21 +38,21 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入SetBaudRate方法
 			UartComport.BaudRate = NewBaudRate;                                 //	設定BaudRate
 		}                                                                       //	進入SetBaudRate方法
-		public static Parity GetParitySetting()                                 //	GetParitySetting方法
+		public Parity GetParitySetting()										//	GetParitySetting方法
 		{                                                                       //	進入GetParitySetting方法
-			return ParitySetting;                                               //	回傳ParitySetting數值
+			return UartComport.Parity;                                               //	回傳Parity數值
 		}                                                                       //	結束GetParitySetting方法
-		public static void Set_ParitySetting(Parity NewParitySetting)           //	Set_ParitySetting方法
-		{                                                                       //	進入Set_ParitySetting方法
+		public static void SetParitySetting(Parity NewParitySetting)           //	SetParitySetting方法
+		{                                                                       //	進入SetParitySetting方法
 			ParitySetting = NewParitySetting;                                   //	設定ParitySetting
-		}                                                                       //	結束Set_ParitySetting方法
+		}                                                                       //	結束SetParitySetting方法
 		/// <summary>
-		/// Set_ParitySetting方法用於調整同位位元設定
+		/// SetParitySetting方法用於調整同位位元設定
 		/// 同位位元設定說明：0為不檢查(None),1為奇同位檢察,2為偶同位檢察,3為同位位元恆為1,4為同位位元恆為0
 		/// </summary>
 		/// <param name="NewParitySetting"></param>
-		public static void Set_ParitySetting(int NewParitySetting)				//	Set_ParitySetting方法
-		{                                                                       //	進入Set_ParitySetting方法
+		public static void SetParitySetting(int NewParitySetting)				//	SetParitySetting方法
+		{                                                                       //	進入SetParitySetting方法
 			switch (NewParitySetting)
 			{
 				case 0 :
@@ -83,7 +83,7 @@ namespace UartOscilloscope                                                      
 				default:
 					break;
 			}
-		}                                                                       //	結束Set_ParitySetting方法
+		}                                                                       //	結束SetParitySetting方法
 		public static int Get_DataBitsSetting()                                 //	Get_DataBitsSetting方法
 		{                                                                       //	進入Get_DataBitsSetting方法
 			return DataBitsSetting;                                             //	回傳DataBitsSetting數值
