@@ -23,7 +23,8 @@ namespace UartOscilloscope                                                      
 		public void InitializeUARTConnectionSetting()							//	InitializeUARTConnectionSetting方法，初始化UART連線參數
 		{                                                                       //	進入InitializeUARTConnectionSetting方法
 			UartComport.BaudRate = UARTConnectionConstVal.GetDefaultBaudRate(); //	預設BaudRate數值為DefaultBaudRate
-			ParitySetting = UARTConnectionConstVal.GetDefaultParitySetting();   //	預設ParitySetting數值為0(無同位位元檢查)
+			UartComport.Parity = UARTConnectionConstVal.GetDefaultParitySetting();
+			//	預設Parity數值為0(無同位位元檢查)
 			DataBitsSetting = UARTConnectionConstVal.GetDefaultDataBitsSetting();
 			//	預設DataBitsSetting數值為8
 			ConnectedCOMPortNum = 0;                                            //	預設ConnectedCOMPortNum為0
@@ -39,44 +40,44 @@ namespace UartOscilloscope                                                      
 		}                                                                       //	進入SetBaudRate方法
 		public Parity GetParitySetting()										//	GetParitySetting方法
 		{                                                                       //	進入GetParitySetting方法
-			return UartComport.Parity;                                               //	回傳Parity數值
+			return UartComport.Parity;                                          //	回傳Parity數值
 		}                                                                       //	結束GetParitySetting方法
-		public static void SetParitySetting(Parity NewParitySetting)            //	SetParitySetting方法
+		public void SetParitySetting(Parity NewParitySetting)					//	SetParitySetting方法
 		{                                                                       //	進入SetParitySetting方法
-			ParitySetting = NewParitySetting;                                   //	設定ParitySetting
+			UartComport.Parity = NewParitySetting;                              //	設定ParitySetting
 		}                                                                       //	結束SetParitySetting方法
 		/// <summary>
 		/// SetParitySetting方法用於調整同位位元設定
 		/// 同位位元設定說明：0為不檢查(None),1為奇同位檢察,2為偶同位檢察,3為同位位元恆為1,4為同位位元恆為0
 		/// </summary>
 		/// <param name="NewParitySetting"></param>
-		public static void SetParitySetting(int NewParitySetting)				//	SetParitySetting方法
+		public void SetParitySetting(int NewParitySetting)						//	SetParitySetting方法
 		{                                                                       //	進入SetParitySetting方法
 			switch (NewParitySetting)
 			{
 				case 0 :
 					{
-						ParitySetting = Parity.None;
+						UartComport.Parity = Parity.None;
 						break;
 					}
 				case 1:
 					{
-						ParitySetting = Parity.Odd;
+						UartComport.Parity = Parity.Odd;
 						break;
 					}
 				case 2:
 					{
-						ParitySetting = Parity.Even;
+						UartComport.Parity = Parity.Even;
 						break;
 					}
 				case 3:
 					{
-						ParitySetting = Parity.Mark;
+						UartComport.Parity = Parity.Mark;
 						break;
 					}
 				case 4:
 					{
-						ParitySetting = Parity.Space;
+						UartComport.Parity = Parity.Space;
 						break;
 					}
 				default:
