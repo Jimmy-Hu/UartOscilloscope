@@ -38,10 +38,10 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入SetBaudRate方法
 			UartComport.BaudRate = NewBaudRate;                                 //	設定BaudRate
 		}                                                                       //	進入SetBaudRate方法
-		public static Parity Get_ParitySetting()                                //	Get_ParitySetting方法
-		{                                                                       //	進入Get_ParitySetting方法
+		public static Parity GetParitySetting()                                //	GetParitySetting方法
+		{                                                                       //	進入GetParitySetting方法
 			return ParitySetting;                                               //	回傳ParitySetting數值
-		}                                                                       //	結束Get_ParitySetting方法
+		}                                                                       //	結束GetParitySetting方法
 		public static void Set_ParitySetting(Parity NewParitySetting)           //	Set_ParitySetting方法
 		{                                                                       //	進入Set_ParitySetting方法
 			ParitySetting = NewParitySetting;                                   //	設定ParitySetting
