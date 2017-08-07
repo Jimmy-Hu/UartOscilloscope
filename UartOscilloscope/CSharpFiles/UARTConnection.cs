@@ -10,10 +10,9 @@ using System.Windows.Forms;                                                     
 
 namespace UartOscilloscope                                                      //	命名空間為UartOscilloscope
 {                                                                               //	進入命名空間
-	public class UARTConnection                                                 //	UARTConnection類別
+	public class UARTConnection	: SerialPort                                                //	UARTConnection類別
 	{                                                                           //	進入UARTConnection類別
-		public SerialPort UartComport;											//	宣告SerialPort通訊埠，名稱為UartComport
-		private static int BaudRate;                                            //	宣告BaudRate靜態私有變數，控制SerialPort連線鮑率
+		public SerialPort UartComport;									//	宣告SerialPort通訊埠，名稱為UartComport
 		private static Parity ParitySetting;                                    //	宣告ParitySetting靜態私有變數，控制SerialPort串列埠之Parity同位位元設定
 		private static int DataBitsSetting;                                     //	宣告DataBitsSetting靜態私有變數，控制SerialPort串列埠之DataBits數值
 		private static int ConnectedCOMPortNum;                                 //	宣告ConnectedCOMPortNum私有靜態變數，記錄已連接的SerialPort數量
@@ -24,20 +23,20 @@ namespace UartOscilloscope                                                      
 		}                                                                       //	結束UARTConnection建構子
 		public void InitializeUARTConnectionSetting()							//	InitializeUARTConnectionSetting方法，初始化UART連線參數
 		{                                                                       //	進入InitializeUARTConnectionSetting方法
-			BaudRate = UARTConnectionConstVal.GetDefaultBaudRate();             //	預設BaudRate數值為DefaultBaudRate
+			UartComport.BaudRate = UARTConnectionConstVal.GetDefaultBaudRate(); //	預設BaudRate數值為DefaultBaudRate
 			ParitySetting = UARTConnectionConstVal.GetDefaultParitySetting();   //	預設ParitySetting數值為0(無同位位元檢查)
 			DataBitsSetting = UARTConnectionConstVal.GetDefaultDataBitsSetting();
 			//	預設DataBitsSetting數值為8
 			ConnectedCOMPortNum = 0;                                            //	預設ConnectedCOMPortNum為0
 			UartComport_connected = false;										//	預設UartComport_connected值為False
 		}                                                                       //	結束InitializeUARTConnectionSetting方法
-		public static int GetBaudRate()                                         //	GetBaudRate方法
+		public int GetBaudRate()												//	GetBaudRate方法
 		{                                                                       //	進入GetBaudRate方法
 			return BaudRate;                                                    //	回傳BaudRate數值
 		}                                                                       //	結束GetBaudRate方法
-		public static void SetBaudRate(int NewBaudRate)                        //	SetBaudRate方法
+		public void SetBaudRate(int NewBaudRate)								//	SetBaudRate方法
 		{                                                                       //	進入SetBaudRate方法
-			BaudRate = NewBaudRate;                                             //	設定BaudRate
+			UartComport.BaudRate = NewBaudRate;                                 //	設定BaudRate
 		}                                                                       //	進入SetBaudRate方法
 		public static Parity Get_ParitySetting()                                //	Get_ParitySetting方法
 		{                                                                       //	進入Get_ParitySetting方法
