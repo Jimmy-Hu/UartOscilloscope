@@ -10,9 +10,9 @@ using System.Windows.Forms;                                                     
 
 namespace UartOscilloscope                                                      //	命名空間為UartOscilloscope
 {                                                                               //	進入命名空間
-	public class UARTConnection	: SerialPort                                                //	UARTConnection類別
+	public class UARTConnection													//	UARTConnection類別
 	{                                                                           //	進入UARTConnection類別
-		public SerialPort UartComport;									//	宣告SerialPort通訊埠，名稱為UartComport
+		public SerialPort UartComport;											//	宣告SerialPort通訊埠，名稱為UartComport
 		private static Parity ParitySetting;                                    //	宣告ParitySetting靜態私有變數，控制SerialPort串列埠之Parity同位位元設定
 		private static int DataBitsSetting;                                     //	宣告DataBitsSetting靜態私有變數，控制SerialPort串列埠之DataBits數值
 		private static int ConnectedCOMPortNum;                                 //	宣告ConnectedCOMPortNum私有靜態變數，記錄已連接的SerialPort數量
@@ -32,7 +32,7 @@ namespace UartOscilloscope                                                      
 		}                                                                       //	結束InitializeUARTConnectionSetting方法
 		public int GetBaudRate()												//	GetBaudRate方法
 		{                                                                       //	進入GetBaudRate方法
-			return BaudRate;                                                    //	回傳BaudRate數值
+			return UartComport.BaudRate;                                        //	回傳BaudRate數值
 		}                                                                       //	結束GetBaudRate方法
 		public void SetBaudRate(int NewBaudRate)								//	SetBaudRate方法
 		{                                                                       //	進入SetBaudRate方法
