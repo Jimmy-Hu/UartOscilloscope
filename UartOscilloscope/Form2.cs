@@ -23,7 +23,7 @@ namespace UartOscilloscope                                                      
         }                                                                       //  結束Form2_Load副程式
         private void button1_Click(object sender, EventArgs e)                  //  當按下"儲存"按鈕
         {                                                                       //  進入button1_Click副程式
-            UARTConnection.Set_BaudRate(int.Parse(textBox1.Text));              //  更新BaudRate鮑率設定
+            UARTConnection.SetBaudRate(int.Parse(textBox1.Text));              //  更新BaudRate鮑率設定
             UARTConnection.Set_ParitySetting(comboBox1.SelectedIndex);          //  更新Parity_num同位位元設定
             var Information = MessageBox.Show                                   //  顯示通知訊息
                     (                                                           //  進入通知訊息MessageBox設定
