@@ -19,11 +19,15 @@ namespace UartOscilloscope
 		private const int DefaultDataBitsSetting = 8;                           //	宣告DefaultDataBitsSetting(預設UART傳輸每組資料位元數)
 		public static int GetDefaultBaudRate()                                  //	GetDefaultBaudRate方法
 		{                                                                       //	進入GetDefaultBaudRate方法
-			return DefaultBaudRate;                                             //	回傳DefaultBaudRate變數
+			return DefaultBaudRate;                                             //	回傳DefaultBaudRate常數
 		}                                                                       //	結束GetDefaultBaudRate方法
 		public static Parity GetDefaultParitySetting()                          //	GetDefaultParitySetting方法
 		{                                                                       //	進入GetDefaultParitySetting方法
-			return DefaultParitySetting;                                        //	回傳DefaultParitySetting變數
+			return DefaultParitySetting;                                        //	回傳DefaultParitySetting常數
 		}                                                                       //	結束GetDefaultParitySetting方法
+		public static int GetDefaultDataBitsSetting()                           //	GetDefaultDataBitsSetting方法
+		{                                                                       //	進入GetDefaultDataBitsSetting方法
+			return DefaultDataBitsSetting;                                      //	回傳DefaultDataBitsSetting常數
+		}                                                                       //	結束GetDefaultDataBitsSetting方法
 	}                                                                           //	結束UARTConnectionConstVal類別
 }
