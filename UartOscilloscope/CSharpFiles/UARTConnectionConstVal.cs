@@ -17,6 +17,7 @@ namespace UartOscilloscope
 		/*	同位位元設定說明：0為不檢查(None),1為奇同位檢察,2為偶同位檢察,3為同位位元恆為1,4為同位位元恆為0 */
 		private const Parity DefaultParitySetting = 0;                          //	宣告DefaultParitySetting(預設同位位元設定)常數
 		private const int DefaultDataBitsSetting = 8;                           //	宣告DefaultDataBitsSetting(預設UART傳輸每組資料位元數)
+
 		public static int GetDefaultBaudRate()                                  //	GetDefaultBaudRate方法
 		{                                                                       //	進入GetDefaultBaudRate方法
 			return DefaultBaudRate;                                             //	回傳DefaultBaudRate常數
