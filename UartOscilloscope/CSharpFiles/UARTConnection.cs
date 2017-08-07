@@ -24,9 +24,10 @@ namespace UartOscilloscope                                                      
 		}                                                                       //	結束UARTConnection建構子
 		public void InitializeUARTConnectionSetting()							//	InitializeUARTConnectionSetting方法，初始化UART連線參數
 		{                                                                       //	進入InitializeUARTConnectionSetting方法
-			BaudRate = UARTConnectionConstVal.DefaultBaudRate;                  //	預設BaudRate數值為DefaultBaudRate
-			ParitySetting = DefaultParitySetting;                               //	預設ParitySetting數值為0(無同位位元檢查)
-			DataBitsSetting = 8;                                                //	預設DataBitsSetting數值為8
+			BaudRate = UARTConnectionConstVal.GetDefaultBaudRate();             //	預設BaudRate數值為DefaultBaudRate
+			ParitySetting = UARTConnectionConstVal.GetDefaultParitySetting();   //	預設ParitySetting數值為0(無同位位元檢查)
+			DataBitsSetting = UARTConnectionConstVal.GetDefaultDataBitsSetting();
+			//	預設DataBitsSetting數值為8
 			ConnectedCOMPortNum = 0;                                            //	預設ConnectedCOMPortNum為0
 			UartComport_connected = false;										//	預設UartComport_connected值為False
 		}                                                                       //	結束InitializeUARTConnectionSetting方法
