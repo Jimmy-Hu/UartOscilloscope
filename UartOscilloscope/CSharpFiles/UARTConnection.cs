@@ -13,7 +13,6 @@ namespace UartOscilloscope                                                      
 	public class UARTConnection													//	UARTConnection類別
 	{                                                                           //	進入UARTConnection類別
 		public SerialPort UartComport;											//	宣告SerialPort通訊埠，名稱為UartComport
-		private static int DataBitsSetting;                                     //	宣告DataBitsSetting靜態私有變數，控制SerialPort串列埠之DataBits數值
 		private static int ConnectedCOMPortNum;                                 //	宣告ConnectedCOMPortNum私有靜態變數，記錄已連接的SerialPort數量
 		private static bool UartComport_connected;								//	宣告UartComport_connected布林變數，表示UartComport連線狀態
 		public UARTConnection()                                                 //	UARTConnection建構子
@@ -25,7 +24,7 @@ namespace UartOscilloscope                                                      
 			UartComport.BaudRate = UARTConnectionConstVal.GetDefaultBaudRate(); //	預設BaudRate數值為DefaultBaudRate
 			UartComport.Parity = UARTConnectionConstVal.GetDefaultParitySetting();
 			//	預設Parity數值為0(無同位位元檢查)
-			DataBitsSetting = UARTConnectionConstVal.GetDefaultDataBitsSetting();
+			UartComport.DataBits = UARTConnectionConstVal.GetDefaultDataBitsSetting();
 			//	預設DataBitsSetting數值為8
 			ConnectedCOMPortNum = 0;                                            //	預設ConnectedCOMPortNum為0
 			UartComport_connected = false;										//	預設UartComport_connected值為False
@@ -84,13 +83,13 @@ namespace UartOscilloscope                                                      
 					break;
 			}
 		}                                                                       //	結束SetParitySetting方法
-		public static int GetDataBitsSetting()                                 //	GetDataBitsSetting方法
+		public int GetDataBitsSetting()											//	GetDataBitsSetting方法
 		{                                                                       //	進入GetDataBitsSetting方法
-			return DataBitsSetting;                                             //	回傳DataBitsSetting數值
+			return UartComport.DataBits;										//	回傳DataBitsSetting數值
 		}                                                                       //	結束GetDataBitsSetting方法
-		public static void Set_DataBitsSetting(int NewDataBitsSetting)          //	Set_DataBitsSetting方法
+		public void Set_DataBitsSetting(int NewDataBitsSetting)					//	Set_DataBitsSetting方法
 		{                                                                       //	進入Set_DataBitsSetting方法
-			DataBitsSetting = NewDataBitsSetting;                               //	設定DataBitsSetting數值
+			UartComport.DataBits = NewDataBitsSetting;							//	設定DataBitsSetting數值
 		}                                                                       //	結束Set_DataBitsSetting方法
 		public static int Get_ConnectedCOMPortNum()                             //	Get_ConnectedCOMPortNum方法
 		{                                                                       //	進入Get_ConnectedCOMPortNum方法
