@@ -84,10 +84,10 @@ namespace UartOscilloscope                                                      
 					break;
 			}
 		}                                                                       //	結束SetParitySetting方法
-		public static int Get_DataBitsSetting()                                 //	Get_DataBitsSetting方法
-		{                                                                       //	進入Get_DataBitsSetting方法
+		public static int GetDataBitsSetting()                                 //	GetDataBitsSetting方法
+		{                                                                       //	進入GetDataBitsSetting方法
 			return DataBitsSetting;                                             //	回傳DataBitsSetting數值
-		}                                                                       //	結束Get_DataBitsSetting方法
+		}                                                                       //	結束GetDataBitsSetting方法
 		public static void Set_DataBitsSetting(int NewDataBitsSetting)          //	Set_DataBitsSetting方法
 		{                                                                       //	進入Set_DataBitsSetting方法
 			DataBitsSetting = NewDataBitsSetting;                               //	設定DataBitsSetting數值
