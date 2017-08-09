@@ -32,7 +32,10 @@ namespace UartOscilloscope.Tests                                                
 		[TestMethod()]
 		public void GetDefaultDataBitsSettingTest()                             //	GetDefaultDataBitsSettingTest方法
 		{                                                                       //	進入GetDefaultDataBitsSettingTest方法
-			Assert.Fail();
+			int expected = 8;													//	宣告expected(期望輸出)
+			int actual;                                                         //	宣告actual(實際輸出)
+			actual = UARTConnectionConstVal.GetDefaultDataBitsSetting();        //	取得actual(實際輸出)
+			Assert.AreEqual(expected, actual);                                  //	比對期望輸出與實際輸出
 		}                                                                       //	結束GetDefaultDataBitsSettingTest方法
 	}                                                                           //	結束UARTConnectionConstValTests類別
 }                                                                               //	結束命名空間
