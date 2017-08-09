@@ -102,9 +102,9 @@ namespace UartOscilloscope                                                      
 		public static void Set_UartComport_connected(bool NewUartComport_connected)
 		//	Set_UartComport_connected方法
 		{                                                                       //	進入Set_UartComport_connected方法
-			UartComport_connected = NewUartComport_connected;                 //	設定UartComport_connected
+			UartComport_connected = NewUartComport_connected;					//	設定UartComport_connected
 		}                                                                       //	結束Set_UartComport_connected方法
-		public static bool Get_UartComport_connected()                         //	Get_UartComport_connected方法，用以取得UartComport_connected狀態
+		public static bool Get_UartComport_connected()							//	Get_UartComport_connected方法，用以取得UartComport_connected狀態
 		{                                                                       //	進入Get_UartComport_connected方法
 			return UartComport_connected;                                      //	回傳UartComport_connected狀態
 		}                                                                       //	結束Get_UartComport_connected方法
