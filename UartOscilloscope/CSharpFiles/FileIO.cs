@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+/*	System.IO函式庫定義檔案讀寫相關函式
+ */
+using System.IO;                                                                //	使用System.IO函式庫
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
