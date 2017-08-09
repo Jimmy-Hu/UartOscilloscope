@@ -57,6 +57,7 @@
     <Compile Include="CSharpFiles\DataProcessing.cs" />
     <Compile Include="CSharpFiles\DebugVariables.cs" />
     <Compile Include="CSharpFiles\ErrorCodeMessage.cs" />
+    <Compile Include="CSharpFiles\FileIO.cs" />
     <Compile Include="CSharpFiles\OpenGLExtension.cs" />
     <Compile Include="CSharpFiles\UARTConnection.cs" />
     <Compile Include="CSharpFiles\UARTConnectionConstVal.cs" />
