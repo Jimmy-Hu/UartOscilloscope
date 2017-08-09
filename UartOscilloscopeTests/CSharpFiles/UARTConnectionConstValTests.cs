@@ -30,9 +30,9 @@ namespace UartOscilloscope.Tests                                                
 		}                                                                       //	結束GetDefaultParitySettingTest方法
 
 		[TestMethod()]
-		public void GetDefaultDataBitsSettingTest()
-		{
+		public void GetDefaultDataBitsSettingTest()                             //	GetDefaultDataBitsSettingTest方法
+		{                                                                       //	進入GetDefaultDataBitsSettingTest方法
 			Assert.Fail();
-		}
+		}                                                                       //	結束GetDefaultDataBitsSettingTest方法
 	}                                                                           //	結束UARTConnectionConstValTests類別
 }                                                                               //	結束命名空間
