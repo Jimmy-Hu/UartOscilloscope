@@ -25,7 +25,11 @@ namespace UartOscilloscope.Tests                                                
 			expected[4] = '5';                                                  //	設定預期輸出
 			char[] actual;                                                      //	宣告actual(實際輸出)
 			actual = DataProcessing1.String2CharArray(TestData1);               //	執行String2CharArray方法
-			Assert.AreEqual(expected, actual);                                  //	比對期望輸出與實際輸出
+			Assert.AreEqual(expected[0], actual[0]);                            //	比對期望輸出與實際輸出
+			Assert.AreEqual(expected[1], actual[1]);                            //	比對期望輸出與實際輸出
+			Assert.AreEqual(expected[2], actual[2]);                            //	比對期望輸出與實際輸出
+			Assert.AreEqual(expected[3], actual[3]);                            //	比對期望輸出與實際輸出
+			Assert.AreEqual(expected[4], actual[4]);                            //	比對期望輸出與實際輸出
 		}                                                                       //	結束String2CharArrayTest方法
 	}                                                                           //	結束DataProcessingTests類別
 }                                                                               //	結束命名空間
