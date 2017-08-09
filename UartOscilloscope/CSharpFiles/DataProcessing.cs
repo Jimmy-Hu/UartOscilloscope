@@ -12,10 +12,6 @@ namespace UartOscilloscope                                                      
 		public char[] String2CharArray(string InputData)                        //	String2CharArray方法
 		{                                                                       //	進入String2CharArray方法
 			char[] OutputData = InputData.ToCharArray();                        //	宣告OutputData
-			foreach (char C in OutputData)
-			{
-				MessageBox.Show(C.ToString());
-			}
 			return OutputData;													//	回傳轉換結果
 		}                                                                       //	結束String2CharArray方法
 	}                                                                           //	結束DataProcessing類別
