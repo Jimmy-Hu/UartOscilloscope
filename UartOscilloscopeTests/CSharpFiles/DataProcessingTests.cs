@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;                             //	使用Microsoft.VisualStudio.TestTools.UnitTesting函式庫
 using UartOscilloscope;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,6 @@ namespace UartOscilloscope.Tests                                                
 	[TestClass()]
 	public class DataProcessingTests                                            //	DataProcessingTests類別
 	{                                                                           //	進入DataProcessingTests類別
-
 		[TestMethod()]
 		public void String2CharArrayTest()                                      //	String2CharArrayTest方法
 		{                                                                       //	進入String2CharArrayTest方法
