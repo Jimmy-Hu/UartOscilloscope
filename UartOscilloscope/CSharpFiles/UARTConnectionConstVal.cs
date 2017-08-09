@@ -24,11 +24,11 @@ namespace UartOscilloscope                                                      
 		}                                                                       //	結束GetDefaultBaudRate方法
 		public static Parity GetDefaultParitySetting()                          //	GetDefaultParitySetting方法
 		{                                                                       //	進入GetDefaultParitySetting方法
-			return DefaultParitySetting;                                        //	回傳DefaultParitySetting常數
+			return UARTConnectionConstVal.DefaultParitySetting;                 //	回傳DefaultParitySetting常數
 		}                                                                       //	結束GetDefaultParitySetting方法
 		public static int GetDefaultDataBitsSetting()                           //	GetDefaultDataBitsSetting方法
 		{                                                                       //	進入GetDefaultDataBitsSetting方法
-			return DefaultDataBitsSetting;                                      //	回傳DefaultDataBitsSetting常數
+			return UARTConnectionConstVal.DefaultDataBitsSetting;               //	回傳DefaultDataBitsSetting常數
 		}                                                                       //	結束GetDefaultDataBitsSetting方法
 	}                                                                           //	結束UARTConnectionConstVal類別
 }                                                                               //	結束命名空間
