@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace UartOscilloscope
 {
+	public class FileIO
 	{
 	}
 }
