@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace UartOscilloscope
 {                                                                               //	進入命名空間
-	public class FileIO
-	{
+	public class FileIO                                                         //	FileIO類別
+	{                                                                           //	進入FileIO類別
 		public void File_Write(string File_name, string Input_string)
 		//  宣告File_Write副程式，將資料寫入檔案
 		//  File_name為欲寫入檔案名稱
@@ -37,5 +37,5 @@ namespace UartOscilloscope
 			file_stream.Flush();                                                //  清除緩衝區
 			file_stream.Close();                                                //  關閉檔案
 		}                                                                       //  結束File_Write副程式
-	}
+	}                                                                           //	結束FileIO類別
 }                                                                               //	結束命名空間
