@@ -21,9 +21,9 @@ namespace UartOscilloscope.Tests                                                
 		}                                                                       //	結束GetDefaultBaudRateTest方法
 
 		[TestMethod()]
-		public void GetDefaultParitySettingTest()								
-		{
+		public void GetDefaultParitySettingTest()                               //	GetDefaultParitySettingTest方法
+		{                                                                       //	進入GetDefaultParitySettingTest方法
 			Assert.Fail();
-		}
+		}                                                                       //	結束GetDefaultParitySettingTest方法
 	}                                                                           //	結束UARTConnectionConstValTests類別
 }                                                                               //	結束命名空間
