@@ -2,6 +2,7 @@
 using UartOscilloscope;
 using System;
 using System.Collections.Generic;
+using System.IO.Ports;                                                          //	使用System.IO.Ports函式庫
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,9 @@ namespace UartOscilloscope.Tests                                                
 		[TestMethod()]
 		public void GetDefaultParitySettingTest()                               //	GetDefaultParitySettingTest方法
 		{                                                                       //	進入GetDefaultParitySettingTest方法
-			Assert.Fail();
+			Parity expected = Parity.None;                                      //	宣告expected(期望輸出)
+			Parity actual = UARTConnectionConstVal.GetDefaultParitySetting();   //	取得actual(實際輸出)
+			Assert.AreEqual(expected, actual);                                  //	比對期望輸出與實際輸出
 		}                                                                       //	結束GetDefaultParitySettingTest方法
 	}                                                                           //	結束UARTConnectionConstValTests類別
 }                                                                               //	結束命名空間
