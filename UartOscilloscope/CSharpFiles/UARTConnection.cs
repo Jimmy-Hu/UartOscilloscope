@@ -87,10 +87,10 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入GetDataBitsSetting方法
 			return UartComport.DataBits;										//	回傳DataBitsSetting數值
 		}                                                                       //	結束GetDataBitsSetting方法
-		public void Set_DataBitsSetting(int NewDataBitsSetting)					//	Set_DataBitsSetting方法
-		{                                                                       //	進入Set_DataBitsSetting方法
+		public void SetDataBitsSetting(int NewDataBitsSetting)					//	SetDataBitsSetting方法
+		{                                                                       //	進入SetDataBitsSetting方法
 			UartComport.DataBits = NewDataBitsSetting;							//	設定DataBitsSetting數值
-		}                                                                       //	結束Set_DataBitsSetting方法
+		}                                                                       //	結束SetDataBitsSetting方法
 		public static int Get_ConnectedCOMPortNum()                             //	Get_ConnectedCOMPortNum方法
 		{                                                                       //	進入Get_ConnectedCOMPortNum方法
 			return ConnectedCOMPortNum;                                         //	回傳ConnectedCOMPortNum數值
