@@ -17,7 +17,13 @@ namespace UartOscilloscope.Tests                                                
 			int expected = 9600;                                                //	宣告expected(期望輸出)
 			int actual;                                                         //	宣告actual(實際輸出)
 			actual = UARTConnectionConstVal.GetDefaultBaudRate();               //	執行GetDefaultBaudRate方法
-			Assert.AreEqual(expected, actual);									//	比對期望輸出與實際輸出
+			Assert.AreEqual(expected, actual);                                  //	比對期望輸出與實際輸出
 		}                                                                       //	結束GetDefaultBaudRateTest方法
+
+		[TestMethod()]
+		public void GetDefaultParitySettingTest()								
+		{
+			Assert.Fail();
+		}
 	}                                                                           //	結束UARTConnectionConstValTests類別
 }                                                                               //	結束命名空間
