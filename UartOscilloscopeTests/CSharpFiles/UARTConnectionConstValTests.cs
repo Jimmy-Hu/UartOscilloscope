@@ -28,5 +28,11 @@ namespace UartOscilloscope.Tests                                                
 			Parity actual = UARTConnectionConstVal.GetDefaultParitySetting();   //	取得actual(實際輸出)
 			Assert.AreEqual(expected, actual);                                  //	比對期望輸出與實際輸出
 		}                                                                       //	結束GetDefaultParitySettingTest方法
+
+		[TestMethod()]
+		public void GetDefaultDataBitsSettingTest()
+		{
+			Assert.Fail();
+		}
 	}                                                                           //	結束UARTConnectionConstValTests類別
 }                                                                               //	結束命名空間
