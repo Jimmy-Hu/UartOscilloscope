@@ -18,7 +18,6 @@ namespace UartOscilloscope.Tests
 			int actual;
 			actual = UARTConnectionConstVal.GetDefaultBaudRate();
 			Assert.AreEqual(expected, actual);
-			Assert.Inconclusive("驗證這個測試方法的正確性。");
 		}
 	}
 }                                                                               //	結束命名空間
