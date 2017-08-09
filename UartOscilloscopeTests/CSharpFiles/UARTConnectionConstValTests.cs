@@ -1,0 +1,24 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using UartOscilloscope;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace UartOscilloscope.Tests
+{
+	[TestClass()]
+	public class UARTConnectionConstValTests
+	{
+		[TestMethod()]
+		public void GetDefaultBaudRateTest()
+		{
+			int expected = 9600;
+			int actual;
+			actual = UARTConnectionConstVal.GetDefaultBaudRate();
+			Assert.AreEqual(expected, actual);
+			Assert.Inconclusive("驗證這個測試方法的正確性。");
+		}
+	}
+}

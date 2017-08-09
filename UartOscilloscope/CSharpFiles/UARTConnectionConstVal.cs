@@ -6,8 +6,8 @@ using System.IO.Ports;                                                          
 using System.Linq;
 using System.Text;
 
-namespace UartOscilloscope
-{
+namespace UartOscilloscope                                                      //	UartOscilloscope命名空間
+{                                                                               //	進入命名空間
 	public class UARTConnectionConstVal                                         //	UARTConnectionConstVal類別
 	{                                                                           //	進入UARTConnectionConstVal類別
 		/// <summary>
@@ -31,4 +31,4 @@ namespace UartOscilloscope
 			return DefaultDataBitsSetting;                                      //	回傳DefaultDataBitsSetting常數
 		}                                                                       //	結束GetDefaultDataBitsSetting方法
 	}                                                                           //	結束UARTConnectionConstVal類別
-}
+}                                                                               //	結束命名空間
