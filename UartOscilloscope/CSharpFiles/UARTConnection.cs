@@ -27,6 +27,7 @@ namespace UartOscilloscope                                                      
 			//	預設Parity數值為0(無同位位元檢查)
 			UartComport.DataBits = UARTConnectionConstVal.GetDefaultDataBitsSetting();
 			//	預設DataBitsSetting數值為8
+			ConnectedCOMPortCount = 0;                                          //	預設ConnectedCOMPortCount為0
 			UartComport_connected = false;										//	預設UartComport_connected值為False
 		}                                                                       //	結束InitializeUARTConnectionSetting方法
 		public int GetBaudRate()												//	GetBaudRate方法
