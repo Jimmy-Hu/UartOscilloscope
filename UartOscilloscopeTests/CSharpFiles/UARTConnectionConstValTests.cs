@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UartOscilloscope.Tests
+namespace UartOscilloscope.Tests                                                //	UartOscilloscope.Tests命名空間
 {                                                                               //	進入命名空間
 	[TestClass()]
 	public class UARTConnectionConstValTests                                    //	UARTConnectionConstValTests類別
