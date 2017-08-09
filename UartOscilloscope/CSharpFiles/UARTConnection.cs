@@ -13,11 +13,12 @@ namespace UartOscilloscope                                                      
 	public class UARTConnection													//	UARTConnection類別
 	{                                                                           //	進入UARTConnection類別
 		public SerialPort UartComport;											//	宣告SerialPort通訊埠，名稱為UartComport
-		private static int ConnectedCOMPortNum;                                 //	宣告ConnectedCOMPortNum私有靜態變數，記錄已連接的SerialPort數量
+		private int ConnectedCOMPortNum;										//	宣告ConnectedCOMPortNum私有變數，記錄已連接的SerialPort數量
 		private static bool UartComport_connected;								//	宣告UartComport_connected布林變數，表示UartComport連線狀態
-		public UARTConnection()                                                 //	UARTConnection建構子
+		public UARTConnection(int ConnectedCOMPortNum = 0)                      //	UARTConnection建構子
 		{                                                                       //	進入UARTConnection建構子
-			UartComport = new SerialPort();                                     //	初始化UartComport串列埠物件
+			this.UartComport = new SerialPort();                                //	初始化UartComport串列埠物件
+			this.ConnectedCOMPortNum = ConnectedCOMPortNum;
 		}                                                                       //	結束UARTConnection建構子
 		public void InitializeUARTConnectionSetting()							//	InitializeUARTConnectionSetting方法，初始化UART連線參數
 		{                                                                       //	進入InitializeUARTConnectionSetting方法
@@ -91,11 +92,11 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入SetDataBitsSetting方法
 			UartComport.DataBits = NewDataBitsSetting;							//	設定DataBitsSetting數值
 		}                                                                       //	結束SetDataBitsSetting方法
-		public static int Get_ConnectedCOMPortNum()                             //	Get_ConnectedCOMPortNum方法
+		public int Get_ConnectedCOMPortNum()									//	Get_ConnectedCOMPortNum方法
 		{                                                                       //	進入Get_ConnectedCOMPortNum方法
 			return ConnectedCOMPortNum;                                         //	回傳ConnectedCOMPortNum數值
 		}                                                                       //	結束Get_ConnectedCOMPortNum方法
-		public static void Set_ConnectedCOMPortNum(int NewConnectedCOMPortNum)  //	Set_ConnectedCOMPortNum方法
+		public void Set_ConnectedCOMPortNum(int NewConnectedCOMPortNum)			//	Set_ConnectedCOMPortNum方法
 		{                                                                       //	進入Set_ConnectedCOMPortNum方法
 			ConnectedCOMPortNum = NewConnectedCOMPortNum;                       //	設定ConnectedCOMPortNum數值
 		}                                                                       //	結束Set_ConnectedCOMPortNum方法
