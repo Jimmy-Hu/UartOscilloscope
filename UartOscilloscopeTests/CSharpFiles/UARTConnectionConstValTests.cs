@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace UartOscilloscope.Tests
-{
+{                                                                               //	進入命名空間
 	[TestClass()]
 	public class UARTConnectionConstValTests
 	{
@@ -21,4 +21,4 @@ namespace UartOscilloscope.Tests
 			Assert.Inconclusive("驗證這個測試方法的正確性。");
 		}
 	}
-}
+}                                                                               //	結束命名空間
