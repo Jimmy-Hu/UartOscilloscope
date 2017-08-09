@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace UartOscilloscope
 {
-	class DataProcessing
+	public class DataProcessing
 	{
+		public char[] String2CharArray(string InputData)
+		{
+			return InputData.ToCharArray();
+		}
 	}
 }
