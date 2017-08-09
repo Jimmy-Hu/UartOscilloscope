@@ -20,7 +20,7 @@ namespace UartOscilloscope
 
 		public static int GetDefaultBaudRate()                                  //	GetDefaultBaudRate方法
 		{                                                                       //	進入GetDefaultBaudRate方法
-			return DefaultBaudRate;                                             //	回傳DefaultBaudRate常數
+			return UARTConnectionConstVal.DefaultBaudRate;                      //	回傳DefaultBaudRate常數
 		}                                                                       //	結束GetDefaultBaudRate方法
 		public static Parity GetDefaultParitySetting()                          //	GetDefaultParitySetting方法
 		{                                                                       //	進入GetDefaultParitySetting方法
