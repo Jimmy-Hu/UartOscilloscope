@@ -96,15 +96,15 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入GetConnectedCOMPortCount方法
 			return ConnectedCOMPortCount;                                         //	回傳ConnectedCOMPortCount數值
 		}                                                                       //	結束GetConnectedCOMPortCount方法
-		public void Set_ConnectedCOMPortCount(int NewConnectedCOMPortCount)			//	Set_ConnectedCOMPortCount方法
-		{                                                                       //	進入Set_ConnectedCOMPortCount方法
+		public void SetConnectedCOMPortCount(int NewConnectedCOMPortCount)			//	SetConnectedCOMPortCount方法
+		{                                                                       //	進入SetConnectedCOMPortCount方法
 			ConnectedCOMPortCount = NewConnectedCOMPortCount;                       //	設定ConnectedCOMPortCount數值
-		}                                                                       //	結束Set_ConnectedCOMPortCount方法
-		public static void Set_UartComport_connected(bool NewUartComport_connected)
-		//	Set_UartComport_connected方法
-		{                                                                       //	進入Set_UartComport_connected方法
+		}                                                                       //	結束SetConnectedCOMPortCount方法
+		public static void SetUartComportConnected(bool NewUartComport_connected)
+		//	SetUartComportConnected方法
+		{                                                                       //	進入SetUartComportConnected方法
 			UartComport_connected = NewUartComport_connected;					//	設定UartComport_connected
-		}                                                                       //	結束Set_UartComport_connected方法
+		}                                                                       //	結束SetUartComportConnected方法
 		public static bool Get_UartComport_connected()							//	Get_UartComport_connected方法，用以取得UartComport_connected狀態
 		{                                                                       //	進入Get_UartComport_connected方法
 			return UartComport_connected;                                      //	回傳UartComport_connected狀態
