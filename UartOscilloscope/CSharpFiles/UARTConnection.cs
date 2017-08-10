@@ -14,11 +14,15 @@ namespace UartOscilloscope                                                      
 	{                                                                           //	進入UARTConnection類別
 		public SerialPort UartComport;											//	宣告SerialPort通訊埠，名稱為UartComport
 		private int ConnectedCOMPortCount;										//	宣告ConnectedCOMPortCount私有變數，記錄已連接的SerialPort數量
-		private static bool UartComportConnected;								//	宣告UartComportConnected布林變數，表示UartComport連線狀態
-		public UARTConnection(int ConnectedCOMPortCount = 0)                    //	UARTConnection建構子
+		private bool UartComportConnected;										//	宣告UartComportConnected布林變數，表示UartComport連線狀態
+		public UARTConnection(
+			int ConnectedCOMPortCount = 0,
+			bool UartComportConnected = false
+			)																	//	UARTConnection建構子
 		{                                                                       //	進入UARTConnection建構子
 			this.UartComport = new SerialPort();                                //	初始化UartComport串列埠物件
 			this.ConnectedCOMPortCount = ConnectedCOMPortCount;
+			this.UartComportConnected = UartComportConnected;
 		}                                                                       //	結束UARTConnection建構子
 		public void InitializeUARTConnectionSetting()							//	InitializeUARTConnectionSetting方法，初始化UART連線參數
 		{                                                                       //	進入InitializeUARTConnectionSetting方法
@@ -100,12 +104,12 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入SetConnectedCOMPortCount方法
 			ConnectedCOMPortCount = NewConnectedCOMPortCount;                       //	設定ConnectedCOMPortCount數值
 		}                                                                       //	結束SetConnectedCOMPortCount方法
-		public static void SetUartComportConnected(bool NewUartComportConnected)
+		public void SetUartComportConnected(bool NewUartComportConnected)
 		//	SetUartComportConnected方法
 		{                                                                       //	進入SetUartComportConnected方法
 			UartComportConnected = NewUartComportConnected;						//	設定UartComportConnected
 		}                                                                       //	結束SetUartComportConnected方法
-		public static bool GetUartComportConnected()							//	GetUartComportConnected方法，用以取得UartComportConnected狀態
+		public bool GetUartComportConnected()							//	GetUartComportConnected方法，用以取得UartComportConnected狀態
 		{                                                                       //	進入GetUartComportConnected方法
 			return UartComportConnected;                                      //	回傳UartComportConnected狀態
 		}                                                                       //	結束GetUartComportConnected方法
