@@ -92,10 +92,10 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入SetDataBitsSetting方法
 			UartComport.DataBits = NewDataBitsSetting;							//	設定DataBitsSetting數值
 		}                                                                       //	結束SetDataBitsSetting方法
-		public int Get_ConnectedCOMPortCount()									//	Get_ConnectedCOMPortCount方法
-		{                                                                       //	進入Get_ConnectedCOMPortCount方法
+		public int GetConnectedCOMPortCount()									//	GetConnectedCOMPortCount方法
+		{                                                                       //	進入GetConnectedCOMPortCount方法
 			return ConnectedCOMPortCount;                                         //	回傳ConnectedCOMPortCount數值
-		}                                                                       //	結束Get_ConnectedCOMPortCount方法
+		}                                                                       //	結束GetConnectedCOMPortCount方法
 		public void Set_ConnectedCOMPortCount(int NewConnectedCOMPortCount)			//	Set_ConnectedCOMPortCount方法
 		{                                                                       //	進入Set_ConnectedCOMPortCount方法
 			ConnectedCOMPortCount = NewConnectedCOMPortCount;                       //	設定ConnectedCOMPortCount數值
