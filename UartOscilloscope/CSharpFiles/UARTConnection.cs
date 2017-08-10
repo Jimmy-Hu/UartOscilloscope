@@ -103,7 +103,7 @@ namespace UartOscilloscope                                                      
 		public static void SetUartComportConnected(bool NewUartComportConnected)
 		//	SetUartComportConnected方法
 		{                                                                       //	進入SetUartComportConnected方法
-			UartComportConnected = NewUartComportConnected;					//	設定UartComportConnected
+			UartComportConnected = NewUartComportConnected;						//	設定UartComportConnected
 		}                                                                       //	結束SetUartComportConnected方法
 		public static bool GetUartComportConnected()							//	GetUartComportConnected方法，用以取得UartComportConnected狀態
 		{                                                                       //	進入GetUartComportConnected方法
