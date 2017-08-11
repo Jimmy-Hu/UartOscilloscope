@@ -113,11 +113,12 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入GetUartComportConnected方法
 			return UartComportConnected;                                      //	回傳UartComportConnected狀態
 		}                                                                       //	結束GetUartComportConnected方法
-		public string[] ListSerialPort()                                        //	ListSerialPort方法
+		public static string[] ListSerialPort()                                 //	ListSerialPort方法
 		{                                                                       //	進入ListSerialPort方法
 			string[] SerialPortList;                                            //	宣告SerialPortList字串陣列
-
-			return SerialPortList;
+			SerialPortList = SerialPort.GetPortNames();                         //	偵測已連線的SerialPort並儲存結果
+			return SerialPortList;                                              //	回傳SerialPortList
 		}                                                                       //	結束ListSerialPort方法
+
 	}                                                                           //	結束UARTConnection類別
 }																				//	結束命名空間
