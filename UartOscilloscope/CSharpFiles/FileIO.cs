@@ -1,4 +1,8 @@
-﻿using System;
+﻿///   <summary>
+///   C#實作Uart接收程式，By Jimmy Hu
+///   This program is licensed under the Apache License 2.0.
+///   </summary>
+using System;
 using System.Collections.Generic;
 /*	System.IO函式庫定義檔案讀寫相關函式
  */
