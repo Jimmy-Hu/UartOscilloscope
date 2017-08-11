@@ -102,7 +102,7 @@ namespace UartOscilloscope                                                      
 		}                                                                       //	結束GetConnectedCOMPortCount方法
 		public void SetConnectedCOMPortCount(int NewConnectedCOMPortCount)			//	SetConnectedCOMPortCount方法
 		{                                                                       //	進入SetConnectedCOMPortCount方法
-			ConnectedCOMPortCount = NewConnectedCOMPortCount;                       //	設定ConnectedCOMPortCount數值
+			ConnectedCOMPortCount = NewConnectedCOMPortCount;					//	設定ConnectedCOMPortCount數值
 		}                                                                       //	結束SetConnectedCOMPortCount方法
 		public void SetUartComportConnected(bool NewUartComportConnected)
 		//	SetUartComportConnected方法
