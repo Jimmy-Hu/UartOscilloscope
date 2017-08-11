@@ -20,8 +20,8 @@ namespace UartOscilloscope                                                      
 		private int ConnectedCOMPortCount;										//	宣告ConnectedCOMPortCount私有變數，記錄已連接的SerialPort數量
 		private bool UartComportConnected;										//	宣告UartComportConnected布林變數，表示UartComport連線狀態
 		public UARTConnection(
-			int ConnectedCOMPortCount = 0,
-			bool UartComportConnected = false
+			int ConnectedCOMPortCount = 0,                                      //	初始化參數
+			bool UartComportConnected = false									//	初始化參數
 			)																	//	UARTConnection建構子
 		{                                                                       //	進入UARTConnection建構子
 			this.UartComport = new SerialPort();                                //	初始化UartComport串列埠物件
