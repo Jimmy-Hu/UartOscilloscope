@@ -16,15 +16,7 @@ namespace UartOscilloscope                                                      
 {                                                                               //	進入命名空間
 	public class UARTConnection													//	UARTConnection類別
 	{                                                                           //	進入UARTConnection類別
-		public SerialPort UartComport;                                          //	宣告SerialPort通訊埠，名稱為UartComport
-		public struct ComportList                                               //	宣告ComportList物件
-		{                                                                       //	進入ComportList物件
-			string[] ComportListArray;                                          //	宣告ComportList內部物件
-			public ComportList(string[] ComportListArray)                       //	設定結構成員
-			{                                                                   //	設定結構成員
-				this.ComportListArray = ComportListArray;                       //	設定結構成員
-			}                                                                   //	設定結構成員
-		}                                                                       //	結束ComportList物件
+		public SerialPort UartComport;											//	宣告SerialPort通訊埠，名稱為UartComport
 		private int ConnectedCOMPortCount;										//	宣告ConnectedCOMPortCount私有變數，記錄已連接的SerialPort數量
 		private bool UartComportConnected;										//	宣告UartComportConnected布林變數，表示UartComport連線狀態
 		public UARTConnection(
