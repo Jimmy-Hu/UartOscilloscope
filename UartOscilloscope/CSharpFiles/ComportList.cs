@@ -8,5 +8,5 @@ namespace UartOscilloscope                                                      
 {                                                                               //	進入UartOscilloscope命名空間
 	class ComportList
 	{
-	}
-}
+	}                                                                           //	結束ComportList類別
+}                                                                               //	結束UartOscilloscope命名空間
