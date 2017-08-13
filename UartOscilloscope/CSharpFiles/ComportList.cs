@@ -9,6 +9,9 @@ namespace UartOscilloscope                                                      
 	class ComportList                                                           //	ComportList類別
 	{                                                                           //	進入ComportList類別
 		private string[] Name;                                                  //	宣告Name字串陣列
-
+		public string[] GetComportList()                                        //	GetComportList方法
+		{                                                                       //	進入GetComportList方法
+			return Name;                                                        //	回傳Name
+		}                                                                       //	結束GetComportList方法
 	}                                                                           //	結束ComportList類別
 }                                                                               //	結束UartOscilloscope命名空間
