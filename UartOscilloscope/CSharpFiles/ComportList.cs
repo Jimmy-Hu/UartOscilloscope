@@ -8,5 +8,7 @@ namespace UartOscilloscope                                                      
 {                                                                               //	進入UartOscilloscope命名空間
 	class ComportList                                                           //	ComportList類別
 	{                                                                           //	進入ComportList類別
+		private string[] Name;                                                  //	宣告Name字串陣列
+
 	}                                                                           //	結束ComportList類別
 }                                                                               //	結束UartOscilloscope命名空間
