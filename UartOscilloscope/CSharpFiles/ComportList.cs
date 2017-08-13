@@ -15,7 +15,7 @@ namespace UartOscilloscope                                                      
 		}                                                                       //	結束GetComportList方法
 		public void SetComportList(string[] ComportList)                        //	SetComportList方法
 		{                                                                       //	進入SetComportList方法
-
+			Name = ComportList;													//	填入資料
 		}                                                                       //	結束SetComportList方法
 	}                                                                           //	結束ComportList類別
 }                                                                               //	結束UartOscilloscope命名空間
