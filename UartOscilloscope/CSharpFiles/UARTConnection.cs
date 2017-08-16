@@ -18,15 +18,18 @@ namespace UartOscilloscope                                                      
 	{                                                                           //	進入UARTConnection類別
 		public SerialPort UartComport;											//	宣告SerialPort通訊埠，名稱為UartComport
 		private int ConnectedCOMPortCount;										//	宣告ConnectedCOMPortCount私有變數，記錄已連接的SerialPort數量
-		private bool UartComportConnected;										//	宣告UartComportConnected布林變數，表示UartComport連線狀態
+		private bool UartComportConnected;                                      //	宣告UartComportConnected布林變數，表示UartComport連線狀態
+		private ComportList ComportList1;
 		public UARTConnection(
 			int ConnectedCOMPortCount = 0,                                      //	初始化參數
-			bool UartComportConnected = false									//	初始化參數
+			bool UartComportConnected = false,                                  //	初始化參數
+			ComportList ComportList1
 			)																	//	UARTConnection建構子
 		{                                                                       //	進入UARTConnection建構子
 			this.UartComport = new SerialPort();                                //	初始化UartComport串列埠物件
 			this.ConnectedCOMPortCount = ConnectedCOMPortCount;
 			this.UartComportConnected = UartComportConnected;
+			this.ComportList1 = ComportList1;
 		}                                                                       //	結束UARTConnection建構子
 		public void InitializeUARTConnectionSetting()							//	InitializeUARTConnectionSetting方法，初始化UART連線參數
 		{                                                                       //	進入InitializeUARTConnectionSetting方法
