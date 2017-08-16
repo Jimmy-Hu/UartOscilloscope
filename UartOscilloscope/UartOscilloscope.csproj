@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSharpFiles\ComportList.cs" />
     <Compile Include="CSharpFiles\DataProcessing.cs" />
     <Compile Include="CSharpFiles\DebugVariables.cs" />
     <Compile Include="CSharpFiles\ErrorCodeMessage.cs" />
