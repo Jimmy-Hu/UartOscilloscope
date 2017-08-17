@@ -20,6 +20,7 @@ namespace UartOscilloscope                                                      
 		private int ConnectedCOMPortCount;										//	宣告ConnectedCOMPortCount私有變數，記錄已連接的SerialPort數量
 		private bool UartComportConnected;                                      //	宣告UartComportConnected布林變數，表示UartComport連線狀態
 		private ComportList ComportList1;
+		private ComboBox ComportListComboBox1;                                  //	宣告ComportListComboBox1物件
 		public UARTConnection(
 			int ConnectedCOMPortCount = 0,                                      //	初始化參數
 			bool UartComportConnected = false									//	初始化參數
@@ -29,6 +30,7 @@ namespace UartOscilloscope                                                      
 			this.ConnectedCOMPortCount = ConnectedCOMPortCount;                 //	初始化ConnectedCOMPortCount物件
 			this.UartComportConnected = UartComportConnected;                   //	初始化UartComportConnected物件
 			this.ComportList1 = new ComportList(new string[] { ""});            //	初始化ComportList1物件
+			this.ComportListComboBox1 = new System.Windows.Forms.ComboBox();    //	初始化ComportListComboBox1物件
 		}                                                                       //	結束UARTConnection建構子
 		public void InitializeUARTConnectionSetting()							//	InitializeUARTConnectionSetting方法，初始化UART連線參數
 		{                                                                       //	進入InitializeUARTConnectionSetting方法
