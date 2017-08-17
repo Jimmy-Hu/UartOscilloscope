@@ -63,7 +63,7 @@ namespace UartOscilloscope                                                      
 		/// <param name="NewParitySetting"></param>
 		public void SetParitySetting(int NewParitySetting)						//	SetParitySetting方法
 		{                                                                       //	進入SetParitySetting方法
-			switch (NewParitySetting)
+			switch (NewParitySetting)                                           //	依據NewParitySetting輸入選擇Parity設定
 			{
 				case 0 :
 					{
