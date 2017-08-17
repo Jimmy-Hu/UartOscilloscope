@@ -22,14 +22,13 @@ namespace UartOscilloscope                                                      
 		private ComportList ComportList1;
 		public UARTConnection(
 			int ConnectedCOMPortCount = 0,                                      //	初始化參數
-			bool UartComportConnected = false,                                  //	初始化參數
-			ComportList ComportList1
+			bool UartComportConnected = false									//	初始化參數
 			)																	//	UARTConnection建構子
 		{                                                                       //	進入UARTConnection建構子
 			this.UartComport = new SerialPort();                                //	初始化UartComport串列埠物件
-			this.ConnectedCOMPortCount = ConnectedCOMPortCount;
-			this.UartComportConnected = UartComportConnected;
-			this.ComportList1 = ComportList1;
+			this.ConnectedCOMPortCount = ConnectedCOMPortCount;                 //	初始化ConnectedCOMPortCount物件
+			this.UartComportConnected = UartComportConnected;                   //	初始化UartComportConnected物件
+			this.ComportList1 = new ComportList(new string[] { ""});            //	初始化ComportList1物件
 		}                                                                       //	結束UARTConnection建構子
 		public void InitializeUARTConnectionSetting()							//	InitializeUARTConnectionSetting方法，初始化UART連線參數
 		{                                                                       //	進入InitializeUARTConnectionSetting方法
