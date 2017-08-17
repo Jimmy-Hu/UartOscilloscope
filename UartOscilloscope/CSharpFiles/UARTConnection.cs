@@ -127,7 +127,7 @@ namespace UartOscilloscope                                                      
 		}                                                                       //	結束GetComportList方法
 		private void ListSerialPort()											//	ListSerialPort方法
 		{                                                                       //	進入ListSerialPort方法
-			ComportList1.SetComportList(SerialPort.GetPortNames());				//	偵測已連線的SerialPort並儲存結果
+			ComportList1.UpdateComportList(SerialPort.GetPortNames());			//	偵測已連線的SerialPort並儲存結果
 		}                                                                       //	結束ListSerialPort方法
 
 	}                                                                           //	結束UARTConnection類別
