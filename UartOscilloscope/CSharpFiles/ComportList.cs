@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace UartOscilloscope                                                      //	UartOscilloscope命名空間
 {                                                                               //	進入UartOscilloscope命名空間
-	public class ComportList                                                           //	ComportList類別
+	public class ComportList													//	ComportList類別
 	{                                                                           //	進入ComportList類別
 		private string[] Name;                                                  //	宣告Name字串陣列
 		public ComportList(string[] Name)                                       //	ComportList建構子
