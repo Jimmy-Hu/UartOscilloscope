@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+/*	串列埠(Comport)物件宣告於System.IO.Ports函式庫中
+ */
+using System.IO.Ports;                                                          //	使用System.IO.Ports函式庫
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace UartOscilloscope                                                      //	UartOscilloscope命名空間
 {                                                                               //	進入UartOscilloscope命名空間
-	class ComportList                                                           //	ComportList類別
+	public class ComportList                                                           //	ComportList類別
 	{                                                                           //	進入ComportList類別
 		private string[] Name;                                                  //	宣告Name字串陣列
 		public ComportList(string[] Name)                                       //	ComportList建構子
@@ -21,5 +24,6 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入SetComportList方法
 			Name = ComportList;													//	填入資料
 		}                                                                       //	結束SetComportList方法
+
 	}                                                                           //	結束ComportList類別
 }                                                                               //	結束UartOscilloscope命名空間
