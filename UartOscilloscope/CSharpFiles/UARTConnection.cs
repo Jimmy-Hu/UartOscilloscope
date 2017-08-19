@@ -21,7 +21,7 @@ namespace UartOscilloscope                                                      
 		private bool UartComportConnected;                                      //	宣告UartComportConnected布林變數，表示UartComport連線狀態
 		private ComportList ComportList1;
 		private ComboBox ComportListComboBox1;                                  //	宣告ComportListComboBox1物件
-		public UARTConnection(
+		public UARTConnection(                                                  //	UARTConnection建構子
 			int ConnectedCOMPortCount = 0,                                      //	初始化參數
 			bool UartComportConnected = false									//	初始化參數
 			)																	//	UARTConnection建構子
