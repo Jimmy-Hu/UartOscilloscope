@@ -24,6 +24,10 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入UpdateComportList方法
 			Name = ComportList;													//	填入資料
 		}                                                                       //	結束UpdateComportList方法
+		public override string ToString()                                       //	覆寫ToString方法
+		{                                                                       //	進入覆寫ToString方法
 
+			return base.ToString();
+		}                                                                       //	結束覆寫ToString方法
 	}                                                                           //	結束ComportList類別
 }                                                                               //	結束UartOscilloscope命名空間
