@@ -41,5 +41,16 @@ namespace UartOscilloscope
 			file_stream.Flush();                                                //  清除緩衝區
 			file_stream.Close();                                                //  關閉檔案
 		}                                                                       //  結束FileWrite方法
+		public string ReadTxTFile(string file_name, Encoding encoding)			//  宣告ReadTxTFile副程式
+		{                                                                       //  進入ReadTxTFile副程式
+			//***區域變數宣告***
+			System.IO.StreamReader textreader;                                  //  宣告textreader為System.IO.StreamReader物件
+			string input_string;                                                //  宣告讀入字串
+			input_string = "";                                                  //  初始化input_string為空字串
+			textreader = new System.IO.StreamReader(file_name, encoding);       //	以指定encoding讀取檔案file_name
+			input_string = textreader.ReadToEnd();                              //  讀取檔案至結尾，將檔案內容填入input_string
+			textreader.Close();                                                 //	關閉檔案
+			return input_string;                                                //  回傳讀取得字串資料
+		}                                                                       //  結束ReadTxTFile副程式
 	}                                                                           //	結束FileIO類別
 }                                                                               //	結束命名空間
