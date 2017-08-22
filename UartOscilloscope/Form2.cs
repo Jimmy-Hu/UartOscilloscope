@@ -17,13 +17,13 @@ namespace UartOscilloscope                                                      
             InitializeComponent();                                              //  初始化表單
         }                                                                       //  結束Form2
         private void Form2_Load(object sender, EventArgs e)                     //  Form2表單載入時執行
-        {                                                                       //  進入Form2_Load副程式
+        {                                                                       //  進入Form2_Load方法
             textBox1.Text = Form1.UARTConnection1.GetBaudRate().ToString();     //  載入當前鮑率(BaudRate)設定
             comboBox1.SelectedIndex = (int)Form1.UARTConnection1.GetParitySetting();
 			//  載入當前同位位元設定
-        }                                                                       //  結束Form2_Load副程式
+        }                                                                       //  結束Form2_Load方法
         private void button1_Click(object sender, EventArgs e)                  //  當按下"儲存"按鈕
-        {                                                                       //  進入button1_Click副程式
+        {                                                                       //  進入button1_Click方法
 			Form1.UARTConnection1.SetBaudRate(int.Parse(textBox1.Text));        //  更新BaudRate鮑率設定
 			Form1.UARTConnection1.SetParitySetting(comboBox1.SelectedIndex);    //  更新Parity_num同位位元設定
             var Information = MessageBox.Show                                   //  顯示通知訊息
@@ -34,6 +34,6 @@ namespace UartOscilloscope                                                      
                         MessageBoxIcon.Information                              //  顯示通知標誌
                     );                                                          //  結束通知訊息MessageBox設定
             Close();                                                            //  關閉表單
-        }                                                                       //  結束button1_Click副程式
+        }                                                                       //  結束button1_Click方法
     }                                                                           //  結束Form2類別
 }                                                                               //  結束命名空間

@@ -37,7 +37,7 @@ namespace UartOscilloscope                                                      
 		public static Debug_Login_Account_struct Debug_Account1 =               //	宣告Debug_Account1靜態全域除錯帳戶1
 			new Debug_Login_Account_struct("Debug", "debug");                   //	設定Debug_Account1除錯帳戶1帳號密碼
 
-		private static uint button1_Click_Runtimes;                             //	宣告button1_Click_Runtimes私有靜態變數，記錄button1_Click副程式執行次數
+		private static uint button1_Click_Runtimes;                             //	宣告button1_Click_Runtimes私有靜態變數，記錄button1_Click方法執行次數
 		private static void Reset_button1_Click_Runtimes()                      //	Reset_button1_Click_Runtimes方法，用於重置button1_Click_Runtimes計數變數為0
 		{                                                                       //	進入Reset_button1_Click_Runtimes方法
 			button1_Click_Runtimes = 0;                                         //	將button1_Click_Runtimes變數重置為0
@@ -51,7 +51,7 @@ namespace UartOscilloscope                                                      
 			return button1_Click_Runtimes;                                      //	取得button1_Click_Runtimes變數數值
 		}                                                                       //	結束Get_button1_Click_Runtimes方法
 
-		private static uint button2_Click_Runtimes;                             //	宣告button2_Click_Runtimes私有靜態變數，記錄button2_Click副程式執行次數
+		private static uint button2_Click_Runtimes;                             //	宣告button2_Click_Runtimes私有靜態變數，記錄button2_Click方法執行次數
 		private static void Reset_button2_Click_Runtimes()                      //	Reset_button2_Click_Runtimes方法，用於重置button2_Click_Runtimes計數變數為0
 		{                                                                       //	進入Reset_button2_Click_Runtimes方法
 			button2_Click_Runtimes = 0;                                         //	將button2_Click_Runtimes變數重置為0
@@ -65,7 +65,7 @@ namespace UartOscilloscope                                                      
 			return button2_Click_Runtimes;                                      //	取得button2_Click_Runtimes變數數值
 		}                                                                       //	結束Get_button2_Click_Runtimes方法
 
-		private static uint button3_Click_Runtimes;                             //	宣告button3_Click_Runtimes私有靜態變數，記錄button3_Click副程式執行次數
+		private static uint button3_Click_Runtimes;                             //	宣告button3_Click_Runtimes私有靜態變數，記錄button3_Click方法執行次數
 		private static void Reset_button3_Click_Runtimes()                      //	Reset_button3_Click_Runtimes方法，用於重置button3_Click_Runtimes計數變數為0
 		{                                                                       //	進入Reset_button3_Click_Runtimes方法
 			button3_Click_Runtimes = 0;                                         //	將button3_Click_Runtimes變數重置為0
@@ -80,7 +80,7 @@ namespace UartOscilloscope                                                      
 		}                                                                       //	結束Get_button3_Click_Runtimes方法
 
 		private static uint Transmission_Setting_Click_Runtimes;
-		//	宣告Transmission_Setting_Click_Runtimes私有靜態變數，記錄設定_傳輸設定ToolStripMenuItem_Click副程式執行次數
+		//	宣告Transmission_Setting_Click_Runtimes私有靜態變數，記錄設定_傳輸設定ToolStripMenuItem_Click方法執行次數
 		private static void Reset_Transmission_Setting_Click_Runtimes()         //	Reset_Transmission_Setting_Click_Runtimes方法，用於重置Transmission_Setting_Click_Runtimes計數變數為0
 		{                                                                       //	進入Reset_Transmission_Setting_Click_Runtimes方法
 			Transmission_Setting_Click_Runtimes = 0;                            //	將Transmission_Setting_Click_Runtimes變數重置為0
@@ -96,7 +96,7 @@ namespace UartOscilloscope                                                      
 		}                                                                       //	結束Get_Transmission_Setting_Click_Runtimes方法
 
 		private static uint User_Interface_Setting_Click_Runtimes;
-		//	宣告User_Interface_Setting_Click_Runtimes私有靜態變數，記錄設定_介面設定ToolStripMenuItem_Click副程式執行次數
+		//	宣告User_Interface_Setting_Click_Runtimes私有靜態變數，記錄設定_介面設定ToolStripMenuItem_Click方法執行次數
 		private static void Reset_User_Interface_Setting_Click_Runtimes()       //	Reset_User_Interface_Setting_Click_Runtimes方法，用於重置User_Interface_Setting_Click_Runtimes計數變數為0
 		{                                                                       //	進入Reset_User_Interface_Setting_Click_Runtimes方法
 			User_Interface_Setting_Click_Runtimes = 0;                          //	將User_Interface_Setting_Click_Runtimes變數重置為0
@@ -111,7 +111,7 @@ namespace UartOscilloscope                                                      
 			return User_Interface_Setting_Click_Runtimes;                       //	取得User_Interface_Setting_Click_Runtimes變數數值
 		}                                                                       //	結束Get_User_Interface_Setting_Click_Runtimes方法
 
-		private static uint list_SerialPort_Runtimes;                           //	宣告list_SerialPort_Runtimes私有靜態變數，記錄list_SerialPort副程式執行次數
+		private static uint list_SerialPort_Runtimes;                           //	宣告list_SerialPort_Runtimes私有靜態變數，記錄list_SerialPort方法執行次數
 		private static void Reset_list_SerialPort_Runtimes()                    //	Reset_list_SerialPort_Runtimes方法，用於重置list_SerialPort_Runtimes計數變數為0
 		{                                                                       //	進入Reset_list_SerialPort_Runtimes方法
 			list_SerialPort_Runtimes = 0;                                       //	將list_SerialPort_Runtimes變數重置為0
@@ -125,7 +125,7 @@ namespace UartOscilloscope                                                      
 			return list_SerialPort_Runtimes;                                    //	取得list_SerialPort_Runtimes變數數值
 		}                                                                       //	結束Get_list_SerialPort_Runtimes方法
 
-		private static uint UartComport_handle_Runtimes;                       //	宣告UartComport_handle_Runtimes私有靜態變數，記錄UartComport_handle副程式執行次數
+		private static uint UartComport_handle_Runtimes;                       //	宣告UartComport_handle_Runtimes私有靜態變數，記錄UartComport_handle方法執行次數
 		private static void Reset_UartComport_handle_Runtimes()                //	Reset_UartComport_handle_Runtimes方法，用於重置UartComport_handle_Runtimes計數變數為0
 		{                                                                       //	進入Reset_UartComport_handle_Runtimes方法
 			UartComport_handle_Runtimes = 0;                                   //	將UartComport_handle_Runtimes變數重置為0
@@ -139,7 +139,7 @@ namespace UartOscilloscope                                                      
 			return UartComport_handle_Runtimes;                                //	取得UartComport_handle_Runtimes變數數值
 		}                                                                       //	結束Get_UartComport_handle_Runtimes方法
 
-		private static uint comport_DataReceived_Runtimes;                      //	宣告comport_DataReceived_Runtimes私有靜態變數，記錄comport_DataReceived副程式執行次數
+		private static uint comport_DataReceived_Runtimes;                      //	宣告comport_DataReceived_Runtimes私有靜態變數，記錄comport_DataReceived方法執行次數
 		private static void Reset_comport_DataReceived_Runtimes()               //	Reset_comport_DataReceived_Runtimes方法，用於重置comport_DataReceived_Runtimes計數變數為0
 		{                                                                       //	進入Reset_comport_DataReceived_Runtimes方法
 			comport_DataReceived_Runtimes = 0;                                  //	將comport_DataReceived_Runtimes變數重置為0
@@ -153,7 +153,7 @@ namespace UartOscilloscope                                                      
 			return comport_DataReceived_Runtimes;                               //	取得comport_DataReceived_Runtimes變數數值
 		}                                                                       //	結束Get_comport_DataReceived_Runtimes方法
 
-		private static uint DisplayText_Runtimes;                               //	宣告DisplayText_Runtimes私有靜態變數，記錄DisplayText副程式執行次數
+		private static uint DisplayText_Runtimes;                               //	宣告DisplayText_Runtimes私有靜態變數，記錄DisplayText方法執行次數
 		private static void Reset_DisplayText_Runtimes()                        //	Reset_DisplayText_Runtimes方法，用於重置DisplayText_Runtimes計數變數為0
 		{                                                                       //	進入Reset_DisplayText_Runtimes方法
 			DisplayText_Runtimes = 0;                                           //	將DisplayText_Runtimes變數重置為0

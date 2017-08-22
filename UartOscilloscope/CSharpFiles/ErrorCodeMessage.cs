@@ -61,7 +61,7 @@ namespace UartOscilloscope                                                      
 		private static Error_message_struct Error_010003 =
 			new Error_message_struct(Error_010003_Message, Error_010003_Title, Error_010003_MessageBoxButton, Error_010003_MessageBoxIcon);
 		public static void Error_Message_Show(int ErrorCode_input)
-		{                                                                       //  進入Error_Message_Show副程式
+		{                                                                       //  進入Error_Message_Show方法
 			switch (ErrorCode_input)
 			{                                                                   //  進入switch敘述
 				case 010001:
@@ -85,6 +85,6 @@ namespace UartOscilloscope                                                      
 				default:
 					break;
 			}                                                                   //  結束switch敘述
-		}                                                                       //  結束Error_Message_Show副程式
+		}                                                                       //  結束Error_Message_Show方法
 	}                                                                           //	結束ErrorCodeMessage類別
 }

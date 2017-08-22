@@ -143,7 +143,7 @@
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(283, 16);
 			this.label11.TabIndex = 6;
-			this.label11.Text = "comport_DataReceived副程式執行次數：";
+			this.label11.Text = "comport_DataReceived方法執行次數：";
 			// 
 			// label3
 			// 
@@ -183,7 +183,7 @@
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(273, 16);
 			this.label13.TabIndex = 10;
-			this.label13.Text = "UartComport_handle副程式執行次數：";
+			this.label13.Text = "UartComport_handle方法執行次數：";
 			// 
 			// label14
 			// 
@@ -203,7 +203,7 @@
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(212, 16);
 			this.label15.TabIndex = 13;
-			this.label15.Text = "DisplayText副程式執行次數：";
+			this.label15.Text = "DisplayText方法執行次數：";
 			// 
 			// label16
 			// 
@@ -229,7 +229,7 @@
 			this.groupBox1.Size = new System.Drawing.Size(724, 127);
 			this.groupBox1.TabIndex = 15;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "button_Runtimes副程式執行次數";
+			this.groupBox1.Text = "button_Runtimes方法執行次數";
 			// 
 			// label22
 			// 
@@ -247,7 +247,7 @@
 			this.label21.Name = "label21";
 			this.label21.Size = new System.Drawing.Size(225, 16);
 			this.label21.TabIndex = 4;
-			this.label21.Text = "button3_Click副程式執行次數：";
+			this.label21.Text = "button3_Click方法執行次數：";
 			// 
 			// label20
 			// 
@@ -265,7 +265,7 @@
 			this.label19.Name = "label19";
 			this.label19.Size = new System.Drawing.Size(225, 16);
 			this.label19.TabIndex = 2;
-			this.label19.Text = "button2_Click副程式執行次數：";
+			this.label19.Text = "button2_Click方法執行次數：";
 			// 
 			// label18
 			// 
@@ -283,7 +283,7 @@
 			this.label17.Name = "label17";
 			this.label17.Size = new System.Drawing.Size(225, 16);
 			this.label17.TabIndex = 0;
-			this.label17.Text = "button1_Click副程式執行次數：";
+			this.label17.Text = "button1_Click方法執行次數：";
 			// 
 			// groupBox2
 			// 
@@ -297,7 +297,7 @@
 			this.groupBox2.Size = new System.Drawing.Size(724, 95);
 			this.groupBox2.TabIndex = 16;
 			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "ToolStripMenuItem_Click副程式執行次數";
+			this.groupBox2.Text = "ToolStripMenuItem_Click方法執行次數";
 			// 
 			// label26
 			// 
@@ -315,7 +315,7 @@
 			this.label25.Name = "label25";
 			this.label25.Size = new System.Drawing.Size(403, 16);
 			this.label25.TabIndex = 17;
-			this.label25.Text = "設定_介面設定ToolStripMenuItem_Click副程式執行次數：";
+			this.label25.Text = "設定_介面設定ToolStripMenuItem_Click方法執行次數：";
 			// 
 			// label24
 			// 
@@ -333,7 +333,7 @@
 			this.label23.Name = "label23";
 			this.label23.Size = new System.Drawing.Size(403, 16);
 			this.label23.TabIndex = 0;
-			this.label23.Text = "設定_傳輸設定ToolStripMenuItem_Click副程式執行次數：";
+			this.label23.Text = "設定_傳輸設定ToolStripMenuItem_Click方法執行次數：";
 			// 
 			// label9
 			// 
@@ -343,7 +343,7 @@
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(222, 16);
 			this.label9.TabIndex = 17;
-			this.label9.Text = "list_SerialPort副程式執行次數：";
+			this.label9.Text = "list_SerialPort方法執行次數：";
 			// 
 			// label10
 			// 
@@ -362,7 +362,7 @@
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(169, 42);
 			this.button1.TabIndex = 19;
-			this.button1.Text = "副程式執行次數歸零";
+			this.button1.Text = "方法執行次數歸零";
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 

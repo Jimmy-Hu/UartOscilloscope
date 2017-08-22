@@ -16,7 +16,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 		{																		//	進入Main(主程式)
 			Application.EnableVisualStyles();									//	為應用程式啟用視覺化樣式
 			Application.SetCompatibleTextRenderingDefault(false);				//	為部分控制項上定義的 UseCompatibleTextRendering 屬性設定應用程式範圍的預設值
-			Application.Run(new Form1());										//	執行Form1副程式
+			Application.Run(new Form1());										//	執行Form1方法
 		}																		//	結束Main(主程式)
 	}																			//	結束Program類別
 }
