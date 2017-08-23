@@ -42,6 +42,10 @@ namespace UartOscilloscope                                                      
 			ConnectedCOMPortCount = 0;                                          //	預設ConnectedCOMPortCount為0
 			UartComportConnected = false;										//	預設UartComportConnected值為False
 		}                                                                       //	結束InitializeUARTConnectionSetting方法
+		/// <summary>
+		/// GetBaudRate方法用於取得鮑率設定
+		/// </summary>
+		/// <returns></returns>
 		public int GetBaudRate()												//	GetBaudRate方法
 		{                                                                       //	進入GetBaudRate方法
 			return UartComport.BaudRate;                                        //	回傳BaudRate數值
