@@ -11,6 +11,10 @@ namespace UartOscilloscope.Tests                                                
 	[TestClass()]
 	public class DataProcessingTests                                            //	DataProcessingTests類別
 	{                                                                           //	進入DataProcessingTests類別
+		/// <summary>
+		/// String2CharArrayTest測試方法
+		/// 該測試方法用於測試String2CharArray方法，能否順利完成字串至字元陣列轉換
+		/// </summary>
 		[TestMethod()]
 		public void String2CharArrayTest()                                      //	String2CharArrayTest方法
 		{                                                                       //	進入String2CharArrayTest方法
