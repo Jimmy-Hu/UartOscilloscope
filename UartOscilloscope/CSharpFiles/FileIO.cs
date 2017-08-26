@@ -32,11 +32,16 @@ namespace UartOscilloscope
 			file_stream.Flush();                                                //  清除緩衝區
 			file_stream.Close();                                                //  關閉檔案
 		}                                                                       //  結束FileWrite方法
+		/// <summary>
+		/// 宣告FileWrite方法，將資料寫入檔案
+		/// FileName為欲寫入檔案名稱
+		/// InputString為欲寫入檔案之字串資料
+		/// File_mode為開啟檔案模式
+		/// </summary>
+		/// <param name="FileName"></param>
+		/// <param name="InputString"></param>
+		/// <param name="File_mode"></param>
 		public void FileWrite(string FileName, string InputString, FileMode File_mode)
-		//  宣告FileWrite方法，將資料寫入檔案
-		//  FileName為欲寫入檔案名稱
-		//  InputString為欲寫入檔案之字串資料
-		//  File_mode為開啟檔案模式
 		{                                                                       //  進入FileWrite方法
 			FileStream file_stream = new FileStream(FileName, File_mode);      //  建立檔案指標，指向指定檔案名稱，模式為傳入之File_mode
 			byte[] Input_data = System.Text.Encoding.Default.GetBytes(InputString);
