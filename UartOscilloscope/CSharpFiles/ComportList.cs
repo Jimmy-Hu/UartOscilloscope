@@ -24,6 +24,10 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入UpdateComportList方法
 			Name = ComportList;													//	填入資料
 		}                                                                       //	結束UpdateComportList方法
+		/// <summary>
+		/// 複寫ToString方法，以foreach依序列出comport
+		/// </summary>
+		/// <returns></returns>
 		public override string ToString()                                       //	覆寫ToString方法
 		{                                                                       //	進入覆寫ToString方法
 			string OutputString = "";                                           //	宣告OutputString(輸出字串結果)
