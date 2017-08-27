@@ -32,6 +32,9 @@ namespace UartOscilloscope                                                      
 			this.ComportList1 = new ComportList(new string[] { ""});            //	初始化ComportList1物件
 			this.ComportListComboBox1 = new System.Windows.Forms.ComboBox();    //	初始化ComportListComboBox1物件
 		}                                                                       //	結束UARTConnection建構子
+		/// <summary>
+		/// InitializeUARTConnectionSetting方法用於初始化UART連線設定
+		/// </summary>
 		public void InitializeUARTConnectionSetting()							//	InitializeUARTConnectionSetting方法，初始化UART連線參數
 		{                                                                       //	進入InitializeUARTConnectionSetting方法
 			UartComport.BaudRate = UARTConnectionConstVal.GetDefaultBaudRate(); //	預設BaudRate數值為DefaultBaudRate
