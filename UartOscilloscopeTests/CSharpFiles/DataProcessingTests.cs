@@ -18,20 +18,26 @@ namespace UartOscilloscope.Tests                                                
 		[TestMethod()]
 		public void String2CharArrayTest()                                      //	String2CharArrayTest方法
 		{                                                                       //	進入String2CharArrayTest方法
+			String2CharArrayTestPart1();                                        //	呼叫String2CharArrayTestPart1方法
+
+		}                                                                       //	結束String2CharArrayTest方法
+		[TestMethod()]
+		public void String2CharArrayTestPart1()                                 //	String2CharArrayTestPart1方法
+		{                                                                       //	進入String2CharArrayTestPart1方法
 			DataProcessing DataProcessing1 = new DataProcessing();              //	建立DataProcessing1物件
 			string TestData1 = "12345";                                         //	宣告測試資料TestData1
 			char[] expected = new char[5]; ;                                    //	宣告預期輸出資料expected
-			expected[0] = '1';													//	設定預期輸出
+			expected[0] = '1';                                                  //	設定預期輸出
 			expected[1] = '2';                                                  //	設定預期輸出
 			expected[2] = '3';                                                  //	設定預期輸出
 			expected[3] = '4';                                                  //	設定預期輸出
 			expected[4] = '5';                                                  //	設定預期輸出
 			char[] actual;                                                      //	宣告actual(實際輸出)
 			actual = DataProcessing1.String2CharArray(TestData1);               //	執行String2CharArray方法
-			for(int LoopNum = 0; LoopNum < 5; LoopNum++)                        //	以for迴圈依序比對期望輸出與實際輸出
+			for (int LoopNum = 0; LoopNum < 5; LoopNum++)                        //	以for迴圈依序比對期望輸出與實際輸出
 			{                                                                   //	進入for迴圈
 				Assert.AreEqual(expected[LoopNum], actual[LoopNum]);            //	比對期望輸出與實際輸出
-			}																	//	結束for迴圈
-		}                                                                       //	結束String2CharArrayTest方法
+			}                                                                   //	結束for迴圈
+		}                                                                       //	結束String2CharArrayTestPart1方法
 	}                                                                           //	結束DataProcessingTests類別
 }                                                                               //	結束命名空間
