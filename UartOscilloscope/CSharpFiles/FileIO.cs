@@ -43,7 +43,7 @@ namespace UartOscilloscope
 		/// <param name="File_mode"></param>
 		public void FileWrite(string FileName, string InputString, FileMode File_mode)
 		{                                                                       //  進入FileWrite方法
-			FileStream file_stream = new FileStream(FileName, File_mode);      //  建立檔案指標，指向指定檔案名稱，模式為傳入之File_mode
+			FileStream file_stream = new FileStream(FileName, File_mode);       //  建立檔案指標，指向指定檔案名稱，模式為傳入之File_mode
 			byte[] Input_data = System.Text.Encoding.Default.GetBytes(InputString);
 			//  將填入資料轉為位元陣列
 			file_stream.Write(Input_data, 0, Input_data.Length);                //  寫入資料至檔案中
@@ -54,12 +54,12 @@ namespace UartOscilloscope
 		{                                                                       //  進入ReadTxTFile方法
 			//***區域變數宣告***
 			System.IO.StreamReader textreader;                                  //  宣告textreader為System.IO.StreamReader物件
-			string InputString;                                                //  宣告讀入字串
-			InputString = "";                                                  //  初始化InputString為空字串
-			textreader = new System.IO.StreamReader(FileName, encoding);       //	以指定encoding讀取檔案FileName
-			InputString = textreader.ReadToEnd();                              //  讀取檔案至結尾，將檔案內容填入InputString
+			string InputString;                                                 //  宣告讀入字串
+			InputString = "";                                                   //  初始化InputString為空字串
+			textreader = new System.IO.StreamReader(FileName, encoding);        //	以指定encoding讀取檔案FileName
+			InputString = textreader.ReadToEnd();                               //  讀取檔案至結尾，將檔案內容填入InputString
 			textreader.Close();                                                 //	關閉檔案
-			return InputString;                                                //  回傳讀取得字串資料
+			return InputString;                                                 //  回傳讀取得字串資料
 		}                                                                       //  結束ReadTxTFile方法
 	}                                                                           //	結束FileIO類別
 }                                                                               //	結束命名空間
