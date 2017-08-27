@@ -21,6 +21,9 @@ namespace UartOscilloscope.Tests                                                
 			String2CharArrayTestPart1();                                        //	呼叫String2CharArrayTestPart1方法
 
 		}                                                                       //	結束String2CharArrayTest方法
+		/// <summary>
+		/// String2CharArrayTestPart1以靜態字串於測試String2CharArray方法，能否順利完成字串至字元陣列轉換
+		/// </summary>
 		[TestMethod()]
 		public void String2CharArrayTestPart1()                                 //	String2CharArrayTestPart1方法
 		{                                                                       //	進入String2CharArrayTestPart1方法
