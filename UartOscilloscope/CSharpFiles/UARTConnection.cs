@@ -111,6 +111,10 @@ namespace UartOscilloscope                                                      
 					break;
 			}                                                                   //	結束switch敘述
 		}                                                                       //	結束SetParitySetting方法
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public int GetDataBitsSetting()											//	GetDataBitsSetting方法
 		{                                                                       //	進入GetDataBitsSetting方法
 			return UartComport.DataBits;										//	回傳DataBitsSetting數值
