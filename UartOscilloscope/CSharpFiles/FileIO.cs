@@ -50,6 +50,12 @@ namespace UartOscilloscope
 			file_stream.Flush();                                                //  清除緩衝區
 			file_stream.Close();                                                //  關閉檔案
 		}                                                                       //  結束FileWrite方法
+		/// <summary>
+		/// ReadTxTFile方法用於讀取txt文字檔
+		/// </summary>
+		/// <param name="FileName"></param>
+		/// <param name="encoding"></param>
+		/// <returns></returns>
 		public string ReadTxTFile(string FileName, Encoding encoding)			//  宣告ReadTxTFile方法
 		{                                                                       //  進入ReadTxTFile方法
 			//***區域變數宣告***
