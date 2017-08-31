@@ -8,6 +8,7 @@ namespace UartOscilloscope                                                      
 {                                                                               //	進入命名空間
 	class WaveDataStructure                                                     //	WaveDataStructure類別
 	{                                                                           //	進入WaveDataStructure類別
+		private static int[] WaveRawData;
 
 	}                                                                           //	結束WaveDataStructure類別
 }																				//	結束命名空間
