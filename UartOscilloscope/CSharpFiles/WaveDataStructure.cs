@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UartOscilloscope                                                      //	UartOscilloscope命名空間
 {                                                                               //	進入命名空間
-	class WaveDataStructure                                                     //	WaveDataStructure類別
+	public class WaveDataStructure                                                     //	WaveDataStructure類別
 	{                                                                           //	進入WaveDataStructure類別
 		public static int[] WaveRawData;
 
