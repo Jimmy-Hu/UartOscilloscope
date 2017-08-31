@@ -19,18 +19,23 @@ namespace UartOscilloscope														//	命名空間為本程式
 	 */
 	public class OscilloscopeFunctionVariable									//	OscilloscopeFunctionVariable類別
 	{																			//	進入OscilloscopeFunctionVariable類別
-		public WaveDataStructure ADC_Raw_Data_X;								//	宣告ADC_Raw_Data_X全域陣列變數，記錄X通道ADC原始資料
-		public static WaveDataStructure ADC_Raw_Data_Y;							//	宣告ADC_Raw_Data_Y全域陣列變數，記錄Y通道ADC原始資料
-		public static WaveDataStructure ADC_Raw_Data_Z;							//	宣告ADC_Raw_Data_Z全域陣列變數，記錄Z通道ADC原始資料
-		public static int ADC_Raw_Data_X_num = 0;								//	宣告ADC_Raw_Data_X_num全域整數變數，記錄ADC_Raw_Data_X資料量
-		public static int ADC_Raw_Data_Y_num = 0;								//	宣告ADC_Raw_Data_Y_num全域整數變數，記錄ADC_Raw_Data_Y資料量
-		public static int ADC_Raw_Data_Z_num = 0;								//	宣告ADC_Raw_Data_Z_num全域整數變數，記錄ADC_Raw_Data_Z資料量
+		public WaveDataStructure XChannel;										//	宣告XChannel全域陣列變數，記錄X通道ADC原始資料
+		public WaveDataStructure YChannel;										//	宣告YChannel全域陣列變數，記錄Y通道ADC原始資料
+		public WaveDataStructure ZChannel;										//	宣告ZChannel全域陣列變數，記錄Z通道ADC原始資料
+		public static int XChannel_num = 0;								//	宣告XChannel_num全域整數變數，記錄XChannel資料量
+		public static int YChannel_num = 0;								//	宣告YChannel_num全域整數變數，記錄YChannel資料量
+		public static int ZChannel_num = 0;								//	宣告ZChannel_num全域整數變數，記錄ZChannel資料量
 		private static int ADC_Raw_Data_Max = 100;								//	宣告ADC_Raw_Data_Max全域整數變數，記錄ADC_Raw_Data陣列大小
 		public static Queue<int> Data_Graphic_Queue_X;							//	宣告X通道資料繪圖用整數型態佇列Data_Graphic_Queue_X
 		public static Queue<int> Data_Graphic_Queue_Y;							//	宣告Y通道資料繪圖用整數型態佇列Data_Graphic_Queue_Y
 		public static Queue<int> Data_Graphic_Queue_Z;                          //	宣告Z通道資料繪圖用整數型態佇列Data_Graphic_Queue_Z
 
-
+		public OscilloscopeFunctionVariable()
+		{
+			this.XChannel = new WaveDataStructure(ADC_Raw_Data_Max);
+			this.YChannel = new WaveDataStructure(ADC_Raw_Data_Max);
+			this.ZChannel = new WaveDataStructure(ADC_Raw_Data_Max);
+		}
 		public static int Get_ADC_Raw_Data_Max()								//	宣告Get_ADC_Raw_Data_Max方法
 		{																		//	進入Get_ADC_Raw_Data_Max方法
 			return OscilloscopeFunctionVariable.ADC_Raw_Data_Max;				//	回傳ADC_Raw_Data_Max數值
