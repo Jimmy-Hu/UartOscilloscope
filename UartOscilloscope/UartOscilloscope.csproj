@@ -64,6 +64,7 @@
     <Compile Include="CSharpFiles\UARTConnection.cs" />
     <Compile Include="CSharpFiles\UARTConnectionConstVal.cs" />
     <Compile Include="CSharpFiles\VersionInfo.cs" />
+    <Compile Include="CSharpFiles\WaveDataStructure.cs" />
     <Compile Include="CSharpFiles\WorkingMode.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
