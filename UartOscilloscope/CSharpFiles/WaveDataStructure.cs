@@ -11,7 +11,7 @@ namespace UartOscilloscope                                                      
 		public int[] WaveRawData;
 		public WaveDataStructure()
 		{
-
+			Array.Resize<int>(ref WaveRawData, OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max());
 		}
 	}                                                                           //	結束WaveDataStructure類別
 }																				//	結束命名空間
