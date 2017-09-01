@@ -9,9 +9,9 @@ namespace UartOscilloscope                                                      
 	public class WaveDataStructure                                              //	WaveDataStructure類別
 	{                                                                           //	進入WaveDataStructure類別
 		public int[] WaveRawData;
-		public WaveDataStructure()                                              //	WaveDataStructure建構子
+		public WaveDataStructure(int InitialSize)                               //	WaveDataStructure建構子
 		{                                                                       //	進入WaveDataStructure建構子
-			Array.Resize<int>(ref WaveRawData, OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max());
+			Array.Resize<int>(ref WaveRawData, InitialSize);
 		}                                                                       //	結束WaveDataStructure建構子
 	}                                                                           //	結束WaveDataStructure類別
 }																				//	結束命名空間
