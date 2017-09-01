@@ -19,8 +19,11 @@ namespace UartOscilloscope                                                      
 		/// <param name="InitialSize">變數用於給定資料陣列初始大小</param>
 		public WaveDataStructure(int InitialSize)                               //	WaveDataStructure建構子
 		{                                                                       //	進入WaveDataStructure建構子
-			Array.Resize<int>(ref WaveRawData, InitialSize);					//	初始化陣列大小
+			ResizeArray(InitialSize);
 		}                                                                       //	結束WaveDataStructure建構子
-
+		public void ResizeArray(int NewSize)
+		{
+			Array.Resize<int>(ref WaveRawData, NewSize);                    //	初始化陣列大小
+		}
 	}                                                                           //	結束WaveDataStructure類別
 }																				//	結束命名空間
