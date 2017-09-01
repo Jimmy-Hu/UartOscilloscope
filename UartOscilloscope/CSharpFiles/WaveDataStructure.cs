@@ -20,6 +20,7 @@ namespace UartOscilloscope                                                      
 		public WaveDataStructure(int InitialSize)                               //	WaveDataStructure建構子
 		{                                                                       //	進入WaveDataStructure建構子
 			ResizeArray(InitialSize);                                           //	呼叫ResizeArray方法
+			this.NewDataIndex = 0;                                              //	給定NewDataIndex初始值
 		}                                                                       //	結束WaveDataStructure建構子
 		/// <summary>
 		/// ResizeArray方法用於調整資料陣列大小
@@ -33,6 +34,7 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入AddData方法
 
 		}                                                                       //	結束AddData方法
+
 
 	}                                                                           //	結束WaveDataStructure類別
 }																				//	結束命名空間
