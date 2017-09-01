@@ -29,6 +29,10 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入ResizeArray方法
 			Array.Resize<int>(ref WaveRawData, NewSize);                        //	調整陣列大小
 		}                                                                       //	結束ResizeArray方法
+		public void AddData(int InputData)                                      //	AddData方法
+		{                                                                       //	進入AddData方法
+
+		}                                                                       //	結束AddData方法
 
 	}                                                                           //	結束WaveDataStructure類別
 }																				//	結束命名空間
