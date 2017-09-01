@@ -33,7 +33,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 			this.XChannel = new WaveDataStructure(ADC_Raw_Data_Max);
 			this.YChannel = new WaveDataStructure(ADC_Raw_Data_Max);
 			this.ZChannel = new WaveDataStructure(ADC_Raw_Data_Max);
-		}
+		}                                                                       //	結束OscilloscopeFunctionVariable建構子
 		public static int Get_ADC_Raw_Data_Max()								//	宣告Get_ADC_Raw_Data_Max方法
 		{																		//	進入Get_ADC_Raw_Data_Max方法
 			return OscilloscopeFunctionVariable.ADC_Raw_Data_Max;				//	回傳ADC_Raw_Data_Max數值
