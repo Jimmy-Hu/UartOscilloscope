@@ -27,9 +27,9 @@ namespace UartOscilloscope														//	命名空間為本程式
 		public static Queue<int> Data_Graphic_Queue_Y;							//	宣告Y通道資料繪圖用整數型態佇列Data_Graphic_Queue_Y
 		public static Queue<int> Data_Graphic_Queue_Z;                          //	宣告Z通道資料繪圖用整數型態佇列Data_Graphic_Queue_Z
 
-		public OscilloscopeFunctionVariable()
-		{
-			ADC_Raw_Data_Max = 100;
+		public OscilloscopeFunctionVariable()                                   //	OscilloscopeFunctionVariable建構子
+		{                                                                       //	進入OscilloscopeFunctionVariable建構子
+			ADC_Raw_Data_Max = 100;                                             //	初始化數值
 			this.XChannel = new WaveDataStructure(ADC_Raw_Data_Max);
 			this.YChannel = new WaveDataStructure(ADC_Raw_Data_Max);
 			this.ZChannel = new WaveDataStructure(ADC_Raw_Data_Max);
