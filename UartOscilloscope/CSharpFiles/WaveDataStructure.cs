@@ -35,6 +35,5 @@ namespace UartOscilloscope                                                      
 
 		}                                                                       //	結束AddData方法
 
-
 	}                                                                           //	結束WaveDataStructure類別
 }																				//	結束命名空間
