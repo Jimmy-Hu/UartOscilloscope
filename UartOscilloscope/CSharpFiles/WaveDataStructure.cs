@@ -8,7 +8,11 @@ namespace UartOscilloscope                                                      
 {                                                                               //	進入命名空間
 	public class WaveDataStructure                                              //	WaveDataStructure類別
 	{                                                                           //	進入WaveDataStructure類別
-		public int[] WaveRawData;
+		public int[] WaveRawData;												//	宣告WaveRawData資料儲存陣列
+		/// <summary>
+		/// WaveDataStructure建構子，初始化資料陣列
+		/// </summary>
+		/// <param name="InitialSize">變數用於給定資料陣列初始大小</param>
 		public WaveDataStructure(int InitialSize)                               //	WaveDataStructure建構子
 		{                                                                       //	進入WaveDataStructure建構子
 			Array.Resize<int>(ref WaveRawData, InitialSize);
