@@ -34,6 +34,12 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入AddData方法
 
 		}                                                                       //	結束AddData方法
+		private int NextIndex()                                                 //	NextIndex方法
+		{                                                                       //	進入NextIndex方法
+			int OutputIndex;                                                    //	宣告OutputIndex區域變數
+			OutputIndex = (NewDataIndex + 1) % WaveRawData.Length;				//	取出填入下一筆陣列資料之位置
+			return OutputIndex;                                                 //	回傳OutputIndex區域變數
+		}                                                                       //	結束NextIndex方法
 
 	}                                                                           //	結束WaveDataStructure類別
 }																				//	結束命名空間
