@@ -22,7 +22,10 @@ namespace UartOscilloscope.Tests                                                
 				Assert.Fail();													//	測試失敗
 			}                                                                   //	結束if敘述
 			int[] TestData = new int[] { 3, 2, 1 };                             //	建立測試資料
-			
+			WaveDataStructureTest1.AddData(TestData[0]);
+			WaveDataStructureTest1.AddData(TestData[1]);
+			WaveDataStructureTest1.AddData(TestData[2]);
+
 		}                                                                       //	結束AddDataTest方法
 		/// <summary>
 		/// WaveDataStructureInitialTest方法用於測試WaveDataStructure初始化功能
