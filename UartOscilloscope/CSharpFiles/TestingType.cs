@@ -26,7 +26,7 @@ namespace UartOscilloscope.Tests                                                
 		}                                                                       //	結束TestSuccess方法
 		public void TestFail()                                                  //	TestFail方法
 		{                                                                       //	進入TestFail方法
-
+			Result = false;                                                     //	設定結果為false
 		}                                                                       //	結束TestFail方法
 	}                                                                           //	結束TestingType類別
 }																				//	結束命名空間
