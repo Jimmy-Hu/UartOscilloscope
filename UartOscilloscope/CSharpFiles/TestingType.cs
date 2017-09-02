@@ -37,6 +37,9 @@ namespace UartOscilloscope.Tests                                                
 		{                                                                       //	進入TestFail方法
 			Result = false;                                                     //	設定結果為false
 		}                                                                       //	結束TestFail方法
+		/// <summary>
+		/// GetTestingResult用於取得測試結果
+		/// </summary>
 		public void GetTestingResult()                                          //	GetTestingResult方法
 		{                                                                       //	進入GetTestingResult方法
 
