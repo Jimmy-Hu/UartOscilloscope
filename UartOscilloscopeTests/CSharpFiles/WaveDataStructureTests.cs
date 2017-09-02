@@ -18,20 +18,34 @@ namespace UartOscilloscope.Tests                                                
 			int ArrayMax = 3;                                                   //	宣告ArrayMax變數，用於給定WaveDataStructureTest物件空間
 			int[] TestData = new int[]{ 3, 2, 1 };								//	建立測試資料
 			WaveDataStructureTest1 = new WaveDataStructure(ArrayMax);           //	初始化測試物件
-
-			WaveDataStructureTest1.AddData(3);
-
-			WaveDataStructureTest1.AddData(2);
-
+			if(TestingType.IsTestFailed(WaveDataStructureInitialTest(WaveDataStructureTest1)))
+			{
+				Assert.Fail();
+			}
+			
 		}                                                                       //	結束AddDataTest方法
 		/// <summary>
 		/// WaveDataStructureInitialTest方法用於測試WaveDataStructure初始化功能
-		/// 若順利初始化，則內部陣列空間資料皆為0
+		/// 初始化完成後，若內部陣列空間資料皆為0，代表初始化順利完成
+		/// 若初始化順利，則TestSuccess，否則TestFail
 		/// </summary>
-		/// <returns></returns>
-		private bool WaveDataStructureInitialTest()                             //	WaveDataStructureInitialTest方法
+		/// <returns>回傳測試結果</returns>
+		private TestingType WaveDataStructureInitialTest(WaveDataStructure InputData)
+		//	WaveDataStructureInitialTest方法
 		{                                                                       //	進入WaveDataStructureInitialTest方法
-
+			TestingType Test1 = new TestingType();                              //	建立Test1物件
+			foreach(int Data in InputData.ReturnData())							//	依序比對資料內容
+			{																	//	進入foreach敘述
+				if(Data == 0)													//	若Data為0
+				{																//	進入if敘述
+					Test1.TestSuccess();
+				}
+				else
+				{
+					Test1.TestFail();
+				}
+			}
+			return Test1;
 		}                                                                       //	結束WaveDataStructureInitialTest方法
 	}                                                                           //	結束WaveDataStructureTests類別
 }                                                                               //	結束命名空間
