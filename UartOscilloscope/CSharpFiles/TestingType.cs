@@ -53,6 +53,11 @@ namespace UartOscilloscope.Tests                                                
 		{                                                                       //	進入IsTestSuccessed方法
 			return TestResult.GetTestingResult();                               //	回傳比對結果
 		}                                                                       //	結束IsTestSuccessed方法
+		/// <summary>
+		/// IsTestFailed方法用於核對測試結果是否失敗，若測試失敗傳回true，若測試成功則傳回false
+		/// </summary>
+		/// <param name="TestResult"></param>
+		/// <returns>回傳測試結果是否失敗核對結果</returns>
 		public bool IsTestFailed(TestingType TestResult)                        //	IsTestFailed方法
 		{                                                                       //	進入IsTestFailed方法
 			return !TestResult.GetTestingResult();                              //	回傳比對結果
