@@ -32,7 +32,8 @@ namespace UartOscilloscope                                                      
 			for(int Loopnum = 0; Loopnum < WaveRawData.Length; Loopnum++)		//	以for迴圈初始化資料內容
 			{                                                                   //	進入for迴圈
 				WaveRawData[Loopnum] = 0;										//	初始化資料為0
-			}																	//	結束for迴圈
+			}                                                                   //	結束for迴圈
+			NewDataIndex = -1;                                                  //	重新定位下一筆資料儲存位址
 		}                                                                       //	結束ResizeArray方法
 		/// <summary>
 		/// AddData方法用於新增資料至陣列空間
