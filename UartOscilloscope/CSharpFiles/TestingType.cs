@@ -10,7 +10,7 @@ namespace UartOscilloscope.Tests                                                
 	/// TestingType類別物件用於記錄測試結果
 	/// 若測試成功，
 	/// </summary>
-	class TestingType                                                           //	TestingType類別
+	public class TestingType                                                    //	TestingType類別
 	{                                                                           //	進入TestingType類別
 		/// <summary>
 		/// 當測試成功，Result為True，否則為False
