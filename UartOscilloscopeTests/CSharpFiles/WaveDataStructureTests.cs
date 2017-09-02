@@ -38,14 +38,15 @@ namespace UartOscilloscope.Tests                                                
 			{																	//	進入foreach敘述
 				if(Data == 0)													//	若Data為0
 				{																//	進入if敘述
-					Test1.TestSuccess();
-				}
-				else
-				{
-					Test1.TestFail();
-				}
-			}
-			return Test1;
+					Test1.TestSuccess();										//	測試Success
+				}																//	結束if敘述
+				else															//	若Data不為0
+				{																//	進入else敘述
+					Test1.TestFail();                                           //	測試Fail
+					return Test1;												//	回傳測試結果
+				}																//	結束else敘述
+			}																	//	結束foreach敘述
+			return Test1;														//	回傳測試結果
 		}                                                                       //	結束WaveDataStructureInitialTest方法
 	}                                                                           //	結束WaveDataStructureTests類別
 }                                                                               //	結束命名空間
