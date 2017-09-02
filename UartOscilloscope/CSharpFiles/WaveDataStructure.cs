@@ -53,6 +53,10 @@ namespace UartOscilloscope                                                      
 			OutputIndex = (NewDataIndex + 1) % WaveRawData.Length;				//	取出填入下一筆陣列資料之位置
 			return OutputIndex;                                                 //	回傳OutputIndex區域變數
 		}                                                                       //	結束NextIndex方法
+		public int[] ReturnData()                                               //	ReturnData方法
+		{                                                                       //	進入ReturnData方法
+			return WaveRawData;
+		}                                                                       //	結束ReturnData方法
 		public override string ToString()                                       //	覆寫ToString方法
 		{                                                                       //	進入覆寫ToString方法
 			string OutputString = "";                                           //	宣告OutputString(輸出字串結果)
