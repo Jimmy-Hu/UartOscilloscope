@@ -49,10 +49,10 @@ namespace UartOscilloscope.Tests                                                
 		/// </summary>
 		/// <param name="TestResult"></param>
 		/// <returns>回傳測試結果是否成功核對結果</returns>
-		public bool IsTestSuccessed(bool TestResult)                            //	IsTestSuccessed方法
+		public bool IsTestSuccessed(TestingType TestResult)                     //	IsTestSuccessed方法
 		{                                                                       //	進入IsTestSuccessed方法
-			return TestResult;                                                  //	回傳TestResult
+			return TestResult.GetTestingResult();                               //	回傳比對結果
 		}                                                                       //	結束IsTestSuccessed方法
-		public bool IsTestFail
+		
 	}                                                                           //	結束TestingType類別
 }																				//	結束命名空間
