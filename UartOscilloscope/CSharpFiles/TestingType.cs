@@ -53,9 +53,9 @@ namespace UartOscilloscope.Tests                                                
 		{                                                                       //	進入IsTestSuccessed方法
 			return TestResult.GetTestingResult();                               //	回傳比對結果
 		}                                                                       //	結束IsTestSuccessed方法
-		public bool IsTestFailed()                                              //	IsTestFailed方法
+		public bool IsTestFailed(TestingType TestResult)                        //	IsTestFailed方法
 		{                                                                       //	進入IsTestFailed方法
-
+			return TestResult.GetTestingResult();                               //	回傳比對結果
 		}                                                                       //	結束IsTestFailed方法
 	}                                                                           //	結束TestingType類別
 }																				//	結束命名空間
