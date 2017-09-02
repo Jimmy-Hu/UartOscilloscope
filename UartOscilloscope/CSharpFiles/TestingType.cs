@@ -44,6 +44,14 @@ namespace UartOscilloscope.Tests                                                
 		{                                                                       //	進入GetTestingResult方法
 			return Result;														//	回傳測試結果
 		}                                                                       //	結束GetTestingResult方法
-
+		/// <summary>
+		/// IsTestSuccess方法用於核對測試結果是否成功
+		/// </summary>
+		/// <param name="TestResult"></param>
+		/// <returns>回傳測試結果是否成功核對結果</returns>
+		public bool IsTestSuccess(bool TestResult)                              //	IsTestSuccess方法
+		{																		//	進入
+			return TestResult;
+		}
 	}                                                                           //	結束TestingType類別
 }																				//	結束命名空間
