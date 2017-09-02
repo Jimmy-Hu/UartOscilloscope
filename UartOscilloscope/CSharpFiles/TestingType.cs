@@ -40,9 +40,9 @@ namespace UartOscilloscope.Tests                                                
 		/// <summary>
 		/// GetTestingResult用於取得測試結果
 		/// </summary>
-		public void GetTestingResult()                                          //	GetTestingResult方法
+		public bool GetTestingResult()                                          //	GetTestingResult方法
 		{                                                                       //	進入GetTestingResult方法
-
+			return Result;														//	回傳測試結果
 		}                                                                       //	結束GetTestingResult方法
 
 	}                                                                           //	結束TestingType類別
