@@ -20,6 +20,10 @@ namespace UartOscilloscope.Tests                                                
 		{                                                                       //	進入TestingType建構子
 			Result = false;                                                     //	初始化Result為false
 		}                                                                       //	結束TestingType建構子
+		public void TestSuccess()                                               //	TestSuccess方法
+		{                                                                       //	進入TestSuccess方法
+
+		}                                                                       //	結束TestSuccess方法
 
 	}                                                                           //	結束TestingType類別
 }																				//	結束命名空間
