@@ -32,7 +32,7 @@ namespace UartOscilloscope                                                      
 		}                                                                       //	結束ResizeArray方法
 		public void AddData(int InputData)                                      //	AddData方法
 		{                                                                       //	進入AddData方法
-
+			WaveRawData[NextIndex()] = InputData;								//	將資料填入陣列空間
 		}                                                                       //	結束AddData方法
 		private int NextIndex()                                                 //	NextIndex方法
 		{                                                                       //	進入NextIndex方法
