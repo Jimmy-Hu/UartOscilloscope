@@ -19,9 +19,9 @@ namespace UartOscilloscope.Tests                                                
 			int[] TestData = new int[]{ 3, 2, 1 };								//	建立測試資料
 			WaveDataStructureTest1 = new WaveDataStructure(ArrayMax);           //	初始化測試物件
 			if(TestingType.IsTestFailed(WaveDataStructureInitialTest(WaveDataStructureTest1)))
-			{
+			{																	//	進入if敘述
 				Assert.Fail();
-			}
+			}																	//	結束if敘述
 			
 		}                                                                       //	結束AddDataTest方法
 		/// <summary>
