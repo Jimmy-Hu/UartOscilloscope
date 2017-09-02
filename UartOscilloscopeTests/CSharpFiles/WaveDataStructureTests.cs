@@ -12,9 +12,9 @@ namespace UartOscilloscope.Tests                                                
 	public class WaveDataStructureTests                                         //	WaveDataStructureTests類別
 	{                                                                           //	進入WaveDataStructureTests類別
 		[TestMethod()]
-		public void AddDataTest()
-		{
+		public void AddDataTest()                                               //	AddDataTest方法
+		{                                                                       //	進入AddDataTest方法
 			Assert.Fail();
-		}
+		}                                                                       //	結束AddDataTest方法
 	}                                                                           //	結束WaveDataStructureTests類別
 }                                                                               //	結束命名空間
