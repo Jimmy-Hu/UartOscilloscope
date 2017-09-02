@@ -24,8 +24,11 @@ namespace UartOscilloscope.Tests                                                
 			int[] TestData = new int[] { 3, 2, 1 };                             //	建立測試資料
 			WaveDataStructureTest1.AddData(TestData[0]);						//	填入測試資料
 			WaveDataStructureTest1.AddData(TestData[1]);						//	填入測試資料
-			WaveDataStructureTest1.AddData(TestData[2]);						//	填入測試資料
-
+			WaveDataStructureTest1.AddData(TestData[2]);                        //	填入測試資料
+			if (TestingType.IsTestFailed(WaveDataStructureMatch(WaveDataStructureTest1, TestData)))
+			{                                                                   //	進入if敘述
+				Assert.Fail();                                                  //	測試失敗
+			}                                                                   //	結束if敘述
 		}                                                                       //	結束AddDataTest方法
 		/// <summary>
 		/// WaveDataStructureInitialTest方法用於測試WaveDataStructure初始化功能
@@ -55,7 +58,22 @@ namespace UartOscilloscope.Tests                                                
 		//	WaveDataStructureMatch方法
 		{                                                                       //	進入WaveDataStructureMatch方法
 			TestingType Test1 = new TestingType();                              //	建立Test1物件
+			int CountNum = 0;                                                   //	宣告CountNum計數變數
+			foreach (int Data in InputData1.ReturnData())						//	以foreach依序取出Data
+			{                                                                   //	進入foreach敘述
+				Console.Write(Data.ToString());
+				if (Data == InputData2[CountNum])								//	若資料相同
+				{																//	進入if敘述
+					Test1.TestSuccess();                                        //	測試Success
+				}                                                               //	結束if敘述
+				else															//	若資料不同
+				{                                                               //	進入else敘述
+					Test1.TestFail();                                           //	測試Fail
 
+					return Test1;                                               //	回傳測試結果
+				}																//	結束else敘述
+				CountNum = (CountNum + 1) % InputData2.Length;					//	取得下一筆測試資料序號
+			}																	//	結束foreach敘述
 			return Test1;                                                       //	回傳測試結果
 		}                                                                       //	結束WaveDataStructureMatch方法
 	}                                                                           //	結束WaveDataStructureTests類別
