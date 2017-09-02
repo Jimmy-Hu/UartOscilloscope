@@ -29,6 +29,10 @@ namespace UartOscilloscope                                                      
 		public void ResizeArray(int NewSize)                                    //	ResizeArray方法
 		{                                                                       //	進入ResizeArray方法
 			Array.Resize<int>(ref WaveRawData, NewSize);                        //	調整陣列大小
+			for(int Loopnum = 0; Loopnum < WaveRawData.Length; Loopnum++)		//	以for迴圈初始化資料內容
+			{                                                                   //	進入for迴圈
+				WaveRawData[Loopnum] = 0;										//	初始化資料為0
+			}																	//	結束for迴圈
 		}                                                                       //	結束ResizeArray方法
 		/// <summary>
 		/// AddData方法用於新增資料至陣列空間
