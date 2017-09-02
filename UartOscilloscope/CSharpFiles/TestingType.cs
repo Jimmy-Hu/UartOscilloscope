@@ -16,10 +16,14 @@ namespace UartOscilloscope.Tests                                                
 		/// 當測試成功，Result為True，否則為False
 		/// </summary>
 		private bool Result;                                                    //	宣告Result記錄測試結果
+		/// <summary>
+		/// TestingType建構子
+		/// </summary>
 		public TestingType()                                                    //	TestingType建構子
 		{                                                                       //	進入TestingType建構子
 			Result = false;                                                     //	初始化Result為false
 		}                                                                       //	結束TestingType建構子
+
 		public void TestSuccess()                                               //	TestSuccess方法
 		{                                                                       //	進入TestSuccess方法
 			Result = true;                                                      //	設定結果為true
@@ -28,5 +32,10 @@ namespace UartOscilloscope.Tests                                                
 		{                                                                       //	進入TestFail方法
 			Result = false;                                                     //	設定結果為false
 		}                                                                       //	結束TestFail方法
+		public void GetTestingResult()                                          //	GetTestingResult方法
+		{                                                                       //	進入GetTestingResult方法
+
+		}                                                                       //	結束GetTestingResult方法
+
 	}                                                                           //	結束TestingType類別
 }																				//	結束命名空間
