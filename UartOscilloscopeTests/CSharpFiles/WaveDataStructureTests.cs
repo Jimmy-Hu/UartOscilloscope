@@ -51,5 +51,11 @@ namespace UartOscilloscope.Tests                                                
 			}																	//	結束foreach敘述
 			return Test1;														//	回傳測試結果
 		}                                                                       //	結束WaveDataStructureInitialTest方法
+		private TestingType WaveDataStructureMatch(WaveDataStructure InputData1, int[] InputData2)
+		//	WaveDataStructureMatch方法
+		{
+			TestingType Test1 = new TestingType();                              //	建立Test1物件
+			return Test1;                                                       //	回傳測試結果
+		}
 	}                                                                           //	結束WaveDataStructureTests類別
 }                                                                               //	結束命名空間
