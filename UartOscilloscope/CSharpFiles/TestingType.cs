@@ -18,7 +18,7 @@ namespace UartOscilloscope.Tests                                                
 		private bool Result;                                                    //	宣告Result記錄測試結果
 		public TestingType()                                                    //	TestingType建構子
 		{                                                                       //	進入TestingType建構子
-			Result = false;
+			Result = false;                                                     //	初始化Result為false
 		}                                                                       //	結束TestingType建構子
 
 	}                                                                           //	結束TestingType類別
