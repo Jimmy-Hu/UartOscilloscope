@@ -38,6 +38,10 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入AddData方法
 			WaveRawData[NextIndex()] = InputData;								//	將資料填入陣列空間
 		}                                                                       //	結束AddData方法
+		/// <summary>
+		/// NextIndex方法用於取得填入下一筆陣列資料之位置
+		/// </summary>
+		/// <returns>回傳值為填入下一筆陣列資料之位置</returns>
 		private int NextIndex()                                                 //	NextIndex方法
 		{                                                                       //	進入NextIndex方法
 			int OutputIndex;                                                    //	宣告OutputIndex區域變數
