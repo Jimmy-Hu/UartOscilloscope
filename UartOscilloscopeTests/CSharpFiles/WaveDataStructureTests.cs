@@ -16,6 +16,7 @@ namespace UartOscilloscope.Tests                                                
 		{                                                                       //	進入AddDataTest方法
 			WaveDataStructure WaveDataStructureTest1;                           //	宣告WaveDataStructureTest1物件
 			int ArrayMax = 3;                                                   //	宣告ArrayMax變數，用於給定WaveDataStructureTest物件空間
+			int[] TestData = new int[]{ 3, 2, 1 };								//	建立測試資料
 			WaveDataStructureTest1 = new WaveDataStructure(ArrayMax);           //	初始化測試物件
 			WaveDataStructureTest1.AddData(3);
 			WaveDataStructureTest1.AddData(2);
