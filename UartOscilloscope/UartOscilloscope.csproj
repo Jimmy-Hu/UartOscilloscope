@@ -60,6 +60,7 @@
     <Compile Include="CSharpFiles\ErrorCodeMessage.cs" />
     <Compile Include="CSharpFiles\FileIO.cs" />
     <Compile Include="CSharpFiles\OpenGLExtension.cs" />
+    <Compile Include="CSharpFiles\TestingType.cs" />
     <Compile Include="CSharpFiles\TimingControl.cs" />
     <Compile Include="CSharpFiles\UARTConnection.cs" />
     <Compile Include="CSharpFiles\UARTConnectionConstVal.cs" />

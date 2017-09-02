@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="CSharpFiles\DataProcessingTests.cs" />
     <Compile Include="CSharpFiles\UARTConnectionConstValTests.cs" />
+    <Compile Include="CSharpFiles\WaveDataStructureTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
