@@ -12,7 +12,10 @@ namespace UartOscilloscope.Tests                                                
 	/// </summary>
 	class TestingType                                                           //	TestingType類別
 	{                                                                           //	進入TestingType類別
-		bool Result;
+		/// <summary>
+		/// 當測試成功，Result為True，否則為False
+		/// </summary>
+		private bool Result;                                                    //	宣告Result記錄測試結果
 		public TestingType()                                                    //	TestingType建構子
 		{                                                                       //	進入TestingType建構子
 			Result = false;
