@@ -11,7 +11,7 @@ namespace UartOscilloscope                                                      
 		/// <summary>
 		/// WaveRawData陣列用於儲存感測通道資料，資料以環型方式寫入更新
 		/// </summary>
-		public int[] WaveRawData;                                               //	宣告WaveRawData資料儲存陣列
+		private int[] WaveRawData;                                              //	宣告WaveRawData資料儲存陣列
 		private int NewDataIndex;												//	宣告NewDataIndex，記錄下一筆資料儲存位址
 		/// <summary>
 		/// WaveDataStructure建構子，初始化資料陣列
