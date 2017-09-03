@@ -61,15 +61,13 @@ namespace UartOscilloscope.Tests                                                
 			int CountNum = 0;                                                   //	宣告CountNum計數變數
 			foreach (int Data in InputData1.ReturnData())						//	以foreach依序取出Data
 			{                                                                   //	進入foreach敘述
-				Console.Write(Data.ToString());
-				if (Data == InputData2[CountNum])								//	若資料相同
+				if(Data == InputData2[CountNum])								//	若資料相同
 				{																//	進入if敘述
 					Test1.TestSuccess();                                        //	測試Success
 				}                                                               //	結束if敘述
 				else															//	若資料不同
 				{                                                               //	進入else敘述
 					Test1.TestFail();                                           //	測試Fail
-
 					return Test1;                                               //	回傳測試結果
 				}																//	結束else敘述
 				CountNum = (CountNum + 1) % InputData2.Length;					//	取得下一筆測試資料序號
