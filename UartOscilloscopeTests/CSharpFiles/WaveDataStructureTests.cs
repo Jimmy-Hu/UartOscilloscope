@@ -81,5 +81,9 @@ namespace UartOscilloscope.Tests                                                
 			}																	//	結束foreach敘述
 			return Test1;                                                       //	回傳測試結果
 		}                                                                       //	結束WaveDataStructureMatch方法
+		private int[] GenerateRandomNumber(int NumberOfRandomNumber)
+		{
+
+		}
 	}                                                                           //	結束WaveDataStructureTests類別
 }                                                                               //	結束命名空間
