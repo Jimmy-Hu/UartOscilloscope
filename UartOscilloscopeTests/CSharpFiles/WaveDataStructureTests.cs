@@ -21,11 +21,11 @@ namespace UartOscilloscope.Tests                                                
 			{																	//	進入if敘述
 				Assert.Fail();													//	測試失敗
 			}                                                                   //	結束if敘述
-			int[] TestData = new int[] { 3, 2, 1 };                             //	建立測試資料
-			WaveDataStructureTest1.AddData(TestData[0]);						//	填入測試資料
-			WaveDataStructureTest1.AddData(TestData[1]);						//	填入測試資料
-			WaveDataStructureTest1.AddData(TestData[2]);                        //	填入測試資料
-			if (TestingType.IsTestFailed(WaveDataStructureMatch(WaveDataStructureTest1, TestData)))
+			int[] TestData1 = new int[] { 3, 2, 1 };                             //	建立測試資料
+			WaveDataStructureTest1.AddData(TestData1[0]);						//	填入測試資料
+			WaveDataStructureTest1.AddData(TestData1[1]);						//	填入測試資料
+			WaveDataStructureTest1.AddData(TestData1[2]);                        //	填入測試資料
+			if (TestingType.IsTestFailed(WaveDataStructureMatch(WaveDataStructureTest1, TestData1)))
 			{                                                                   //	進入if敘述
 				Assert.Fail();                                                  //	測試失敗
 			}                                                                   //	結束if敘述
