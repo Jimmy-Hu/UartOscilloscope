@@ -29,8 +29,13 @@ namespace UartOscilloscope.Tests                                                
 			{                                                                   //	進入if敘述
 				Assert.Fail();                                                  //	測試失敗
 			}                                                                   //	結束if敘述
-			int[] TestData2 = TestData1;										//	宣告TestData2
-
+			int[] TestData2 = TestData1;                                        //	宣告TestData2
+			TestData2[0] = 4;
+			WaveDataStructureTest1.AddData(TestData2[4]);                       //	填入測試資料
+			if (TestingType.IsTestFailed(WaveDataStructureMatch(WaveDataStructureTest1, TestData2)))
+			{                                                                   //	進入if敘述
+				Assert.Fail();                                                  //	測試失敗
+			}                                                                   //	結束if敘述
 		}                                                                       //	結束AddDataTest方法
 		/// <summary>
 		/// WaveDataStructureInitialTest方法用於測試WaveDataStructure初始化功能
