@@ -61,6 +61,12 @@ namespace UartOscilloscope.Tests                                                
 			}																	//	結束foreach敘述
 			return Test1;														//	回傳測試結果
 		}                                                                       //	結束WaveDataStructureInitialTest方法
+		/// <summary>
+		/// WaveDataStructureMatch方法用於比對WaveDataStructure內容
+		/// </summary>
+		/// <param name="InputData1">為WaveDataStructure型態資料</param>
+		/// <param name="InputData2">為欲確認之答案</param>
+		/// <returns></returns>
 		private TestingType WaveDataStructureMatch(WaveDataStructure InputData1, int[] InputData2)
 		//	WaveDataStructureMatch方法
 		{                                                                       //	進入WaveDataStructureMatch方法
@@ -92,5 +98,6 @@ namespace UartOscilloscope.Tests                                                
 			}																	//	結束for迴圈
 			return Result;														//	回傳結果
 		}                                                                       //	結束GenerateRandomNumber方法
+		
 	}                                                                           //	結束WaveDataStructureTests類別
 }                                                                               //	結束命名空間
