@@ -101,7 +101,12 @@ namespace UartOscilloscope.Tests                                                
 		[TestMethod()]
 		public void ResizeArrayTest()                                           //	ResizeArrayTest方法
 		{                                                                       //	進入ResizeArrayTest方法
-			
+			WaveDataStructure WaveDataStructureTest1;                           //	宣告WaveDataStructureTest1物件
+			int ArrayMax = 3;                                                   //	宣告ArrayMax變數，用於給定WaveDataStructureTest物件空間
+			WaveDataStructureTest1 = new WaveDataStructure(ArrayMax);           //	初始化測試物件
+			ArrayMax = 10;                                                      //	調整ArrayMax變數
+			WaveDataStructureTest1.ResizeArray(ArrayMax);                       //	測試ResizeArray方法
+
 		}                                                                       //	結束ResizeArrayTest方法
 	}                                                                           //	結束WaveDataStructureTests類別
 }                                                                               //	結束命名空間
