@@ -106,7 +106,15 @@ namespace UartOscilloscope.Tests                                                
 			WaveDataStructureTest1 = new WaveDataStructure(ArrayMax);           //	初始化測試物件
 			ArrayMax = 10;                                                      //	調整ArrayMax變數
 			WaveDataStructureTest1.ResizeArray(ArrayMax);                       //	測試ResizeArray方法
-
+			int[] TestData1 = GenerateRandomNumber(ArrayMax);					//	生成亂數測試資料
+			for(int LoopNum = 0; LoopNum < TestData1.Length; LoopNum++)			//	以for迴圈填入資料
+			{                                                                   //	進入for迴圈
+				WaveDataStructureTest1.AddData(TestData1[LoopNum]);				//	新增資料
+			}                                                                   //	結束for迴圈
+			if (TestingType.IsTestFailed(WaveDataStructureMatch(WaveDataStructureTest1, TestData1)))
+			{                                                                   //	進入if敘述
+				Assert.Fail();                                                  //	測試失敗
+			}                                                                   //	結束if敘述
 		}                                                                       //	結束ResizeArrayTest方法
 	}                                                                           //	結束WaveDataStructureTests類別
 }                                                                               //	結束命名空間
