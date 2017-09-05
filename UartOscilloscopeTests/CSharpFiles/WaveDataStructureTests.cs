@@ -98,6 +98,10 @@ namespace UartOscilloscope.Tests                                                
 			}																	//	結束for迴圈
 			return Result;														//	回傳結果
 		}                                                                       //	結束GenerateRandomNumber方法
-		
+		[TestMethod()]
+		public void ResizeArrayTest()                                           //	ResizeArrayTest方法
+		{                                                                       //	進入ResizeArrayTest方法
+			
+		}                                                                       //	結束ResizeArrayTest方法
 	}                                                                           //	結束WaveDataStructureTests類別
 }                                                                               //	結束命名空間
