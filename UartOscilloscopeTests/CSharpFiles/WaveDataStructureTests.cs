@@ -83,6 +83,8 @@ namespace UartOscilloscope.Tests                                                
 		}                                                                       //	結束WaveDataStructureMatch方法
 		private int[] GenerateRandomNumber(int NumberOfRandomNumber)            //	GenerateRandomNumber方法
 		{                                                                       //	進入GenerateRandomNumber方法
+			Random rnd = new Random();                                          //	宣告Random物件
+			int month = rnd.Next(1, 13);
 
 		}                                                                       //	結束GenerateRandomNumber方法
 	}                                                                           //	結束WaveDataStructureTests類別
