@@ -87,12 +87,10 @@ namespace UartOscilloscope.Tests                                                
 			int[] Result = new int[0];                                          //	宣告回傳結果
 			Array.Resize<int>(ref Result, NumberOfRandomNumber);				//	配置記憶體位置
 			for(int LoopNum = 0; LoopNum < NumberOfRandomNumber; LoopNum++)		//	以for迴圈依序填入亂數
-			{																	//	進入for迴圈
-
+			{                                                                   //	進入for迴圈
+				Result[LoopNum] = rnd.Next(-1000, 1000);						//	生成亂數
 			}																	//	結束for迴圈
-			int month = rnd.Next(-1000, 1000);									//	
-			
-			return Result;
+			return Result;														//	回傳結果
 		}                                                                       //	結束GenerateRandomNumber方法
 	}                                                                           //	結束WaveDataStructureTests類別
 }                                                                               //	結束命名空間
