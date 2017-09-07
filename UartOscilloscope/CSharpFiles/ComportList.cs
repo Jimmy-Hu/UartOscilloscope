@@ -13,6 +13,10 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入ComportList建構子
 			this.Name = Name;													//	初始化內部物件
 		}                                                                       //	結束ComportList建構子
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public string[] GetComportList()                                        //	GetComportList方法
 		{                                                                       //	進入GetComportList方法
 			return Name;                                                        //	回傳Name
@@ -38,7 +42,7 @@ namespace UartOscilloscope                                                      
 		/// <summary>
 		/// IsComportListNull方法用於檢測ComportList是否為空
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>若未偵測到Comport回傳true，否則回傳false</returns>
 		public bool IsComportListNull()                                         //	IsComportListNull方法
 		{                                                                       //	進入IsComportListNull方法
 			if(Name.Length == 0)                                                //	若未偵測到Comport
