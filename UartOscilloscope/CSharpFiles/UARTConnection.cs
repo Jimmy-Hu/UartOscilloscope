@@ -135,10 +135,18 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入SetUartComportConnected方法
 			UartComportConnected = NewUartComportConnected;						//	設定UartComportConnected
 		}                                                                       //	結束SetUartComportConnected方法
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public bool GetUartComportConnected()									//	GetUartComportConnected方法，用以取得UartComportConnected狀態
 		{                                                                       //	進入GetUartComportConnected方法
 			return UartComportConnected;										//	回傳UartComportConnected狀態
 		}                                                                       //	結束GetUartComportConnected方法
+		/// <summary>
+		/// GetComportList方法用於取得Comport列表
+		/// </summary>
+		/// <returns></returns>
 		public ComportList GetComportList()                                     //	GetComportList方法
 		{                                                                       //	進入GetComportList方法
 			ListSerialPort();                                                   //	呼叫ListSerialPort方法
