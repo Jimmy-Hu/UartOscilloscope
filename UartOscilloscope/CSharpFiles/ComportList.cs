@@ -14,7 +14,7 @@ namespace UartOscilloscope                                                      
 			this.Name = Name;													//	初始化內部物件
 		}                                                                       //	結束ComportList建構子
 		/// <summary>
-		/// 
+		/// GetComportList方法用於取得Comport列表
 		/// </summary>
 		/// <returns></returns>
 		public string[] GetComportList()                                        //	GetComportList方法
