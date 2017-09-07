@@ -34,5 +34,21 @@ namespace UartOscilloscope                                                      
 			}                                                                   //	結束foreach敘述
 			return OutputString;                                                //	回傳OutputString
 		}                                                                       //	結束覆寫ToString方法
+
+		/// <summary>
+		/// IsComportListNull方法用於檢測ComportList是否為空
+		/// </summary>
+		/// <returns></returns>
+		public bool IsComportListNull()                                         //	IsComportListNull方法
+		{                                                                       //	進入IsComportListNull方法
+			if(Name.Length == 0)                                                //	若未偵測到Comport
+			{																	//	進入if敘述
+				return true;													//	回傳true
+			}                                                                   //	結束if敘述
+			else                                                                //	若偵測到Comport
+			{																	//	進入else敘述
+				return false;													//	回傳false
+			}																	//	結束else敘述
+		}                                                                       //	結束IsComportListNull方法
 	}                                                                           //	結束ComportList類別
 }                                                                               //	結束UartOscilloscope命名空間
