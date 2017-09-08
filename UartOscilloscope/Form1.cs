@@ -167,13 +167,18 @@ namespace UartOscilloscope														//	命名空間為本程式
 				return;                                                         //	結束list_SerialPort方法
 			}                                                                   //	結束else敘述*/
 		}                                                                       //	結束list_SerialPort方法
+		/// <summary>
+		/// ComportListToComboBox方法用於將ComportList型態資料新增至下拉式選單
+		/// </summary>
+		/// <param name="InputComportList">該參數為欲新增至下拉式選單之ComportList型態資料</param>
+		/// <param name="InputComboBox">該參數為下拉式選單物件</param>
 		private void ComportListToComboBox(ComportList InputComportList, ComboBox InputComboBox)
 		//	ComportListToComboBox方法
 		{                                                                       //	進入ComportListToComboBox方法
-			foreach (string Item in InputComportList.GetComportList())
-			{
-				InputComboBox.Items.Add(Item);
-			}
+			foreach (string Item in InputComportList.GetComportList())			//	取出各Comport名稱
+			{																	//	進入foreach敘述
+				InputComboBox.Items.Add(Item);									//	新增項目至下拉式選單
+			}																	//	結束foreach敘述
 		}																		//	結束ComportListToComboBox方法
 		/// <summary>
 		/// UartComport_handle方法
