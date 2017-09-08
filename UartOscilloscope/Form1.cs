@@ -30,7 +30,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 		public static int Analysed_Length = -1;
 		//	宣告Analysed_Length全域靜態變數，記錄Transmission_Analysis_CharArray字元陣列中已分析字串長度(陣列值)，並初始化為-1(因陣列從0開始)
 		public static int Uart_Buffer_Size = 0;									//	宣告Uart_Buffer_Size全域靜態變數，記錄Uart接收資料Buffer(資料緩衝區)大小
-		public static string Uart_Buffer_ASCII_Data = "";                       //	宣告Uart_Buffer_ASCII_Data全域靜態字串，記錄Uart傳輸之Buffer資料(ASCII編碼值)       
+		public static string Uart_Buffer_ASCII_Data = "";                       //	宣告Uart_Buffer_ASCII_Data全域靜態字串，記錄Uart傳輸之Buffer資料(ASCII編碼值)
 		public static int ADCintervals = 1024;                                  //	宣告ADCintervals(MCU輸出狀態數)
 		public struct OpenGL_Graph_point										//	宣告OpenGL_Graph_point結構，用於OpenGL繪圖座標宣告
 		{																		//	進入OpenGL_Graph_point結構
@@ -145,9 +145,9 @@ namespace UartOscilloscope														//	命名空間為本程式
 		public void list_SerialPort()                                           //	偵測並列出已連線SerialPort方法
 		{                                                                       //	進入list_SerialPort方法
 			DebugVariables.Set_list_SerialPort_Runtimes();                      //	呼叫Set_list_SerialPort_Runtimes方法遞增list_SerialPort_Runtimes變數
-			string[] ports = SerialPort.GetPortNames();
-			comboBox1ItemClear();
-			if (ports.Length == 0)                                              //	若偵測不到任何已連接的SerialPort(ports.Length為0)
+			comboBox1ItemClear();												//	清除下拉式選單
+			ComportListToComboBox(UARTConnection1.GetComportList(), comboBox1); //	將Comport偵測結果更新至下拉式選單
+			/*if (ports.Length == 0)                                              //	若偵測不到任何已連接的SerialPort(ports.Length為0)
 			{                                                                   //	進入if敘述
 				ErrorCodeMessage.Error_Message_Show((int)ErrorCodeMessage.ErrorCodeEncoding.NoSerialPortConnected);
 				//	顯示錯誤訊息
@@ -165,16 +165,20 @@ namespace UartOscilloscope														//	命名空間為本程式
 				button2.Enabled = false;                                        //	暫時關閉"連線"按鈕功能，待使用者選定愈連線之Serialport(未選定連線Serialport，可避免發生Error_010002)
 				textBox1.Enabled = true;                                        //	開啟textBox1(接收字串資料文字方塊)功能
 				return;                                                         //	結束list_SerialPort方法
-			}                                                                   //	結束else敘述
+			}                                                                   //	結束else敘述*/
 		}                                                                       //	結束list_SerialPort方法
-		private void NoSerialPort()                                             //	NoSerialPort方法
-		{                                                                       //	進入NoSerialPort方法
-
-		}																		//	結束NoSerialPort方法
+		private void ComportListToComboBox(ComportList InputComportList, ComboBox InputComboBox)
+		//	ComportListToComboBox方法
+		{                                                                       //	進入ComportListToComboBox方法
+			foreach (string Item in InputComportList.GetComportList())
+			{
+				InputComboBox.Items.Add(Item);
+			}
+		}																		//	結束ComportListToComboBox方法
 		/// <summary>
 		/// UartComport_handle方法
 		/// UartComport_handle方法用於處理UartComport連線設定
-		///  呼叫格式為UartComport_handle(comport名稱)
+		/// 呼叫格式為UartComport_handle(comport名稱)
 		///  
 		/// </summary>
 		/// <param name="comport_name"></param>
@@ -308,10 +312,6 @@ namespace UartOscilloscope														//	命名空間為本程式
 			//  以FileMode.Append模式建立包含傳輸時間資訊的資料記錄檔"Date_Data.txt"
 			Transmission_Buffer_CharArray = System.Text.Encoding.ASCII.GetString(buffer).ToCharArray();
 			//  將buffer中之接收資料(ascii原始碼)轉換為字串(符號字元)後，再轉換為字元陣列(CharArray)，存入Transmission_Buffer_CharArray
-			/*for (loop_num=0; loop_num<buffer.Length; loop_num++)
-			{
-				MessageBox.Show(Transmission_Buffer_CharArray[loop_num].ToString());
-			}*/
 			textBox1.ScrollBars = ScrollBars.Vertical;                          //  控制textBox1顯示垂直捲軸
 			textBox1.SelectionStart = textBox1.Text.Length;                     //  控制textBox1游標位置為textBox1內容結束處
 			textBox1.ScrollToCaret();                                           //  捲動textBox1捲軸至游標位置(自動捲動至最新資料)
