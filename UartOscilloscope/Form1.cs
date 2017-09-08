@@ -44,6 +44,9 @@ namespace UartOscilloscope														//	命名空間為本程式
 		public static int loop_num;												//	宣告loop_num全域靜態變數，供迴圈使用
 		delegate void Display(byte[] buffer);									//	定義Display型態
 		//delegate 是可用來封裝具名方法或匿名方法的參考型別。
+		/// <summary>
+		/// 
+		/// </summary>
 		public Form1()															//	宣告Form1方法
 		{                                                                       //	進入Form1(由Program.cs的Main呼叫執行)
 			UARTConnection1 = new UARTConnection();                             //	初始化UARTConnection1物件
@@ -333,7 +336,5 @@ namespace UartOscilloscope														//	命名空間為本程式
 				Uart_Data_Analysis_Queue();                                     //  呼叫Uart_Data_Analysis_Queue方法
 			}                                                                   //  結束else敘述*/
 		}                                                                       //  結束DisplayText顯示文字方法
-
-		
 	}                                                                           //  結束Form1類別
 }
