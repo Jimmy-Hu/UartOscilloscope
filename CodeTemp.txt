@@ -1,0 +1,704 @@
+public void Uart_Data_Analysis()
+		//  宣告Uart_Data_Analysis方法，分析Uart通訊傳輸接收資料
+		{                                                                       //  進入Uart_Data_Analysis方法
+			/****使用全域變數：
+			**Transmission_Analysis_CharArray(Uart通訊傳輸資料分析字元陣列，初始時為空陣列)、
+			**Transmission_Buffer_CharArray(Uart通訊傳輸Buffer資料字元陣列，初始時為空陣列)、
+			**Transmission_Analysis_CharArray_Datanum(已填入資料長度，初始值為0)、
+			**Analysed_Length(已分析字串長度，初始值為-1)、
+			**loop_num(迴圈用變數，初始值為0)、
+			**XChannel(示波器功能實作變數，記錄X通道ADC原始資料，初始時為空陣列)
+			**YChannel(示波器功能實作變數，記錄Y通道ADC原始資料，初始時為空陣列)
+			**ZChannel(示波器功能實作變數，記錄Z通道ADC原始資料，初始時為空陣列)
+			**XChannel_num(示波器功能實作變數，記錄XChannel資料量，初始值為0)
+			**YChannel_num(示波器功能實作變數，記錄YChannel資料量，初始值為0)
+			**ZChannel_num(示波器功能實作變數，記錄ZChannel資料量，初始值為0)
+			*/
+			char Channel_Name_temp = ' ';                                       //  宣告Channel_Name區域字元變數，暫存通道名稱
+			string ADC_Data_temp = "";                                          //  宣告ADC_Data_temp區域字串變數，累計數值
+			Array.Resize(ref Transmission_Analysis_CharArray,                   //  以Array.Resize函數重新配置Transmission_Analysis_CharArray字元陣列大小
+			(Transmission_Analysis_CharArray_Datanum + Transmission_Buffer_CharArray.Length));
+			//  指派Transmission_Analysis_CharArray字元陣列大小=
+			//  已填入字元數(Transmission_Analysis_CharArray_Datanum)
+			// +Buffer資料字元數(Transmission_Buffer_CharArray.Length)
+			for (loop_num = Transmission_Analysis_CharArray_Datanum;            //  以for迴圈依序將Buffer資料填入Transmission_Analysis_CharArray
+				loop_num < (Transmission_Analysis_CharArray_Datanum + Transmission_Buffer_CharArray.Length);
+				loop_num++)
+			{                                                                   //  進入for迴圈
+				Transmission_Analysis_CharArray[loop_num] = Transmission_Buffer_CharArray[loop_num - Transmission_Analysis_CharArray_Datanum];
+			}                                                                   //  結束for迴圈
+			Transmission_Analysis_CharArray_Datanum += Transmission_Buffer_CharArray.Length;
+			//  更新已填入字元數(Transmission_Analysis_CharArray_Datanum)
+			//MessageBox.Show(Transmission_Analysis_CharArray[Analysed_Length + 1].ToString());
+			//  顯示未分析的第一個字元
+			for (loop_num= (Analysed_Length + 1);                               //  以for迴圈依序掃描每一個未分析字元，起始值設為(已分析字元數+1)
+				loop_num < Transmission_Analysis_CharArray_Datanum;             //  掃描剩餘已填入字元
+				loop_num++)                                                     //  遞增loop_num變數
+			{                                                                   //  進入for迴圈
+				//MessageBox.Show(Transmission_Analysis_CharArray[loop_num].ToString());
+				//顯示當前分析字元
+				if(Transmission_Analysis_CharArray[loop_num] == 'X' ||          //  若當前分析字元為X(通道名稱)
+				   Transmission_Analysis_CharArray[loop_num] == 'Y' ||          //  或當前分析字元為Y(通道名稱)
+				   Transmission_Analysis_CharArray[loop_num] == 'Z')            //  或當前分析字元為Z(通道名稱)
+				{                                                               //  進入if敘述
+					if(Channel_Name_temp=='X')                                  //  若記錄下的Channel_Name為X
+					{                                                           //  進入if敘述
+						OscilloscopeFunctionVariable.XChannel[OscilloscopeFunctionVariable.XChannel_num] = int.Parse(ADC_Data_temp);
+						//  填入數值至XChannel
+						OscilloscopeFunctionVariable.Data_Graphic_Queue_X.Enqueue(int.Parse(ADC_Data_temp));
+						//  填入數值至Data_Graphic_Queue_X(X通道資料繪圖用整數型態佇列)
+						OscilloscopeFunctionVariable.XChannel_num = (OscilloscopeFunctionVariable.XChannel_num + 1) % OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max();
+						//  遞增XChannel_num變數，並取餘數避免超出陣列大小
+					}                                                           //  結束if敘述
+					else if(Channel_Name_temp == 'Y')                           //  若記錄下的Channel_Name為Y
+					{                                                           //  進入else if敘述
+						OscilloscopeFunctionVariable.YChannel[OscilloscopeFunctionVariable.YChannel_num] = int.Parse(ADC_Data_temp);
+						//  填入數值至YChannel
+						OscilloscopeFunctionVariable.Data_Graphic_Queue_Y.Enqueue(int.Parse(ADC_Data_temp));
+						//  填入數值至Data_Graphic_Queue_Y(Y通道資料繪圖用整數型態佇列)
+						OscilloscopeFunctionVariable.YChannel_num = (OscilloscopeFunctionVariable.YChannel_num + 1) % OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max();
+						//  遞增YChannel_num變數，並取餘數避免超出陣列大小
+					}                                                           //  結束else if敘述
+					else if (Channel_Name_temp == 'Z')                          //  若記錄下的Channel_Name為Z
+					{                                                           //  進入else if敘述
+						OscilloscopeFunctionVariable.ZChannel[OscilloscopeFunctionVariable.ZChannel_num] = int.Parse(ADC_Data_temp);
+						//  填入數值至ZChannel
+						OscilloscopeFunctionVariable.Data_Graphic_Queue_Z.Enqueue(int.Parse(ADC_Data_temp));
+						//  填入數值至Data_Graphic_Queue_Z(Z通道資料繪圖用整數型態佇列)
+						OscilloscopeFunctionVariable.ZChannel_num = (OscilloscopeFunctionVariable.ZChannel_num + 1) % OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max();
+						//  遞增ZChannel_num變數，並取餘數避免超出陣列大小
+					}                                                           //  結束else if敘述
+					Channel_Name_temp = Transmission_Analysis_CharArray[loop_num];   
+					//  記錄下一筆通道名稱
+					ADC_Data_temp = "";                                         //  清空ADC_Data_temp暫存字串
+					Analysed_Length = loop_num - 1;                             //  更新Analysed_Length數值
+				}                                                               //  結束if敘述
+				else if(Transmission_Analysis_CharArray[loop_num] == '0' ||     //  若當前分析字元為數值
+						Transmission_Analysis_CharArray[loop_num] == '1' ||
+						Transmission_Analysis_CharArray[loop_num] == '2' ||
+						Transmission_Analysis_CharArray[loop_num] == '3' ||
+						Transmission_Analysis_CharArray[loop_num] == '4' ||
+						Transmission_Analysis_CharArray[loop_num] == '5' ||
+						Transmission_Analysis_CharArray[loop_num] == '6' ||
+						Transmission_Analysis_CharArray[loop_num] == '7' ||
+						Transmission_Analysis_CharArray[loop_num] == '8' ||
+						Transmission_Analysis_CharArray[loop_num] == '9' )
+				{                                                               //  進入else if敘述
+					ADC_Data_temp += Transmission_Analysis_CharArray[loop_num]; //  累計數值字元
+				}                                                               //  結束else if敘述
+			}                                                                   //  結束for迴圈
+			//Data_Graphic方法與Data_Graphic_Queue方法擇一使用，由Analysis_Graphic_Mode靜態全域變數控制
+			if ((Analysis_Graphic_Mode / 2) % 2 == 0)                           //  若Analysis_Graphic_Mode二進位數值為X0X
+			{                                                                   //  進入if敘述
+				Data_Graphic();                                                 //  呼叫Data_Graphic方法
+			}                                                                   //  結束if敘述
+			else                                                                //  Analysis_Graphic_Mode二進位數值不為X0X
+			{                                                                   //  進入else敘述
+				Data_Graphic_Queue();                                           //  呼叫Data_Graphic_Queue方法
+			}                                                                   //  結束else敘述
+			//  顯示XChannel、YChannel、ZChannel
+			/*for (loop_num = 0;loop_num< XChannel_num; loop_num++)
+			{
+				MessageBox.Show("X[" + loop_num.ToString() + "]：" +
+					XChannel[loop_num].ToString());
+				MessageBox.Show("Y[" + loop_num.ToString() + "]：" +
+					YChannel[loop_num].ToString());
+				MessageBox.Show("Z["+ loop_num.ToString()+"]：" + 
+					ZChannel[loop_num].ToString());
+			}*/
+		}                                                                       //  結束Uart_Data_Analysis方法
+		public void Uart_Data_Analysis_Queue()
+		//  宣告Uart_Data_Analysis_Queue方法，以Base Class Library中的Queue資料結構分析Uart通訊傳輸接收資料
+		{                                                                       //  進入Uart_Data_Analysis_Queue方法
+			/****使用全域變數：
+			**Transmission_Analysis_Queue(Uart通訊傳輸資料分析字元佇列，為全域靜態佇列)、
+			**Transmission_Buffer_CharArray(Uart通訊傳輸Buffer資料字元陣列，初始時為空陣列)、
+			**loop_num(迴圈用變數，初始值為0)
+			*/
+			//Transmission_Analysis_Queue.Enqueue( "Test" );                      //  將"Test"資料放入佇列測試
+			//MessageBox.Show(Transmission_Analysis_Queue.Dequeue().ToString());  //  將資料取出佇列並顯示測試
+			for (loop_num = 0; loop_num < Transmission_Buffer_CharArray.Length; loop_num++)
+			//  以for迴圈依序將Buffer資料填入Transmission_Analysis_Queue
+			{                                                                   //  進入for迴圈
+				Transmission_Analysis_Queue.Enqueue( Transmission_Buffer_CharArray[loop_num] );
+				//將Buffer資料填入Transmission_Analysis_Queue
+			}                                                                   //  結束for迴圈
+			/*以while迴圈將Transmission_Analysis_Queue中的元素全部取出
+			while (Transmission_Analysis_Queue.Count > 0)                       //  若Transmission_Analysis_Queue元素個數大於0
+			{                                                                   //  進入while迴圈
+				MessageBox.Show(Transmission_Analysis_Queue.Dequeue().ToString());
+				//  將資料取出佇列並顯示
+			}                                                                   //  結束while迴圈
+			*/
+			//MessageBox.Show(Transmission_Analysis_Queue.Dequeue().GetType().ToString());
+			//顯示Transmission_Analysis_Queue佇列內容資料型態
+			char Analysis_Char;                                                 //  宣告當前分析字元區域變數Analysis_Char
+			char Channel_Name_temp = ' ';                                       //  宣告Channel_Name區域字元變數，暫存通道名稱
+			string ADC_Data_temp;                                               //  宣告ADC_Data_temp區域字串變數，累計數值
+			Boolean flag = true;                                                //  宣告旗標變數flag，決定字元分析是否執行
+			while(flag)                                                         //  由flag旗標決定字元分析是否執行
+			{                                                                   //  進入while迴圈
+				ADC_Data_temp = "";                                             //  初始化ADC_Data_temp字串
+				Analysis_Char = Convert.ToChar(Transmission_Analysis_Queue.Peek());
+				//  讀取佇列資料(不移除)填入當前分析字元變數
+				//MessageBox.Show(Analysis_Char.ToString());                      //  顯示當前分析字元
+				if (Analysis_Char == 'X' && Transmission_Analysis_Queue.Contains('Y'))
+				//  若當前分析字元為X，且佇列中存在字元'Y'，代表該筆X資料完整
+				{                                                               //  進入if敘述
+					Channel_Name_temp = Convert.ToChar(Transmission_Analysis_Queue.Dequeue());
+					//由佇列Transmission_Analysis_Queue取出字元填入Channel_Name_temp(通道名稱暫存變數)
+					while (Convert.ToChar(Transmission_Analysis_Queue.Peek()) != 'Y')
+					//  若佇列資料不為字元Y，則取出資料填入ADC_Data_temp
+					{                                                           //  進入while迴圈
+						ADC_Data_temp += Convert.ToChar(Transmission_Analysis_Queue.Dequeue());
+					}                                                           //  結束while迴圈
+					OscilloscopeFunctionVariable.XChannel[OscilloscopeFunctionVariable.XChannel_num] = int.Parse(ADC_Data_temp);
+					//  填入數值至XChannel
+					OscilloscopeFunctionVariable.Data_Graphic_Queue_X.Enqueue(int.Parse(ADC_Data_temp));
+					//  填入數值至Data_Graphic_Queue_X(X通道資料繪圖用整數型態佇列)
+					OscilloscopeFunctionVariable.XChannel_num = (OscilloscopeFunctionVariable.XChannel_num + 1) % OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max();
+					//  遞增XChannel_num變數，並取餘數避免超出陣列大小
+				}                                                               //  結束if敘述
+				else if (Analysis_Char == 'Y' && Transmission_Analysis_Queue.Contains('Z'))
+				//  若當前分析字元為Y，且佇列中存在字元'Z'，代表該筆Y資料完整
+				{                                                               //  進入else if敘述
+					Channel_Name_temp = Convert.ToChar(Transmission_Analysis_Queue.Dequeue());
+					//由佇列Transmission_Analysis_Queue取出字元填入Channel_Name_temp(通道名稱暫存變數)
+					while (Convert.ToChar(Transmission_Analysis_Queue.Peek()) != 'Z')
+					//  若佇列資料不為字元Z，則取出資料填入ADC_Data_temp
+					{                                                           //  進入while迴圈
+						ADC_Data_temp += Convert.ToChar(Transmission_Analysis_Queue.Dequeue());
+					}                                                           //  結束while迴圈
+					OscilloscopeFunctionVariable.YChannel[OscilloscopeFunctionVariable.YChannel_num] = int.Parse(ADC_Data_temp);
+					//  填入數值至YChannel
+					OscilloscopeFunctionVariable.Data_Graphic_Queue_Y.Enqueue(int.Parse(ADC_Data_temp));
+					//  填入數值至Data_Graphic_Queue_Y(Y通道資料繪圖用整數型態佇列)
+					OscilloscopeFunctionVariable.YChannel_num = (OscilloscopeFunctionVariable.YChannel_num + 1) % OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max();
+					//  遞增YChannel_num變數，並取餘數避免超出陣列大小
+				}                                                               //  結束else if敘述
+				else if (Analysis_Char == 'Z' && Transmission_Analysis_Queue.Contains('X'))
+				//  若當前分析字元為Z，且佇列中存在字元'X'，代表該筆Z資料完整
+				{                                                               //  進入else if敘述
+					Channel_Name_temp = Convert.ToChar(Transmission_Analysis_Queue.Dequeue());
+					//由佇列Transmission_Analysis_Queue取出字元填入Channel_Name_temp(通道名稱暫存變數)
+					while (Convert.ToChar(Transmission_Analysis_Queue.Peek()) != 'X')
+					//  若佇列資料不為字元X，則取出資料填入ADC_Data_temp
+					{                                                           //  進入while迴圈
+						ADC_Data_temp += Convert.ToChar(Transmission_Analysis_Queue.Dequeue());
+					}                                                           //  結束while迴圈
+					OscilloscopeFunctionVariable.ZChannel[OscilloscopeFunctionVariable.ZChannel_num] = int.Parse(ADC_Data_temp);
+					//  填入數值至ZChannel
+					OscilloscopeFunctionVariable.Data_Graphic_Queue_Z.Enqueue(int.Parse(ADC_Data_temp));
+					//  填入數值至Data_Graphic_Queue_Z(Z通道資料繪圖用整數型態佇列)
+					OscilloscopeFunctionVariable.ZChannel_num = (OscilloscopeFunctionVariable.ZChannel_num + 1) % OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max();
+					//  遞增ZChannel_num變數，並取餘數避免超出陣列大小
+				}                                                               //  結束else if敘述
+				else                                                            //  若當前分析字元非X、Y、Z
+				{                                                               //  進入else敘述
+					flag = false;                                               //  結束字元分析
+				}                                                               //  結束else敘述
+			}                                                                   //  結束while迴圈
+			//Data_Graphic方法與Data_Graphic_Queue方法擇一使用，由Analysis_Graphic_Mode靜態全域變數控制
+			if ((Analysis_Graphic_Mode / 2) % 2 == 0)                           //  若Analysis_Graphic_Mode二進位數值為X0X
+			{                                                                   //  進入if敘述
+				Data_Graphic();                                                 //  呼叫Data_Graphic方法
+			}                                                                   //  結束if敘述
+			else                                                                //  Analysis_Graphic_Mode二進位數值不為X0X
+			{                                                                   //  進入else敘述
+				Data_Graphic_Queue();                                           //  呼叫Data_Graphic_Queue方法
+			}                                                                   //  結束else敘述
+		}                                                                       //  結束Uart_Data_Analysis_Queue方法
+		public void Data_Graphic()                                              //  宣告Data_Graphic(資料繪圖方法)
+		{                                                                       //  進入Data_Graphic方法
+			/****使用全域變數：
+			**XChannel(記錄X通道ADC原始資料)、
+			**YChannel(記錄Y通道ADC原始資料)、
+			**ZChannel(記錄Z通道ADC原始資料)、
+			**XChannel_num(記錄XChannel資料量)、
+			**YChannel_num(記錄YChannel資料量)、
+			**ZChannel_num(記錄ZChannel資料量)、
+			**ADC_Raw_Data_Max(記錄ADC_Raw_Data陣列大小)、
+			**loop_num(迴圈用變數)
+			*/
+			//***區域變數宣告***
+			Graphics Oscilloscope_Graphic;                                      //  宣告Oscilloscope_Graphic示波器波型繪圖區
+			Pen pen_Frame;                                                      //  宣告外框畫筆
+			Pen pen_Grid_Line;                                                  //  宣告繪圖網格線畫筆
+			Pen pen_X;                                                          //  宣告X通道畫筆
+			Pen pen_Y;                                                          //  宣告Y通道畫筆
+			Pen pen_Z;                                                          //  宣告Z通道畫筆
+			//Rectangle rectangle_point = 
+			//    new Rectangle(5, 5, 5, 5);
+			//***指定畫布***
+			Oscilloscope_Graphic = panel1.CreateGraphics();                     //  取得繪圖區物件
+			//***設定畫筆屬性***
+			pen_Frame = new Pen(Color.Black, 3);                                //  設定外框畫筆為黑色、粗細為3點
+			pen_Grid_Line = new Pen(Color.Gray);                                //  設定格線繪製畫筆屬性
+			pen_X = new Pen(Color.Red, 2);                                      //  設定X通道折線圖畫筆屬性
+			pen_Y = new Pen(Color.Green, 2);                                    //  設定Y通道折線圖畫筆屬性
+			pen_Z = new Pen(Color.Blue, 2);                                     //  設定Z通道折線圖畫筆屬性
+			Oscilloscope_Graphic.Clear(Color.White);                            //  清除畫布背景為白色
+			//***繪製外框***
+			Oscilloscope_Graphic.DrawLine(pen_Frame,                            //  以pen_Frame畫筆繪製上框線
+				  new Point(0, 0),                                              //  以(0, 0)為起始點
+				  new Point(panel1.Size.Width, 0));                             //  以(panel1.Size.Width, 0)為結束點
+			Oscilloscope_Graphic.DrawLine(pen_Frame,                            //  以pen_Frame畫筆繪製左框線
+				  new Point(0, 0),                                              //  以(0, 0)為起始點
+				  new Point(0, panel1.Size.Height));                            //  以(0, panel1.Size.Height)為結束點
+			Oscilloscope_Graphic.DrawLine(pen_Frame,                            //  以pen_Frame畫筆繪製下框線
+				  new Point(0, panel1.Size.Height),                             //  以(0, panel1.Size.Height)為起點
+				  new Point(panel1.Size.Width, panel1.Size.Height));            //  以(panel1.Size.Width, panel1.Size.Height)為結束點
+			Oscilloscope_Graphic.DrawLine(pen_Frame,                            //  以pen_Frame畫筆繪製右框線
+				  new Point(panel1.Size.Width, 0),                              //  以(panel1.Size.Width, 0)為起始點
+				  new Point(panel1.Size.Width, panel1.Size.Height));            //  以(panel1.Size.Width, panel1.Size.Height)為結束點
+			//***水平格線繪製***
+			for (loop_num=0;loop_num<10;loop_num++)                             //  以for迴圈依序繪製水平格線
+			{                                                                   //  進入for迴圈
+				Oscilloscope_Graphic.DrawLine(pen_Grid_Line,                    //  以pen_Grid_Line畫筆繪製水平格線
+				new Point(0, panel1.Size.Height * loop_num / 10),               //  以(0, panel1.Size.Height * loop_num / 10)為起始點
+				new Point(panel1.Size.Width, panel1.Size.Height * loop_num / 10));
+				//以(panel1.Size.Width, panel1.Size.Height * loop_num / 10)為結束點
+			}                                                                   //  結束for迴圈
+			//***垂直格線繪製***
+			for (loop_num = 0; loop_num < 10; loop_num++)                       //  以for迴圈依序繪製垂直格線
+			{                                                                   //  進入for迴圈
+				Oscilloscope_Graphic.DrawLine(pen_Grid_Line,                    //  以pen_Grid_Line畫筆繪製垂直格線
+				new Point(panel1.Size.Width * loop_num / 10, 0),                //  以(panel1.Size.Width * loop_num / 10, 0)為起始點
+				new Point(panel1.Size.Width * loop_num / 10, panel1.Size.Height));
+				//以(panel1.Size.Width * loop_num / 10, panel1.Size.Height)為結束點
+			}                                                                   //  結束for迴圈
+			//***ADC_Raw_Data資料繪製折線圖***
+			for (loop_num = 0; loop_num < (OscilloscopeFunctionVariable.XChannel_num - 1); loop_num++)
+			//X通道資料折線圖繪製
+			{                                                                   //  進入for迴圈
+				Oscilloscope_Graphic.DrawLine(pen_X,
+				new Point( (loop_num * panel1.Size.Width / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) ,
+							panel1.Size.Height - (OscilloscopeFunctionVariable.XChannel[loop_num] * panel1.Size.Height / ADCintervals)),
+				new Point( ( (loop_num + 1) * panel1.Size.Width / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) ,
+							panel1.Size.Height - (OscilloscopeFunctionVariable.XChannel[loop_num + 1] * panel1.Size.Height / ADCintervals) ));
+				//rectangle_point = new Rectangle(((loop_num + 1) * panel1.Size.Width / ADC_Raw_Data_Max) ,
+				//                  panel1.Size.Height - (XChannel[loop_num + 1] * panel1.Size.Height / ADCintervals) ,
+				//                  3, 3);
+				//Oscilloscope_Graphic.DrawRectangle(Pens.Red, rectangle_point);
+			}                                                                   //  結束for迴圈
+			for (loop_num = 0; loop_num < (OscilloscopeFunctionVariable.YChannel_num - 1); loop_num++)
+			//Y通道資料折線圖繪製
+			{                                                                   //  進入for迴圈
+				Oscilloscope_Graphic.DrawLine(pen_Y,
+				new Point((loop_num * panel1.Size.Width / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()),
+							panel1.Size.Height - (OscilloscopeFunctionVariable.YChannel[loop_num] * panel1.Size.Height / ADCintervals)),
+				new Point(((loop_num + 1) * panel1.Size.Width / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()),
+							panel1.Size.Height - (OscilloscopeFunctionVariable.YChannel[loop_num + 1] * panel1.Size.Height / ADCintervals)));
+			}                                                                   //  結束for迴圈
+			for (loop_num = 0; loop_num < (OscilloscopeFunctionVariable.ZChannel_num - 1); loop_num++)
+			//Z通道資料折線圖繪製
+			{                                                                   //  進入for迴圈
+				Oscilloscope_Graphic.DrawLine(pen_Z,
+				new Point((loop_num * panel1.Size.Width / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()),
+							panel1.Size.Height - (OscilloscopeFunctionVariable.ZChannel[loop_num] * panel1.Size.Height / ADCintervals)),
+				new Point(((loop_num + 1) * panel1.Size.Width / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()),
+							panel1.Size.Height - (OscilloscopeFunctionVariable.ZChannel[loop_num + 1] * panel1.Size.Height / ADCintervals)));
+			}                                                                   //  結束for迴圈
+			//Data_Graphic_OpenGL方法與Data_Graphic_Queue_OpenGL方法擇一使用，由Analysis_Graphic_Mode靜態全域變數控制
+			if ((Analysis_Graphic_Mode / 1) % 2 == 0)                           //  若Analysis_Graphic_Mode二進位數值為XX0
+			{                                                                   //  進入if敘述
+				Data_Graphic_OpenGL();                                          //  呼叫Data_Graphic_OpenGL(OpenGL資料繪圖)方法
+			}                                                                   //  結束if敘述
+			else                                                                //  Analysis_Graphic_Mode二進位數值不為XX0
+			{                                                                   //  進入else敘述
+				Data_Graphic_Queue_OpenGL();                                    //  呼叫Data_Graphic_Queue_OpenGL(OpenGL佇列資料繪圖)方法
+			}                                                                   //  結束else敘述
+		}                                                                       //  結束Data_Graphic方法
+		public void Data_Graphic_Queue()                                        //  宣告Data_Graphic_Queue(以佇列結構實作之資料繪圖方法)
+		{                                                                       //  進入Data_Graphic_Queue方法
+			/****使用全域變數：
+			**Data_Graphic_Queue_X(X通道資料繪圖用整數型態佇列)、
+			**Data_Graphic_Queue_Y(Y通道資料繪圖用整數型態佇列)、
+			**Data_Graphic_Queue_Z(Z通道資料繪圖用整數型態佇列)、
+			**loop_num(迴圈用變數)
+			*/
+			//***區域變數宣告***
+			Graphics Oscilloscope_Graphic;                                      //  宣告Oscilloscope_Graphic示波器波型繪圖區
+			Pen pen_Frame;                                                      //  宣告外框畫筆
+			Pen pen_Grid_Line;                                                  //  宣告繪圖網格線畫筆
+			Pen pen_X;                                                          //  宣告X通道畫筆
+			Pen pen_Y;                                                          //  宣告Y通道畫筆
+			Pen pen_Z;                                                          //  宣告Z通道畫筆
+			int Data_Graphic_Queue_Count_Max = 100;                             //  宣告Data_Graphic_Queue_Count_Max整數區域變數，記錄繪圖用整數型態佇列元素數量最大值
+			Point Graph_point_temp = new Point();                               //  宣告Graph_point_temp(繪圖暫存座標)
+			//***指定畫布***
+			Oscilloscope_Graphic = panel1.CreateGraphics();                     //  取得繪圖區物件
+			//***設定畫筆屬性***
+			pen_Frame = new Pen(Color.Black, 3);                                //  設定外框畫筆為黑色、粗細為3點
+			pen_Grid_Line = new Pen(Color.Gray);                                //  設定格線繪製畫筆屬性
+			pen_X = new Pen(Color.Red, 2);                                      //  設定X通道折線圖畫筆屬性
+			pen_Y = new Pen(Color.Green, 2);                                    //  設定Y通道折線圖畫筆屬性
+			pen_Z = new Pen(Color.Blue, 2);                                     //  設定Z通道折線圖畫筆屬性
+			Oscilloscope_Graphic.Clear(Color.White);                            //  清除畫布背景為白色
+			//***繪製外框***
+			Oscilloscope_Graphic.DrawLine(pen_Frame,                            //  以pen_Frame畫筆繪製上框線
+				  new Point(0, 0),                                              //  以(0, 0)為起始點
+				  new Point(panel1.Size.Width, 0));                             //  以(panel1.Size.Width, 0)為結束點
+			Oscilloscope_Graphic.DrawLine(pen_Frame,                            //  以pen_Frame畫筆繪製左框線
+				  new Point(0, 0),                                              //  以(0, 0)為起始點
+				  new Point(0, panel1.Size.Height));                            //  以(0, panel1.Size.Height)為結束點
+			Oscilloscope_Graphic.DrawLine(pen_Frame,                            //  以pen_Frame畫筆繪製下框線
+				  new Point(0, panel1.Size.Height),                             //  以(0, panel1.Size.Height)為起點
+				  new Point(panel1.Size.Width, panel1.Size.Height));            //  以(panel1.Size.Width, panel1.Size.Height)為結束點
+			Oscilloscope_Graphic.DrawLine(pen_Frame,                            //  以pen_Frame畫筆繪製右框線
+				  new Point(panel1.Size.Width, 0),                              //  以(panel1.Size.Width, 0)為起始點
+				  new Point(panel1.Size.Width, panel1.Size.Height));            //  以(panel1.Size.Width, panel1.Size.Height)為結束點
+			//***水平格線繪製***
+			for (loop_num = 0; loop_num < 10; loop_num++)                       //  以for迴圈依序繪製水平格線
+			{                                                                   //  進入for迴圈
+				Oscilloscope_Graphic.DrawLine(pen_Grid_Line,                    //  以pen_Grid_Line畫筆繪製水平格線
+				new Point(0, panel1.Size.Height * loop_num / 10),               //  以(0, panel1.Size.Height * loop_num / 10)為起始點
+				new Point(panel1.Size.Width, panel1.Size.Height * loop_num / 10));
+				//以(panel1.Size.Width, panel1.Size.Height * loop_num / 10)為結束點
+			}                                                                   //  結束for迴圈
+			//***垂直格線繪製***
+			for (loop_num = 0; loop_num < 10; loop_num++)                       //  以for迴圈依序繪製垂直格線
+			{                                                                   //  進入for迴圈
+				Oscilloscope_Graphic.DrawLine(pen_Grid_Line,                    //  以pen_Grid_Line畫筆繪製垂直格線
+				new Point(panel1.Size.Width * loop_num / 10, 0),                //  以(panel1.Size.Width * loop_num / 10, 0)為起始點
+				new Point(panel1.Size.Width * loop_num / 10, panel1.Size.Height));
+				//以(panel1.Size.Width * loop_num / 10, panel1.Size.Height)為結束點
+			}                                                                   //  結束for迴圈
+			//***以while迴圈清除顯示佇列過多資料***
+			while (OscilloscopeFunctionVariable.Data_Graphic_Queue_X.Count > Data_Graphic_Queue_Count_Max)
+			//  以while迴圈依序移除Data_Graphic_Queue_X佇列過多的資料
+			{                                                                   //  進入while迴圈
+				OscilloscopeFunctionVariable.Data_Graphic_Queue_X.Dequeue();  //  移除Data_Graphic_Queue_X佇列資料
+			}                                                                   //  結束while迴圈
+			while (OscilloscopeFunctionVariable.Data_Graphic_Queue_Y.Count > Data_Graphic_Queue_Count_Max)
+			//  以while迴圈依序移除Data_Graphic_Queue_Y佇列過多的資料
+			{                                                                   //  進入while迴圈
+				OscilloscopeFunctionVariable.Data_Graphic_Queue_Y.Dequeue();  //  移除Data_Graphic_Queue_Y佇列資料
+			}                                                                   //  結束while迴圈
+			while (OscilloscopeFunctionVariable.Data_Graphic_Queue_Z.Count > Data_Graphic_Queue_Count_Max)
+			//  以while迴圈依序移除Data_Graphic_Queue_Z佇列過多的資料
+			{                                                                   //  進入while迴圈
+				OscilloscopeFunctionVariable.Data_Graphic_Queue_Z.Dequeue();  //  移除Data_Graphic_Queue_Z佇列資料
+			}                                                                   //  結束while迴圈
+			//***依序繪製資料***
+			loop_num = 0;
+			foreach (int ADC_Data in OscilloscopeFunctionVariable.Data_Graphic_Queue_X)
+			//  依序以Data_Graphic_Queue_X資料繪圖
+			{                                                                   //  進入foreach敘述
+				//MessageBox.Show(ADC_Data.ToString());                           //  依序顯示Data_Graphic_Queue_X佇列資料
+				if(loop_num==0)                                                 //  若為佇列中第一筆資料
+				{                                                               //  進入if敘述
+					Graph_point_temp = new Point(                               //  指定Graph_point_temp座標
+					(loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
+					panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals));
+					//  填入座標  
+				}                                                               //  結束if敘述
+				else                                                            //  若不為佇列中第一筆資料
+				{                                                               //  進入else敘述
+					Oscilloscope_Graphic.DrawLine(pen_X, Graph_point_temp,
+						new Point((loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
+							panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals) ));
+					Graph_point_temp = new Point(                               //  指定Graph_point_temp座標
+					(loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
+					panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals));
+					//  填入座標  
+				}                                                               //  結束else敘述
+				loop_num = loop_num + 1;                                        //  遞增loop_num變數
+			}                                                                   //  結束foreach敘述
+			loop_num = 0;
+			foreach (int ADC_Data in OscilloscopeFunctionVariable.Data_Graphic_Queue_Y)
+			//  依序以Data_Graphic_Queue_Y資料繪圖
+			{                                                                   //  進入foreach敘述
+				//MessageBox.Show(ADC_Data.ToString());                           //  依序顯示Data_Graphic_Queue_Y佇列資料
+				if (loop_num == 0)                                              //  若為佇列中第一筆資料
+				{                                                               //  進入if敘述
+					Graph_point_temp = new Point(                               //  指定Graph_point_temp座標
+					(loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
+					panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals));
+					//  填入座標  
+				}                                                               //  結束if敘述
+				else                                                            //  若不為佇列中第一筆資料
+				{                                                               //  進入else敘述
+					Oscilloscope_Graphic.DrawLine(pen_Y, Graph_point_temp,
+						new Point((loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
+							panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals) ));
+					Graph_point_temp = new Point(                               //  指定Graph_point_temp座標
+					(loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
+					panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals));
+					//  填入座標  
+				}                                                               //  結束else敘述
+				loop_num = loop_num + 1;                                        //  遞增loop_num變數
+			}                                                                   //  結束foreach敘述
+			loop_num = 0;
+			foreach (int ADC_Data in OscilloscopeFunctionVariable.Data_Graphic_Queue_Z)
+			//  依序以Data_Graphic_Queue_Z資料繪圖
+			{                                                                   //  進入foreach敘述
+				//MessageBoZ.Show(ADC_Data.ToString());                           //  依序顯示Data_Graphic_Queue_Z佇列資料
+				if (loop_num == 0)                                              //  若為佇列中第一筆資料
+				{                                                               //  進入if敘述
+					Graph_point_temp = new Point(                               //  指定Graph_point_temp座標
+					(loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
+					panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals));
+					//  填入座標  
+				}                                                               //  結束if敘述
+				else                                                            //  若不為佇列中第一筆資料
+				{                                                               //  進入else敘述
+					Oscilloscope_Graphic.DrawLine(pen_Z, Graph_point_temp,
+						new Point((loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
+							panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals) ));
+					Graph_point_temp = new Point(                               //  指定Graph_point_temp座標
+					(loop_num * panel1.Size.Width / Data_Graphic_Queue_Count_Max),
+					panel1.Size.Height - (ADC_Data * panel1.Size.Height / ADCintervals));
+					//  填入座標  
+				}                                                               //  結束else敘述
+				loop_num = loop_num + 1;                                        //  遞增loop_num變數
+			}                                                                   //  結束foreach敘述
+			//Data_Graphic_OpenGL方法與Data_Graphic_Queue_OpenGL方法擇一使用，由Analysis_Graphic_Mode靜態全域變數控制
+			if ((Analysis_Graphic_Mode / 1) % 2 == 0)                           //  若Analysis_Graphic_Mode二進位數值為XX0
+			{                                                                   //  進入if敘述
+				Data_Graphic_OpenGL();                                          //  呼叫Data_Graphic_OpenGL(OpenGL資料繪圖)方法
+			}                                                                   //  結束if敘述
+			else                                                                //  Analysis_Graphic_Mode二進位數值不為XX0
+			{                                                                   //  進入else敘述
+				Data_Graphic_Queue_OpenGL();                                    //  呼叫Data_Graphic_Queue_OpenGL(OpenGL佇列資料繪圖)方法
+			}                                                                   //  結束else敘述
+		}                                                                       //  結束Data_Graphic_Queue方法
+		public void Data_Graphic_OpenGL()                                       //  宣告Data_Graphic_OpenGL(OpenGL資料繪圖方法)
+		{                                                                       //  進入Data_Graphic_OpenGL方法
+			/****使用全域變數：
+			**XChannel(記錄X通道ADC原始資料)、
+			**YChannel(記錄Y通道ADC原始資料)、
+			**ZChannel(記錄Z通道ADC原始資料)、
+			**XChannel_num(記錄XChannel資料量)、
+			**YChannel_num(記錄YChannel資料量)、
+			**ZChannel_num(記錄ZChannel資料量)、
+			**ADC_Raw_Data_Max(記錄ADC_Raw_Data陣列大小)、
+			**loop_num(迴圈用變數)
+			*/
+			//***區域變數宣告***
+			
+			//***指定畫布***
+			OpenGL Gsensor_GL = openGLControl1.OpenGL;                          //  取得OpenGL繪圖物件
+			Gsensor_GL.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+			//  清除深度緩存
+			Gsensor_GL.LoadIdentity();
+			//  重置模型觀察矩陣，並將其初始化
+			Gsensor_GL.Translate(0f, 0f, -2.5f);                                  //  轉移繪圖中心座標
+			//***繪製外框***
+			Gsensor_GL.Color(1.0f, 1.0f, 1.0f);                                 //  設定繪圖顏色
+			Gsensor_GL.Begin(OpenGL.GL_LINE_LOOP);                              //  繪製封閉直線線段
+			Gsensor_GL.Vertex(1, 1, 0);
+			Gsensor_GL.Vertex(1, -1, 0);
+			Gsensor_GL.Vertex(-1, -1, 0);
+			Gsensor_GL.Vertex(-1, 1, 0);
+			Gsensor_GL.End();                                                   //  結束繪製外框
+			//***水平格線繪製***
+			for (loop_num = -5; loop_num <= 5; loop_num++)                      //  以for迴圈依序繪製水平格線
+			{                                                                   //  進入for迴圈
+				Gsensor_GL.Begin(OpenGL.GL_LINES);
+				Gsensor_GL.Vertex(-1, ((float)loop_num / 5), 0);
+				Gsensor_GL.Vertex(1, ((float)loop_num / 5), 0);
+				Gsensor_GL.End();
+			}                                                                   //  結束for迴圈
+			//***垂直格線繪製***
+			for (loop_num = -5; loop_num <= 5; loop_num++)                      //  以for迴圈依序繪製垂直格線
+			{                                                                   //  進入for迴圈
+				Gsensor_GL.Begin(OpenGL.GL_LINES);
+				Gsensor_GL.Vertex(((float)loop_num / 5), -1, 0);
+				Gsensor_GL.Vertex(((float)loop_num / 5), 1, 0);
+				Gsensor_GL.End();
+			}                                                                   //  結束for迴圈
+			//***ADC_Raw_Data資料繪製折線圖***
+			Gsensor_GL.Color(1.0f, 0.0f, 0.0f);                                 //  設定繪圖顏色
+			for (loop_num = 0; loop_num < (OscilloscopeFunctionVariable.XChannel_num - 1); loop_num++)
+			//X通道資料折線圖繪製
+			{                                                                   //  進入for迴圈
+				Gsensor_GL.Begin(OpenGL.GL_LINES);
+				Gsensor_GL.Vertex(  ( (float)loop_num / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) * 2 - 1,
+									( ((double)OscilloscopeFunctionVariable.XChannel[loop_num] / ADCintervals) ) * 2 - 1,
+									0);
+				Gsensor_GL.Vertex(  ( ((float)loop_num + 1) / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) * 2 - 1,
+									( ((double)OscilloscopeFunctionVariable.XChannel[loop_num + 1] / ADCintervals)) * 2 - 1,
+									0);
+				Gsensor_GL.End();                                               //  結束線段繪製
+			}                                                                   //  結束for迴圈
+			Gsensor_GL.Color(0.0f, 1.0f, 0.0f);                                 //  設定繪圖顏色
+			for (loop_num = 0; loop_num < (OscilloscopeFunctionVariable.YChannel_num - 1); loop_num++)
+			//X通道資料折線圖繪製
+			{                                                                   //  進入for迴圈
+				Gsensor_GL.Begin(OpenGL.GL_LINES);
+				Gsensor_GL.Vertex(((float)loop_num / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) * 2 - 1,
+									(((double)OscilloscopeFunctionVariable.YChannel[loop_num] / ADCintervals)) * 2 - 1,
+									0);
+				Gsensor_GL.Vertex((((float)loop_num + 1) / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) * 2 - 1,
+									(((double)OscilloscopeFunctionVariable.YChannel[loop_num + 1] / ADCintervals)) * 2 - 1,
+									0);
+				Gsensor_GL.End();                                               //  結束線段繪製
+			}                                                                   //  結束for迴圈
+			Gsensor_GL.Color(0.0f, 0.0f, 1.0f);                                 //  設定繪圖顏色
+			for (loop_num = 0; loop_num < (OscilloscopeFunctionVariable.ZChannel_num - 1); loop_num++)
+			//X通道資料折線圖繪製
+			{                                                                   //  進入for迴圈
+				Gsensor_GL.Begin(OpenGL.GL_LINES);
+				Gsensor_GL.Vertex(((float)loop_num / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) * 2 - 1,
+									(((double)OscilloscopeFunctionVariable.ZChannel[loop_num] / ADCintervals)) * 2 - 1,
+									0);
+				Gsensor_GL.Vertex((((float)loop_num + 1) / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) * 2 - 1,
+									(((double)OscilloscopeFunctionVariable.ZChannel[loop_num + 1] / ADCintervals)) * 2 - 1,
+									0);
+				Gsensor_GL.End();                                               //  結束線段繪製
+			}                                                                   //  結束for迴圈
+			Gsensor_GL.Flush();                                                 //  強制更新繪圖
+		}                                                                       //  結束Data_Graphic_OpenGL方法
+		public void Data_Graphic_Queue_OpenGL()                                 //  宣告Data_Graphic_Queue_OpenGL(OpenGL佇列資料繪圖方法)
+		{                                                                       //  進入Data_Graphic_Queue_OpenGL方法
+			 /****使用全域變數：
+			**OpenGL_Graph_point結構(OpenGL座標宣告)
+			**Data_Graphic_Queue_X(X通道資料繪圖用整數型態佇列)、
+			**Data_Graphic_Queue_Y(Y通道資料繪圖用整數型態佇列)、
+			**Data_Graphic_Queue_Z(Z通道資料繪圖用整數型態佇列)、
+			**loop_num(迴圈用變數)
+			*/
+			//***區域變數宣告***
+			int Data_Graphic_Queue_Count_Max = 100;                             //  宣告Data_Graphic_Queue_Count_Max整數區域變數，記錄繪圖用整數型態佇列元素數量最大值
+			OpenGL_Graph_point OpenGL_Graph_point_temp = new OpenGL_Graph_point();
+			//  宣告OpenGL_Graph_point_temp(OpenGL繪圖暫存座標)
+			OpenGL_Graph_point_temp.point_X = 0;                                //  初始化OpenGL_Graph_point_temp(OpenGL繪圖暫存座標)X座標數值
+			OpenGL_Graph_point_temp.point_Y = 0;                                //  初始化OpenGL_Graph_point_temp(OpenGL繪圖暫存座標)Y座標數值
+			//***以while迴圈清除顯示佇列過多資料***
+			while (OscilloscopeFunctionVariable.Data_Graphic_Queue_X.Count > Data_Graphic_Queue_Count_Max)
+			//  以while迴圈依序移除Data_Graphic_Queue_X佇列過多的資料
+			{                                                                   //  進入while迴圈
+				OscilloscopeFunctionVariable.Data_Graphic_Queue_X.Dequeue();  //  移除Data_Graphic_Queue_X佇列資料
+			}                                                                   //  結束while迴圈
+			while (OscilloscopeFunctionVariable.Data_Graphic_Queue_Y.Count > Data_Graphic_Queue_Count_Max)
+			//  以while迴圈依序移除Data_Graphic_Queue_Y佇列過多的資料
+			{                                                                   //  進入while迴圈
+				OscilloscopeFunctionVariable.Data_Graphic_Queue_Y.Dequeue();  //  移除Data_Graphic_Queue_Y佇列資料
+			}                                                                   //  結束while迴圈
+			while (OscilloscopeFunctionVariable.Data_Graphic_Queue_Z.Count > Data_Graphic_Queue_Count_Max)
+			//  以while迴圈依序移除Data_Graphic_Queue_Z佇列過多的資料
+			{                                                                   //  進入while迴圈
+				OscilloscopeFunctionVariable.Data_Graphic_Queue_Z.Dequeue();  //  移除Data_Graphic_Queue_Z佇列資料
+			}                                                                   //  結束while迴圈
+			//***指定畫布***
+			OpenGL Gsensor_GL = openGLControl1.OpenGL;                          //  取得OpenGL繪圖物件
+			Gsensor_GL.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+			//  清除深度緩存
+			Gsensor_GL.LoadIdentity();
+			//  重置模型觀察矩陣，並將其初始化
+			Gsensor_GL.Translate(0f, 0f, -2.5f);                                //  轉移繪圖中心座標
+			//***繪製外框***
+			Gsensor_GL.Color(1.0f, 1.0f, 1.0f);                                 //  設定繪圖顏色
+			Gsensor_GL.Begin(OpenGL.GL_LINE_LOOP);                              //  繪製封閉直線線段
+			Gsensor_GL.Vertex(1, 1, 0);
+			Gsensor_GL.Vertex(1, -1, 0);
+			Gsensor_GL.Vertex(-1, -1, 0);
+			Gsensor_GL.Vertex(-1, 1, 0);
+			Gsensor_GL.End();                                                   //  結束繪製外框
+			//***水平格線繪製***
+			for (loop_num = -5; loop_num <= 5; loop_num++)                      //  以for迴圈依序繪製水平格線
+			{                                                                   //  進入for迴圈
+				Gsensor_GL.Begin(OpenGL.GL_LINES);                              //  開始繪製直線線段
+				Gsensor_GL.Vertex(-1, ((float)loop_num / 5), 0);
+				Gsensor_GL.Vertex(1, ((float)loop_num / 5), 0);
+				Gsensor_GL.End();
+			}                                                                   //  結束for迴圈
+			//***垂直格線繪製***
+			for (loop_num = -5; loop_num <= 5; loop_num++)                      //  以for迴圈依序繪製垂直格線
+			{                                                                   //  進入for迴圈
+				Gsensor_GL.Begin(OpenGL.GL_LINES);                              //  開始繪製直線線段
+				Gsensor_GL.Vertex(((float)loop_num / 5), -1, 0);
+				Gsensor_GL.Vertex(((float)loop_num / 5), 1, 0);
+				Gsensor_GL.End();
+			}                                                                   //  結束for迴圈
+			//***依序繪製資料***
+			loop_num = 0;
+			foreach (int ADC_Data in OscilloscopeFunctionVariable.Data_Graphic_Queue_X)
+			//  依序以Data_Graphic_Queue_X資料繪圖
+			{                                                                   //  進入foreach敘述
+				if (loop_num == 0)                                              //  若為佇列中第一筆資料
+				{                                                               //  進入if敘述
+					OpenGL_Graph_point_temp.point_X = ((double)loop_num / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) * 2 - 1;
+					//  指定OpenGL_Graph_point_temp之X座標
+					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / ADCintervals)) * 2 - 1;
+					//  指定OpenGL_Graph_point_temp之Y座標
+				}                                                               //  結束if敘述
+				else                                                            //  若不為佇列中第一筆資料
+				{                                                               //  進入else敘述
+					Gsensor_GL.Begin(OpenGL.GL_LINES);                          //  開始繪製直線線段
+					Gsensor_GL.Color(1.0f, 0.0f, 0.0f);                         //  設定繪圖顏色
+					Gsensor_GL.Vertex(OpenGL_Graph_point_temp.point_X,
+									  OpenGL_Graph_point_temp.point_Y,
+									  0);                                       //  設定直線繪製起始點
+					Gsensor_GL.Vertex(((double)loop_num / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) * 2 - 1,
+									  (((double)ADC_Data / ADCintervals)) * 2 - 1, 
+									  0);                                       //  設定直線繪製結束點
+					Gsensor_GL.End();                                           //  繪圖結束
+					OpenGL_Graph_point_temp.point_X = ((double)loop_num / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) * 2 - 1;
+					//  指定OpenGL_Graph_point_temp之X座標
+					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / ADCintervals)) * 2 - 1;
+					//  指定OpenGL_Graph_point_temp之Y座標
+				}                                                               //  結束else敘述
+				loop_num = loop_num + 1;                                        //  遞增loop_num變數
+			}                                                                   //  結束foreach敘述
+			loop_num = 0;
+			foreach (int ADC_Data in OscilloscopeFunctionVariable.Data_Graphic_Queue_Y)
+			//  依序以Data_Graphic_Queue_Y資料繪圖
+			{                                                                   //  進入foreach敘述
+				if (loop_num == 0)                                              //  若為佇列中第一筆資料
+				{                                                               //  進入if敘述
+					OpenGL_Graph_point_temp.point_X = ((double)loop_num / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) * 2 - 1;
+					//  指定OpenGL_Graph_point_temp之X座標
+					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / ADCintervals)) * 2 - 1;
+					//  指定OpenGL_Graph_point_temp之Y座標
+				}                                                               //  結束if敘述
+				else                                                            //  若不為佇列中第一筆資料
+				{                                                               //  進入else敘述
+					Gsensor_GL.Begin(OpenGL.GL_LINES);                          //  開始繪製直線線段
+					Gsensor_GL.Color(0.0f, 1.0f, 0.0f);                         //  設定繪圖顏色
+					Gsensor_GL.Vertex(OpenGL_Graph_point_temp.point_X,
+									  OpenGL_Graph_point_temp.point_Y,
+									  0);                                       //  設定直線繪製起始點
+					Gsensor_GL.Vertex(((double)loop_num / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) * 2 - 1,
+									  (((double)ADC_Data / ADCintervals)) * 2 - 1,
+									  0);                                       //  設定直線繪製結束點
+					Gsensor_GL.End();                                           //  繪圖結束
+					OpenGL_Graph_point_temp.point_X = ((double)loop_num / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) * 2 - 1;
+					//  指定OpenGL_Graph_point_temp之X座標
+					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / ADCintervals)) * 2 - 1;
+					//  指定OpenGL_Graph_point_temp之Y座標
+				}                                                               //  結束else敘述
+				loop_num = loop_num + 1;                                        //  遞增loop_num變數
+			}                                                                   //  結束foreach敘述
+			loop_num = 0;
+			foreach (int ADC_Data in OscilloscopeFunctionVariable.Data_Graphic_Queue_Z)
+			//  依序以Data_Graphic_Queue_Z資料繪圖
+			{                                                                   //  進入foreach敘述
+				if (loop_num == 0)                                              //  若為佇列中第一筆資料
+				{                                                               //  進入if敘述
+					OpenGL_Graph_point_temp.point_X = ((double)loop_num / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) * 2 - 1;
+					//  指定OpenGL_Graph_point_temp之X座標
+					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / ADCintervals)) * 2 - 1;
+					//  指定OpenGL_Graph_point_temp之Y座標
+				}                                                               //  結束if敘述
+				else                                                            //  若不為佇列中第一筆資料
+				{                                                               //  進入else敘述
+					Gsensor_GL.Begin(OpenGL.GL_LINES);                          //  開始繪製直線線段
+					Gsensor_GL.Color(0.0f, 0.0f, 1.0f);                         //  設定繪圖顏色
+					Gsensor_GL.Vertex(OpenGL_Graph_point_temp.point_X,
+									  OpenGL_Graph_point_temp.point_Y,
+									  0);                                       //  設定直線繪製起始點
+					Gsensor_GL.Vertex(((double)loop_num / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) * 2 - 1,
+									  (((double)ADC_Data / ADCintervals)) * 2 - 1,
+									  0);                                       //  設定直線繪製結束點
+					Gsensor_GL.End();                                           //  繪圖結束
+					OpenGL_Graph_point_temp.point_X = ((double)loop_num / OscilloscopeFunctionVariable.Get_ADC_Raw_Data_Max()) * 2 - 1;
+					//  指定OpenGL_Graph_point_temp之X座標
+					OpenGL_Graph_point_temp.point_Y = (((double)ADC_Data / ADCintervals)) * 2 - 1;
+					//  指定OpenGL_Graph_point_temp之Y座標
+				}                                                               //  結束else敘述
+				loop_num = loop_num + 1;                                        //  遞增loop_num變數
+			}                                                                   //  結束foreach敘述
+			Gsensor_GL.Flush();                                                 //  強制更新繪圖
+		}                                                                       //  結束Data_Graphic_Queue_OpenGL方法
