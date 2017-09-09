@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace UartOscilloscope                                                      //	UartOscilloscope命名空間
 {                                                                               //	進入UartOscilloscope命名空間
+	/// <summary>
+	/// ComportList類別單純為一字串陣列容器，可透過UpdateComportList方法新增Comport名稱
+	/// </summary>
 	public class ComportList													//	ComportList類別
 	{                                                                           //	進入ComportList類別
 		private string[] Name;                                                  //	宣告Name字串陣列
@@ -21,6 +24,10 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入GetComportList方法
 			return Name;                                                        //	回傳Name
 		}                                                                       //	結束GetComportList方法
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ComportList"></param>
 		public void UpdateComportList(string[] ComportList)                     //	UpdateComportList方法
 		{                                                                       //	進入UpdateComportList方法
 			Name = ComportList;													//	填入資料
