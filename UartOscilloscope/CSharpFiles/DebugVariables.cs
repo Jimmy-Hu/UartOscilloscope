@@ -19,7 +19,7 @@ namespace UartOscilloscope                                                      
 	 * 		Transmission_Setting_Click_Runtimes
 	 * 		User_Interface_Setting_Click_Runtimes
 	 * 		list_SerialPort_Runtimes
-	 * 		UartComport_handle_Runtimes
+	 * 		UARTConnectHandle_Runtimes
 	 * 		comport_DataReceived_Runtimes
 	 * 		DisplayText_Runtimes
 	 **/
@@ -125,19 +125,19 @@ namespace UartOscilloscope                                                      
 			return list_SerialPort_Runtimes;                                    //	取得list_SerialPort_Runtimes變數數值
 		}                                                                       //	結束Get_list_SerialPort_Runtimes方法
 
-		private static uint UartComport_handle_Runtimes;                       //	宣告UartComport_handle_Runtimes私有靜態變數，記錄UartComport_handle方法執行次數
-		private static void Reset_UartComport_handle_Runtimes()                //	Reset_UartComport_handle_Runtimes方法，用於重置UartComport_handle_Runtimes計數變數為0
-		{                                                                       //	進入Reset_UartComport_handle_Runtimes方法
-			UartComport_handle_Runtimes = 0;                                   //	將UartComport_handle_Runtimes變數重置為0
-		}                                                                       //	結束Reset_UartComport_handle_Runtimes方法
-		public static void Set_UartComport_handle_Runtimes()                   //	Set_UartComport_handle_Runtimes方法
-		{                                                                       //	進入Set_UartComport_handle_Runtimes方法
-			UartComport_handle_Runtimes = UartComport_handle_Runtimes + 1;    //	遞增UartComport_handle_Runtimes變數
-		}                                                                       //	結束Set_UartComport_handle_Runtimes方法
-		public static uint Get_UartComport_handle_Runtimes()                   //	Get_UartComport_handle_Runtimes方法
-		{                                                                       //	進入Get_UartComport_handle_Runtimes方法
-			return UartComport_handle_Runtimes;                                //	取得UartComport_handle_Runtimes變數數值
-		}                                                                       //	結束Get_UartComport_handle_Runtimes方法
+		private static uint UARTConnectHandle_Runtimes;                       //	宣告UARTConnectHandle_Runtimes私有靜態變數，記錄UARTConnectHandle方法執行次數
+		private static void Reset_UARTConnectHandle_Runtimes()                //	Reset_UARTConnectHandle_Runtimes方法，用於重置UARTConnectHandle_Runtimes計數變數為0
+		{                                                                       //	進入Reset_UARTConnectHandle_Runtimes方法
+			UARTConnectHandle_Runtimes = 0;                                   //	將UARTConnectHandle_Runtimes變數重置為0
+		}                                                                       //	結束Reset_UARTConnectHandle_Runtimes方法
+		public static void Set_UARTConnectHandle_Runtimes()                   //	Set_UARTConnectHandle_Runtimes方法
+		{                                                                       //	進入Set_UARTConnectHandle_Runtimes方法
+			UARTConnectHandle_Runtimes = UARTConnectHandle_Runtimes + 1;    //	遞增UARTConnectHandle_Runtimes變數
+		}                                                                       //	結束Set_UARTConnectHandle_Runtimes方法
+		public static uint Get_UARTConnectHandle_Runtimes()                   //	Get_UARTConnectHandle_Runtimes方法
+		{                                                                       //	進入Get_UARTConnectHandle_Runtimes方法
+			return UARTConnectHandle_Runtimes;                                //	取得UARTConnectHandle_Runtimes變數數值
+		}                                                                       //	結束Get_UARTConnectHandle_Runtimes方法
 
 		private static uint comport_DataReceived_Runtimes;                      //	宣告comport_DataReceived_Runtimes私有靜態變數，記錄comport_DataReceived方法執行次數
 		private static void Reset_comport_DataReceived_Runtimes()               //	Reset_comport_DataReceived_Runtimes方法，用於重置comport_DataReceived_Runtimes計數變數為0
@@ -175,7 +175,7 @@ namespace UartOscilloscope                                                      
 			Reset_Transmission_Setting_Click_Runtimes();                        //	重置Transmission_Setting_Click_Runtimes變數
 			Reset_User_Interface_Setting_Click_Runtimes();                      //	重置User_Interface_Setting_Click_Runtimes變數
 			Reset_list_SerialPort_Runtimes();                                   //	重置list_SerialPort_Runtimes變數
-			Reset_UartComport_handle_Runtimes();                               //	重置UartComport_handle_Runtimes變數
+			Reset_UARTConnectHandle_Runtimes();                               //	重置UARTConnectHandle_Runtimes變數
 			Reset_comport_DataReceived_Runtimes();                              //	重置comport_DataReceived_Runtimes變數
 			Reset_DisplayText_Runtimes();                                       //	重置DisplayText_Runtimes變數
 		}                                                                       //	結束ResetDebugVariables方法

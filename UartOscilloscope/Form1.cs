@@ -86,8 +86,8 @@ namespace UartOscilloscope														//	命名空間為本程式
 		{                                                                       //	進入button2_Click方法
 			DebugVariables.Set_button2_Click_Runtimes();						//	呼叫Set_button2_Click_Runtimes方法記錄button2_Click執行次數
 			button2.Enabled = false;                                            //	暫時關閉"連線/中斷連線"按鈕功能
-			//UARTConnection.UartComport_handle(comboBox1.Text);                 //	呼叫UartComport_handle方法
-			UartComport_handle(comboBox1.Text);								//	呼叫UartComport_handle方法
+			//UARTConnection.UARTConnectHandle(comboBox1.Text);                 //	呼叫UARTConnectHandle方法
+			UARTConnectHandle(comboBox1.Text);								//	呼叫UARTConnectHandle方法
 		}                                                                       //	結束button2_Click方法
 		private void button2_Enable()                                           //	button2_Enable方法
 		{                                                                       //	進入button2_Enable方法
@@ -184,15 +184,15 @@ namespace UartOscilloscope														//	命名空間為本程式
 			}																	//	結束foreach敘述
 		}																		//	結束ComportListToComboBox方法
 		/// <summary>
-		/// UartComport_handle方法
-		/// UartComport_handle方法用於處理UartComport連線設定
-		/// 呼叫格式為UartComport_handle(comport名稱)
+		/// UARTConnectHandle方法
+		/// UARTConnectHandle方法用於處理UartComport連線設定
+		/// 呼叫格式為UARTConnectHandle(comport名稱)
 		///  
 		/// </summary>
 		/// <param name="comport_name"></param>
-		public void UartComport_handle(string comport_name)                    //	串列埠連線處理UartComport_handle方法
-		{                                                                       //	進入UartComport_handle方法
-			DebugVariables.Set_UartComport_handle_Runtimes();                  //	呼叫Set_UartComport_handle_Runtimes方法遞增UartComport_handle_Runtimes變數
+		public void UARTConnectHandle(string comport_name)                    //	串列埠連線處理UARTConnectHandle方法
+		{                                                                       //	進入UARTConnectHandle方法
+			DebugVariables.Set_UARTConnectHandle_Runtimes();                  //	呼叫Set_UARTConnectHandle_Runtimes方法遞增UARTConnectHandle_Runtimes變數
 			if (UARTConnection1.GetUartComportConnected() == true)            //  若UartComportConnected為True，代表UartComport連線中，將執行中斷連線
 			{                                                                   //	進入if敘述
 				label6.Text = (comport_name + "正在中斷連線");
@@ -202,7 +202,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 				button2.Text = "連線";                                          //	更改button2文字為"連線"
 				button2.Enabled = true;                                         //	重新開啟"連線/中斷連線"按鈕功能
 				label6.Text = "未連線";                                         //	顯示連線狀態為"未連線"
-				return;                                                         //	結束UartComport_handle方法
+				return;                                                         //	結束UARTConnectHandle方法
 			}                                                                   //	結束if敘述
 			else                                                                //	若UartComportConnected為False，執行連線
 			{                                                                   //	進入else敘述
@@ -212,7 +212,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 					ErrorCodeMessage.Error_Message_Show((int)ErrorCodeMessage.ErrorCodeEncoding.NoSerialPortSelected);
 					//	顯示錯誤訊息
 					button2.Enabled = true;                                     //	重新開啟"連線/中斷連線"按鈕功能
-					return;                                                     //	結束UartComport_handle方法
+					return;                                                     //	結束UARTConnectHandle方法
 				}                                                               //	結束if敘述
 				else                                                            //	已選定連接埠
 				{                                                               //	進入else敘述
@@ -227,7 +227,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 						ErrorCodeMessage.Error_Message_Show((int)ErrorCodeMessage.ErrorCodeEncoding.SerialPortConnectError);
 						//	顯示錯誤訊息
 						button2.Enabled = true;                                 //	重新開啟"連線/中斷連線"按鈕功能
-						return;                                                 //	結束UartComport_handle方法
+						return;                                                 //	結束UARTConnectHandle方法
 					}                                                           //	結束catch敘述
 					try                                                         //	以try方式執行資料接收
 					{                                                           //	進入try敘述
@@ -253,11 +253,11 @@ namespace UartOscilloscope														//	命名空間為本程式
 						UARTConnection1.UartComport.Close();                    //  關閉UartComport連線
 						button2.Text = "連線";                                  //  更改button2文字為"連線"
 						button2.Enabled = true;                                 //  重新開啟"連線/中斷連線"按鈕功能
-						return;                                                 //  結束UartComport_handle方法
+						return;                                                 //  結束UARTConnectHandle方法
 					}                                                           //  結束catch敘述
 				}                                                               //  結束else敘述
 			}                                                                   //  結束else敘述
-		}                                                                       //  結束UartComport_handle方法
+		}                                                                       //  結束UARTConnectHandle方法
 		private void comport_DataReceived(object sender, SerialDataReceivedEventArgs e)
 		//  comport資料接收處理方法
 		{                                                                       //  進入comport資料接收處理方法

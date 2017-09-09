@@ -183,7 +183,7 @@
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(273, 16);
 			this.label13.TabIndex = 10;
-			this.label13.Text = "UartComport_handle方法執行次數：";
+			this.label13.Text = "UARTConnectHandle方法執行次數：";
 			// 
 			// label14
 			// 
@@ -193,7 +193,7 @@
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(212, 16);
 			this.label14.TabIndex = 12;
-			this.label14.Text = "UartComport_handle_Runtimes";
+			this.label14.Text = "UARTConnectHandle_Runtimes";
 			// 
 			// label15
 			// 

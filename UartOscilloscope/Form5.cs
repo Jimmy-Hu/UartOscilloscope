@@ -42,8 +42,8 @@ namespace UartOscilloscope                                                      
 			//  顯示list_SerialPort方法執行次數
             label12.Text = DebugVariables.Get_comport_DataReceived_Runtimes().ToString();
 			//  顯示comport_DataReceived方法執行次數
-            label14.Text = DebugVariables.Get_UartComport_handle_Runtimes().ToString();
-			//  顯示UartComport_handle方法執行次數
+            label14.Text = DebugVariables.Get_UARTConnectHandle_Runtimes().ToString();
+			//  顯示UARTConnectHandle方法執行次數
             label16.Text = DebugVariables.Get_DisplayText_Runtimes().ToString(); //  顯示DisplayText方法執行次數
             label18.Text = DebugVariables.Get_button1_Click_Runtimes().ToString();
 			//  顯示button1_Click方法執行次數
