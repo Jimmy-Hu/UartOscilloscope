@@ -45,7 +45,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 		delegate void Display(byte[] buffer);									//	定義Display型態
 		//delegate 是可用來封裝具名方法或匿名方法的參考型別。
 		/// <summary>
-		/// 
+		/// Form1方法
 		/// </summary>
 		public Form1()															//	宣告Form1方法
 		{                                                                       //	進入Form1(由Program.cs的Main呼叫執行)
