@@ -160,7 +160,6 @@ namespace UartOscilloscope														//	命名空間為本程式
 			}                                                                   //	結束if敘述
 			else                                                                //	若偵測到已連線的SerialPort
 			{                                                                   //	進入else敘述
-				UARTConnection1.SetConnectedCOMPortCount(ports.Length);          //	記錄已連線的SerialPort數量
 				foreach (string port in ports)                                  //	依序處理每個已連線的SerialPort
 				{                                                               //	進入foreach敘述
 					comboBox1.Items.Add(port);                                  //	以條列式選單(comboBox1)列出已連線的SerialPort
