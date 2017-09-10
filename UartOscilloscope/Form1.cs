@@ -148,7 +148,6 @@ namespace UartOscilloscope														//	命名空間為本程式
 		public void list_SerialPort()                                           //	偵測並列出已連線SerialPort方法
 		{                                                                       //	進入list_SerialPort方法
 			DebugVariables.Set_list_SerialPort_Runtimes();                      //	呼叫Set_list_SerialPort_Runtimes方法遞增list_SerialPort_Runtimes變數
-			comboBox1ItemClear();												//	清除下拉式選單
 			ComportListToComboBox(UARTConnection1.GetComportList(), comboBox1); //	將Comport偵測結果更新至下拉式選單
 			/*if (ports.Length == 0)                                              //	若偵測不到任何已連接的SerialPort(ports.Length為0)
 			{                                                                   //	進入if敘述
@@ -173,6 +172,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 		private void ComportListToComboBox(ComportList InputComportList, ComboBox InputComboBox)
 		//	ComportListToComboBox方法
 		{                                                                       //	進入ComportListToComboBox方法
+			InputComboBox.Items.Clear();                                        //	清除下拉式選單
 			foreach (string Item in InputComportList.GetComportList())			//	取出各Comport名稱
 			{																	//	進入foreach敘述
 				InputComboBox.Items.Add(Item);									//	新增項目至下拉式選單
