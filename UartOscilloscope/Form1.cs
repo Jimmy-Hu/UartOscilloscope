@@ -160,10 +160,6 @@ namespace UartOscilloscope														//	命名空間為本程式
 			}                                                                   //	結束if敘述
 			else                                                                //	若偵測到已連線的SerialPort
 			{                                                                   //	進入else敘述
-				foreach (string port in ports)                                  //	依序處理每個已連線的SerialPort
-				{                                                               //	進入foreach敘述
-					comboBox1.Items.Add(port);                                  //	以條列式選單(comboBox1)列出已連線的SerialPort
-				}                                                               //	結束foreach敘述
 				button2.Enabled = false;                                        //	暫時關閉"連線"按鈕功能，待使用者選定愈連線之Serialport(未選定連線Serialport，可避免發生Error_010002)
 				textBox1.Enabled = true;                                        //	開啟textBox1(接收字串資料文字方塊)功能
 				return;                                                         //	結束list_SerialPort方法
