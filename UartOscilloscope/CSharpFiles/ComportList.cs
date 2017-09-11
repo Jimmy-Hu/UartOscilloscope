@@ -12,6 +12,10 @@ namespace UartOscilloscope                                                      
 	public class ComportList													//	ComportList類別
 	{                                                                           //	進入ComportList類別
 		private string[] Name;                                                  //	宣告Name字串陣列
+		/// <summary>
+		/// ComportList建構子
+		/// </summary>
+		/// <param name="Name"></param>
 		public ComportList(string[] Name)                                       //	ComportList建構子
 		{                                                                       //	進入ComportList建構子
 			this.Name = Name;													//	初始化內部物件
