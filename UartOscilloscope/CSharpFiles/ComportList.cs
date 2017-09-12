@@ -29,7 +29,7 @@ namespace UartOscilloscope                                                      
 			return Name;                                                        //	回傳Name
 		}                                                                       //	結束GetComportList方法
 		/// <summary>
-		/// 
+		/// UpdateComportList用於更新ComportList內部物件資料
 		/// </summary>
 		/// <param name="ComportList"></param>
 		public void UpdateComportList(string[] ComportList)                     //	UpdateComportList方法
