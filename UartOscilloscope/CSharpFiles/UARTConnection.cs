@@ -139,6 +139,10 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入SetConnectedCOMPortCount方法
 			ConnectedCOMPortCount = NewConnectedCOMPortCount;					//	設定ConnectedCOMPortCount數值
 		}                                                                       //	結束SetConnectedCOMPortCount方法
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="NewUartComportConnected"></param>
 		public void SetUartComportConnected(bool NewUartComportConnected)		//	SetUartComportConnected方法
 		{                                                                       //	進入SetUartComportConnected方法
 			UartComportConnected = NewUartComportConnected;						//	設定UartComportConnected
