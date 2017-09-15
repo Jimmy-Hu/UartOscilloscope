@@ -165,7 +165,7 @@ namespace UartOscilloscope                                                      
 			return ComportList1;                                                //	回傳ComportList1物件
 		}                                                                       //	結束GetComportList方法
 		/// <summary>
-		/// 
+		/// ListSerialPort方法用於列出SerialPort
 		/// </summary>
 		private void ListSerialPort()											//	ListSerialPort方法
 		{                                                                       //	進入ListSerialPort方法
