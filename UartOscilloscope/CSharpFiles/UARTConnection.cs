@@ -24,7 +24,7 @@ namespace UartOscilloscope                                                      
 		/// <summary>
 		/// UARTConnection建構子
 		/// </summary>
-		/// <param name="ConnectedCOMPortCount"></param>
+		/// <param name="ConnectedCOMPortCount">為預設之已連線COMPort數量(預設為0)</param>
 		/// <param name="UartComportConnected"></param>
 		public UARTConnection(                                                  //	UARTConnection建構子
 			int ConnectedCOMPortCount = 0,                                      //	初始化參數
