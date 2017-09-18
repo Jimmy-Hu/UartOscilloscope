@@ -73,7 +73,7 @@ namespace UartOscilloscope                                                      
 		/// <summary>
 		/// SetParitySetting方法用於調整同位位元設定
 		/// </summary>
-		/// <param name="NewParitySetting"></param>
+		/// <param name="NewParitySetting">為新同位位元設定</param>
 		public void SetParitySetting(Parity NewParitySetting)					//	SetParitySetting方法
 		{                                                                       //	進入SetParitySetting方法
 			UartComport.Parity = NewParitySetting;                              //	設定ParitySetting
