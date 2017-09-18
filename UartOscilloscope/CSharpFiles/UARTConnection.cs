@@ -61,7 +61,7 @@ namespace UartOscilloscope                                                      
 		/// <summary>
 		/// SetBaudRate方法用於設定鮑率
 		/// </summary>
-		/// <param name="NewBaudRate"></param>
+		/// <param name="NewBaudRate">為新鮑率設定</param>
 		public void SetBaudRate(int NewBaudRate)								//	SetBaudRate方法
 		{                                                                       //	進入SetBaudRate方法
 			UartComport.BaudRate = NewBaudRate;                                 //	設定BaudRate
