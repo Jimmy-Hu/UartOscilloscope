@@ -82,7 +82,7 @@ namespace UartOscilloscope                                                      
 		/// SetParitySetting方法用於調整同位位元設定
 		/// 同位位元設定說明：0為不檢查(None),1為奇同位檢察,2為偶同位檢察,3為同位位元恆為1,4為同位位元恆為0
 		/// </summary>
-		/// <param name="NewParitySetting"></param>
+		/// <param name="NewParitySetting">為新同位位元設定</param>
 		public void SetParitySetting(int NewParitySetting)						//	SetParitySetting方法
 		{                                                                       //	進入SetParitySetting方法
 			switch (NewParitySetting)                                           //	依據NewParitySetting輸入選擇Parity設定
