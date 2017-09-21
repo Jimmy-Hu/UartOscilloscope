@@ -9,6 +9,6 @@ namespace UartOscilloscope                                                      
 	/// CommandParser類別用於建立指令語法分析器
 	/// </summary>
 	class CommandParser															//	CommandParser類別
-	{																			//	進入CommandParser類別
-	}
-}
+	{                                                                           //	進入CommandParser類別
+	}                                                                           //	結束CommandParser類別
+}                                                                               //	結束UartOscilloscope命名空間
