@@ -10,5 +10,8 @@ namespace UartOscilloscope                                                      
 	/// </summary>
 	class CommandParser															//	CommandParser類別
 	{                                                                           //	進入CommandParser類別
+		string[] CommandSet = {
+			"", ""
+		};
 	}                                                                           //	結束CommandParser類別
 }                                                                               //	結束UartOscilloscope命名空間
