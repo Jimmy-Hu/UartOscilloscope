@@ -16,8 +16,8 @@ namespace UartOscilloscope                                                      
 		/// <param name="Command"></param>
 		public CommandClass(int CommandID, string Command)                      //	CommandClass建構子
 		{                                                                       //	進入CommandClass建構子
-			this.CommandID = CommandID;
-
-		}
+			this.CommandID = CommandID;                                         //	初始化指令編號
+			this.Command = Command;                                             //	初始化指令內容
+		}                                                                       //	結束CommandClass建構子
 	}                                                                           //	結束CommandClass指令類別
 }                                                                               //	結束UartOscilloscope命名空間
