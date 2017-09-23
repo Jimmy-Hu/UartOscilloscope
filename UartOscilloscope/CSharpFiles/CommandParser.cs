@@ -10,8 +10,21 @@ namespace UartOscilloscope                                                      
 	/// </summary>
 	class CommandParser															//	CommandParser類別
 	{                                                                           //	進入CommandParser類別
-		string[] CommandSet = {
-			"", ""
-		};
+		List<CommandClass> CommandSet = new List<CommandClass>();               //	宣告CommandSet
+		/// <summary>
+		/// CommandParser建構子
+		/// </summary>
+		public CommandParser()                                                  //	CommandParser建構子
+		{                                                                       //	進入CommandParser建構子
+			CommandSet.Add(new CommandClass(									//	新增指令
+				1,																//	指令編號
+				"lscom",														//	指令名稱
+				new System.Threading.Tasks.Task(() =>
+				{
+					UARTConnection UARTConnection1;
+					UARTConnection1 = new UARTConnection(0,false);
+					Console.WriteLine(UARTConnection1.GetComportList().ToString());
+				})));
+		}                                                                       //	結束CommandParser建構子
 	}                                                                           //	結束CommandParser類別
 }                                                                               //	結束UartOscilloscope命名空間
