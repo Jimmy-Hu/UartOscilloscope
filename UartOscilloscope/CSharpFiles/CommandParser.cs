@@ -19,7 +19,7 @@ namespace UartOscilloscope                                                      
 			CommandSet.Add(new CommandClass(									//	新增指令
 				1,																//	指令編號
 				"lscom",														//	指令名稱
-				new System.Threading.Tasks.Task(() =>
+				new System.Threading.Tasks.Task(() =>							//	建立指令工作
 				{
 					UARTConnection UARTConnection1;
 					UARTConnection1 = new UARTConnection(0,false);
