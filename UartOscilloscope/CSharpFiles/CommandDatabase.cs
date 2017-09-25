@@ -8,6 +8,6 @@ namespace UartOscilloscope                                                      
 {                                                                               //	進入UartOscilloscope命名空間
 	class CommandDatabase                                                       //	CommandDatabase類別
 	{                                                                           //	進入CommandDatabase類別
-
+		List<CommandClass> CommandSet = new List<CommandClass>();               //	宣告CommandSet
 	}                                                                           //	結束CommandDatabase類別
 }                                                                               //	結束UartOscilloscope命名空間

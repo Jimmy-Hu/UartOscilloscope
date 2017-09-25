@@ -10,7 +10,7 @@ namespace UartOscilloscope                                                      
 	/// </summary>
 	class CommandParser															//	CommandParser類別
 	{                                                                           //	進入CommandParser類別
-		List<CommandClass> CommandSet = new List<CommandClass>();               //	宣告CommandSet
+
 		/// <summary>
 		/// CommandParser建構子
 		/// </summary>
