@@ -29,5 +29,9 @@ namespace UartOscilloscope                                                      
 					Console.WriteLine(UARTConnection1.GetComportList().ToString());
 				})));                                                           //	結束指令工作內容
 		}                                                                       //	結束CommandDatabase建構子
+		public override string ToString()
+		{
+			return base.ToString();
+		}
 	}                                                                           //	結束CommandDatabase類別
 }                                                                               //	結束UartOscilloscope命名空間
