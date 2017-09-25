@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System;                                                                   //	使用System函式庫
 using System.Collections.Generic;                                               //	使用System.Collections.Generic函式庫
 using System.Linq;
 using System.Text;
