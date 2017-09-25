@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSharpFiles\CommandClass.cs" />
+    <Compile Include="CSharpFiles\CommandDatabase.cs" />
     <Compile Include="CSharpFiles\CommandParser.cs" />
     <Compile Include="CSharpFiles\ComportList.cs" />
     <Compile Include="CSharpFiles\DataProcessing.cs" />
