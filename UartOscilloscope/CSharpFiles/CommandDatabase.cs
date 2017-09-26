@@ -38,6 +38,10 @@ namespace UartOscilloscope                                                      
 			}                                                                   //	結束foreach敘述
 			return OutputStr;													//	回傳輸出字串
 		}                                                                       //	結束覆寫ToString方法
+		/// <summary>
+		/// GetCommandSet方法用於取得命令集合中指令列表
+		/// </summary>
+		/// <returns></returns>
 		public string[] GetCommandSet()                                         //	GetCommandSet方法
 		{                                                                       //	進入GetCommandSet方法
 			string[] OutputStrArray;                                            //	宣告輸出字串陣列
