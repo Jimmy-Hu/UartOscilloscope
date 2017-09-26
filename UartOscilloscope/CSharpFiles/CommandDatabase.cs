@@ -33,8 +33,8 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入覆寫ToString方法
 			string OutputStr = "";												//	宣告輸出字串
 			foreach (CommandClass Item in this.CommandSet)						//	以foreach迴圈依序取出指令物件
-			{																	//	進入foreach敘述
-
+			{                                                                   //	進入foreach敘述
+				OutputStr = OutputStr + Item.ToString() + '\t';					//	生成輸出字串
 			}                                                                   //	結束foreach敘述
 			return OutputStr;													//	回傳輸出字串
 		}                                                                       //	結束覆寫ToString方法
