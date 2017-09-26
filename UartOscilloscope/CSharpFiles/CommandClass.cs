@@ -23,5 +23,9 @@ namespace UartOscilloscope                                                      
 			this.CommandName = CommandName;                                     //	初始化指令名稱
 			this.task = task;													//	初始化指令工作
 		}                                                                       //	結束CommandClass建構子
+		public override string ToString()                                       //	覆寫ToString方法
+		{                                                                       //	進入覆寫ToString方法
+			return base.ToString();
+		}                                                                       //	結束覆寫ToString方法
 	}                                                                           //	結束CommandClass指令類別
 }                                                                               //	結束UartOscilloscope命名空間
