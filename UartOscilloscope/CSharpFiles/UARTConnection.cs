@@ -53,7 +53,7 @@ namespace UartOscilloscope                                                      
 		/// <summary>
 		/// GetBaudRate方法用於取得鮑率設定
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>回傳值為UART鮑率設定</returns>
 		public int GetBaudRate()												//	GetBaudRate方法
 		{                                                                       //	進入GetBaudRate方法
 			return UartComport.BaudRate;                                        //	回傳BaudRate數值
