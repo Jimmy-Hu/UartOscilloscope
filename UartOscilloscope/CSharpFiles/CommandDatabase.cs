@@ -38,5 +38,9 @@ namespace UartOscilloscope                                                      
 			}                                                                   //	結束foreach敘述
 			return OutputStr;													//	回傳輸出字串
 		}                                                                       //	結束覆寫ToString方法
+		public string[] GetCommandSet()                                         //	GetCommandSet方法
+		{                                                                       //	進入GetCommandSet方法
+
+		}                                                                       //	結束GetCommandSet方法
 	}                                                                           //	結束CommandDatabase類別
 }                                                                               //	結束UartOscilloscope命名空間
