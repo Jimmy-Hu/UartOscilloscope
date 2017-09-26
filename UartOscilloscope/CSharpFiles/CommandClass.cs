@@ -25,7 +25,7 @@ namespace UartOscilloscope                                                      
 		}                                                                       //	結束CommandClass建構子
 		public override string ToString()                                       //	覆寫ToString方法
 		{                                                                       //	進入覆寫ToString方法
-			return base.ToString();
+			return CommandName;													//	回傳指令名稱
 		}                                                                       //	結束覆寫ToString方法
 	}                                                                           //	結束CommandClass指令類別
 }                                                                               //	結束UartOscilloscope命名空間
