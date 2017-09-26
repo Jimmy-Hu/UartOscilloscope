@@ -43,7 +43,10 @@ namespace UartOscilloscope                                                      
 			string[] OutputStrArray;                                            //	宣告輸出字串陣列
 			OutputStrArray = new string[] { };									//	初始化字串陣列
 			Array.Resize<string>(ref OutputStrArray, CommandSet.Count);			//	調整字串陣列大小
+			for(int Index = 0; Index < CommandSet.Count; Index++)				//	以for迴圈依序將資料填入
+			{																	//	進入for迴圈
 
+			}																	//	結束for迴圈
 			return OutputStrArray;												//	回傳字串陣列
 		}                                                                       //	結束GetCommandSet方法
 	}                                                                           //	結束CommandDatabase類別
