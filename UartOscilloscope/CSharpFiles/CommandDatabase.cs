@@ -9,6 +9,9 @@ namespace UartOscilloscope                                                      
 	class CommandDatabase                                                       //	CommandDatabase類別
 	{                                                                           //	進入CommandDatabase類別
 		List<CommandClass> CommandSet = new List<CommandClass>();               //	宣告CommandSet
+		/// <summary>
+		/// CommandDatabase類別
+		/// </summary>
 		public CommandDatabase()                                                //	CommandDatabase建構子
 		{                                                                       //	進入CommandDatabase建構子
 			CommandSet.Add(new CommandClass(                                    //	新增指令
