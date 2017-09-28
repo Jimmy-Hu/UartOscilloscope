@@ -32,6 +32,10 @@ namespace UartOscilloscope                                                      
 					Console.WriteLine(UARTConnection1.GetComportList().ToString());
 				})));                                                           //	結束指令工作內容
 		}                                                                       //	結束CommandDatabase建構子
+		/// <summary>
+		/// 顯示CommandSet指令列表
+		/// </summary>
+		/// <returns></returns>
 		public override string ToString()                                       //	覆寫ToString方法
 		{                                                                       //	進入覆寫ToString方法
 			string OutputStr = "";												//	宣告輸出字串
