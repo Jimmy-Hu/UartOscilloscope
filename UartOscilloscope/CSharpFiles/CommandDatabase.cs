@@ -31,6 +31,13 @@ namespace UartOscilloscope                                                      
 					UARTConnection1 = new UARTConnection(0, false);
 					Console.WriteLine(UARTConnection1.GetComportList().ToString());
 				})));                                                           //	結束指令工作內容
+			CommandSet.Add(new CommandClass(                                    //	新增指令
+				1,                                                              //	指令編號
+				"connect",                                                      //	指令名稱
+				new System.Threading.Tasks.Task(() =>                           //	建立指令工作
+				{                                                               //	進入指令工作內容
+					
+				})));                                                           //	結束指令工作內容
 		}                                                                       //	結束CommandDatabase建構子
 		/// <summary>
 		/// 顯示CommandSet指令列表
