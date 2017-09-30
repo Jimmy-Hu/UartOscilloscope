@@ -16,7 +16,10 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入CommandDatabase建構子
 			CreateCommandSet();                                                 //	呼叫CreateCommandSet方法
 		}                                                                       //	結束CommandDatabase建構子
-		
+
+		/// <summary>
+		/// CreateCommandSet方法用於建立命令集合
+		/// </summary>
 		public void CreateCommandSet()
 		{
 			CommandSet.Add(new CommandClass(                                    //	新增指令
