@@ -78,5 +78,13 @@ namespace UartOscilloscope                                                      
 			}																	//	結束foreach敘述
 			return OutputStrArray;												//	回傳字串陣列
 		}                                                                       //	結束GetCommandSet方法
+		/// <summary>
+		/// GetCommandSetCount方法用於取得命令集合指令數量
+		/// </summary>
+		/// <returns></returns>
+		private int GetCommandSetCount()
+		{
+
+		}
 	}                                                                           //	結束CommandDatabase類別
 }                                                                               //	結束UartOscilloscope命名空間
