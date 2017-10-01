@@ -84,7 +84,7 @@ namespace UartOscilloscope                                                      
 		/// <returns></returns>
 		private int GetCommandSetCount()                                        //	GetCommandSetCount方法
 		{                                                                       //	進入GetCommandSetCount方法
-
+			return this.CommandSet.Count;                                       //	回傳命令集合指令數量
 		}                                                                       //	結束GetCommandSetCount方法
 	}                                                                           //	結束CommandDatabase類別
 }                                                                               //	結束UartOscilloscope命名空間
