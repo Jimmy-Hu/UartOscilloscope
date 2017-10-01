@@ -82,9 +82,9 @@ namespace UartOscilloscope                                                      
 		/// GetCommandSetCount方法用於取得命令集合指令數量
 		/// </summary>
 		/// <returns></returns>
-		private int GetCommandSetCount()
-		{
+		private int GetCommandSetCount()                                        //	GetCommandSetCount方法
+		{                                                                       //	進入GetCommandSetCount方法
 
-		}
+		}                                                                       //	結束GetCommandSetCount方法
 	}                                                                           //	結束CommandDatabase類別
 }                                                                               //	結束UartOscilloscope命名空間
