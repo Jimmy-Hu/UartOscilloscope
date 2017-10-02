@@ -14,6 +14,9 @@ using System.Windows.Forms;                                                     
 
 namespace UartOscilloscope                                                      //	命名空間為UartOscilloscope
 {                                                                               //	進入命名空間
+	/// <summary>
+	/// UARTConnection類別
+	/// </summary>
 	public class UARTConnection													//	UARTConnection類別
 	{                                                                           //	進入UARTConnection類別
 		public SerialPort UartComport;											//	宣告SerialPort通訊埠，名稱為UartComport
