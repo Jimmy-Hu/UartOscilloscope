@@ -57,7 +57,7 @@
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(246, 34);
 			this.button3.TabIndex = 0;
-			this.button3.Text = "清除接收字串資料";
+			this.button3.Text = "Clear received data";
 			this.button3.UseVisualStyleBackColor = true;
 			this.button3.Click += new System.EventHandler(this.button3_Click);
 			// 
@@ -69,7 +69,7 @@
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(152, 21);
 			this.label1.TabIndex = 1;
-			this.label1.Text = "收到的Byte數：";
+			this.label1.Text = "Received byte count:";
 			// 
 			// Label2
 			// 
@@ -107,20 +107,20 @@
             this.介面設定ToolStripMenuItem});
 			this.設定ToolStripMenuItem.Name = "設定ToolStripMenuItem";
 			this.設定ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-			this.設定ToolStripMenuItem.Text = "設定";
+			this.設定ToolStripMenuItem.Text = "Settings";
 			// 
 			// 傳輸設定ToolStripMenuItem
 			// 
 			this.傳輸設定ToolStripMenuItem.Name = "傳輸設定ToolStripMenuItem";
 			this.傳輸設定ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-			this.傳輸設定ToolStripMenuItem.Text = "傳輸設定";
+			this.傳輸設定ToolStripMenuItem.Text = "Connect configuration";
 			this.傳輸設定ToolStripMenuItem.Click += new System.EventHandler(this.設定_傳輸設定ToolStripMenuItem_Click);
 			// 
 			// 介面設定ToolStripMenuItem
 			// 
 			this.介面設定ToolStripMenuItem.Name = "介面設定ToolStripMenuItem";
 			this.介面設定ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-			this.介面設定ToolStripMenuItem.Text = "介面設定";
+			this.介面設定ToolStripMenuItem.Text = "Interface configuration";
 			this.介面設定ToolStripMenuItem.Click += new System.EventHandler(this.設定_介面設定ToolStripMenuItem_Click);
 			// 
 			// comboBox1
@@ -140,7 +140,7 @@
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(148, 16);
 			this.label3.TabIndex = 6;
-			this.label3.Text = "已連接的SerialPort：";
+			this.label3.Text = "Available SerialPort:";
 			// 
 			// button2
 			// 
@@ -149,7 +149,7 @@
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(110, 33);
 			this.button2.TabIndex = 7;
-			this.button2.Text = "連線";
+			this.button2.Text = "Connect";
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
@@ -160,7 +160,7 @@
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(182, 30);
 			this.button1.TabIndex = 8;
-			this.button1.Text = "重新偵測SerialPort";
+			this.button1.Text = "Re-detect SerialPort";
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
@@ -172,7 +172,7 @@
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(147, 16);
 			this.label4.TabIndex = 9;
-			this.label4.Text = "Uart接收字串資料：";
+			this.label4.Text = "Uart receive data:";
 			// 
 			// label5
 			// 
@@ -182,7 +182,7 @@
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(115, 16);
 			this.label5.TabIndex = 10;
-			this.label5.Text = "Uart連線狀態：";
+			this.label5.Text = "Uart connect status:";
 			// 
 			// label6
 			// 
@@ -192,7 +192,7 @@
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(72, 16);
 			this.label6.TabIndex = 11;
-			this.label6.Text = "連線狀態";
+			this.label6.Text = "Connect status";
 			// 
 			// panel1
 			// 
@@ -209,7 +209,7 @@
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(76, 22);
 			this.label7.TabIndex = 0;
-			this.label7.Text = "示波器";
+			this.label7.Text = "Oscilloscope";
 			// 
 			// openGLControl1
 			// 
@@ -250,7 +250,7 @@
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.openGLControl1)).EndInit();
+			//((System.ComponentModel.ISupportInitialize)(this.openGLControl1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

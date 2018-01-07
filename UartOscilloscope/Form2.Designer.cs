@@ -54,7 +54,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 21);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Baud Rate：";
+            this.label1.Text = "Baud Rate:";
             // 
             // button1
             // 
@@ -63,7 +63,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 34);
             this.button1.TabIndex = 2;
-            this.button1.Text = "儲存";
+            this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -75,7 +75,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 21);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Parity：";
+            this.label2.Text = "Parity:";
             // 
             // comboBox1
             // 
@@ -101,7 +101,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 21);
             this.label3.TabIndex = 5;
-            this.label3.Text = "DataBits：";
+            this.label3.Text = "DataBits:";
             // 
             // Form2
             // 

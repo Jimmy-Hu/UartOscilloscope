@@ -28,7 +28,8 @@ namespace UartOscilloscope                                                      
 			Form1.UARTConnection1.SetParitySetting(comboBox1.SelectedIndex);    //  更新Parity_num同位位元設定
             var Information = MessageBox.Show                                   //  顯示通知訊息
                     (                                                           //  進入通知訊息MessageBox設定
-                        "連線設定將於下次連線生效",                             //  顯示文字"連線設定將於下次連線生效"
+						"The connection settings will take effect on the next connection",
+						//  顯示文字"連線設定將於下次連線生效"
                         "Information",                                          //  設定MessageBox標題為"Information"
                         MessageBoxButtons.OK,                                   //  MessageBox選項為OK
                         MessageBoxIcon.Information                              //  顯示通知標誌

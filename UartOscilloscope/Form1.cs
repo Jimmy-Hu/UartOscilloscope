@@ -55,7 +55,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 		}																		//	結束Form1方法
 		public void Form1_Load(object sender, EventArgs e)						//	Form1_Load程式，Form1表單載入時執行
 		{																		//	進入Form1_Load方法
-			textBox1_Font = new Font("新細明體", 9, FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 136);
+			textBox1_Font = new Font("Arial", 9, FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 136);
 			//	設定接收字串資料文字方塊預設字型
 			
 			Transmission_Analysis_Queue = new Queue();							//	初始化Transmission_Analysis_Queue(Uart通訊傳輸資料分析字元佇列)
@@ -65,7 +65,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 			//	初始化Data_Graphic_Queue_Y(Y通道資料繪圖用整數型態佇列)
 			OscilloscopeFunctionVariable.Data_Graphic_Queue_Z = new Queue<int>();
 			//	初始化Data_Graphic_Queue_Z(Z通道資料繪圖用整數型態佇列)
-			label6.Text = "未連線";                                             //	顯示連線狀態為"未連線"
+			label6.Text = "Unconnect";                                          //	顯示連線狀態為"Unconnect"
 			list_SerialPort();                                   //	呼叫list_SerialPort(偵測並列出已連線SerialPort)方法
 		}																		//	結束Form1_Load方法
 		private void button1_Click(object sender, EventArgs e)					//	當按下"重新偵測SerialPort"按鈕
@@ -190,18 +190,18 @@ namespace UartOscilloscope														//	命名空間為本程式
 			DebugVariables.Set_UARTConnectHandle_Runtimes();                  //	呼叫Set_UARTConnectHandle_Runtimes方法遞增UARTConnectHandle_Runtimes變數
 			if (UARTConnection1.GetUartComportConnected() == true)            //  若UartComportConnected為True，代表UartComport連線中，將執行中斷連線
 			{                                                                   //	進入if敘述
-				label6.Text = (comport_name + "正在中斷連線");
-				//  顯示連線狀態為(comport_name + "正在中斷連線")，如"COM1正在中斷連線"
+				label6.Text = (comport_name + " Interrupting connection");
+				//  顯示連線狀態為(comport_name + "Interrupting connection")，如"COM1 Interrupting connection"
 				UARTConnection1.SetUartComportConnected(false);               //	更新UartComportConnected
 				UARTConnection1.UartComport.Close();                            //	關閉UartComport連線
-				button2.Text = "連線";                                          //	更改button2文字為"連線"
+				button2.Text = "Connect";                                       //	更改button2文字為"Connect"
 				button2.Enabled = true;                                         //	重新開啟"連線/中斷連線"按鈕功能
-				label6.Text = "未連線";                                         //	顯示連線狀態為"未連線"
+				label6.Text = "Unconnect";                                      //	顯示連線狀態為"Unconnect"
 				return;                                                         //	結束UARTConnectHandle方法
 			}                                                                   //	結束if敘述
 			else                                                                //	若UartComportConnected為False，執行連線
 			{                                                                   //	進入else敘述
-				label6.Text = "偵測連接埠設定";                                 //	顯示連線狀態為"偵測連接埠設定"
+				label6.Text = "Detect UART port";                               //	顯示連線狀態為"Detect UART port"
 				if (comport_name == "")                                         //	若comport_name為空白(Combobox1未選定)
 				{                                                               //	進入if敘述
 					ErrorCodeMessage.Error_Message_Show((int)ErrorCodeMessage.ErrorCodeEncoding.NoSerialPortSelected);
@@ -211,7 +211,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 				}                                                               //	結束if敘述
 				else                                                            //	已選定連接埠
 				{                                                               //	進入else敘述
-					label6.Text = (comport_name + "正在嘗試連線");              //	顯示連線狀態為(comport_name + "正在嘗試連線")，如"COM1正在嘗試連線"
+					label6.Text = (comport_name + " Connecting...");             //	顯示連線狀態為(comport_name + "Connecting...")，如"COM1 Connecting..."
 					try                                                         //	嘗試以comport_name建立串列通訊連線
 					{                                                           //	進入try敘述
 						UARTConnection1.UartComport = new SerialPort(comport_name);
@@ -229,9 +229,9 @@ namespace UartOscilloscope														//	命名空間為本程式
 						if (!UARTConnection1.UartComport.IsOpen)                //	若UartComport未開啟
 						{                                                       //	進入if敘述
 							UARTConnection1.UartComport.Open();                 //	開啟UartComport
-							label6.Text = (comport_name + "已連線");            //	顯示連線狀態為(comport_name + "已連線")，如"COM1已連線"
+							label6.Text = (comport_name + "Connected");         //	顯示連線狀態為(comport_name + " Connected")，如"COM1 Connected"
 							UARTConnection1.SetUartComportConnected(true);     //	更新UartComportConnected狀態
-							button2.Text = "中斷連線";                          //	更改button2文字為"中斷連線"
+							button2.Text = "Inturrupt connection";                 //	更改button2文字為"Inturrupt connection"
 							button2.Enabled = true;                             //	重新開啟"連線/中斷連線"按鈕功能
 						}                                                       //	結束if敘述
 						UARTConnection1.UartComport.DataReceived += new SerialDataReceivedEventHandler(comport_DataReceived);
@@ -246,7 +246,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 								MessageBoxIcon.Error                            //  顯示錯誤標誌
 							);                                                  //  結束錯誤訊息MessageBox設定
 						UARTConnection1.UartComport.Close();                    //  關閉UartComport連線
-						button2.Text = "連線";                                  //  更改button2文字為"連線"
+						button2.Text = "Connect";                               //  更改button2文字為"Connect"
 						button2.Enabled = true;                                 //  重新開啟"連線/中斷連線"按鈕功能
 						return;                                                 //  結束UARTConnectHandle方法
 					}                                                           //  結束catch敘述
