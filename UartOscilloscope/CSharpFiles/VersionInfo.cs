@@ -16,6 +16,7 @@ namespace UartOscilloscope                                                      
 {                                                                               //	進入UartOscilloscope命名空間
 	class VersionInfo                                                           //	VersionInfo類別
 	{                                                                           //	進入VersionInfo類別
+		public readonly static VersionInfo Instance = new VersionInfo();        //	設計VersionInfo存取介面 
 		private const float Program_Version = 39;								//	宣告Program_Version靜態全域變數，記錄程式版本
 		public float GetProgramVersion()										//	GetProgramVersion方法
 		{                                                                       //	進入GetProgramVersion方法
