@@ -52,9 +52,7 @@ namespace UartOscilloscope                                                      
 				"version",                                                      //	指令名稱
 				new System.Threading.Tasks.Task(() =>                           //	建立指令工作
 				{                                                               //	進入指令工作內容
-					UARTConnection UARTConnection1;                             //	宣告UARTConnection1物件
-					UARTConnection1 = new UARTConnection(0, false);
-					Console.WriteLine(UARTConnection1.GetComportList().ToString());
+					Console.WriteLine(VersionInfo.Instance.GetProgramVersion());
 				})));                                                           //	結束指令工作內容
 		}
 		/// <summary>
