@@ -1,4 +1,12 @@
-﻿using System;
+﻿/********************************************************************
+ * Develop by Jimmy Hu												*
+ * This program is licensed under the Apache License 2.0.			*
+ * CommandClass.cs													*
+ * 本檔案建立程式指令模式下指令單元物件								*
+ ********************************************************************
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
