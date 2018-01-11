@@ -29,16 +29,27 @@ namespace QueueDataGraphic.CSharpFiles
 		private int GraphicDataQueueMax;
 
 		/// <summary>
+		/// SetGraphicDataQueueMax method would update GraphicDataQueueMax variable.
+		/// SetGraphicDataQueueMax方法用於更新GraphicDataQueueMax變數
+		/// </summary>
+		/// <param name="NewGraphicDataQueueMax"></param>
+		public void SetGraphicDataQueueMax(int NewGraphicDataQueueMax)			//	
+		{
+
+		}
+
+		/// <summary>
 		/// RemovingOverload method would remove the data when GraphicData.count > GraphicDataQueueMax
 		/// RemovingOverload用於清除多於物件數量上限之資料
 		/// </summary>
-		public void RemovingOverload()                                          //	RemovingOverload method, RemovingOverload方法
+		private void RemovingOverload()                                         //	RemovingOverload method, RemovingOverload方法
 		{                                                                       //	RemovingOverload method start, 進入RemovingOverload方法
 			while(GraphicData.Count > GraphicDataQueueMax)                      //	when GraphicData.Count more than GraphicDataQueueMax, 當有過多資料
-			{																	//	while loop start, 進入while迴圈
-
+			{                                                                   //	while loop start, 進入while迴圈
+				GraphicData.Dequeue();                                          //	clear GraphicData data, 清除GraphicData資料
 			}																	//	while loop end, 結束while迴圈
 		}                                                                       //	RemovingOverload method end, 結束RemovingOverload方法
+
 
 	}
 }                                                                               //	namespace end
