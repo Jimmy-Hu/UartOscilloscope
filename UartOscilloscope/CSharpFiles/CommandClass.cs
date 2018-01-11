@@ -22,7 +22,7 @@ namespace UartOscilloscope                                                      
 		private string EnglishDescription;										//	宣告指令英文描述
 		private Task task;														//	宣告指令工作
 		public CommandClass(int CommandID, string CommandName, string ChineseDescription, string EnglishDescription, Task task)
-		//	CommandClass建構子
+		//	CommandClass constructor, CommandClass建構子
 		{                                                                       //	進入CommandClass建構子
 
 		}                                                                       //	結束CommandClass建構子
