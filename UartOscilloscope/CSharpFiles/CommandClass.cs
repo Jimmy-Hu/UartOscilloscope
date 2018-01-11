@@ -18,7 +18,8 @@ namespace UartOscilloscope                                                      
 	{                                                                           //	進入CommandClass指令類別
 		private int CommandID;													//	宣告指令編號
 		private string CommandName;                                             //	宣告指令名稱
-		private string ChineseDescription;										//	宣告指令中文描述
+		private string ChineseDescription;                                      //	宣告指令中文描述
+		private string EnglishDescription;										//	宣告指令英文描述
 		private Task task;														//	宣告指令工作
 		/// <summary>
 		/// CommandClass建構子
