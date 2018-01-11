@@ -21,6 +21,12 @@ namespace UartOscilloscope                                                      
 		private string ChineseDescription;                                      //	宣告指令中文描述
 		private string EnglishDescription;										//	宣告指令英文描述
 		private Task task;														//	宣告指令工作
+		public CommandClass(int CommandID, string CommandName, string ChineseDescription, string EnglishDescription, Task task)
+		//	CommandClass建構子
+		{                                                                       //	進入CommandClass建構子
+
+		}                                                                       //	結束CommandClass建構子
+
 		/// <summary>
 		/// CommandClass建構子
 		/// </summary>
@@ -28,7 +34,8 @@ namespace UartOscilloscope                                                      
 		/// <param name="CommandName">為指令名稱</param>
 		/// <param name="ChineseDescription">為指令中文敘述</param>
 		/// <param name="task">為指令工作</param>
-		public CommandClass(int CommandID, string CommandName, string ChineseDescription, Task task)       //	CommandClass建構子
+		public CommandClass(int CommandID, string CommandName, string ChineseDescription, Task task)
+		//	CommandClass建構子
 		{                                                                       //	進入CommandClass建構子
 			this.CommandID = CommandID;                                         //	初始化指令編號
 			this.CommandName = CommandName;                                     //	初始化指令名稱
