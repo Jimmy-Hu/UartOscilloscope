@@ -47,10 +47,20 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入CommandClass建構子
 			this.CommandID = CommandID;                                         //	初始化指令編號
 			this.CommandName = CommandName;                                     //	初始化指令名稱
-			this.ChineseDescription = ChineseDescription;						//	初始化指令中文描述
+			this.ChineseDescription = ChineseDescription;                       //	初始化指令中文描述
+			this.EnglishDescription = "";										//	初始化指令英文描述
 			this.task = task;													//	初始化指令工作
 		}                                                                       //	結束CommandClass建構子
 
+		public CommandClass(int CommandID, string CommandName, Task task)
+		//	CommandClass建構子
+		{                                                                       //	進入CommandClass建構子
+			this.CommandID = CommandID;                                         //	初始化指令編號
+			this.CommandName = CommandName;                                     //	初始化指令名稱
+			this.ChineseDescription = "";                                       //	初始化指令中文描述
+			this.EnglishDescription = "";										//	初始化指令英文描述
+			this.task = task;													//	初始化指令工作
+		}                                                                       //	結束CommandClass建構子
 		/// <summary>
 		/// 覆寫ToString方法可回傳指令名稱
 		/// </summary>
