@@ -23,7 +23,7 @@ namespace UartOscilloscope                                                      
 		/// </summary>
 		public void CreateCommandSet()
 		{
-			CommandSet.Add(new CommandClass(                                    //	新增指令
+			CommandSet.Add(new CommandClass(                                    //	Add command, 新增指令
 				1,                                                              //	指令編號
 				"connect",                                                      //	指令名稱
 				new System.Threading.Tasks.Task(() =>                           //	建立指令工作
