@@ -35,8 +35,7 @@ namespace UartOscilloscope                                                      
 				"help",                                                         //	指令名稱
 				new System.Threading.Tasks.Task(() =>                           //	建立指令工作
 				{                                                               //	進入指令工作內容
-
-
+					
 				})));                                                           //	結束指令工作內容
 			CommandSet.Add(new CommandClass(                                    //	新增指令
 				3,                                                              //	指令編號
@@ -94,5 +93,10 @@ namespace UartOscilloscope                                                      
 		{                                                                       //	進入GetCommandSetCount方法
 			return this.CommandSet.Count;                                       //	回傳命令集合指令數量
 		}                                                                       //	結束GetCommandSetCount方法
+		private string GetCommandHelp()                                         //	GetCommandHelp方法
+		{                                                                       //	進入GetCommandHelp方法
+			string OutputStr = "";
+			return OutputStr;
+		}                                                                       //	結束GetCommandHelp方法
 	}                                                                           //	結束CommandDatabase類別
 }                                                                               //	結束UartOscilloscope命名空間
