@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace QueueDataGraphic.CSharpFiles
-{                                                                               //	namespace start
+{                                                                               //	namespace start, 進入命名空間
 	class DataQueue                                                             // DataQueue class, DataQueue類別
 	{				                                                            // DataQueue class start, 進入DataQueue類別
 		/// <summary>
