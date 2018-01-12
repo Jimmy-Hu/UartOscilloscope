@@ -33,8 +33,8 @@ namespace QueueDataGraphic.CSharpFiles
 		/// </summary>
 		public DataQueue()                                                      //	DataQueue constructor, DataQueue建構子
 		{                                                                       //	DataQueue constructor start, 進入DataQueue建構子
-			GraphicData = new Queue<object>();                                  //	initialize GraphicData, 初始化GraphicData物件
-			GraphicDataQueueMax = 100;                                          //	initialize GraphicDataQueueMax, 初始化GraphicDataQueueMax變數
+			this.GraphicData = new Queue<object>();                             //	initialize GraphicData, 初始化GraphicData物件
+			this.GraphicDataQueueMax = 100;                                     //	initialize GraphicDataQueueMax, 初始化GraphicDataQueueMax變數
 		}                                                                       //	DataQueue constructor end, 結束DataQueue建構子
 
 		/// <summary>
