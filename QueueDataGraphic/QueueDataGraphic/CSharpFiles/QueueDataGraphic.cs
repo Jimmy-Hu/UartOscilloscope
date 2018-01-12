@@ -21,9 +21,9 @@ namespace QueueDataGraphic.CSharpFiles
 		/// <summary>
 		/// QueueDataGraphic constructor, QueueDataGraphic建構子
 		/// </summary>
-		public QueueDataGraphic()
-		{
+		public QueueDataGraphic()                                               //	QueueDataGraphic constructor, QueueDataGraphic建構子
+		{                                                                       //	QueueDataGraphic constructor start, 進入QueueDataGraphic建構子
 
-		}
+		}                                                                       //	QueueDataGraphic constructor end, 結束QueueDataGraphic建構子
 	}                                                                           //	QueueDataGraphic class end, 結束QueueDataGraphic類別
 }                                                                               //	namespace end, 結束命名空間
