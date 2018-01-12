@@ -63,7 +63,7 @@ namespace QueueDataGraphic.CSharpFiles
 				int Loopnum = 0;                                                //	initialize Loopnum variable, 初始化Loopnum變數
 				foreach (int Data in DataQueueItem.GetGraphicData())            //	get each data in DataQueue, 從DataQueue取出資料
 				{                                                               //	foreach statement start, 進入foreach敘述
-					if (Loopnum == 0)
+					if (Loopnum == 0)                                           //	if run first loop, 若Loopnum變數為0
 					{                                                           //	if statement start, 進入if敘述
 						GraphPointTemp = new Point((
 							Loopnum * InputPanel.Size.Width / DataQueueItem.GetGraphicDataQueueMax()),
