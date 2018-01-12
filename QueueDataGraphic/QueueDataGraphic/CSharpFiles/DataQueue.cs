@@ -34,9 +34,9 @@ namespace QueueDataGraphic.CSharpFiles
 		/// </summary>
 		/// <param name="NewGraphicDataQueueMax">為GraphicDataQueueMax更新值</param>
 		public void SetGraphicDataQueueMax(int NewGraphicDataQueueMax)          //	SetGraphicDataQueueMax method, SetGraphicDataQueueMax方法
-		{
+		{                                                                       //	SetGraphicDataQueueMax method start, 進入SetGraphicDataQueueMax方法
 
-		}
+		}                                                                       //	SetGraphicDataQueueMax method end, 結束SetGraphicDataQueueMax方法
 
 		/// <summary>
 		/// RemovingOverload method would remove the data when GraphicData.count > GraphicDataQueueMax
