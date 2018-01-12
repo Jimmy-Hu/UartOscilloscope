@@ -32,10 +32,11 @@ namespace QueueDataGraphic.CSharpFiles
 		}                                                                       //	QueueDataGraphic constructor end, 結束QueueDataGraphic建構子
 
 		/// <summary>
-		/// 
+		/// AddData method would add data to queue.
+		/// AddData方法用於新增資料至Queue
 		/// </summary>
 		/// <param name="DataQueueName">欲新增資料之Queue名稱</param>
-		/// <param name="InputData"></param>
+		/// <param name="InputData">欲新增至Queue之資料</param>
 		public void AddData(string DataQueueName, object InputData)             //	AddData method, AddData方法
 		{                                                                       //	AddData method start, 進入AddData方法
 			foreach (DataQueue item in DataQueueList)                           //	search DataQueue in DataQueueList
