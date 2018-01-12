@@ -32,8 +32,8 @@ namespace QueueDataGraphic.CSharpFiles
 		/// SetGraphicDataQueueMax method would update GraphicDataQueueMax variable.
 		/// SetGraphicDataQueueMax方法用於更新GraphicDataQueueMax變數
 		/// </summary>
-		/// <param name="NewGraphicDataQueueMax"></param>
-		public void SetGraphicDataQueueMax(int NewGraphicDataQueueMax)			//	
+		/// <param name="NewGraphicDataQueueMax">為GraphicDataQueueMax更新值</param>
+		public void SetGraphicDataQueueMax(int NewGraphicDataQueueMax)          //	SetGraphicDataQueueMax method, SetGraphicDataQueueMax方法
 		{
 
 		}
