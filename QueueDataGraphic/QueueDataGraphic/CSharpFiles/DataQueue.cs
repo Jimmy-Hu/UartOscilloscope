@@ -31,7 +31,7 @@ namespace QueueDataGraphic.CSharpFiles
 		public DataQueue()
 		{
 			GraphicData = new Queue<object>();                                  //	initialize GraphicData, 初始化GraphicData物件
-
+			GraphicDataQueueMax = 100;                                          //	initialize GraphicDataQueueMax, 初始化GraphicDataQueueMax變數
 		}
 
 		/// <summary>
