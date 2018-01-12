@@ -20,7 +20,7 @@ namespace QueueDataGraphic.CSharpFiles
 		/// GraphicData is the queue for storing the graphic data.
 		/// GraphicData佇列用於儲存繪圖資料
 		/// </summary>
-		private Queue<object> GraphicData;
+		private Queue<object> GraphicData;                                      //	GraphicData object, GraphicData佇列物件
 
 		/// <summary>
 		/// GraphicDataQueueMax is the max number of count of GraphData elements.
