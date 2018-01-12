@@ -107,5 +107,15 @@ namespace QueueDataGraphic.CSharpFiles
 			return GraphicData;                                                 //	return GraphicData object, 回傳GraphicData物件
 		}                                                                       //	GetGraphicData method end, 結束GetGraphicData方法
 
+		/// <summary>
+		/// GetDataQueueName method would return DataQueueName.
+		/// GetDataQueueName方法用於回傳DataQueueName
+		/// </summary>
+		/// <returns>DataQueueName</returns>
+		public string GetDataQueueName()                                        //	GetDataQueueName method, GetDataQueueName方法
+		{                                                                       //	GetDataQueueName method start, 進入GetDataQueueName方法
+			return this.DataQueueName;                                          //	return DataQueueName, 回傳DataQueueName
+		}                                                                       //	GetDataQueueName method end, 結束GetDataQueueName方法
+
 	}                                                                           //	DataQueue class end, 結束DataQueue類別
 }                                                                               //	namespace end, 結束命名空間
