@@ -36,6 +36,11 @@ namespace QueueDataGraphic.CSharpFiles
 		public void SetGraphicDataQueueMax(int NewGraphicDataQueueMax)          //	SetGraphicDataQueueMax method, SetGraphicDataQueueMax方法
 		{                                                                       //	SetGraphicDataQueueMax method start, 進入SetGraphicDataQueueMax方法
 			this.GraphicDataQueueMax = NewGraphicDataQueueMax;                  //	Update GraphicDataQueueMax variable, 更新GraphicDataQueueMax變數
+			if (Debug.DebugMode == true)                                        //	if DebugMode is true, 若DebugMode為true
+			{                                                                   //	if statement start, 進入if敘述
+				Console.WriteLine("GraphicDataQueueMax is updated, it's value is " + this.GraphicDataQueueMax);
+				// Write out debug info, 輸出偵錯訊息
+			}																	//	if statement end, 結束if敘述
 		}                                                                       //	SetGraphicDataQueueMax method end, 結束SetGraphicDataQueueMax方法
 
 		/// <summary>
