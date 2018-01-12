@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace QueueDataGraphic.CSharpFiles
 {
-	class QueueDataGraphic
+	class QueueDataGraphic                                                      // QueueDataGraphic class, QueueDataGraphic類別
 	{                                                                           // QueueDataGraphic class start, 進入QueueDataGraphic類別
+
 	}                                                                           // QueueDataGraphic class end, 結束QueueDataGraphic類別
 }
