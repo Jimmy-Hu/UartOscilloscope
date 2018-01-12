@@ -55,6 +55,14 @@ namespace QueueDataGraphic.CSharpFiles
 			}																	//	while loop end, 結束while迴圈
 		}                                                                       //	RemovingOverload method end, 結束RemovingOverload方法
 
+		/// <summary>
+		/// AddData method would add new data into queue.
+		/// AddData方法用於存入新資料至Queue
+		/// </summary>
+		/// <param name="InputData">欲紀錄至Queue之資料</param>
+		public void AddData(object InputData)
+		{
 
+		}
 	}                                                                           //	DataQueue class end, 結束DataQueue類別
 }                                                                               //	namespace end, 結束命名空間
