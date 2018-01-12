@@ -52,7 +52,8 @@ namespace QueueDataGraphic.CSharpFiles
 			while(GraphicData.Count > GraphicDataQueueMax)                      //	when GraphicData.Count more than GraphicDataQueueMax, 當有過多資料
 			{                                                                   //	while loop start, 進入while迴圈
 				GraphicData.Dequeue();                                          //	clear GraphicData data, 清除GraphicData資料
-			}																	//	while loop end, 結束while迴圈
+			}                                                                   //	while loop end, 結束while迴圈
+			return;																//	return, 結束方法
 		}                                                                       //	RemovingOverload method end, 結束RemovingOverload方法
 
 		/// <summary>
@@ -62,7 +63,7 @@ namespace QueueDataGraphic.CSharpFiles
 		/// <param name="InputData">欲紀錄至Queue之資料</param>
 		public void AddData(object InputData)                                   //	AddData method, AddData方法
 		{                                                                       //	AddData method start, 進入AddData方法
-
+			RemovingOverload();                                                 //	call RemovingOverload method, 呼叫RemovingOverload方法
 		}                                                                       //	AddData method end, 結束AddData方法
 	}                                                                           //	DataQueue class end, 結束DataQueue類別
 }                                                                               //	namespace end, 結束命名空間
