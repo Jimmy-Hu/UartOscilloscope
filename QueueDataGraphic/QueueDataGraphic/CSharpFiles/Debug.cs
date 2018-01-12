@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace QueueDataGraphic.CSharpFiles
-{
+{                                                                               //	namespace start, 進入命名空間
 	class Debug                                                                 // Debug class, Debug類別
 	{				                                                            // Debug class start, 進入Debug類別
 		/// <summary>
@@ -22,4 +22,4 @@ namespace QueueDataGraphic.CSharpFiles
 		/// </summary>
 		public readonly static bool DebugMode = true;
 	}                                                                           //	Debug class eud, 結束Debug類別
-}
+}                                                                               //	namespace end, 結束命名空間
