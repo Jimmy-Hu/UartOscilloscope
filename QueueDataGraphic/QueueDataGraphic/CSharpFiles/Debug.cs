@@ -22,9 +22,9 @@ namespace QueueDataGraphic.CSharpFiles
 		/// </summary>
 		public readonly static bool DebugMode = true;                           //	DebugMode variable
 
-		public void ShowQueueData()                                             //	ShowQueueData method, ShowQueueData方法
-		{
+		public void ShowQueueData(Queue<object> InputQueue)                     //	ShowQueueData method, ShowQueueData方法
+		{                                                                       //	ShowQueueData method start, 進入ShowQueueData方法
 
-		}
+		}                                                                       //	ShowQueueData method end, 結束ShowQueueData方法
 	}                                                                           //	Debug class eud, 結束Debug類別
 }                                                                               //	namespace end, 結束命名空間
