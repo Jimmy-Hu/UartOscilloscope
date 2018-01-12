@@ -31,5 +31,12 @@ namespace QueueDataGraphic.CSharpFiles
 			}                                                                   //	foreach statement end, 結束foreach敘述
 		}                                                                       //	QueueDataGraphic constructor end, 結束QueueDataGraphic建構子
 
+		public void AddData(string DataQueueName, object InputData)             //	AddData method, AddData方法
+		{                                                                       //	AddData method start, 進入AddData方法
+			foreach (DataQueue item in DataQueueList)
+			{
+
+			}
+		}                                                                       //	AddData method end, 結束AddData方法
 	}                                                                           //	QueueDataGraphic class end, 結束QueueDataGraphic類別
 }                                                                               //	namespace end, 結束命名空間
