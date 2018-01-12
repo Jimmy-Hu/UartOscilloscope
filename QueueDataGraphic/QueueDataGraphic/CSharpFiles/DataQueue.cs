@@ -28,6 +28,12 @@ namespace QueueDataGraphic.CSharpFiles
 		/// </summary>
 		private int GraphicDataQueueMax;
 
+		public DataQueue()
+		{
+			GraphicData = new Queue<object>();                                  //	initialize GraphicData, 初始化GraphicData物件
+
+		}
+
 		/// <summary>
 		/// SetGraphicDataQueueMax method would update GraphicDataQueueMax variable.
 		/// SetGraphicDataQueueMax方法用於更新GraphicDataQueueMax變數
