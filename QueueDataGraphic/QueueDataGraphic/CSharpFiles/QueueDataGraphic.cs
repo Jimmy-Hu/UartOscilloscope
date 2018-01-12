@@ -23,7 +23,7 @@ namespace QueueDataGraphic.CSharpFiles
 			DataQueueList = new List<DataQueue>();                              //	initialize DataQueueList, 初始化DataQueueList物件
 			foreach (string item in DataQueueNames)                             //	get each name of DataQueueNames
 			{                                                                   //	foreach statement start, 進入foreach敘述
-				DataQueueList.Add(new DataQueue(item));
+				DataQueueList.Add(new DataQueue(item));                         //	add DataQueue, 新增DataQueue
 			}                                                                   //	foreach statement end, 結束foreach敘述
 		}                                                                       //	QueueDataGraphic constructor end, 結束QueueDataGraphic建構子
 
