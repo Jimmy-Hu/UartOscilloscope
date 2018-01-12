@@ -23,7 +23,8 @@ namespace QueueDataGraphic.CSharpFiles
 		private Queue<object> GraphicData;                                      //	GraphicData object, GraphicData佇列物件
 
 		/// <summary>
-		/// 
+		/// DataQueueName is the name of DataQueue.
+		/// DataQueue名稱
 		/// </summary>
 		private string DataQueueName;                                           //	DataQueueName string, DataQueueName字串
 
