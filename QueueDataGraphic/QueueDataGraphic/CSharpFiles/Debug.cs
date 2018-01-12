@@ -14,9 +14,9 @@ using System.Threading.Tasks;
 
 namespace QueueDataGraphic.CSharpFiles
 {                                                                               //	namespace start, 進入命名空間
-	class Debug                                                                 // Debug class, Debug類別
-	{                                                                           // Debug class start, 進入Debug類別
-		public readonly static Debug Instance = new Debug();                    // Debug class instance, 設計Debug存取介面
+	class Debug                                                                 //	Debug class, Debug類別
+	{                                                                           //	Debug class start, 進入Debug類別
+		public readonly static Debug Instance = new Debug();                    //	Debug class instance, 設計Debug存取介面
 
 		/// <summary>
 		/// DebugMode would be setted "true" during debugging.
