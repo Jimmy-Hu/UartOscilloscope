@@ -27,7 +27,7 @@ namespace QueueDataGraphic.CSharpFiles
 			foreach (var item in InputQueue)                                    //	get each element in InputQueue, 取得InputQueue各項元素
 			{																	//	foreach statement start, 進入foreach敘述
 				Console.WriteLine(item.ToString());
-			}
+			}																	//	foreach statement end, 結束foreach敘述
 		}                                                                       //	ShowQueueData method end, 結束ShowQueueData方法
 	}                                                                           //	Debug class eud, 結束Debug類別
 }                                                                               //	namespace end, 結束命名空間
