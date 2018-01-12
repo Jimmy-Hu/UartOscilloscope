@@ -60,9 +60,9 @@ namespace QueueDataGraphic.CSharpFiles
 		/// AddData方法用於存入新資料至Queue
 		/// </summary>
 		/// <param name="InputData">欲紀錄至Queue之資料</param>
-		public void AddData(object InputData)
-		{
+		public void AddData(object InputData)                                   //	AddData method, AddData方法
+		{                                                                       //	AddData method start, 進入AddData方法
 
-		}
+		}                                                                       //	AddData method end, 結束AddData方法
 	}                                                                           //	DataQueue class end, 結束DataQueue類別
 }                                                                               //	namespace end, 結束命名空間
