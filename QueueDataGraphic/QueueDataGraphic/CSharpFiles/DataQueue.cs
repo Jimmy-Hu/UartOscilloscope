@@ -26,7 +26,7 @@ namespace QueueDataGraphic.CSharpFiles
 		/// GraphicDataQueueMax is the max number of count of GraphData elements.
 		/// GraphicDataQueueMax為GraphData物件數量上限
 		/// </summary>
-		private int GraphicDataQueueMax;
+		private int GraphicDataQueueMax;                                        //	GraphicDataQueueMax variable, GraphicDataQueueMax變數
 
 		/// <summary>
 		/// DataQueue constructor, DataQueue建構子
