@@ -88,7 +88,7 @@ namespace QueueDataGraphic.CSharpFiles
 
 		public Queue<object> GetGraphicData()                                   //	GetGraphicData method, GetGraphicData方法
 		{                                                                       //	GetGraphicData method start, 進入GetGraphicData方法
-
+			return GraphicData;                                                 //	return GraphicData object, 回傳GraphicData物件
 		}                                                                       //	GetGraphicData method end, 結束GetGraphicData方法
 
 	}                                                                           //	DataQueue class end, 結束DataQueue類別
