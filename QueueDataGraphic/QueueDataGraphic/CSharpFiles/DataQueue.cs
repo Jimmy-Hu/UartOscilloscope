@@ -86,9 +86,10 @@ namespace QueueDataGraphic.CSharpFiles
 			RemovingOverload();                                                 //	call RemovingOverload method, 呼叫RemovingOverload方法
 		}                                                                       //	AddData method end, 結束AddData方法
 
-		public Queue<object> GetGraphicData()                                   //	GraphicData method, GraphicData方法
-		{                                                                       //	GraphicData method start, 進入GraphicData方法
+		public Queue<object> GetGraphicData()                                   //	GetGraphicData method, GetGraphicData方法
+		{                                                                       //	GetGraphicData method start, 進入GetGraphicData方法
 
-		}
+		}                                                                       //	GetGraphicData method end, 結束GetGraphicData方法
+
 	}                                                                           //	DataQueue class end, 結束DataQueue類別
 }                                                                               //	namespace end, 結束命名空間
