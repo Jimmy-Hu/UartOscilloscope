@@ -17,7 +17,11 @@ namespace QueueDataGraphic.CSharpFiles
 	class QueueDataGraphic                                                      //	QueueDataGraphic class, QueueDataGraphic類別
 	{                                                                           //	QueueDataGraphic class start, 進入QueueDataGraphic類別
 		List<DataQueue> DataQueueList;                                          //	DataQueueList object, DataQueueList物件
-		
+
+		/// <summary>
+		/// QueueDataGraphic constructor, QueueDataGraphic建構子
+		/// </summary>
+		/// <param name="DataQueueNames">DataQueue通道名稱集合</param>
 		public QueueDataGraphic(List<string> DataQueueNames)                    //	QueueDataGraphic constructor, QueueDataGraphic建構子
 		{                                                                       //	QueueDataGraphic constructor start, 進入QueueDataGraphic建構子
 			DataQueueList = new List<DataQueue>();                              //	initialize DataQueueList, 初始化DataQueueList物件
