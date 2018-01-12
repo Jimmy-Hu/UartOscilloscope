@@ -74,6 +74,16 @@ namespace QueueDataGraphic.CSharpFiles
 		}                                                                       //	SetGraphicDataQueueMax method end, 結束SetGraphicDataQueueMax方法
 
 		/// <summary>
+		/// GetGraphicDataQueueMax return GraphicDataQueueMax.
+		/// GetGraphicDataQueueMax方法回傳GraphicDataQueueMax變數
+		/// </summary>
+		/// <returns>GraphicDataQueueMax</returns>
+		public int GetGraphicDataQueueMax()                                     //	GetGraphicDataQueueMax method, GetGraphicDataQueueMax方法
+		{                                                                       //	GetGraphicDataQueueMax method start, 進入GetGraphicDataQueueMax方法
+			return this.GraphicDataQueueMax;                                    //	return GraphicDataQueueMax, 回傳GraphicDataQueueMax
+		}                                                                       //	GetGraphicDataQueueMax method end, 結束GetGraphicDataQueueMax方法
+
+		/// <summary>
 		/// RemovingOverload method would remove the data when GraphicData.count > GraphicDataQueueMax
 		/// RemovingOverload用於清除多於物件數量上限之資料
 		/// </summary>
