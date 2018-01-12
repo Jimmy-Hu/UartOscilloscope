@@ -21,5 +21,10 @@ namespace QueueDataGraphic.CSharpFiles
 		/// 在偵錯模式中將DebugMode設為true
 		/// </summary>
 		public readonly static bool DebugMode = true;                           //	DebugMode variable
+
+		public void ShowQueueData()                                             //	ShowQueueData method, ShowQueueData方法
+		{
+
+		}
 	}                                                                           //	Debug class eud, 結束Debug類別
 }                                                                               //	namespace end, 結束命名空間
