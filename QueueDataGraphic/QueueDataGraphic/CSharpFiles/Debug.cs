@@ -20,6 +20,6 @@ namespace QueueDataGraphic.CSharpFiles
 		/// DebugMode would be setted "true" during debugging.
 		/// 在偵錯模式中將DebugMode設為true
 		/// </summary>
-		public readonly static bool DebugMode = true;
+		public readonly static bool DebugMode = true;                           //	DebugMode variable
 	}                                                                           //	Debug class eud, 結束Debug類別
 }                                                                               //	namespace end, 結束命名空間
