@@ -14,8 +14,8 @@ using System.Threading.Tasks;
 
 namespace QueueDataGraphic.CSharpFiles
 {
-	class Debug
-	{
+	class Debug                                                                 // Debug class, Debug類別
+	{				                                                            // Debug class start, 進入Debug類別
 		/// <summary>
 		/// DebugMode would be setted "true" during debugging.
 		/// 在偵錯模式中將DebugMode設為true
