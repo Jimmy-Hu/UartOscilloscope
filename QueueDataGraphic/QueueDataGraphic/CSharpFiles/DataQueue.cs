@@ -57,4 +57,4 @@ namespace QueueDataGraphic.CSharpFiles
 
 
 	}                                                                           //	DataQueue class end, 結束DataQueue類別
-}                                                                               //	namespace end
+}                                                                               //	namespace end, 結束命名空間
