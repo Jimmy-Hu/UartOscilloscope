@@ -21,7 +21,8 @@ namespace QueueDataGraphic.CSharpFiles
 		/// <summary>
 		/// QueueDataGraphic constructor, QueueDataGraphic建構子
 		/// </summary>
-		public QueueDataGraphic()                                               //	QueueDataGraphic constructor, QueueDataGraphic建構子
+		/// <param name="ChannelCount">the number of graphic channels, 繪圖通道數量</param>
+		public QueueDataGraphic(int ChannelCount)                               //	QueueDataGraphic constructor, QueueDataGraphic建構子
 		{                                                                       //	QueueDataGraphic constructor start, 進入QueueDataGraphic建構子
 
 		}                                                                       //	QueueDataGraphic constructor end, 結束QueueDataGraphic建構子
