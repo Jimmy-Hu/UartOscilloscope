@@ -14,8 +14,8 @@ using System.Threading.Tasks;
 
 namespace QueueDataGraphic.CSharpFiles
 {                                                                               //	namespace start, 進入命名空間
-	class DataQueue                                                             // DataQueue class, DataQueue類別
-	{				                                                            // DataQueue class start, 進入DataQueue類別
+	class DataQueue                                                             //	DataQueue class, DataQueue類別
+	{				                                                            //	DataQueue class start, 進入DataQueue類別
 		/// <summary>
 		/// GraphicData is the queue for storing the graphic data.
 		/// GraphicData佇列用於儲存繪圖資料
