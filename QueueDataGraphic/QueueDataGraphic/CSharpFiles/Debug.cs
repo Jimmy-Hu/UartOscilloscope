@@ -22,6 +22,11 @@ namespace QueueDataGraphic.CSharpFiles
 		/// </summary>
 		public readonly static bool DebugMode = true;                           //	DebugMode variable
 
+		/// <summary>
+		/// ShowQueueData method could print the data in InputQueue.
+		/// ShowQueueData用於顯示輸入Queue的資料
+		/// </summary>
+		/// <param name="InputQueue">欲顯示內容之Queue</param>
 		public void ShowQueueData(Queue<object> InputQueue)                     //	ShowQueueData method, ShowQueueData方法
 		{                                                                       //	ShowQueueData method start, 進入ShowQueueData方法
 			foreach (var item in InputQueue)                                    //	get each element in InputQueue, 取得InputQueue各項元素
