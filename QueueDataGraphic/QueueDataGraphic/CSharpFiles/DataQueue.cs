@@ -48,9 +48,12 @@ namespace QueueDataGraphic.CSharpFiles
 		/// <summary>
 		/// DataQueue constructor with NewGraphicDataQueueMax, 具NewGraphicDataQueueMax輸入之DataQueue建構子
 		/// </summary>
-		public DataQueue(int NewGraphicDataQueueMax)                            //	DataQueue constructor, DataQueue建構子
+		/// <param name="NewDataQueueName">為DataQueue名稱</param>
+		/// <param name="NewGraphicDataQueueMax">為GraphicDataQueue資料儲存數量上限值</param>
+		public DataQueue(string NewDataQueueName, int NewGraphicDataQueueMax)                            //	DataQueue constructor, DataQueue建構子
 		{                                                                       //	DataQueue constructor start, 進入DataQueue建構子
 			this.GraphicData = new Queue<object>();                             //	initialize GraphicData, 初始化GraphicData物件
+			this.DataQueueName = NewDataQueueName;                              //	initialize DataQueueName, 初始化DataQueueName字串
 			this.GraphicDataQueueMax = NewGraphicDataQueueMax;                  //	initialize GraphicDataQueueMax, 初始化GraphicDataQueueMax變數
 		}                                                                       //	DataQueue constructor end, 結束DataQueue建構子
 
