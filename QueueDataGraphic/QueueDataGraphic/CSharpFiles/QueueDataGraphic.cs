@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace QueueDataGraphic.CSharpFiles
 {                                                                               //	namespace start, 進入命名空間
@@ -47,6 +48,38 @@ namespace QueueDataGraphic.CSharpFiles
 				}                                                               //	if statement end, 結束if敘述
 			}                                                                   //	foreach statement end, 結束foreach敘述
 		}                                                                       //	AddData method end, 結束AddData方法
+
+		/// <summary>
+		/// DrawGraphOnPanel method would draw graph on InputPanel.
+		/// DrawGraphOnPanel方法用於將queue資料繪製於InputPanel上
+		/// </summary>
+		/// <param name="InputPanel"></param>
+		public void DrawGraphOnPanel(ref System.Windows.Forms.Panel InputPanel) //	DrawGraphOnPanel method, DrawGraphOnPanel方法
+		{                                                                       //	DrawGraphOnPanel method start, 進入DrawGraphOnPanel方法
+			Graphics Graph1 = InputPanel.CreateGraphics();                      //	create Graphics
+			foreach (DataQueue DataQueueItem in DataQueueList)                  //	get each DataQueue, 依序取出各DataQueue
+			{                                                                   //	foreach statement start, 進入foreach敘述
+				Point GraphPointTemp = new Point(0,0);
+				int Loopnum = 0;                                                //	initialize Loopnum variable, 初始化Loopnum變數
+				foreach (int Data in DataQueueItem.GetGraphicData())            //	get each data in DataQueue, 從DataQueue取出資料
+				{                                                               //	foreach statement start, 進入foreach敘述
+					if (Loopnum == 0)
+					{                                                           //	if statement start, 進入if敘述
+						GraphPointTemp = new Point((
+							Loopnum * InputPanel.Size.Width / DataQueueItem.GetGraphicDataQueueMax()),
+							InputPanel.Size.Height - (Data * InputPanel.Size.Height / 4096));
+					}                                                           //	if statement end, 結束if敘述
+					else
+					{                                                           //	else statement start, 進入else敘述
+						Graph1.DrawLine(new Pen(Color.Black), GraphPointTemp,
+							new Point((
+							Loopnum * InputPanel.Size.Width / DataQueueItem.GetGraphicDataQueueMax()),
+							InputPanel.Size.Height - (Data * InputPanel.Size.Height / 4096)));
+					}                                                           //	else statement end, 結束else敘述
+					Loopnum = Loopnum + 1;                                      //	increase Loopnum variable, 遞增Loopnum變數
+				}                                                               //	foreach statement end, 結束foreach敘述
+			}                                                                   //	foreach statement end, 結束foreach敘述
+		}                                                                       //	DrawGraphOnPanel method end, 結束DrawGraphOnPanel方法
 
 	}                                                                           //	QueueDataGraphic class end, 結束QueueDataGraphic類別
 }                                                                               //	namespace end, 結束命名空間
