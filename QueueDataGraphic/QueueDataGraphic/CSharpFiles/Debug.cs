@@ -1,4 +1,12 @@
-﻿using System;
+﻿/********************************************************************
+ * Develop by Jimmy Hu												*
+ * This program is licensed under the Apache License 2.0.			*
+ * Debug.cs															*
+ * 本檔案用於宣告偵錯相關工具物件									*
+ ********************************************************************
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
