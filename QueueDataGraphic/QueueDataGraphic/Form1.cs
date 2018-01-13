@@ -27,7 +27,10 @@ namespace QueueDataGraphic
 			{
 				QueueDataGraphic1.AddData("Channel1", Loopnum*2);
 			}
-			
+
+			QueueDataGraphic1.SetWidth(panel1.Size.Width);
+			QueueDataGraphic1.SetHeight(panel1.Size.Height);
+
 			panel1.Paint += new PaintEventHandler(QueueDataGraphic1.DrawGraph);
 			panel1.Refresh();
 
