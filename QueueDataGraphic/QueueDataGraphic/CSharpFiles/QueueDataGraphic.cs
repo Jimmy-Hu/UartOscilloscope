@@ -47,7 +47,7 @@ namespace QueueDataGraphic.CSharpFiles
 		/// SetWidth method would update Width variable.
 		/// SetWidth方法用於更新Width變數
 		/// </summary>
-		/// <param name="NewWidth"></param>
+		/// <param name="NewWidth">Width更新值</param>
 		public void SetWidth(int NewWidth)                                      //	SetWidth method, SetWidth方法
 		{                                                                       //	SetWidth method start, 進入SetWidth方法
 			if (NewWidth > 0)
@@ -60,7 +60,7 @@ namespace QueueDataGraphic.CSharpFiles
 		/// SetHeight method would update Height variable.
 		/// SetHeight方法用於更新Height變數
 		/// </summary>
-		/// <param name="NewHeight"></param>
+		/// <param name="NewHeight">Height更新值</param>
 		public void SetHeight(int NewHeight)                                    //	SetHeight method, SetHeight方法
 		{                                                                       //	SetHeight method start, 進入SetHeight方法
 			if (NewHeight > 0)
