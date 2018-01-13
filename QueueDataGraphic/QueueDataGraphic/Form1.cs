@@ -28,7 +28,7 @@ namespace QueueDataGraphic
 				QueueDataGraphic1.AddData("Channel1", Loopnum*2);
 			}
 			
-			panel1.Paint += new PaintEventHandler(CSharpFiles.QueueDataGraphic.Instance.DrawGraph);
+			panel1.Paint += new PaintEventHandler(QueueDataGraphic1.DrawGraph);
 			panel1.Refresh();
 
 		}
