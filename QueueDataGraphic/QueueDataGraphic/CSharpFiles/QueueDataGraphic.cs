@@ -43,6 +43,11 @@ namespace QueueDataGraphic.CSharpFiles
 			}                                                                   //	foreach statement end, 結束foreach敘述
 		}                                                                       //	QueueDataGraphic constructor end, 結束QueueDataGraphic建構子
 
+		public void SetWidth(int NewWidth)
+		{
+			this.Width = NewWidth;
+		}
+
 		/// <summary>
 		/// AddData method would add data to queue.
 		/// AddData方法用於新增資料至Queue
