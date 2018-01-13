@@ -17,6 +17,9 @@ namespace QueueDataGraphic.CSharpFiles
 {                                                                               //	namespace start, 進入命名空間
 	class QueueDataGraphic                                                      //	QueueDataGraphic class, QueueDataGraphic類別
 	{                                                                           //	QueueDataGraphic class start, 進入QueueDataGraphic類別
+		public readonly static QueueDataGraphic Instance = new QueueDataGraphic(new List<string>());
+		//	QueueDataGraphic class instance, 設計QueueDataGraphic存取介面
+
 		List<DataQueue> DataQueueList;                                          //	DataQueueList object, DataQueueList物件
 
 		/// <summary>
