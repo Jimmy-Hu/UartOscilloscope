@@ -23,12 +23,12 @@ namespace QueueDataGraphic.CSharpFiles
 		/// <summary>
 		/// Width is the width of Graph
 		/// </summary>
-		int Width;                                                              //	Width variable, Width變數
+		private int Width;                                                      //	Width variable, Width變數
 
 		/// <summary>
 		/// Height is the height of Graph
 		/// </summary>
-		int Height;																//	Height variable, Height變數
+		private int Height;														//	Height variable, Height變數
 
 		/// <summary>
 		/// QueueDataGraphic constructor, QueueDataGraphic建構子
