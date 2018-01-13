@@ -21,12 +21,12 @@ namespace QueueDataGraphic.CSharpFiles
 		private List<DataQueue> DataQueueList;                                  //	DataQueueList object, DataQueueList物件
 
 		/// <summary>
-		/// Width is the width of Graph
+		/// Width is the width of graph.
 		/// </summary>
 		private int Width;                                                      //	Width variable, Width變數
 
 		/// <summary>
-		/// Height is the height of Graph
+		/// Height is the height of graph.
 		/// </summary>
 		private int Height;														//	Height variable, Height變數
 
