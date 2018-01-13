@@ -23,6 +23,9 @@ namespace QueueDataGraphic.CSharpFiles
 
 		static List<DataQueue> DataQueueList;                                   //	DataQueueList object, DataQueueList物件
 
+		static int Width;
+		static int Height;
+
 		/// <summary>
 		/// QueueDataGraphic constructor, QueueDataGraphic建構子
 		/// </summary>
