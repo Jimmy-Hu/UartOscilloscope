@@ -92,15 +92,15 @@ namespace QueueDataGraphic.CSharpFiles
 					if (Loopnum == 0)                                           //	if run first loop, 若Loopnum變數為0
 					{                                                           //	if statement start, 進入if敘述
 						GraphPointTemp = new Point((
-							(int)(Loopnum * Graph1.DpiX / DataQueueItem.GetGraphicDataQueueMax())),
-							(int)(Graph1.DpiY - (Data * Graph1.DpiY / 4096)));
+							(int)(Loopnum * this.Width / DataQueueItem.GetGraphicDataQueueMax())),
+							(int)(this.Height - (Data * this.Height / 4096)));
 					}                                                           //	if statement end, 結束if敘述
 					else
 					{                                                           //	else statement start, 進入else敘述
 						Graph1.DrawLine(new Pen(Color.Black), GraphPointTemp,
 							new Point((
-							(int)(Loopnum * Graph1.DpiX / DataQueueItem.GetGraphicDataQueueMax())),
-							(int)(Graph1.DpiY - (Data * Graph1.DpiY / 4096))));
+							(int)(Loopnum * this.Width / DataQueueItem.GetGraphicDataQueueMax())),
+							(int)(this.Height - (Data * this.Height / 4096))));
 					}                                                           //	else statement end, 結束else敘述
 					Loopnum = Loopnum + 1;                                      //	increase Loopnum variable, 遞增Loopnum變數
 				}                                                               //	foreach statement end, 結束foreach敘述
