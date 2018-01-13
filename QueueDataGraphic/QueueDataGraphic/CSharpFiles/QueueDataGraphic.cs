@@ -54,6 +54,16 @@ namespace QueueDataGraphic.CSharpFiles
 		}                                                                       //	SetWidth method end, 結束SetWidth方法
 
 		/// <summary>
+		/// SetHeight method would update Height variable.
+		/// SetHeight方法用於更新Height變數
+		/// </summary>
+		/// <param name="NewHeight"></param>
+		public void SetHeight(int NewHeight)                                    //	SetHeight method, SetHeight方法
+		{                                                                       //	SetHeight method start, 進入SetHeight方法
+			this.Height = NewHeight;                                            //	Update Height, 更新Height資料
+		}                                                                       //	SetHeight method end, 結束SetHeight方法
+		
+		/// <summary>
 		/// AddData method would add data to queue.
 		/// AddData方法用於新增資料至Queue
 		/// </summary>
