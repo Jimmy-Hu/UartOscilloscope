@@ -23,8 +23,15 @@ namespace QueueDataGraphic.CSharpFiles
 
 		static List<DataQueue> DataQueueList;                                   //	DataQueueList object, DataQueueList物件
 
-		static int Width;
-		static int Height;
+		/// <summary>
+		/// Width is the width of Graph
+		/// </summary>
+		static int Width;                                                       //	Width variable, Width變數
+
+		/// <summary>
+		/// Height is the height of Graph
+		/// </summary>
+		static int Height;                                                       //	Height variable, Height變數
 
 		/// <summary>
 		/// QueueDataGraphic constructor, QueueDataGraphic建構子
