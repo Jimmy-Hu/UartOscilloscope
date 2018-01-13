@@ -15,7 +15,10 @@ namespace QueueDataGraphic
 		public Form1()
 		{
 			InitializeComponent();
+		}
 
+		private void Form1_Load(object sender, EventArgs e)
+		{
 			List<string> TestList = new List<string>();
 			TestList.Add("Channel1");
 			TestList.Add("Channel2");
@@ -33,7 +36,6 @@ namespace QueueDataGraphic
 
 			panel1.Paint += new PaintEventHandler(QueueDataGraphic1.DrawGraph);
 			panel1.Refresh();
-
 		}
 	}
 }
