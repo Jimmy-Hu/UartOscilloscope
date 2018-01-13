@@ -21,7 +21,7 @@ namespace QueueDataGraphic.CSharpFiles
 		public readonly static QueueDataGraphic Instance = new QueueDataGraphic(new List<string>());
 		//	QueueDataGraphic class instance, 設計QueueDataGraphic存取介面
 
-		List<DataQueue> DataQueueList;                                          //	DataQueueList object, DataQueueList物件
+		static List<DataQueue> DataQueueList;                                   //	DataQueueList object, DataQueueList物件
 
 		/// <summary>
 		/// QueueDataGraphic constructor, QueueDataGraphic建構子
