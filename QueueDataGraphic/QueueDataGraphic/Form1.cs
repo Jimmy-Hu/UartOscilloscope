@@ -19,18 +19,22 @@ namespace QueueDataGraphic
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
+			//	Add channels
 			List<string> TestList = new List<string>();
 			TestList.Add("Channel1");
 			TestList.Add("Channel2");
 			TestList.Add("Channel3");
 
+			//	Create QueueDataGraphic object
 			CSharpFiles.QueueDataGraphic QueueDataGraphic1 = new CSharpFiles.QueueDataGraphic(TestList);
 
-			for(int Loopnum = 0; Loopnum < 500; Loopnum++)
+			//	Add datas
+			for (int Loopnum = 0; Loopnum < 500; Loopnum++)
 			{
 				QueueDataGraphic1.AddData("Channel1", Loopnum*2);
 			}
 
+			//	Set graph width and height
 			QueueDataGraphic1.SetWidth(panel1.Size.Width);
 			QueueDataGraphic1.SetHeight(panel1.Size.Height);
 
