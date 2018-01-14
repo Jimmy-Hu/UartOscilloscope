@@ -45,9 +45,7 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.label7 = new System.Windows.Forms.Label();
-			this.openGLControl1 = new SharpGL.OpenGLControl();
 			this.menuStrip1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.openGLControl1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// button3
@@ -198,7 +196,7 @@
 			// 
 			this.panel1.Location = new System.Drawing.Point(15, 64);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(413, 385);
+			this.panel1.Size = new System.Drawing.Size(880, 385);
 			this.panel1.TabIndex = 12;
 			// 
 			// label7
@@ -211,24 +209,12 @@
 			this.label7.TabIndex = 0;
 			this.label7.Text = "示波器";
 			// 
-			// openGLControl1
-			// 
-			this.openGLControl1.BitDepth = 24;
-			this.openGLControl1.DrawFPS = false;
-			this.openGLControl1.FrameRate = 20;
-			this.openGLControl1.Location = new System.Drawing.Point(434, 64);
-			this.openGLControl1.Name = "openGLControl1";
-			this.openGLControl1.RenderContextType = SharpGL.RenderContextType.DIBSection;
-			this.openGLControl1.Size = new System.Drawing.Size(460, 385);
-			this.openGLControl1.TabIndex = 13;
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
 			this.ClientSize = new System.Drawing.Size(1162, 638);
-			this.Controls.Add(this.openGLControl1);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label6);
@@ -250,7 +236,6 @@
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.openGLControl1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -280,7 +265,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
-        private SharpGL.OpenGLControl openGLControl1;
 	}																			//	結束Form1類別
 }
 
