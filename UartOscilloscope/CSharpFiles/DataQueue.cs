@@ -93,6 +93,7 @@ namespace QueueDataGraphic.CSharpFiles
 			{                                                                   //	while loop start, 進入while迴圈
 				GraphicData.Dequeue();                                          //	clear GraphicData data, 清除GraphicData資料
 			}                                                                   //	while loop end, 結束while迴圈
+			GC.Collect();                                                       //	forces an immediate garbage collection of all generations, 強制立即執行所有層代的記憶體回收
 			return;																//	return, 結束方法
 		}                                                                       //	RemovingOverload method end, 結束RemovingOverload方法
 
