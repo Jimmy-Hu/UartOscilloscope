@@ -11,13 +11,16 @@ using System.Collections.Generic;												//	使用System.Collections.Generic
 //	System.Collections.Generic函式庫定義非泛型Queue資料型態
 using System.Drawing;															//	使用System.Drawing函式庫
 using SharpGL;                                                                  //	使用SharpGL函式庫(使用OpenGL函數)
+using System.Text.RegularExpressions;
 
 namespace UartOscilloscope														//	命名空間為本程式
 {																				//	進入命名空間
 	public partial class Form1 : Form											//	Form1類別，繼承自System.Windows.Forms.Form類別
 	{                                                                           //	進入Form1類別
 		//-----全域物件宣告-----
-		public static UARTConnection UARTConnection1;							//	宣告UARTConnection1為UARTConnection物件
+		public static UARTConnection UARTConnection1;                           //	宣告UARTConnection1為UARTConnection物件
+		List<string> ChannelNames;
+		QueueDataGraphic.CSharpFiles.QueueDataGraphic QueueDataGraphic1;
 		//-----全域變數宣告-----
 		public static uint Analysis_Graphic_Mode = 3;							//	宣告Analysis_Graphic_Mode靜態全域變數，控制程式分析與繪圖方法
 		public static Font textBox1_Font;										//	宣告textBox1_Font靜態字型變數，控制接收字串資料文字方塊字型
@@ -25,7 +28,6 @@ namespace UartOscilloscope														//	命名空間為本程式
 		public static char[] Transmission_Analysis_CharArray;					//	宣告Transmission_Analysis_CharArray字元陣列，用於字串資料解析
 		public static int Transmission_Analysis_CharArray_Datanum = 0;
 		//	宣告Transmission_Analysis_CharArray_Datanum全域靜態變數，記錄Transmission_Analysis_CharArray字元陣列中已填入資料長度，並初始化為0
-		public static Queue Transmission_Analysis_Queue;						//	宣告Transmission_Analysis_Queue(Uart通訊傳輸資料分析字元佇列)為全域靜態佇列
 		public static int Total_Transmission_Length = 0;						//	宣告UART通訊傳輸字串累計長度統計全域靜態變數，並初始化為0
 		public static int Analysed_Length = -1;
 		//	宣告Analysed_Length全域靜態變數，記錄Transmission_Analysis_CharArray字元陣列中已分析字串長度(陣列值)，並初始化為-1(因陣列從0開始)
@@ -57,14 +59,15 @@ namespace UartOscilloscope														//	命名空間為本程式
 		{																		//	進入Form1_Load方法
 			textBox1_Font = new Font("新細明體", 9, FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 136);
 			//	設定接收字串資料文字方塊預設字型
-			
-			Transmission_Analysis_Queue = new Queue();							//	初始化Transmission_Analysis_Queue(Uart通訊傳輸資料分析字元佇列)
-			OscilloscopeFunctionVariable.Data_Graphic_Queue_X = new Queue<int>();
-			//	初始化Data_Graphic_Queue_X(X通道資料繪圖用整數型態佇列)
-			OscilloscopeFunctionVariable.Data_Graphic_Queue_Y = new Queue<int>();
-			//	初始化Data_Graphic_Queue_Y(Y通道資料繪圖用整數型態佇列)
-			OscilloscopeFunctionVariable.Data_Graphic_Queue_Z = new Queue<int>();
-			//	初始化Data_Graphic_Queue_Z(Z通道資料繪圖用整數型態佇列)
+			ChannelNames = new List<string>
+			{
+				"X",
+				"Y",
+				"Z"
+			};
+			QueueDataGraphic1 = new QueueDataGraphic.CSharpFiles.QueueDataGraphic(ChannelNames);
+			QueueDataGraphic1.SetWidth(panel1.Size.Width);
+			QueueDataGraphic1.SetHeight(panel1.Size.Height);
 			label6.Text = "未連線";                                             //	顯示連線狀態為"未連線"
 			list_SerialPort();                                   //	呼叫list_SerialPort(偵測並列出已連線SerialPort)方法
 		}																		//	結束Form1_Load方法
@@ -321,15 +324,75 @@ namespace UartOscilloscope														//	命名空間為本程式
 			Total_Transmission_Length = Total_Transmission_Length + buffer.Length;
 			//  累計接收字串長度
 			Label2.Text = Total_Transmission_Length.ToString();                 //  顯示累計字串長度
-			//Uart_Data_Analysis方法與Uart_Data_Analysis_Queue方法擇一使用，由Analysis_Graphic_Mode靜態全域變數控制
-			/*if( (Analysis_Graphic_Mode / 4) % 2 == 0)                           //  若Analysis_Graphic_Mode二進位數值為0XX
-			{                                                                   //  進入if敘述
-				Uart_Data_Analysis();                                           //  呼叫Uart_Data_Analysis方法
-			}                                                                   //  結束if敘述
-			else                                                                //  Analysis_Graphic_Mode二進位數值不為0XX
-			{                                                                   //  進入else敘述
-				Uart_Data_Analysis_Queue();                                     //  呼叫Uart_Data_Analysis_Queue方法
-			}                                                                   //  結束else敘述*/
+			Uart_Data_Analysis();                                           //  呼叫Uart_Data_Analysis方法
 		}                                                                       //  結束DisplayText顯示文字方法
+
+		public void Uart_Data_Analysis()
+		//  宣告Uart_Data_Analysis方法，分析Uart通訊傳輸接收資料
+		{                                                                       //  進入Uart_Data_Analysis方法
+			/****使用全域變數：
+			**Transmission_Analysis_CharArray(Uart通訊傳輸資料分析字元陣列，初始時為空陣列)、
+			**Transmission_Buffer_CharArray(Uart通訊傳輸Buffer資料字元陣列，初始時為空陣列)、
+			**Transmission_Analysis_CharArray_Datanum(已填入資料長度，初始值為0)、
+			**Analysed_Length(已分析字串長度，初始值為-1)、
+			**loop_num(迴圈用變數，初始值為0)、
+			**XChannel_num(示波器功能實作變數，記錄XChannel資料量，初始值為0)
+			**YChannel_num(示波器功能實作變數，記錄YChannel資料量，初始值為0)
+			**ZChannel_num(示波器功能實作變數，記錄ZChannel資料量，初始值為0)
+			*/
+			char Channel_Name_temp = ' ';                                       //  宣告Channel_Name區域字元變數，暫存通道名稱
+			string ADC_Data_temp = "";                                          //  宣告ADC_Data_temp區域字串變數，累計數值
+			Array.Resize(ref Transmission_Analysis_CharArray,                   //  以Array.Resize函數重新配置Transmission_Analysis_CharArray字元陣列大小
+			(Transmission_Analysis_CharArray_Datanum + Transmission_Buffer_CharArray.Length));
+			//  指派Transmission_Analysis_CharArray字元陣列大小=
+			//  已填入字元數(Transmission_Analysis_CharArray_Datanum)
+			// +Buffer資料字元數(Transmission_Buffer_CharArray.Length)
+			for (loop_num = Transmission_Analysis_CharArray_Datanum;            //  以for迴圈依序將Buffer資料填入Transmission_Analysis_CharArray
+				loop_num < (Transmission_Analysis_CharArray_Datanum + Transmission_Buffer_CharArray.Length);
+				loop_num++)
+			{                                                                   //  進入for迴圈
+				Transmission_Analysis_CharArray[loop_num] = Transmission_Buffer_CharArray[loop_num - Transmission_Analysis_CharArray_Datanum];
+			}                                                                   //  結束for迴圈
+			Transmission_Analysis_CharArray_Datanum += Transmission_Buffer_CharArray.Length;
+			//  更新已填入字元數(Transmission_Analysis_CharArray_Datanum)
+			//MessageBox.Show(Transmission_Analysis_CharArray[Analysed_Length + 1].ToString());
+			//  顯示未分析的第一個字元
+			for (loop_num= (Analysed_Length + 1);                               //  以for迴圈依序掃描每一個未分析字元，起始值設為(已分析字元數+1)
+				loop_num < Transmission_Analysis_CharArray_Datanum;             //  掃描剩餘已填入字元
+				loop_num++)                                                     //  遞增loop_num變數
+			{                                                                   //  進入for迴圈
+				//MessageBox.Show(Transmission_Analysis_CharArray[loop_num].ToString());
+				//顯示當前分析字元
+				if(Transmission_Analysis_CharArray[loop_num] == 'X' ||          //  若當前分析字元為X(通道名稱)
+				   Transmission_Analysis_CharArray[loop_num] == 'Y' ||          //  或當前分析字元為Y(通道名稱)
+				   Transmission_Analysis_CharArray[loop_num] == 'Z')            //  或當前分析字元為Z(通道名稱)
+				{                                                               //  進入if敘述
+					if (ADC_Data_temp != "")
+					{
+						QueueDataGraphic1.AddData(Regex.Replace(Channel_Name_temp.ToString(), @"\t|\n|\r", ""), int.Parse(ADC_Data_temp));
+					}
+					
+					Channel_Name_temp = Transmission_Analysis_CharArray[loop_num];   
+					//  記錄下一筆通道名稱
+					ADC_Data_temp = "";                                         //  清空ADC_Data_temp暫存字串
+					Analysed_Length = loop_num - 1;                             //  更新Analysed_Length數值
+				}                                                               //  結束if敘述
+				else if(Transmission_Analysis_CharArray[loop_num] == '0' ||     //  若當前分析字元為數值
+						Transmission_Analysis_CharArray[loop_num] == '1' ||
+						Transmission_Analysis_CharArray[loop_num] == '2' ||
+						Transmission_Analysis_CharArray[loop_num] == '3' ||
+						Transmission_Analysis_CharArray[loop_num] == '4' ||
+						Transmission_Analysis_CharArray[loop_num] == '5' ||
+						Transmission_Analysis_CharArray[loop_num] == '6' ||
+						Transmission_Analysis_CharArray[loop_num] == '7' ||
+						Transmission_Analysis_CharArray[loop_num] == '8' ||
+						Transmission_Analysis_CharArray[loop_num] == '9' )
+				{                                                               //  進入else if敘述
+					ADC_Data_temp += Transmission_Analysis_CharArray[loop_num]; //  累計數值字元
+				}                                                               //  結束else if敘述
+			}                                                                   //  結束for迴圈
+			panel1.Paint += new PaintEventHandler(QueueDataGraphic1.DrawGraph);
+			panel1.Refresh();
+		}                                                                       //  結束Uart_Data_Analysis方法
 	}                                                                           //  結束Form1類別
 }
