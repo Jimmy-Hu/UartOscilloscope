@@ -59,10 +59,13 @@
     <Compile Include="CSharpFiles\CommandParser.cs" />
     <Compile Include="CSharpFiles\ComportList.cs" />
     <Compile Include="CSharpFiles\DataProcessing.cs" />
+    <Compile Include="CSharpFiles\DataQueue.cs" />
+    <Compile Include="CSharpFiles\Debug.cs" />
     <Compile Include="CSharpFiles\DebugVariables.cs" />
     <Compile Include="CSharpFiles\ErrorCodeMessage.cs" />
     <Compile Include="CSharpFiles\FileIO.cs" />
     <Compile Include="CSharpFiles\OpenGLExtension.cs" />
+    <Compile Include="CSharpFiles\QueueDataGraphic.cs" />
     <Compile Include="CSharpFiles\TestingType.cs" />
     <Compile Include="CSharpFiles\TimingControl.cs" />
     <Compile Include="CSharpFiles\UARTConnection.cs" />
