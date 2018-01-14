@@ -107,6 +107,9 @@ namespace QueueDataGraphic.CSharpFiles
 							new Point((
 							(int)(Loopnum * this.Width / DataQueueItem.GetGraphicDataQueueMax())),
 							(int)(this.Height - (Data * this.Height / 4096))));
+						GraphPointTemp = new Point((
+							(int)(Loopnum * this.Width / DataQueueItem.GetGraphicDataQueueMax())),
+							(int)(this.Height - (Data * this.Height / 4096)));	//	update GraphPointTemp data. 更新GraphPointTemp資料
 					}                                                           //	else statement end, 結束else敘述
 					Loopnum = Loopnum + 1;                                      //	increase Loopnum variable, 遞增Loopnum變數
 				}                                                               //	foreach statement end, 結束foreach敘述
