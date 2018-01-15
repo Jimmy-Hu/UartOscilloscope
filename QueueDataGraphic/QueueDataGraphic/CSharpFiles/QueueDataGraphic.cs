@@ -85,7 +85,13 @@ namespace QueueDataGraphic.CSharpFiles
 				}                                                               //	if statement end, 結束if敘述
 			}                                                                   //	foreach statement end, 結束foreach敘述
 		}                                                                       //	AddData method end, 結束AddData方法
-		
+
+		/// <summary>
+		/// DrawGraph method would draw the graph of queue data.
+		/// DrawGraph方法用於繪製queue資料圖形
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		public void DrawGraph(object sender, PaintEventArgs e)					//	DrawGraph method, DrawGraph方法
 		{                                                                       //	DrawGraph method start, 進入DrawGraph方法
 			Graphics Graph1 = e.Graphics;
