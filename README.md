@@ -6,6 +6,13 @@
 
 ![](https://github.com/60071jimmy/UartOscilloscope/blob/master/doc/IMG/ProgramMainWindow2.png)
 
+## Program Testing
+
+![](https://raw.githubusercontent.com/60071jimmy/UartOscilloscope/master/figures/fig1.png)
+
+![](https://raw.githubusercontent.com/60071jimmy/UartOscilloscope/master/figures/fig2.png)
+
+
 ## 程式執行畫面
 
 ![](https://github.com/60071jimmy/UartOscilloscope/blob/master/doc/IMG/ProgramMainWindow1.png)
