@@ -14,8 +14,14 @@ using System.Threading.Tasks;
 
 namespace QueueDataGraphic.CSharpFiles
 {                                                                               //	namespace start, 進入命名空間
+	/// <summary>
+	/// Debug class
+	/// </summary>
 	class Debug                                                                 //	Debug class, Debug類別
 	{                                                                           //	Debug class start, 進入Debug類別
+		/// <summary>
+		/// Debug class instance
+		/// </summary>
 		public readonly static Debug Instance = new Debug();                    //	Debug class instance, 設計Debug存取介面
 
 		/// <summary>
