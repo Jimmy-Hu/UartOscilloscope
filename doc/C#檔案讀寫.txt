@@ -1,0 +1,20 @@
+using System.IO;                                                                //  使用System.IO函式庫
+//  定義檔案讀寫相關函式
+
+函式呼叫範例
+ File_Write("Data.txt",System.Text.Encoding.ASCII.GetString(buffer));
+            //  將buffer中之接收資料(ascii原始碼)轉換為字串(符號字元)，並寫入"Data.txt"檔案
+
+
+public void File_Write(string File_name,string Input_string)      //  宣告Data_Record_file副程式，將資料寫入檔案
+        //  File_name為欲寫入檔案名稱
+        //  Input_string為欲寫入檔案之字串資料
+        {                                                                       //  進入Data_Record_file副程式
+            FileStream file_stream = new FileStream(File_name, FileMode.Append);
+            //  建立檔案指標，指向指定檔案名稱，模式為FileMode.Create
+            byte[] Input_data = System.Text.Encoding.Default.GetBytes(Input_string);
+            //  將填入資料轉為位元陣列
+            file_stream.Write(Input_data, 0, Input_data.Length);                //  寫入資料至檔案中
+            file_stream.Flush();                                                //  清除緩衝區
+            file_stream.Close();                                                //  關閉檔案
+        }                                                                       //  結束Data_Record_file副程式
