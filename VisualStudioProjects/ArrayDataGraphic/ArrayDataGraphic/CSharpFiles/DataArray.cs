@@ -22,6 +22,10 @@ namespace ArrayDataGraphic.CSharpFiles
 		/// </summary>
 		private object[] GraphicData;                                           //	GraphicData object, GraphicData陣列物件
 
+		/// <summary>
+		/// GraphicDataIndex variable is the number record the array index of the new data. 
+		/// GraphicDataIndex變數用於紀錄新資料寫入index
+		/// </summary>
 		private int GraphicDataIndex;                                           //	GraphicDataIndex variable, GraphicDataIndex變數
 
 		/// <summary>
