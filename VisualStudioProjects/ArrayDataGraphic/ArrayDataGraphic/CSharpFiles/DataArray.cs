@@ -71,7 +71,7 @@ namespace ArrayDataGraphic.CSharpFiles
 		{                                                                       //	InitializeGraphicData method start, 進入InitializeGraphicData方法
 			for (int index = 0; index < this.GraphicDataArrayMax; index++)      //	initialize GraphicData, 初始化GraphicData物件數值
 			{                                                                   //	for statement start, 進入for敘述
-				GraphicData[index] = InitialValue;
+				GraphicData[index] = InitialValue;								//	assign initial value, 填入初始數值
 			}                                                                   //	for statement end, 結束for敘述
 		}                                                                       //	InitializeGraphicData method end, 結束InitializeGraphicData方法
 
