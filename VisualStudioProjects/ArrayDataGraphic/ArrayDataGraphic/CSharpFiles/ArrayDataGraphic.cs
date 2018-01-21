@@ -8,7 +8,7 @@ namespace ArrayDataGraphic.CSharpFiles
 {
 	class ArrayDataGraphic
 	{
-		private List<DataQueue> DataQueueList;                                  //	DataQueueList object, DataQueueList物件
+		private List<DataArray> DataArrayList;                                  //	DataArrayList object, DataArrayList物件
 
 		/// <summary>
 		/// Width is the width of graph.
@@ -23,13 +23,13 @@ namespace ArrayDataGraphic.CSharpFiles
 		/// <summary>
 		/// QueueDataGraphic constructor, QueueDataGraphic建構子
 		/// </summary>
-		/// <param name="DataQueueNames">DataQueue通道名稱集合</param>
-		public QueueDataGraphic(List<string> DataQueueNames)                    //	QueueDataGraphic constructor, QueueDataGraphic建構子
+		/// <param name="DataArrayNames">DataArray通道名稱集合</param>
+		public QueueDataGraphic(List<string> DataArrayNames)                    //	QueueDataGraphic constructor, QueueDataGraphic建構子
 		{                                                                       //	QueueDataGraphic constructor start, 進入QueueDataGraphic建構子
-			DataQueueList = new List<DataQueue>();                              //	initialize DataQueueList, 初始化DataQueueList物件
-			foreach (string item in DataQueueNames)                             //	get each name of DataQueueNames
+			DataArrayList = new List<DataArray>();                              //	initialize DataArrayList, 初始化DataArrayList物件
+			foreach (string item in DataArrayNames)                             //	get each name of DataArrayNames
 			{                                                                   //	foreach statement start, 進入foreach敘述
-				DataQueueList.Add(new DataQueue(item));                         //	add DataQueue, 新增DataQueue
+				DataArrayList.Add(new DataArray(item));                         //	add DataArray, 新增DataArray
 			}                                                                   //	foreach statement end, 結束foreach敘述
 		}                                                                       //	QueueDataGraphic constructor end, 結束QueueDataGraphic建構子
 
@@ -63,13 +63,13 @@ namespace ArrayDataGraphic.CSharpFiles
 		/// AddData method would add data to queue.
 		/// AddData方法用於新增資料至Queue
 		/// </summary>
-		/// <param name="DataQueueName">欲新增資料之Queue名稱</param>
+		/// <param name="DataArrayName">欲新增資料之Queue名稱</param>
 		/// <param name="InputData">欲新增至Queue之資料</param>
-		public void AddData(string DataQueueName, object InputData)             //	AddData method, AddData方法
+		public void AddData(string DataArrayName, object InputData)             //	AddData method, AddData方法
 		{                                                                       //	AddData method start, 進入AddData方法
-			foreach (DataQueue item in DataQueueList)                           //	search DataQueue in DataQueueList
+			foreach (DataArray item in DataArrayList)                           //	search DataArray in DataArrayList
 			{                                                                   //	foreach statement start, 進入foreach敘述
-				if (item.GetDataQueueName() == DataQueueName)                   //	if item name is as same as DataQueueName, 若搜尋得相同名稱
+				if (item.GetDataArrayName() == DataArrayName)                   //	if item name is as same as DataArrayName, 若搜尋得相同名稱
 				{                                                               //	if statement start, 進入if敘述
 					item.AddData(InputData);                                    //	add data to queue, 新增資料至對應佇列
 				}                                                               //	if statement end, 結束if敘述
@@ -85,26 +85,26 @@ namespace ArrayDataGraphic.CSharpFiles
 		public void DrawGraph(object sender, PaintEventArgs e)                  //	DrawGraph method, DrawGraph方法
 		{                                                                       //	DrawGraph method start, 進入DrawGraph方法
 			Graphics Graph1 = e.Graphics;
-			foreach (DataQueue DataQueueItem in DataQueueList)                  //	get each DataQueue, 依序取出各DataQueue
+			foreach (DataArray DataArrayItem in DataArrayList)                  //	get each DataArray, 依序取出各DataArray
 			{                                                                   //	foreach statement start, 進入foreach敘述
 				Point GraphPointTemp = new Point(0, 0);
 				int Loopnum = 0;                                                //	initialize Loopnum variable, 初始化Loopnum變數
-				foreach (int Data in DataQueueItem.GetGraphicData())            //	get each data in DataQueue, 從DataQueue取出資料
+				foreach (int Data in DataArrayItem.GetGraphicData())            //	get each data in DataArray, 從DataArray取出資料
 				{                                                               //	foreach statement start, 進入foreach敘述
 					if (Loopnum == 0)                                           //	if run first loop, 若Loopnum變數為0
 					{                                                           //	if statement start, 進入if敘述
 						GraphPointTemp = new Point((
-							(int)(Loopnum * this.Width / DataQueueItem.GetGraphicDataQueueMax())),
+							(int)(Loopnum * this.Width / DataArrayItem.GetGraphicDataArrayMax())),
 							(int)(this.Height - (Data * this.Height / 4096)));
 					}                                                           //	if statement end, 結束if敘述
 					else
 					{                                                           //	else statement start, 進入else敘述
 						Graph1.DrawLine(new Pen(Color.Black), GraphPointTemp,
 							new Point((
-							(int)(Loopnum * this.Width / DataQueueItem.GetGraphicDataQueueMax())),
+							(int)(Loopnum * this.Width / DataArrayItem.GetGraphicDataArrayMax())),
 							(int)(this.Height - (Data * this.Height / 4096))));
 						GraphPointTemp = new Point((
-							(int)(Loopnum * this.Width / DataQueueItem.GetGraphicDataQueueMax())),
+							(int)(Loopnum * this.Width / DataArrayItem.GetGraphicDataArrayMax())),
 							(int)(this.Height - (Data * this.Height / 4096)));  //	update GraphPointTemp data. 更新GraphPointTemp資料
 					}                                                           //	else statement end, 結束else敘述
 					Loopnum = Loopnum + 1;                                      //	increase Loopnum variable, 遞增Loopnum變數
