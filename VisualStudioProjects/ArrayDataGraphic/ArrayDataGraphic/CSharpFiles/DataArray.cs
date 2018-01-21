@@ -82,7 +82,8 @@ namespace ArrayDataGraphic.CSharpFiles
 		/// <param name="InputData">欲紀錄至Queue之資料</param>
 		public void AddData(object InputData)                                   //	AddData method, AddData方法
 		{                                                                       //	AddData method start, 進入AddData方法
-			GraphicData.Enqueue(InputData);                                     //	add data into GraphicData, 新增資料至GraphicData陣列
+			GraphicData[GraphicDataIndex] = InputData;							//	add data into GraphicData, 新增資料至GraphicData陣列
+
 		}                                                                       //	AddData method end, 結束AddData方法
 
 		/// <summary>
