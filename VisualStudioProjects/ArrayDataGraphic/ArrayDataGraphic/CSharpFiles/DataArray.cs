@@ -40,9 +40,10 @@ namespace ArrayDataGraphic.CSharpFiles
 		/// <param name="NewDataArrayName">為DataArray名稱</param>
 		public DataArray(string NewDataArrayName)                               //	DataArray constructor, DataArray建構子
 		{                                                                       //	DataArray constructor start, 進入DataArray建構子
-			this.GraphicData = new ArraySegment<object>();                      //	initialize GraphicData, 初始化GraphicData物件
-			this.DataArrayName = NewDataArrayName;                              //	initialize DataArrayName, 初始化DataArrayName字串
 			this.GraphicDataArrayMax = 100;                                     //	initialize GraphicDataArrayMax, 初始化GraphicDataArrayMax變數
+			this.DataArrayName = NewDataArrayName;                              //	initialize DataArrayName, 初始化DataArrayName字串
+			Array.Resize<object>(ref this.GraphicData, this.GraphicDataArrayMax);
+			//	initialize GraphicData, 初始化GraphicData物件(配置陣列大小空間)
 		}                                                                       //	DataArray constructor end, 結束DataArray建構子
 
 		/// <summary>
@@ -52,9 +53,10 @@ namespace ArrayDataGraphic.CSharpFiles
 		/// <param name="NewGraphicDataArrayMax">為GraphicDataArray資料儲存數量上限值</param>
 		public DataArray(string NewDataArrayName, int NewGraphicDataArrayMax)   //	DataArray constructor, DataArray建構子
 		{                                                                       //	DataArray constructor start, 進入DataArray建構子
-			this.GraphicData = new ArraySegment<object>();                      //	initialize GraphicData, 初始化GraphicData物件
 			this.DataArrayName = NewDataArrayName;                              //	initialize DataArrayName, 初始化DataArrayName字串
 			this.GraphicDataArrayMax = NewGraphicDataArrayMax;                  //	initialize GraphicDataArrayMax, 初始化GraphicDataArrayMax變數
+			Array.Resize<object>(ref this.GraphicData, this.GraphicDataArrayMax);
+			//	initialize GraphicData, 初始化GraphicData物件(配置陣列大小空間)
 		}                                                                       //	DataArray constructor end, 結束DataArray建構子
 
 
