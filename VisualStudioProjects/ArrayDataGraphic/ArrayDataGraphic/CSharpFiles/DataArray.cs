@@ -20,7 +20,9 @@ namespace ArrayDataGraphic.CSharpFiles
 		/// GraphicData is the queue for storing the graphic data.
 		/// GraphicData陣列用於儲存繪圖資料
 		/// </summary>
-		private object[] GraphicData;											//	GraphicData object, GraphicData陣列物件
+		private object[] GraphicData;                                           //	GraphicData object, GraphicData陣列物件
+
+		private int GraphicDataIndex;                                           //	GraphicDataIndex variable, GraphicDataIndex變數
 
 		/// <summary>
 		/// DataArrayName is the name of DataArray.
