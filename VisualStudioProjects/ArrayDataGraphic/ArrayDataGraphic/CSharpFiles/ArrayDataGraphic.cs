@@ -21,17 +21,17 @@ namespace ArrayDataGraphic.CSharpFiles
 		private int Height;                                                     //	Height variable, Height變數
 
 		/// <summary>
-		/// QueueDataGraphic constructor, QueueDataGraphic建構子
+		/// ArrayDataGraphic constructor, ArrayDataGraphic建構子
 		/// </summary>
 		/// <param name="DataArrayNames">DataArray通道名稱集合</param>
-		public QueueDataGraphic(List<string> DataArrayNames)                    //	QueueDataGraphic constructor, QueueDataGraphic建構子
-		{                                                                       //	QueueDataGraphic constructor start, 進入QueueDataGraphic建構子
+		public ArrayDataGraphic(List<string> DataArrayNames)                    //	ArrayDataGraphic constructor, ArrayDataGraphic建構子
+		{                                                                       //	ArrayDataGraphic constructor start, 進入ArrayDataGraphic建構子
 			DataArrayList = new List<DataArray>();                              //	initialize DataArrayList, 初始化DataArrayList物件
 			foreach (string item in DataArrayNames)                             //	get each name of DataArrayNames
 			{                                                                   //	foreach statement start, 進入foreach敘述
 				DataArrayList.Add(new DataArray(item));                         //	add DataArray, 新增DataArray
 			}                                                                   //	foreach statement end, 結束foreach敘述
-		}                                                                       //	QueueDataGraphic constructor end, 結束QueueDataGraphic建構子
+		}                                                                       //	ArrayDataGraphic constructor end, 結束ArrayDataGraphic建構子
 
 		/// <summary>
 		/// SetWidth method would update Width variable.
