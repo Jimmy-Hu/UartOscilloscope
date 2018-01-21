@@ -1,4 +1,12 @@
-﻿using System;
+﻿/********************************************************************
+ * Develop by Jimmy Hu												*
+ * This program is licensed under the Apache License 2.0.			*
+ * ArrayDataGraphic.cs												*
+ * 本檔案用於佇列資料繪圖功能										*
+ ********************************************************************
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
