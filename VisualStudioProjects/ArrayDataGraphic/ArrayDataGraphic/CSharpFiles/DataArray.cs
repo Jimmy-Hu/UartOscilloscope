@@ -59,22 +59,6 @@ namespace ArrayDataGraphic.CSharpFiles
 			//	initialize GraphicData, 初始化GraphicData物件(配置陣列大小空間)
 		}                                                                       //	DataArray constructor end, 結束DataArray建構子
 
-
-		/// <summary>
-		/// SetGraphicDataArrayMax method would update GraphicDataArrayMax variable.
-		/// SetGraphicDataArrayMax方法用於更新GraphicDataArrayMax變數
-		/// </summary>
-		/// <param name="NewGraphicDataArrayMax">為GraphicDataArrayMax更新值</param>
-		public void SetGraphicDataArrayMax(int NewGraphicDataArrayMax)          //	SetGraphicDataArrayMax method, SetGraphicDataArrayMax方法
-		{                                                                       //	SetGraphicDataArrayMax method start, 進入SetGraphicDataArrayMax方法
-			this.GraphicDataArrayMax = NewGraphicDataArrayMax;                  //	Update GraphicDataArrayMax variable, 更新GraphicDataArrayMax變數
-			if (Debug.DebugMode == true)                                        //	if DebugMode is true, 若DebugMode為true
-			{                                                                   //	if statement start, 進入if敘述
-				Console.WriteLine("GraphicDataArrayMax is updated, it's value is " + this.GraphicDataArrayMax);
-				// Write out debug info, 輸出偵錯訊息
-			}																	//	if statement end, 結束if敘述
-		}                                                                       //	SetGraphicDataArrayMax method end, 結束SetGraphicDataArrayMax方法
-
 		/// <summary>
 		/// GetGraphicDataArrayMax return GraphicDataArrayMax.
 		/// GetGraphicDataArrayMax方法回傳GraphicDataArrayMax變數
