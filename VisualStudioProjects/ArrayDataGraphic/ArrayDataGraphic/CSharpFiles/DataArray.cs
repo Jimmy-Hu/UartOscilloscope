@@ -67,6 +67,11 @@ namespace ArrayDataGraphic.CSharpFiles
 			//	initialize GraphicData, 初始化GraphicData物件(配置陣列大小空間)
 		}                                                                       //	DataArray constructor end, 結束DataArray建構子
 
+		/// <summary>
+		/// InitializeGraphicData method assign initial value to GraphicData
+		/// InitializeGraphicData方法給定GraphicData初始值
+		/// </summary>
+		/// <param name="InitialValue"></param>
 		private void InitializeGraphicData(int InitialValue)                    //	InitializeGraphicData method, InitializeGraphicData方法
 		{                                                                       //	InitializeGraphicData method start, 進入InitializeGraphicData方法
 			for (int index = 0; index < this.GraphicDataArrayMax; index++)      //	initialize GraphicData, 初始化GraphicData物件數值
