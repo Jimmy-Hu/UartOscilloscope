@@ -90,7 +90,7 @@ namespace ArrayDataGraphic.CSharpFiles
 		/// GetGraphicData方法用於回傳GraphicData物件
 		/// </summary>
 		/// <returns>GraphicData object, GraphicData物件</returns>
-		public ArraySegment<object> GetGraphicData()                            //	GetGraphicData method, GetGraphicData方法
+		public object[] GetGraphicData()										//	GetGraphicData method, GetGraphicData方法
 		{                                                                       //	GetGraphicData method start, 進入GetGraphicData方法
 			return GraphicData;                                                 //	return GraphicData object, 回傳GraphicData物件
 		}                                                                       //	GetGraphicData method end, 結束GetGraphicData方法
