@@ -51,6 +51,7 @@ namespace ArrayDataGraphic.CSharpFiles
 			this.GraphicDataIndex = 0;                                          //	initialize GraphicDataIndex, 初始化GraphicDataIndex變數
 			Array.Resize<object>(ref this.GraphicData, this.GraphicDataArrayMax);
 			//	initialize GraphicData, 初始化GraphicData物件(配置陣列大小空間)
+			InitializeGraphicData(0);                                           //	call InitializeGraphicData method, 呼叫InitializeGraphicData方法
 		}                                                                       //	DataArray constructor end, 結束DataArray建構子
 
 		/// <summary>
@@ -65,6 +66,7 @@ namespace ArrayDataGraphic.CSharpFiles
 			this.GraphicDataIndex = 0;                                          //	initialize GraphicDataIndex, 初始化GraphicDataIndex變數
 			Array.Resize<object>(ref this.GraphicData, this.GraphicDataArrayMax);
 			//	initialize GraphicData, 初始化GraphicData物件(配置陣列大小空間)
+			InitializeGraphicData(0);                                           //	call InitializeGraphicData method, 呼叫InitializeGraphicData方法
 		}                                                                       //	DataArray constructor end, 結束DataArray建構子
 
 		/// <summary>
