@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QueueDataGraphic.CSharpFiles
+namespace ArrayDataGraphic.CSharpFiles
 {                                                                               //	namespace start, 進入命名空間
 	/// <summary>
 	/// Debug class
