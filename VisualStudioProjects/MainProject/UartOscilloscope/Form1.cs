@@ -19,7 +19,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 	{                                                                           //	進入Form1類別
 		//-----全域物件宣告-----
 		public static UARTConnection UARTConnection1;                           //	宣告UARTConnection1為UARTConnection物件
-		QueueDataGraphic.CSharpFiles.QueueDataGraphic QueueDataGraphic1;
+		ArrayDataGraphic.CSharpFiles.ArrayDataGraphic ArrayDataGraphic1;
 		//-----全域變數宣告-----
 		public static uint Analysis_Graphic_Mode = 3;							//	宣告Analysis_Graphic_Mode靜態全域變數，控制程式分析與繪圖方法
 		public static Font textBox1_Font;										//	宣告textBox1_Font靜態字型變數，控制接收字串資料文字方塊字型
@@ -59,15 +59,15 @@ namespace UartOscilloscope														//	命名空間為本程式
 			textBox1_Font = new Font("新細明體", 9, FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 136);
 			//	設定接收字串資料文字方塊預設字型
 			
-			QueueDataGraphic1 = new QueueDataGraphic.CSharpFiles.QueueDataGraphic
+			ArrayDataGraphic1 = new ArrayDataGraphic.CSharpFiles.ArrayDataGraphic
 			(new List<string>
 				{
 					"X",
 					"Y",
 					"Z"
 				});
-			QueueDataGraphic1.SetWidth(panel1.Size.Width);
-			QueueDataGraphic1.SetHeight(panel1.Size.Height);
+			ArrayDataGraphic1.SetWidth(panel1.Size.Width);
+			ArrayDataGraphic1.SetHeight(panel1.Size.Height);
 			label6.Text = "未連線";                                             //	顯示連線狀態為"未連線"
 			list_SerialPort();                                   //	呼叫list_SerialPort(偵測並列出已連線SerialPort)方法
 		}																		//	結束Form1_Load方法
@@ -369,7 +369,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 				{                                                               //  進入if敘述
 					if (ADC_Data_temp != "")
 					{
-						QueueDataGraphic1.AddData(Regex.Replace(Channel_Name_temp.ToString(), @"\t|\n|\r", ""), int.Parse(ADC_Data_temp));
+						ArrayDataGraphic1.AddData(Regex.Replace(Channel_Name_temp.ToString(), @"\t|\n|\r", ""), int.Parse(ADC_Data_temp));
 					}
 					
 					Channel_Name_temp = Transmission_Analysis_CharArray[loop_num];   
@@ -391,7 +391,7 @@ namespace UartOscilloscope														//	命名空間為本程式
 					ADC_Data_temp += Transmission_Analysis_CharArray[loop_num]; //  累計數值字元
 				}                                                               //  結束else if敘述
 			}                                                                   //  結束for迴圈
-			panel1.Paint += new PaintEventHandler(QueueDataGraphic1.DrawGraph);
+			panel1.Paint += new PaintEventHandler(ArrayDataGraphic1.DrawGraph);
 			panel1.Refresh();
 		}                                                                       //  結束Uart_Data_Analysis方法
 	}                                                                           //  結束Form1類別
