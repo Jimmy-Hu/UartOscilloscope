@@ -19,7 +19,6 @@ namespace UartOscilloscope														//	命名空間為本程式
 	{                                                                           //	進入Form1類別
 		//-----全域物件宣告-----
 		public static UARTConnection UARTConnection1;                           //	宣告UARTConnection1為UARTConnection物件
-		List<string> ChannelNames;
 		QueueDataGraphic.CSharpFiles.QueueDataGraphic QueueDataGraphic1;
 		//-----全域變數宣告-----
 		public static uint Analysis_Graphic_Mode = 3;							//	宣告Analysis_Graphic_Mode靜態全域變數，控制程式分析與繪圖方法
@@ -59,13 +58,14 @@ namespace UartOscilloscope														//	命名空間為本程式
 		{																		//	進入Form1_Load方法
 			textBox1_Font = new Font("新細明體", 9, FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 136);
 			//	設定接收字串資料文字方塊預設字型
-			ChannelNames = new List<string>
-			{
-				"X",
-				"Y",
-				"Z"
-			};
-			QueueDataGraphic1 = new QueueDataGraphic.CSharpFiles.QueueDataGraphic(ChannelNames);
+			
+			QueueDataGraphic1 = new QueueDataGraphic.CSharpFiles.QueueDataGraphic
+			(new List<string>
+				{
+					"X",
+					"Y",
+					"Z"
+				});
 			QueueDataGraphic1.SetWidth(panel1.Size.Width);
 			QueueDataGraphic1.SetHeight(panel1.Size.Height);
 			label6.Text = "未連線";                                             //	顯示連線狀態為"未連線"
