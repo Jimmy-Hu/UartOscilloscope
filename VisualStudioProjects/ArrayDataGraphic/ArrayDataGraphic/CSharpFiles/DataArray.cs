@@ -70,6 +70,23 @@ namespace ArrayDataGraphic.CSharpFiles
 		}                                                                       //	DataArray constructor end, 結束DataArray建構子
 
 		/// <summary>
+		/// DataArray constructor with NewGraphicDataArrayMax, InitialValue, 具NewGraphicDataArrayMax與InitialValue輸入之DataArray建構子
+		/// </summary>
+		/// <param name="NewDataArrayName"></param>
+		/// <param name="NewGraphicDataArrayMax"></param>
+		/// <param name="InitialValue"></param>
+		public DataArray(string NewDataArrayName, int NewGraphicDataArrayMax, int InitialValue)
+		//	DataArray constructor, DataArray建構子
+		{                                                                       //	DataArray constructor start, 進入DataArray建構子
+			this.DataArrayName = NewDataArrayName;                              //	initialize DataArrayName, 初始化DataArrayName字串
+			this.GraphicDataArrayMax = NewGraphicDataArrayMax;                  //	initialize GraphicDataArrayMax, 初始化GraphicDataArrayMax變數
+			this.GraphicDataIndex = 0;                                          //	initialize GraphicDataIndex, 初始化GraphicDataIndex變數
+			Array.Resize<object>(ref this.GraphicData, this.GraphicDataArrayMax);
+			//	initialize GraphicData, 初始化GraphicData物件(配置陣列大小空間)
+			InitializeGraphicData(InitialValue);                                //	call InitializeGraphicData method, 呼叫InitializeGraphicData方法
+		}                                                                       //	DataArray constructor end, 結束DataArray建構子
+
+		/// <summary>
 		/// InitializeGraphicData method assign initial value to GraphicData
 		/// InitializeGraphicData方法給定GraphicData初始值
 		/// </summary>
