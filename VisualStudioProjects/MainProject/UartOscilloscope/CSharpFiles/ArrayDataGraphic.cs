@@ -39,7 +39,7 @@ namespace ArrayDataGraphic.CSharpFiles
 			DataArrayList = new List<DataArray>();                              //	initialize DataArrayList, 初始化DataArrayList物件
 			foreach (string item in DataArrayNames)                             //	get each name of DataArrayNames
 			{                                                                   //	foreach statement start, 進入foreach敘述
-				DataArrayList.Add(new DataArray(item));                         //	add DataArray, 新增DataArray
+				DataArrayList.Add(new DataArray(item, 100, 4096 / 2));          //	add DataArray, 新增DataArray
 			}                                                                   //	foreach statement end, 結束foreach敘述
 		}                                                                       //	ArrayDataGraphic constructor end, 結束ArrayDataGraphic建構子
 
