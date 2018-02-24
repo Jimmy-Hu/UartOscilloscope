@@ -311,10 +311,9 @@ namespace UartOscilloscope														//	命名空間為本程式
 			//textBox1.Text += System.Text.Encoding.ASCII.GetString(buffer);    //  已修正使用AppendText方法顯示
 			textBox1.AppendText(System.Text.Encoding.ASCII.GetString(buffer));
 			//  將buffer中之接收資料(ascii原始碼)轉換為字串(符號字元)，並顯示於textBox1上
-			FileIO FileIO1 = new FileIO();                                      //	建立FileIO1(檔案讀寫功能控制)物件
-			FileIO1.FileWrite("Data.txt",System.Text.Encoding.ASCII.GetString(buffer));
+			FileIO.Instance.FileWrite("Data.txt",System.Text.Encoding.ASCII.GetString(buffer));
 			//  將buffer中之接收資料(ascii原始碼)轉換為字串(符號字元)，並以FileMode.Append模式寫入"Data.txt"檔案
-			FileIO1.FileWrite("Date_Data.txt", DateTime.Now.ToString() + "\t" + System.Text.Encoding.ASCII.GetString(buffer) + "\r\n");
+			FileIO.Instance.FileWrite("Date_Data.txt", DateTime.Now.ToString() + "\t" + System.Text.Encoding.ASCII.GetString(buffer) + "\r\n");
 			//  以FileMode.Append模式建立包含傳輸時間資訊的資料記錄檔"Date_Data.txt"
 			Transmission_Buffer_CharArray = System.Text.Encoding.ASCII.GetString(buffer).ToCharArray();
 			//  將buffer中之接收資料(ascii原始碼)轉換為字串(符號字元)後，再轉換為字元陣列(CharArray)，存入Transmission_Buffer_CharArray
