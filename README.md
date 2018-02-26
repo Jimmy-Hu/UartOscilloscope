@@ -1,30 +1,5 @@
 # UartOscilloscope
 
-## ProgramMainWindow
-
-![](https://github.com/60071jimmy/UartOscilloscope/blob/master/doc/IMG/ProgramMainWindow1.png)
-
-![](https://github.com/60071jimmy/UartOscilloscope/blob/master/doc/IMG/ProgramMainWindow2.png)
-
-## Program Testing
-
-![](https://raw.githubusercontent.com/60071jimmy/UartOscilloscope/master/figures/fig1.png)
-
-![](https://raw.githubusercontent.com/60071jimmy/UartOscilloscope/master/figures/fig2.png)
-
-
-## 程式執行畫面
-
-![](https://github.com/60071jimmy/UartOscilloscope/blob/master/doc/IMG/ProgramMainWindow1.png)
-
-![](https://github.com/60071jimmy/UartOscilloscope/blob/master/doc/IMG/ProgramMainWindow2.png)
-
-## 程式測試畫面
-
-![](https://raw.githubusercontent.com/60071jimmy/UartOscilloscope/master/figures/fig1.png)
-
-![](https://raw.githubusercontent.com/60071jimmy/UartOscilloscope/master/figures/fig2.png)
-
 ## 功能說明：
 軟體執行模式分為正常(Normal)模式與除錯(Debug)模式。正常模式下提供下列功能：
 - 可執行Uart連線。
@@ -62,3 +37,30 @@
 	- 重新命名專案為UartOscilloscope，並上傳至GitHub
 - 2016.12.24(六)
 	- 調整命名空間(namespace)為UartOscilloscope
+
+
+### Application Screenshot
+#### ProgramMainWindow
+
+![](https://github.com/60071jimmy/UartOscilloscope/blob/master/doc/IMG/ProgramMainWindow1.png)
+
+![](https://github.com/60071jimmy/UartOscilloscope/blob/master/doc/IMG/ProgramMainWindow2.png)
+
+#### Program Testing
+
+![](https://raw.githubusercontent.com/60071jimmy/UartOscilloscope/master/figures/fig1.png)
+
+![](https://raw.githubusercontent.com/60071jimmy/UartOscilloscope/master/figures/fig2.png)
+
+
+#### 程式執行畫面
+
+![](https://github.com/60071jimmy/UartOscilloscope/blob/master/doc/IMG/ProgramMainWindow1.png)
+
+![](https://github.com/60071jimmy/UartOscilloscope/blob/master/doc/IMG/ProgramMainWindow2.png)
+
+#### 程式測試畫面
+
+![](https://raw.githubusercontent.com/60071jimmy/UartOscilloscope/master/figures/fig1.png)
+
+![](https://raw.githubusercontent.com/60071jimmy/UartOscilloscope/master/figures/fig2.png)
