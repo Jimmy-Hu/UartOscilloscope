@@ -1,0 +1,59 @@
+name: UartOscilloscope CI
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+
+jobs:
+  build-dotnet:
+    name: Build .NET Projects
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1
+      with:
+        nuget-version: 'latest'
+
+    - name: Restore NuGet Packages
+      run: nuget restore VisualStudioProjects/MainProject/UartOscilloscope.sln
+
+    - name: Build Main Project (Release)
+      run: msbuild VisualStudioProjects/MainProject/UartOscilloscope.sln /p:Configuration=Release /p:Platform="Any CPU"
+
+    - name: Run Unit Tests
+      run: |
+        vstest.console.exe VisualStudioProjects/MainProject/UartOscilloscopeTests/bin/Release/UartOscilloscopeTests.dll
+
+  build-arduino:
+    name: Verify Arduino Sketches
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Arduino CLI
+      uses: arduino/setup-arduino-cli@v1
+
+    - name: Install Arduino Core (AVR)
+      run: |
+        arduino-cli core update-index
+        arduino-cli core install arduino:avr
+
+    - name: Compile SerialEvent Sketch
+      run: |
+        arduino-cli compile --fqbn arduino:avr:uno arduino/SerialEvent/SerialEvent.ino
+
+    - name: Compile ADXL345 Sketch
+      run: |
+        arduino-cli lib install "Adafruit ADXL345"
+        arduino-cli compile --fqbn arduino:avr:uno arduino/ADXL345/ArduinoProgram1/ArduinoProgram1.ino
