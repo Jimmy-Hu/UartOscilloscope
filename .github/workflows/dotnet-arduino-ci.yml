@@ -32,7 +32,7 @@ jobs:
       run: msbuild UartOscilloscope.sln /p:Configuration=Release /p:Platform="Any CPU"
 
     - name: Setup VSTest
-      uses: microsoft/setup-vstest@v1
+      uses: darenm/Setup-VSTest@v1
 
     - name: Run Unit Tests
       run: |
