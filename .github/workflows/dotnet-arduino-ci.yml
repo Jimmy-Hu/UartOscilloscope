@@ -24,7 +24,7 @@ jobs:
         nuget-version: 'latest'
 
     - name: Restore NuGet Packages
-      run: msbuild VisualStudioProjects/MainProject/UartOscilloscope.sln /t:Restore /p:RestorePackagesConfig=true
+      run: nuget restore VisualStudioProjects/MainProject/UartOscilloscope.sln
 
     - name: Build Main Project (Release)
       run: msbuild VisualStudioProjects/MainProject/UartOscilloscope.sln /p:Configuration=Release /p:Platform="Any CPU"
