@@ -31,6 +31,9 @@ jobs:
       working-directory: VisualStudioProjects/MainProject
       run: msbuild UartOscilloscope.sln /p:Configuration=Release /p:Platform="Any CPU"
 
+    - name: Setup VSTest
+      uses: microsoft/setup-vstest@v1
+
     - name: Run Unit Tests
       run: |
         vstest.console.exe VisualStudioProjects/MainProject/UartOscilloscopeTests/bin/Release/UartOscilloscopeTests.dll
