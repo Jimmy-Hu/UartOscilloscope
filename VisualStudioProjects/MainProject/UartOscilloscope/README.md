@@ -1,22 +1,22 @@
-# UartOscilloscope(Uart�����ܪi��)
+# UartOscilloscope(Uart介面示波器)
 
-## �\�໡���G
-�n�����Ҧ��������`(Normal)�Ҧ��P����(Debug)�Ҧ��C���`�Ҧ��U���ѤU�C�\��G
-- �i����Uart�s�u�C
-- �i�վ�Uart�s�u�]�w(�j�v�B�P��줸)�C
-- �i�վ�@��ާ@�����t�m(Uart�����ܦr���j�p�B����B���鵥)�C
-�����Ҧ��U���]�t���`�Ҧ������\��~�A�󴣨ѥH�U�B�~��T�i�氣�����ջP�վ�]�w�G
-- ��ܤw�s�u(�i�ѵ{���ϥ�)��SerialPort(��C�q�T��)�ƶq�C
-- ��ܡubutton1_Click�v��k�۵{���}�l�B��ɤ����榸�ơA�i��ʭ��m(�k�s)�C
-- ��ܡubutton2_Click�v��k�۵{���}�l�B��ɤ����榸�ơA�i��ʭ��m(�k�s)�C
-- ��ܡubutton3_Click�v��k�۵{���}�l�B��ɤ����榸�ơA�i��ʭ��m(�k�s)�C
-- ��ܡu�]�w_�ǿ�]�wToolStripMenuItem_Click�v��k�۵{���}�l�B��ɤ����榸�ơA�i��ʭ��m(�k�s)�C
-- ��ܡu�]�w_�����]�wToolStripMenuItem_Click�v��k�۵{���}�l�B��ɤ����榸�ơA�i��ʭ��m(�k�s)�C
-- ��ܡulist_SerialPort�v��k�۵{���}�l�B��ɤ����榸�ơA�i��ʭ��m(�k�s)�C
-- ��ܡucomport_DataReceived�v��k�۵{���}�l�B��ɤ����榸�ơA�i��ʭ��m(�k�s)�C
-- ��ܡuUARTConnectHandle�v��k�۵{���}�l�B��ɤ����榸�ơA�i��ʭ��m(�k�s)�C
-- ��ܡuDisplayText�v��k�۵{���}�l�B��ɤ����榸�ơA�i��ʭ��m(�k�s)�C
-- �i�����comport_DataReceived��k�����Uart�ǿ餧Buffer�j�p�C
-- �i�����comport_DataReceived��k�����Uart�ǿ餧Buffer���(ASCII�s�X��)�C
-- ��ܿ��~��T�s�X(ErrorCode)�C
+## 功能說明：
+軟體執行模式分為正常(Normal)模式與除錯(Debug)模式。正常模式下提供下列功能：
+- 可執行Uart連線。
+- 可調整Uart連線設定(鮑率、同位位元)。
+- 可調整一般操作介面配置(Uart資料顯示字型大小、粗體、斜體等)。
+除錯模式下除包含正常模式全部功能外，更提供以下額外資訊進行除錯測試與調整設定：
+- 顯示已連線(可供程式使用)的SerialPort(串列通訊埠)數量。
+- 顯示「button1_Click」方法自程式開始運行時之執行次數，可手動重置(歸零)。
+- 顯示「button2_Click」方法自程式開始運行時之執行次數，可手動重置(歸零)。
+- 顯示「button3_Click」方法自程式開始運行時之執行次數，可手動重置(歸零)。
+- 顯示「設定_傳輸設定ToolStripMenuItem_Click」方法自程式開始運行時之執行次數，可手動重置(歸零)。
+- 顯示「設定_介面設定ToolStripMenuItem_Click」方法自程式開始運行時之執行次數，可手動重置(歸零)。
+- 顯示「list_SerialPort」方法自程式開始運行時之執行次數，可手動重置(歸零)。
+- 顯示「comport_DataReceived」方法自程式開始運行時之執行次數，可手動重置(歸零)。
+- 顯示「UARTConnectHandle」方法自程式開始運行時之執行次數，可手動重置(歸零)。
+- 顯示「DisplayText」方法自程式開始運行時之執行次數，可手動重置(歸零)。
+- 可於執行comport_DataReceived方法時顯示Uart傳輸之Buffer大小。
+- 可於執行comport_DataReceived方法時顯示Uart傳輸之Buffer資料(ASCII編碼值)。
+- 顯示錯誤資訊編碼(ErrorCode)。
 
