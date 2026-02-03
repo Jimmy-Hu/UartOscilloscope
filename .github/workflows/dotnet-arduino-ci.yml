@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-dotnet:
-    name: Build .NET Projects
+    name: Build .NET Projects (Windows)
     runs-on: windows-latest
 
     steps:
@@ -37,6 +37,32 @@ jobs:
     - name: Run Unit Tests
       run: |
         vstest.console.exe VisualStudioProjects/MainProject/UartOscilloscopeTests/bin/Release/UartOscilloscopeTests.dll
+
+  build-macos:
+    name: Build .NET Projects (macOS)
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install Mono
+      # Mono is required to build .NET Framework apps on macOS
+      run: brew install mono
+
+    - name: Download NuGet
+      # Download standalone nuget.exe as it's not included by default on macOS runners
+      run: curl -o nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+
+    - name: Restore NuGet Packages
+      working-directory: VisualStudioProjects/MainProject
+      # Run nuget.exe using mono, referencing it from the root directory relative to the working dir
+      run: mono ../../nuget.exe restore UartOscilloscope.sln
+
+    - name: Build Main Project (Release)
+      working-directory: VisualStudioProjects/MainProject
+      # Use mono's msbuild to compile the solution
+      run: msbuild UartOscilloscope.sln /p:Configuration=Release /p:Platform="Any CPU"
 
   build-arduino:
     name: Verify Arduino Sketches
