@@ -66,7 +66,8 @@ jobs:
       working-directory: VisualStudioProjects/MainProject
       # Build the specific project file instead of the solution to skip the Test project
       # The Test project relies on Windows-specific libraries (MSTest) unavailable on Mono
-      run: msbuild UartOscilloscope/UartOscilloscope.csproj /p:Configuration=Release /p:Platform="Any CPU"
+      # Note: When building a .csproj directly (not .sln), use "AnyCPU" (no space) instead of "Any CPU"
+      run: msbuild UartOscilloscope/UartOscilloscope.csproj /p:Configuration=Release /p:Platform="AnyCPU"
 
   build-arduino:
     name: Verify Arduino Sketches
