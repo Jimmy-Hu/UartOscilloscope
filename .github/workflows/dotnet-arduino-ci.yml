@@ -46,21 +46,26 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Install Mono and NuGet
+    - name: Install Mono (MDK)
+      # Use cask to install the full Mono Development Kit which reliably includes msbuild
+      # and install to the standard /Library/Frameworks location
       run: |
-        brew install mono nuget
-        # Ensure Homebrew binaries are in PATH for subsequent steps
-        echo "/opt/homebrew/bin" >> $GITHUB_PATH
-        echo "/usr/local/bin" >> $GITHUB_PATH
+        brew install --cask mono-mdk
+        echo "/Library/Frameworks/Mono.framework/Versions/Current/Commands" >> $GITHUB_PATH
+
+    - name: Download NuGet
+      # Download standalone nuget.exe to avoid brew dependency conflicts
+      run: curl -o nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
 
     - name: Restore NuGet Packages
       working-directory: VisualStudioProjects/MainProject
-      # Now we can use the system 'nuget' command directly
-      run: nuget restore UartOscilloscope.sln
+      # Run nuget.exe using mono, referencing it from the root directory relative to the working dir
+      run: mono ../../nuget.exe restore UartOscilloscope.sln
 
     - name: Build Main Project (Release)
       working-directory: VisualStudioProjects/MainProject
-      run: /opt/homebrew/bin/msbuild UartOscilloscope.sln /p:Configuration=Release /p:Platform="Any CPU"
+      # Now msbuild should be available in the path set above
+      run: msbuild UartOscilloscope.sln /p:Configuration=Release /p:Platform="Any CPU"
 
   build-arduino:
     name: Verify Arduino Sketches
