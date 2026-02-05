@@ -64,8 +64,9 @@ jobs:
 
     - name: Build Main Project (Release)
       working-directory: VisualStudioProjects/MainProject
-      # Now msbuild should be available in the path set above
-      run: msbuild UartOscilloscope.sln /p:Configuration=Release /p:Platform="Any CPU"
+      # Build the specific project file instead of the solution to skip the Test project
+      # The Test project relies on Windows-specific libraries (MSTest) unavailable on Mono
+      run: msbuild UartOscilloscope/UartOscilloscope.csproj /p:Configuration=Release /p:Platform="Any CPU"
 
   build-arduino:
     name: Verify Arduino Sketches
