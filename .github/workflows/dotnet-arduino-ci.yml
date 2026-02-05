@@ -46,18 +46,21 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Download NuGet
-      # Download standalone nuget.exe as it's not included by default on macOS runners
-      run: curl -o nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+    - name: Install Mono and NuGet
+      run: |
+        brew install mono nuget
+        # Ensure Homebrew binaries are in PATH for subsequent steps
+        echo "/opt/homebrew/bin" >> $GITHUB_PATH
+        echo "/usr/local/bin" >> $GITHUB_PATH
 
     - name: Restore NuGet Packages
       working-directory: VisualStudioProjects/MainProject
-      # Run nuget.exe using mono, referencing it from the root directory relative to the working dir
-      run: mono ../../nuget.exe restore UartOscilloscope.sln
+      # Now we can use the system 'nuget' command directly
+      run: nuget restore UartOscilloscope.sln
 
     - name: Build Main Project (Release)
       working-directory: VisualStudioProjects/MainProject
-      # Use mono's msbuild to compile the solution
+      # Now we can use the system 'msbuild' command directly
       run: msbuild UartOscilloscope.sln /p:Configuration=Release /p:Platform="Any CPU"
 
   build-arduino:
