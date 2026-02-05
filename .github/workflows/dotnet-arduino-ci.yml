@@ -60,8 +60,7 @@ jobs:
 
     - name: Build Main Project (Release)
       working-directory: VisualStudioProjects/MainProject
-      # Now we can use the system 'msbuild' command directly
-      run: msbuild UartOscilloscope.sln /p:Configuration=Release /p:Platform="Any CPU"
+      run: /opt/homebrew/bin/msbuild UartOscilloscope.sln /p:Configuration=Release /p:Platform="Any CPU"
 
   build-arduino:
     name: Verify Arduino Sketches
