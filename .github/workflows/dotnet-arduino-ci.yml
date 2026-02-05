@@ -46,10 +46,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Install Mono
-      # Mono is required to build .NET Framework apps on macOS
-      run: brew install mono
-
     - name: Download NuGet
       # Download standalone nuget.exe as it's not included by default on macOS runners
       run: curl -o nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
