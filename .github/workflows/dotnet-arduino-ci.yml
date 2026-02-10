@@ -95,3 +95,4 @@ jobs:
         arduino-cli compile --fqbn arduino:avr:uno arduino/ADXL345/ArduinoProgram1/ArduinoProgram1.ino
 
 
+
