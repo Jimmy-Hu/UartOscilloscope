@@ -267,4 +267,5 @@
     <Error Condition="!Exists('..\packages\Serilog.4.3.2-dev-02419\build\Serilog.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Serilog.4.3.2-dev-02419\build\Serilog.targets'))" />
   </Target>
   <Import Project="..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets" Condition="Exists('..\packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets')" />
+  <Import Project="..\packages\Serilog.4.3.2-dev-02419\build\Serilog.targets" Condition="Exists('..\packages\Serilog.4.3.2-dev-02419\build\Serilog.targets')" />
 </Project>
