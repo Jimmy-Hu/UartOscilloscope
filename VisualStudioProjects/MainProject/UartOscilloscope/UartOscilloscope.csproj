@@ -51,6 +51,8 @@
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=11.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.11.0.0-preview.3.26207.106\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=8.18.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.5-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
