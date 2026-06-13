@@ -42,6 +42,9 @@
     <StartupObject>UartOscilloscope.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Azure.Core, Version=1.56.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Core.1.56.0\lib\net472\Azure.Core.dll</HintPath>
+    </Reference>
     <Reference Include="ImGui.NET, Version=1.91.6.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ImGui.NET.1.91.6.1\lib\netstandard2.0\ImGui.NET.dll</HintPath>
     </Reference>
